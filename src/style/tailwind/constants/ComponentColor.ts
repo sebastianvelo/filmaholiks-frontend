@@ -1,5 +1,5 @@
 enum ComponentColor {
-    PRIMARY = 'bg-primary text-light',
+    PRIMARY = 'bg-primary',
     SECONDARY = 'bg-secondary',
     DARK = 'bg-dark text-light',
     LIGHT = 'bg-light',

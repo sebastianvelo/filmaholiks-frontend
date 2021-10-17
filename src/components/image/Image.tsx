@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
 
-interface ImageProps {
+export interface ImageProps {
     src: string;
     alt: string;
-    className: string;
+    className?: string;
 }
  
 const Image: FunctionComponent<ImageProps> = (props: ImageProps) => {

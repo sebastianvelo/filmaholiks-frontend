@@ -11,9 +11,7 @@ export interface NavigationProps
   extends NavigationHeaderProps,
   NavigationActionsProps { }
 
-const Navigation: FunctionComponent<NavigationProps> = (
-  props: NavigationProps
-) => {
+const Navigation: FunctionComponent<NavigationProps> = (props: NavigationProps) => {
   return (
     <nav className={ComponentStyle.NAVIGATION}>
       <NavigationHeader {...props} />

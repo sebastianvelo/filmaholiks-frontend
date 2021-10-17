@@ -1,14 +1,8 @@
 import { MainProps } from "@client/layout/main/Main";
-import HomePage from "client/pages/home/HomePage";
-import PageRoute from "client/routes/PageRoute";
+import Pages from "../pages/Pages";
 
 const mainData = (): MainProps => ({
-    pages: [
-      {
-        route: PageRoute.HOME,
-        component: HomePage
-      }
-    ]
+  pages: Pages
 });
 
 export default mainData;
