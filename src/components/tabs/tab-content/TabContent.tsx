@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import TailwindClass from "@client/tailwind/TailwindClass";
+import Tailwind from "@client/tailwind/Tailwind";
 
 export interface TabContentProps {
     children: React.ReactNode;
@@ -7,7 +7,7 @@ export interface TabContentProps {
 }
 
 const TabContent: FunctionComponent<TabContentProps> = (props: TabContentProps) => {
-    const className = TailwindClass.builder()
+    const className = Tailwind.builder()
         .addIf('hidden', !props.active)
         .build()
     return (

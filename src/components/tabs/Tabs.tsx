@@ -1,6 +1,6 @@
 import Button from "components/action/button/Button";
 import { FunctionComponent, useState } from "react";
-import TailwindClass from "@client/tailwind/TailwindClass";
+import Tailwind from "@client/tailwind/Tailwind";
 import TabContent from "./tab-content/TabContent";
 import Tab from "./tab/Tab";
 
@@ -14,7 +14,7 @@ export interface TabsProps {
 
 const Tabs: FunctionComponent<TabsProps> = (props: TabsProps) => {
     const [tabActive, setTabActive] = useState<number>(0);
-    const className = TailwindClass.builder()
+    const className = Tailwind.builder()
         .add('overflow-x-scroll')
         .add(props.className)
         .build();

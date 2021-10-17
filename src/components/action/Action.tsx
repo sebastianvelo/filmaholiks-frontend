@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import ComponentColor from "@client/tailwind/constants/ComponentColor";
-import TailwindClass from "@client/tailwind/TailwindClass";
+import Tailwind from "client/tailwind/Tailwind";
 import Anchor, { AnchorProps } from "./anchor/Anchor";
 import Button, { ButtonProps } from "./button/Button";
 import Link, { LinkProps } from "./route/Route";
@@ -12,7 +12,7 @@ export interface ActionProps extends AnchorProps, LinkProps, ButtonProps {
 }
 
 const Action: FunctionComponent<ActionProps> = (props: ActionProps) => {
-  const className = TailwindClass.builder()
+  const className = Tailwind.builder()
     .add(`px-4 py-2 rounded-md`)
     .add(props.color)
     .add(props.className)

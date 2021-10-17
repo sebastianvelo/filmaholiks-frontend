@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import TailwindClass from "@client/tailwind/TailwindClass";
+import Tailwind from "@client/tailwind/Tailwind";
 
 export interface TabProps {
     label: string;
@@ -7,7 +7,7 @@ export interface TabProps {
 }
 
 const Tab: FunctionComponent<TabProps> = (props: TabProps) => {
-    const className = TailwindClass.builder()
+    const className = Tailwind.builder()
         .add('px-6 py-2 transition-border-width duration-100')
         .addIf('border-b-2 border-primary', props.active)
         .build();
