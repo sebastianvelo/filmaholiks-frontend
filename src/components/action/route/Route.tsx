@@ -9,7 +9,7 @@ export interface LinkProps {
 }
 
 const Link: FunctionComponent<LinkProps> = (props: LinkProps) => {
-  return <ReactLink to={props.path ?? ''}>{props.label}</ReactLink>;
+  return <ReactLink className={props.className} to={props.path ?? ''}>{props.label}</ReactLink>;
 };
 
 export default Link;

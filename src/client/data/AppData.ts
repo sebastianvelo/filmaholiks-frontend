@@ -1,24 +1,10 @@
-import { NavigationProps } from "client/layout/navigation/Navigation";
+import { AppProps } from "@client/App";
+import mainData from "./main/MainData";
+import navigationData from "./navigation/NavigationData";
 
-type AppDataType = {
-  navigation: NavigationProps;
+const appData: AppProps = {
+  navigation: navigationData,
+  main: mainData 
 };
 
-const AppData: AppDataType = {
-  navigation: {
-    header: "Header",
-    actions: [
-      {
-        label: "Home",
-      },
-      {
-        label: "About",
-      },
-      {
-        label: "Login",
-      },
-    ],
-  },
-};
-
-export default AppData;
+export default appData;

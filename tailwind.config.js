@@ -11,9 +11,9 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: colors.pink[200],
-          DEFAULT: colors.pink[500],
-          dark: colors.pink[600],
+          light: colors.yellow[200],
+          DEFAULT: colors.yellow[500],
+          dark: colors.yellow[600],
         },
         secondary: {
           light: colors.indigo[200],

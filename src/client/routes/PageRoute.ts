@@ -1,7 +1,7 @@
-enum PagePath {
+enum PageRoute {
   HOME = "/home",
   LOGIN = "/login",
   ERROR = "/*",
 }
 
-export default PagePath;
+export default PageRoute;
