@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { FunctionComponent } from "react";
-import ComponentColor from "style/tailwind/constants/ComponentColor";
+import ComponentColor from "@client/tailwind/constants/ComponentColor";
 import Action from "../action/Action";
 import { ArrowLeftSvg, ArrowRightSvg } from "../svg/Svg";
 

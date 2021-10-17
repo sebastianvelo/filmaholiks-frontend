@@ -13,7 +13,6 @@ const HomePage: FunctionComponent<HomePageProps> = (props: HomePageProps) => {
     return (
         <div>
             <Loading loading={isLoading}>
-                {/*results && <Card {...results} />*/}
                 <Carousel id="hola">
                     {results?.map(card => <Card {...card} />)}
                 </Carousel>

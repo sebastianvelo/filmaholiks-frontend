@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import ComponentStyle from "style/ComponentStyle";
 
 interface DropdownProps {
     trigger: React.ReactNode | React.ReactNode[];
@@ -8,9 +7,9 @@ interface DropdownProps {
 
 const Dropdown: FunctionComponent<DropdownProps> = (props: DropdownProps) => {
     return (
-        <details className={ComponentStyle.DROPDOWN}>
-            <summary className={ComponentStyle.DROPDOWN_TRIGGER}>
-                <div className={ComponentStyle.DROPDOWN_TRIGGER_WRAPPER}>
+        <details className={'list-none'}>
+            <summary className={'list-none w-full cursor-pointer'}>
+                <div className={'pointer-events-none'}>
                     {props.trigger}
                 </div>
             </summary>

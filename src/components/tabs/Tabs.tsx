@@ -1,7 +1,6 @@
 import Button from "components/action/button/Button";
 import { FunctionComponent, useState } from "react";
-import ComponentClass from "style/ComponentClass";
-import ComponentStyle from "style/ComponentStyle";
+import TailwindClass from "@client/tailwind/TailwindClass";
 import TabContent from "./tab-content/TabContent";
 import Tab from "./tab/Tab";
 
@@ -15,17 +14,20 @@ export interface TabsProps {
 
 const Tabs: FunctionComponent<TabsProps> = (props: TabsProps) => {
     const [tabActive, setTabActive] = useState<number>(0);
-
+    const className = TailwindClass.builder()
+        .add('overflow-x-scroll')
+        .add(props.className)
+        .build();
     return (
-        <div className={ComponentClass.TABS_WRAPPER(props)}>
-            <div className={ComponentStyle.TABS}>
+        <div className={className}>
+            <div className={'flex'}>
                 {props.tabs.map((tab, i) => (
                     <Button onClick={() => setTabActive(i)}>
                         <Tab label={tab.label} key={i} active={tabActive === i} />
                     </Button>
                 ))}
             </div>
-            <div className={ComponentStyle.TAB_CONTENT_WRAPPER}>
+            <div className={'py-4'}>
                 {props.tabs.map((tab, i) =>
                     <TabContent key={i} active={tabActive === i}>
                         {tab.content}
