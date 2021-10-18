@@ -8,19 +8,21 @@ import Headline from "components/headline/Headline";
 import { FunctionComponent } from "react";
 import DetailCard from "../detail-card/DetailCard";
 import Skeleton from "components/skeleton/Skeleton";
+import Response from "api/common/Response";
 
 export interface SectionProps {
+    carouselId: string;
     title: string;
     request: AxiosRequestConfig;
     fetchTransformer?: (id: string) => FetchTransformer<any, CardProps>;
 }
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
-    const results = useFetch<IMDbEntity[]>(props.request);
+    const results: Response<IMDbEntity[]> | undefined = useFetch<IMDbEntity[]>(props.request);
     return (
-        <section className={`px-4 py-2`}>
+        <section className={`px-4 pt-4`}>
             <Headline className={`text-3xl`}>{props.title}</Headline>
-            <Carousel id={props.title}>
+            <Carousel id={props.carouselId}>
                 <Skeleton loading={!results || !!results?.loading} className="h-96 w-screen">
                     {results?.data?.map(entity => <DetailCard transformer={props.fetchTransformer!(entity.imdb_id)} key={entity.imdb_id} />)}
                 </Skeleton>

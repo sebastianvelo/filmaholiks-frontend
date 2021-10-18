@@ -25,14 +25,18 @@ export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
             {
                 title: 'Best movies',
                 request: MovieRequest.best({ page_size: 35 }),
+                carouselId: 'best_movies',
             },
             {
                 title: 'Popular movies',
                 request: MovieRequest.popular({ page_size: 35 }),
+                carouselId: 'popular_movies',
+
             },
             {
                 title: 'Upcoming movies',
                 request: MovieRequest.upcoming({ page_size: 35 }),
+                carouselId: 'upcoming_movies',
             },
         ]
     }
@@ -57,14 +61,17 @@ export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
             {
                 title: 'Best TV Shows',
                 request: SeriesRequest.best({ page_size: 35 }),
+                carouselId: 'best_series',
             },
             {
                 title: 'Popular TV Shows',
                 request: SeriesRequest.popular({ page_size: 35 }),
+                carouselId: 'popular_series',
             },
             {
                 title: 'Upcoming TV Shows',
                 request: SeriesRequest.upcoming({ page_size: 35 }),
+                carouselId: 'upcoming_series',
             },
         ]
     }

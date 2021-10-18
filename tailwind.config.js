@@ -16,9 +16,9 @@ module.exports = {
           dark: colors.yellow[600],
         },
         secondary: {
-          light: colors.indigo[200],
-          DEFAULT: colors.indigo[500],
-          dark: colors.indigo[600],
+          light: colors.orange[200],
+          DEFAULT: colors.orange[500],
+          dark: colors.orange[600],
         },
         success: {
           DEFAULT: colors.green[500],
