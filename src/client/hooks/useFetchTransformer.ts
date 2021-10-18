@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios"
 import { useFetch } from "./useFetch"
-import Transformer from "@client/util/transformer/Transformer";
+import Transformer from "client/util/transformer/Transformer";
 
 export interface FetchTransformer<I, O> { 
     request: AxiosRequestConfig;

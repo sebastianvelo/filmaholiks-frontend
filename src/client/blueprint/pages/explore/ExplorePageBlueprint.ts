@@ -1,22 +1,12 @@
-import MovieRequest from "api/imdb/film/movie/MovieRequest"
-import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types"
-import SeriesRequest from "api/imdb/film/series/SeriesRequest"
-import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types"
-import ErrorPage, { ErrorPageProps } from "client/pages/error/ErrorPage"
-import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage"
-import HomePage, { HomePageProps } from "client/pages/home/HomePage"
-import PageRoute from "client/routes/PageRoute"
-import Page from "client/util/page/Page"
+import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage";
+import PageRoute from "client/routes/PageRoute";
+import Page from "client/util/page/Page";
+import MovieRequest from "api/imdb/film/movie/MovieRequest";
+import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types";
+import SeriesRequest from "api/imdb/film/series/SeriesRequest";
+import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types";
 
-const HomeData: Page<HomePageProps> = {
-    route: PageRoute.HOME,
-    component: HomePage,
-    props: {
-
-    }
-};
-
-const MovieExploreData: Page<ExplorePageProps> = {
+export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
     route: PageRoute.MOVIE_EXPLORE,
     component: ExplorePage,
     props: {
@@ -48,7 +38,7 @@ const MovieExploreData: Page<ExplorePageProps> = {
     }
 };
 
-const SeriesExploreData: Page<ExplorePageProps> = {
+export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
     route: PageRoute.SERIES_EXPLORE,
     component: ExplorePage,
     props: {
@@ -79,16 +69,3 @@ const SeriesExploreData: Page<ExplorePageProps> = {
         ]
     }
 };
-
-const ErrorData: Page<ErrorPageProps> = {
-    route: PageRoute.ERROR,
-    component: ErrorPage,
-    props: {
-        code: 404,
-        message: 'This is not the web page you are looking for.'
-    }
-};
-
-const Pages = [HomeData, MovieExploreData, SeriesExploreData, ErrorData];
-
-export default Pages;

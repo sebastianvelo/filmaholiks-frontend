@@ -1,4 +1,4 @@
-import { FetchTransformer } from "@client/hooks/useFetchTransformer";
+import { FetchTransformer } from "client/hooks/useFetchTransformer";
 import { CardProps } from "components/card/Card";
 import { FunctionComponent } from "react";
 import Section, { SectionProps } from "./section/Section";

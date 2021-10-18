@@ -1,6 +1,6 @@
 import Button from "components/action/button/Button";
 import { FunctionComponent, useState } from "react";
-import Tailwind from "@client/tailwind/Tailwind";
+import Tailwind from "client/tailwind/Tailwind";
 import TabContent from "./tab-content/TabContent";
 import Tab from "./tab/Tab";
 

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import Tailwind from "@client/tailwind/Tailwind";
+import Tailwind from "client/tailwind/Tailwind";
 
 interface InputProps {
     placeholder: string;

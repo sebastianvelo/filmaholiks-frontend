@@ -1,4 +1,4 @@
-import PageRoute from "@client/routes/PageRoute";
+import PageRoute from "client/routes/PageRoute";
 
 type Page<Props> = {
     route: PageRoute;

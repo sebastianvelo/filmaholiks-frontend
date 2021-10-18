@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import ComponentColor from "@client/tailwind/constants/ComponentColor";
+import ComponentColor from "client/tailwind/constants/ComponentColor";
 import Tailwind from "client/tailwind/Tailwind";
 import Anchor, { AnchorProps } from "./anchor/Anchor";
 import Button, { ButtonProps } from "./button/Button";

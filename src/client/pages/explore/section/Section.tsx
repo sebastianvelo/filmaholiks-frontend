@@ -1,5 +1,5 @@
 import { useFetch } from "client/hooks/useFetch";
-import { FetchTransformer } from "@client/hooks/useFetchTransformer";
+import { FetchTransformer } from "client/hooks/useFetchTransformer";
 import { IMDbEntity } from "api/model/IMDbModels.types";
 import { AxiosRequestConfig } from "axios";
 import { CardProps } from "components/card/Card";

@@ -1,7 +1,7 @@
-import { NavigationProps } from "@client/layout/navigation/Navigation";
+import { NavigationProps } from "client/layout/navigation/Navigation";
 import PageRoute from "client/routes/PageRoute";
 
-const navigationData = (): NavigationProps => ({
+const navigationBlueprint = (): NavigationProps => ({
   header: "Header",
   actions: [
     {
@@ -23,4 +23,4 @@ const navigationData = (): NavigationProps => ({
   ],
 });
 
-export default navigationData;
+export default navigationBlueprint;
