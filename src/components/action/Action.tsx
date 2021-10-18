@@ -9,11 +9,12 @@ const EXTERNAL_PATH = "http";
 
 export interface ActionProps extends AnchorProps, LinkProps, ButtonProps {
   color?: ComponentColor;
+  revert?: boolean;
 }
 
 const Action: FunctionComponent<ActionProps> = (props: ActionProps) => {
   const className = Tailwind.builder()
-    .add(`px-4 py-2 rounded-md`)
+    .addIf(`px-4 py-2 rounded-md`, !props.revert)
     .add(props.color)
     .add(props.className)
     .build();

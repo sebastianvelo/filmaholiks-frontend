@@ -21,9 +21,9 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
                             <Image {...props.image} className={`h-80`} />
                         </Action>
                     )}
-                    <div className={`py-2 px-4`}>
+                    <div className={`p-2`}>
                         <Headline className={`truncate`}>
-                            <Action path={props.path} label={props.title} />
+                            <Action path={props.path} label={props.title} revert />
                         </Headline>
                         <Text>{props.subtitle}</Text>
                     </div>

@@ -1,6 +1,7 @@
-import ActorRequest from "api/imdb/actor/ActorRequest"
-import { SearchByName } from "api/imdb/actor/ActorResponse.types"
+import MovieRequest from "api/imdb/film/movie/MovieRequest"
+import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types"
 import ErrorPage, { ErrorPageProps } from "client/pages/error/ErrorPage"
+import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage"
 import HomePage, { HomePageProps } from "client/pages/home/HomePage"
 import PageRoute from "client/routes/PageRoute"
 import Page from "client/util/page/Page"
@@ -9,19 +10,41 @@ const HomeData: Page<HomePageProps> = {
     route: PageRoute.HOME,
     component: HomePage,
     props: {
-        fetchTransformer: {
-            request: ActorRequest.searchByName('Smith'),
-            transformer: (i: SearchByName) => i.map(actor => ({
-                title: actor.name,
-                subtitle: actor.imdb_id,
-                image: {
-                    src: 'https://picsum.photos/200/500',
-                    alt: actor.name,
-                }
-            }))
-        }
+
     }
-}
+};
+
+const MovieExploreData: Page<ExplorePageProps> = {
+    route: PageRoute.MOVIE_EXPLORE,
+    component: ExplorePage,
+    props: {
+        fetchTransformer: (id: string) => ({
+            request: MovieRequest.detailById(id),
+            transformer: (i: MovieDetailById) => ({
+                title: i.title,
+                subtitle: i.year.toString(),
+                image: {
+                    src: i.image_url,
+                    alt: i.title
+                }
+            })
+        }),
+        sections: [
+            {
+                title: 'Best movies',
+                request: MovieRequest.best({ page_size: 35 }),
+            },
+            {
+                title: 'Popular movies',
+                request: MovieRequest.popular({ page_size: 35 }),
+            },
+            {
+                title: 'Upcoming movies',
+                request: MovieRequest.upcoming({ page_size: 35 }),
+            },
+        ]
+    }
+};
 
 const ErrorData: Page<ErrorPageProps> = {
     route: PageRoute.ERROR,
@@ -30,8 +53,8 @@ const ErrorData: Page<ErrorPageProps> = {
         code: 404,
         message: 'This is not the web page you are looking for.'
     }
-}
+};
 
-const Pages = [HomeData, ErrorData];
+const Pages = [HomeData, MovieExploreData, ErrorData];
 
 export default Pages;

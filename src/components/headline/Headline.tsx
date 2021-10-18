@@ -1,12 +1,17 @@
+import Tailwind from "client/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
 interface HeadlineProps {
     children: string | React.ReactNode;
     className?: string;
 }
- 
+
 const Headline: FunctionComponent<HeadlineProps> = (props: HeadlineProps) => {
-    return (<h1 className={`text-xl font-bold text-primary text-justify ${props.className ?? ''}`}>{props.children}</h1>); //TODO Refactor with props like the others components
+    const className = Tailwind.builder()
+        .add('text-xl font-bold text-primary')
+        .add(props.className)
+        .build();
+    return (<h1 className={className}>{props.children}</h1>);
 }
- 
+
 export default Headline;

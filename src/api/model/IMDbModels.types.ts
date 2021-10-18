@@ -1,4 +1,4 @@
-interface IMDbEntity {
+export interface IMDbEntity {
     imdb_id: string;
 }
 

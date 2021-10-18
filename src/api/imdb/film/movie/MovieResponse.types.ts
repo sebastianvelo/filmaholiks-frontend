@@ -1,6 +1,5 @@
 import { DetailById } from "../FilmResponse.types";
 
-export interface SeriesDetailById extends DetailById {
-    start_year: number;
-    end_year: number;    
+export interface MovieDetailById extends DetailById {
+    year: number;
 }
