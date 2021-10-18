@@ -1,5 +1,7 @@
 import MovieRequest from "api/imdb/film/movie/MovieRequest"
 import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types"
+import SeriesRequest from "api/imdb/film/series/SeriesRequest"
+import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types"
 import ErrorPage, { ErrorPageProps } from "client/pages/error/ErrorPage"
 import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage"
 import HomePage, { HomePageProps } from "client/pages/home/HomePage"
@@ -46,6 +48,38 @@ const MovieExploreData: Page<ExplorePageProps> = {
     }
 };
 
+const SeriesExploreData: Page<ExplorePageProps> = {
+    route: PageRoute.SERIES_EXPLORE,
+    component: ExplorePage,
+    props: {
+        fetchTransformer: (id: string) => ({
+            request: SeriesRequest.detailById(id),
+            transformer: (i: SeriesDetailById) => ({
+                title: i.title,
+                subtitle: i.start_year.toString(),
+                image: {
+                    src: i.image_url,
+                    alt: i.title
+                }
+            })
+        }),
+        sections: [
+            {
+                title: 'Best TV Shows',
+                request: SeriesRequest.best({ page_size: 35 }),
+            },
+            {
+                title: 'Popular TV Shows',
+                request: SeriesRequest.popular({ page_size: 35 }),
+            },
+            {
+                title: 'Upcoming TV Shows',
+                request: SeriesRequest.upcoming({ page_size: 35 }),
+            },
+        ]
+    }
+};
+
 const ErrorData: Page<ErrorPageProps> = {
     route: PageRoute.ERROR,
     component: ErrorPage,
@@ -55,6 +89,6 @@ const ErrorData: Page<ErrorPageProps> = {
     }
 };
 
-const Pages = [HomeData, MovieExploreData, ErrorData];
+const Pages = [HomeData, MovieExploreData, SeriesExploreData, ErrorData];
 
 export default Pages;

@@ -11,7 +11,7 @@ export interface ExplorePageProps {
 const ExplorePage: FunctionComponent<ExplorePageProps> = (props: ExplorePageProps) => {
     return (
         <div>
-            {props.sections.map(section => <Section {...section} fetchTransformer={props.fetchTransformer} />)}
+            {props.sections.map(section => <Section {...section} key={section.title} fetchTransformer={props.fetchTransformer} />)}
         </div>
     );
 }

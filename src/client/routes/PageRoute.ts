@@ -1,8 +1,9 @@
 enum PageRoute {
     HOME = "/home",
     LOGIN = "/login",
-    MOVIE_EXPLORE = "/movie",
     ERROR = "/*",
+    SERIES_EXPLORE = "/series",
+    MOVIE_EXPLORE = "/movie",
 }
 
 export default PageRoute;

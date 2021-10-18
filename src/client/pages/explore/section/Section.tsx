@@ -7,6 +7,7 @@ import Carousel from "components/carousel/Carousel";
 import Headline from "components/headline/Headline";
 import { FunctionComponent } from "react";
 import DetailCard from "../detail-card/DetailCard";
+import Skeleton from "components/skeleton/Skeleton";
 
 export interface SectionProps {
     title: string;
@@ -17,10 +18,12 @@ export interface SectionProps {
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
     const results = useFetch<IMDbEntity[]>(props.request);
     return (
-        <section>
-            <Headline>{props.title}</Headline>
+        <section className={`px-4 py-2`}>
+            <Headline className={`text-3xl`}>{props.title}</Headline>
             <Carousel id={props.title}>
-                {results?.data?.map(entity => <DetailCard transformer={props.fetchTransformer!(entity.imdb_id)} />)}
+                <Skeleton loading={!results || !!results?.loading} className="h-96 w-screen">
+                    {results?.data?.map(entity => <DetailCard transformer={props.fetchTransformer!(entity.imdb_id)} key={entity.imdb_id} />)}
+                </Skeleton>
             </Carousel>
         </section>
     );

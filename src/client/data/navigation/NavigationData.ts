@@ -9,6 +9,14 @@ const navigationData = (): NavigationProps => ({
       path: PageRoute.HOME
     },
     {
+      label: "Movies",
+      path: PageRoute.MOVIE_EXPLORE
+    }, 
+    {
+      label: "TV Shows",
+      path: PageRoute.SERIES_EXPLORE
+    },
+    {
       label: "Login",
       path: PageRoute.LOGIN
     },
