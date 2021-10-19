@@ -1,11 +1,11 @@
-import { FetchTransformer } from "client/hooks/useFetchTransformer";
 import { CardProps } from "client/common/components/card/Card";
+import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
+import { FetchTransformer } from "client/hooks/useFetchTransformer";
 import { FunctionComponent } from "react";
-import Section, { SectionProps } from "./section/Section";
-import SearchBar from "client/components/searchbar/SearchBar";
-import PageRoute from "client/routes/PageRoute";
+import Section, { SectionProps } from "../../components/section/Section";
 
 export interface ExplorePageProps {
+    searchbar: SearchBarProps;
     sections: SectionProps[];
     fetchTransformer: (id: string) => FetchTransformer<any, CardProps>;
 }
@@ -13,7 +13,7 @@ export interface ExplorePageProps {
 const ExplorePage: FunctionComponent<ExplorePageProps> = (props: ExplorePageProps) => {
     return (
         <div>
-            <SearchBar placeholder="Search..." path={PageRoute.MOVIE_SEARCH} />
+            <SearchBar {...props.searchbar} />
             {props.sections.map(section => <Section {...section} key={section.title} fetchTransformer={props.fetchTransformer} />)}
         </div>
     );

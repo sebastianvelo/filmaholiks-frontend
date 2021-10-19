@@ -8,17 +8,18 @@ module.exports = {
       transitionProperty: {
         'width': 'width',
         'borderWidth': 'borderWidth',
+        'letterSpacing': 'letterSpacing',
       },
       colors: {
         primary: {
           light: '#fff9cc',
-          DEFAULT: '#ffed66',
+          DEFAULT: '#FFF275',
           dark: '#ffe41a',
         },
         secondary: {
-          light: "#bcd4e6",
-          DEFAULT: "#33648a",
-          dark: "#214159",
+          light: "#2EAADC",
+          DEFAULT: "#186A8B",
+          dark: "#030D11",
         },
         success: {
           DEFAULT: colors.green[500],
@@ -52,6 +53,7 @@ module.exports = {
       width: ['hover', 'focus'],
       ringWidth: ['hover'],
       ringColor: ['hover'],
+      letterSpacing: ['hover', 'focus'],
     },
   },
   plugins: [],

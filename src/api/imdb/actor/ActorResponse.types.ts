@@ -1,7 +1,7 @@
 import { Actor, Award, Film, Role } from "api/model/IMDbModels.types";
 
 export type SearchByName = Actor[];
-export interface DetailsById extends Actor {
+export interface ActorDetailById extends Actor {
     image_url: string;
     type: string;
     birth_date: string;

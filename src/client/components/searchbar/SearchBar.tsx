@@ -4,7 +4,7 @@ import { SearchSvg } from "client/common/components/svg/Svg";
 import PageRoute from "client/routes/PageRoute";
 import { FunctionComponent, useState } from "react";
 
-interface SearchBarProps {
+export interface SearchBarProps {
     placeholder: string;
     path: PageRoute;
 }

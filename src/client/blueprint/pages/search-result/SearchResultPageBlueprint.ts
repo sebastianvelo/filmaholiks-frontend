@@ -1,21 +1,23 @@
-import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage";
-import PageRoute from "client/routes/PageRoute";
-import Page from "client/util/page/Page";
+import ActorRequest from "api/imdb/actor/ActorRequest";
+import { ActorDetailById } from "api/imdb/actor/ActorResponse.types";
 import MovieRequest from "api/imdb/film/movie/MovieRequest";
 import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types";
 import SeriesRequest from "api/imdb/film/series/SeriesRequest";
 import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types";
-import ActorRequest from "api/imdb/actor/ActorRequest";
-import { ActorDetailById } from "api/imdb/actor/ActorResponse.types";
+import SearchResultPage, { SearchResultsPageProps } from "client/pages/search-result/SearchResultPage";
+import PageRoute from "client/routes/PageRoute";
+import Page from "client/util/page/Page";
 
-export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
-    route: PageRoute.MOVIE_EXPLORE,
-    component: ExplorePage,
+export const MovieSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
+    route: PageRoute.MOVIE_SEARCH,
+    component: SearchResultPage,
     props: {
+        id: `result_movie`,
         searchbar: {
             placeholder: "Search movies...",
             path: PageRoute.MOVIE_SEARCH,
         },
+        title: (query: string) => `Results of "${query}"`,
         fetchTransformer: (id: string) => ({
             request: MovieRequest.detailById(id),
             transformer: (movie: MovieDetailById) => ({
@@ -28,35 +30,20 @@ export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
                 path: `${PageRoute.MOVIE_EXPLORE}/${id}`
             })
         }),
-        sections: [
-            {
-                title: 'Best movies',
-                request: MovieRequest.best({ page_size: 35 }),
-                id: 'best_movies',
-            },
-            {
-                title: 'Popular movies',
-                request: MovieRequest.popular({ page_size: 35 }),
-                id: 'popular_movies',
-
-            },
-            {
-                title: 'Upcoming movies',
-                request: MovieRequest.upcoming({ page_size: 35 }),
-                id: 'upcoming_movies',
-            },
-        ]
+        request: (query: string) => MovieRequest.searchByTitle(query)
     }
 };
 
-export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
-    route: PageRoute.SERIES_EXPLORE,
-    component: ExplorePage,
+export const SeriesSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
+    route: PageRoute.SERIES_SEARCH,
+    component: SearchResultPage,
     props: {
+        id: `result_series`,
         searchbar: {
             placeholder: "Search TV Shows...",
             path: PageRoute.SERIES_SEARCH,
         },
+        title: (query: string) => `Results of "${query}"`,
         fetchTransformer: (id: string) => ({
             request: SeriesRequest.detailById(id),
             transformer: (serie: SeriesDetailById) => ({
@@ -69,34 +56,20 @@ export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
                 path: `${PageRoute.SERIES_EXPLORE}/${id}`
             })
         }),
-        sections: [
-            {
-                title: 'Best TV Shows',
-                request: SeriesRequest.best({ page_size: 35 }),
-                id: 'best_series',
-            },
-            {
-                title: 'Popular TV Shows',
-                request: SeriesRequest.popular({ page_size: 35 }),
-                id: 'popular_series',
-            },
-            {
-                title: 'Upcoming TV Shows',
-                request: SeriesRequest.upcoming({ page_size: 35 }),
-                id: 'upcoming_series',
-            },
-        ]
+        request: (query: string) => SeriesRequest.searchByTitle(query)
     }
 };
 
-export const ActorExplorePageBlueprint: Page<ExplorePageProps> = {
-    route: PageRoute.ACTOR_EXPLORE,
-    component: ExplorePage,
+export const ActorSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
+    route: PageRoute.ACTOR_SEARCH,
+    component: SearchResultPage,
     props: {
+        id: `result_actor`,
         searchbar: {
             placeholder: "Search actors...",
             path: PageRoute.ACTOR_SEARCH,
         },
+        title: (query: string) => `Results of "${query}"`,
         fetchTransformer: (id: string) => ({
             request: ActorRequest.detailById(id),
             transformer: (actor: ActorDetailById) => ({
@@ -109,12 +82,7 @@ export const ActorExplorePageBlueprint: Page<ExplorePageProps> = {
                 path: `${PageRoute.ACTOR_EXPLORE}/${id}`
             })
         }),
-        sections: [
-            {
-                title: 'Birthday today',
-                request: ActorRequest.searchByName('Pacino'),
-                id: 'birthday_today',
-            },
-        ]
+        request: (query: string) => ActorRequest.searchByName(query)
     }
 };
+

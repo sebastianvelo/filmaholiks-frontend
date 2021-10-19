@@ -12,7 +12,7 @@ export interface DetailInfoProps {
 
 const DetailInfo: FunctionComponent<DetailInfoProps> = (props: DetailInfoProps) => {
     return (
-        <div className={`lg:space-x-2 divide-x-2 divide-secondary-light flex`}>
+        <div className={`lg:space-x-2 divide-x-2 divide-primary-dark flex`}>
             {props.data.map((info, index) => (
                 <Container key={index}>
                     <Headline>{info.title}</Headline>

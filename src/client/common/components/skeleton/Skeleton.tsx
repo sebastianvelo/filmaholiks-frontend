@@ -9,7 +9,7 @@ interface SkeletonProps {
  
 const Skeleton: FunctionComponent<SkeletonProps> = (props: SkeletonProps) => {
     const className = Tailwind.builder()
-        .add('bg-primary animate-pulse rounded-md')
+        .add('bg-primary-light animate-pulse rounded-md')
         .add(props.className)
         .build();
 

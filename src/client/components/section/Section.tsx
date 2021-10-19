@@ -19,6 +19,7 @@ export interface SectionProps {
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
     const results: Response<IMDbEntity[]> | undefined = useFetch<IMDbEntity[]>(props.request);
+
     return (
         <section className={`px-4 pt-4`}>
             <Headline className={`text-3xl`}>{props.title}</Headline>

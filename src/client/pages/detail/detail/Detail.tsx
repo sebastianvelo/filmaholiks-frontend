@@ -12,7 +12,10 @@ import Skeleton from "client/common/components/skeleton/Skeleton";
 export interface DetailProps {
     image?: ImageProps;
     header?: DetailHeaderProps;
-    description?: string;
+    description?: {
+        title: string;
+        value: string;
+    };
     info?: DetailInfoProps;
     actions?: ActionProps[];
     video?: DetailVideoProps;
@@ -21,21 +24,25 @@ export interface DetailProps {
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => {
     return (
-        <div className={`shadow-lg divide-y divide-primary-light h-full w-screen`}>
+        <div className={`w-screen`}>
             <div className={`flex flex-col lg:space-x-2 items-center sm:items-start lg:flex-row lg:pb-0`}>
                 <Skeleton loading={props.loading} className={`self-center lg:self-start h-96 w-80`}>
                     <Image {...props.image!} className={`self-center lg:self-start h-96 w-80`} />
                 </Skeleton>
-                <Skeleton loading={props.loading} className={`self-center lg:self-start h-1/2 w-screen`}>
-                    <div className={`flex flex-col justify-items-center pt-2`}>
+                <div className={`flex flex-col justify-items-center pt-2 space-y-2 w-full`}>
+                    <Skeleton loading={props.loading} className="w-96 h-16">
                         <DetailHeader {...props.header!} />
+                    </Skeleton>
+                    <Skeleton loading={props.loading} className="w-full h-32">
                         <Container>
-                            <Headline>{'Description'}</Headline>
-                            <Text>{props.description!}</Text>
+                            <Headline>{props.description?.title}</Headline>
+                            <Text>{props.description?.value}</Text>
                         </Container>
+                    </Skeleton>
+                    <Skeleton loading={props.loading} className="w-full h-28">
                         <DetailInfo {...props.info!} />
-                    </div>
-                </Skeleton>
+                    </Skeleton>
+                </div>
             </div>
             <Skeleton loading={props.loading} className={`h-96 w-screen mt-10`}>
                 {props.video && <DetailVideo {...props.video} />}

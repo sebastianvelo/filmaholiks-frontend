@@ -14,7 +14,7 @@ const NavigationHeader: FunctionComponent<NavigationHeaderProps> = (props: Navig
       <div className={`block sm:hidden`} onClick={props.toggleLinks!}>
         <HamburgerSvg />
       </div>
-      <header className={'text-2xl'}>{props.header}</header>
+      <header className={'text-4xl px-3 font-extrabold tracking-tighter	hover:tracking-widest	transition-letter-spacing duration-200 ease-in'}>{props.header}</header>
       <Menu {...props.menu} />
     </div>
   );

@@ -17,7 +17,7 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     return (
         <div className={`my-4 transform ease-in-out hover:rotate-0 hover:scale-115 transition-all duration-200 cursor-pointer `}>
             <div className={`transform ease-in hover:scale-110 duration-200 transition-all w-full border border-dark-light rounded-md shadow-lg`}>
-                <div className={`bg-dark flex-none rounded-md w-64 shadow-lg flex flex-col divide-y divide-dark-light`}>
+                <div className={`bg-black flex-none rounded-md w-64 shadow-lg flex flex-col divide-y divide-dark-light`}>
                     <Skeleton loading={props.loading!} className={`h-80`}>
                         <Action path={props.path} className={`flex justify-center`}>
                             <Image {...props.image!} className={`h-80`} />

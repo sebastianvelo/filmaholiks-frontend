@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 export interface DetailHeaderProps {
     title: string;
-    subtitle: string;
+    subtitle?: string;
 }
 
 const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => {
@@ -11,7 +11,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
             <div className={`flex items-end text-center space-x-2`}>
                 <p className={`text-2xl md:text-3xl font-bold`}>{props.title}</p>
             </div>
-            <p className={`text-xl font-bold text-primary`}>{props.subtitle}</p>
+            <p className={`text-xl font-bold text-primary-dark`}>{props.subtitle}</p>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import { NavigationProps } from "client/layout/navigation/Navigation";
 import PageRoute from "client/routes/PageRoute";
 
 const navigationBlueprint = (): NavigationProps => ({
-  header: "Header",
+  header: "IFDb",
   menu: {
     options: [
       {
@@ -44,6 +44,10 @@ const navigationBlueprint = (): NavigationProps => ({
     {
       label: "TV Shows",
       path: PageRoute.SERIES_EXPLORE
+    },
+    {
+      label: "Actors",
+      path: PageRoute.ACTOR_EXPLORE
     },
     {
       label: "Login",

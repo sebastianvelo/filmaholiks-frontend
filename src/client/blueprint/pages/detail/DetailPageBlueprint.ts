@@ -5,6 +5,8 @@ import MovieRequest from "api/imdb/film/movie/MovieRequest";
 import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types";
 import SeriesRequest from "api/imdb/film/series/SeriesRequest";
 import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types";
+import ActorRequest from "api/imdb/actor/ActorRequest";
+import { ActorDetailById } from "api/imdb/actor/ActorResponse.types";
 
 export const MovieDetailPageBlueprint: Page<DetailPageProps> = {
     route: PageRoute.MOVIE_DETAIL,
@@ -21,7 +23,10 @@ export const MovieDetailPageBlueprint: Page<DetailPageProps> = {
                     title: `${movie.title} (${movie.year})`,
                     subtitle: `${movie.rating}/10`,
                 },
-                description: movie.description,
+                description: {
+                    title: 'Description',
+                    value: movie.description,
+                },
                 info: {
                     data: [
                         {
@@ -56,10 +61,13 @@ export const SeriesDetailPageBlueprint: Page<DetailPageProps> = {
                     src: series.image_url,
                 },
                 header: {
-                    title: series.title,
-                    subtitle: `(${series.start_year?.toString()})`,
+                    title: `${series.title} (${series.start_year})`,
+                    subtitle: `${series.rating}/10`,
                 },
-                description: series.description,
+                description: {
+                    title: 'Description',
+                    value: series.description,
+                },
                 info: {
                     data: [
                         {
@@ -77,6 +85,47 @@ export const SeriesDetailPageBlueprint: Page<DetailPageProps> = {
                     title: 'Trailer',
                     src: series.trailer,
                 }
+            })
+        })
+    }
+};
+
+
+export const ActorDetailPageBlueprint: Page<DetailPageProps> = {
+    route: PageRoute.ACTOR_DETAIL,
+    component: DetailPage,
+    props: {
+        fetchTransformer: (id: string) => ({
+            request: ActorRequest.detailById(id),
+            transformer: (actor: ActorDetailById) => ({
+                image: {
+                    alt: actor.name,
+                    src: actor.image_url,
+                },
+                header: {
+                    title: actor.name,
+                },
+                description: {
+                    title: 'Bio',
+                    value: actor.partial_bio,
+                },
+                info: {
+                    data: [
+                        {
+                            title: 'Birth date',
+                            description: `${actor.birth_date}`,
+                        },
+                        {
+                            title: 'Birth place',
+                            description: `${actor.birth_place}`,
+                        },
+                        {
+                            title: 'Star sign',
+                            description: actor.star_sign,
+                        },
+                    ],
+                },
+                actions: [],
             })
         })
     }
