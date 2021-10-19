@@ -13,10 +13,6 @@ export const MovieSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
     component: SearchResultPage,
     props: {
         id: `result_movie`,
-        searchbar: {
-            placeholder: "Search movies...",
-            path: PageRoute.MOVIE_SEARCH,
-        },
         title: (query: string) => `Results of "${query}"`,
         fetchTransformer: (id: string) => ({
             request: MovieRequest.detailById(id),
@@ -39,10 +35,6 @@ export const SeriesSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
     component: SearchResultPage,
     props: {
         id: `result_series`,
-        searchbar: {
-            placeholder: "Search TV Shows...",
-            path: PageRoute.SERIES_SEARCH,
-        },
         title: (query: string) => `Results of "${query}"`,
         fetchTransformer: (id: string) => ({
             request: SeriesRequest.detailById(id),
@@ -65,10 +57,6 @@ export const ActorSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
     component: SearchResultPage,
     props: {
         id: `result_actor`,
-        searchbar: {
-            placeholder: "Search actors...",
-            path: PageRoute.ACTOR_SEARCH,
-        },
         title: (query: string) => `Results of "${query}"`,
         fetchTransformer: (id: string) => ({
             request: ActorRequest.detailById(id),
