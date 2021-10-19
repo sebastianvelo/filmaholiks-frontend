@@ -5,12 +5,12 @@ import { useParams } from "react-router";
 import Detail, { DetailProps } from "./detail/Detail";
 
 export interface DetailPageProps {
-    fetchTransformer: (id: string) => FetchTransformer<any, DetailProps>;
+    getDetail: (id: string) => FetchTransformer<any, DetailProps>;
 }
 
 const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
     const { id }: IdParams = useParams();
-    const [detail, isLoading] = useFetchTransformer(props.fetchTransformer(id));
+    const [detail, isLoading] = useFetchTransformer(props.getDetail(id));
 
     return (
         <section className={`w-full flex justify-center`}>

@@ -18,7 +18,7 @@ const NavigationActionsWrapper: FunctionComponent<NavigationActionsWrapperProps>
     return (
         <div className={className}>
             {props.actions?.map((action) => (
-                <Action {...action} key={action.label} onClick={props.toggleLinks} className={'px-4 py-2 mx-2'} />
+                <Action {...action} key={action.label} onClick={props.toggleLinks} className={'hover:bg-primary-dark px-4 py-2 mx-2'} />
             ))}
         </div>
     );

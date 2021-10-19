@@ -14,7 +14,7 @@ export interface SectionProps {
     id: string;
     title: string;
     request: AxiosRequestConfig;
-    fetchTransformer?: (id: string) => FetchTransformer<any, CardProps>;
+    getCard?: (id: string) => FetchTransformer<any, CardProps>;
 }
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
@@ -25,7 +25,7 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
             <Headline className={`text-3xl`}>{props.title}</Headline>
             <Carousel id={props.id}>
                 <Skeleton loading={!results || !!results?.loading} className="h-96 w-screen">
-                    {results?.data?.map(entity => <CardFetcher transformer={props.fetchTransformer!(entity.imdb_id)} key={entity.imdb_id} />)}
+                    {results?.data?.map(entity => <CardFetcher transformer={props.getCard!(entity.imdb_id)} key={entity.imdb_id} />)}
                 </Skeleton>
             </Carousel>
         </section>

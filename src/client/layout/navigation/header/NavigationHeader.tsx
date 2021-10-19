@@ -10,7 +10,7 @@ export interface NavigationHeaderProps {
 
 const NavigationHeader: FunctionComponent<NavigationHeaderProps> = (props: NavigationHeaderProps) => {
   return (
-    <div className={`flex justify-between items-center w-full px-3 pt-2 pb-2 lg:pb-0`}>
+    <div className={`flex justify-between items-center w-full pt-2 pb-2 lg:pb-0`}>
       <div className={`block sm:hidden`} onClick={props.toggleLinks!}>
         <HamburgerSvg />
       </div>

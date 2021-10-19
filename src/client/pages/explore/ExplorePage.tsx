@@ -7,14 +7,14 @@ import Section, { SectionProps } from "../../components/section/Section";
 export interface ExplorePageProps {
     searchbar: SearchBarProps;
     sections: SectionProps[];
-    fetchTransformer: (id: string) => FetchTransformer<any, CardProps>;
+    getCard: (id: string) => FetchTransformer<any, CardProps>;
 }
 
 const ExplorePage: FunctionComponent<ExplorePageProps> = (props: ExplorePageProps) => {
     return (
         <div>
             <SearchBar {...props.searchbar} />
-            {props.sections.map(section => <Section {...section} key={section.title} fetchTransformer={props.fetchTransformer} />)}
+            {props.sections.map(section => <Section {...section} key={section.title} getCard={props.getCard} />)}
         </div>
     );
 }

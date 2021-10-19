@@ -10,7 +10,7 @@ export interface SearchResultsPageProps {
     id: string;
     title: (query: string) => string;
     request: (query: string) => AxiosRequestConfig;
-    fetchTransformer: (id: string) => FetchTransformer<any, CardProps>;
+    getCard: (id: string) => FetchTransformer<any, CardProps>;
 }
 
 const SearchResultPage: FunctionComponent<SearchResultsPageProps> = (props: SearchResultsPageProps) => {

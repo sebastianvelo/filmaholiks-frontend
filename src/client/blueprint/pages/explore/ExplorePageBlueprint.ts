@@ -1,12 +1,10 @@
+import IMDbController from "api/controller/IMDbController";
+import ActorRequest from "api/imdb/actor/ActorRequest";
+import MovieRequest from "api/imdb/film/movie/MovieRequest";
+import SeriesRequest from "api/imdb/film/series/SeriesRequest";
 import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
-import MovieRequest from "api/imdb/film/movie/MovieRequest";
-import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types";
-import SeriesRequest from "api/imdb/film/series/SeriesRequest";
-import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types";
-import ActorRequest from "api/imdb/actor/ActorRequest";
-import { ActorDetailById } from "api/imdb/actor/ActorResponse.types";
 
 export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
     route: PageRoute.MOVIE_EXPLORE,
@@ -16,18 +14,7 @@ export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
             placeholder: "Search movies...",
             path: PageRoute.MOVIE_SEARCH,
         },
-        fetchTransformer: (id: string) => ({
-            request: MovieRequest.detailById(id),
-            transformer: (movie: MovieDetailById) => ({
-                title: movie.title,
-                subtitle: movie.year.toString(),
-                image: {
-                    src: movie.image_url,
-                    alt: movie.title
-                },
-                path: `${PageRoute.MOVIE_EXPLORE}/${id}`
-            })
-        }),
+        getCard: IMDbController.getMovieCard,
         sections: [
             {
                 title: 'Best movies',
@@ -57,18 +44,7 @@ export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
             placeholder: "Search TV Shows...",
             path: PageRoute.SERIES_SEARCH,
         },
-        fetchTransformer: (id: string) => ({
-            request: SeriesRequest.detailById(id),
-            transformer: (serie: SeriesDetailById) => ({
-                title: serie.title,
-                subtitle: serie.start_year.toString(),
-                image: {
-                    src: serie.image_url,
-                    alt: serie.title
-                },
-                path: `${PageRoute.SERIES_EXPLORE}/${id}`
-            })
-        }),
+        getCard: IMDbController.getSeriesCard,
         sections: [
             {
                 title: 'Best TV Shows',
@@ -97,18 +73,7 @@ export const ActorExplorePageBlueprint: Page<ExplorePageProps> = {
             placeholder: "Search actors...",
             path: PageRoute.ACTOR_SEARCH,
         },
-        fetchTransformer: (id: string) => ({
-            request: ActorRequest.detailById(id),
-            transformer: (actor: ActorDetailById) => ({
-                title: actor.name,
-                subtitle: actor.birth_date,
-                image: {
-                    src: actor.image_url,
-                    alt: actor.name
-                },
-                path: `${PageRoute.ACTOR_EXPLORE}/${id}`
-            })
-        }),
+        getCard: IMDbController.getActorCard,
         sections: [
             {
                 title: 'Birthday today',
