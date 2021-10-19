@@ -1,4 +1,4 @@
-import Action, { ActionProps } from "components/action/Action";
+import Action, { ActionProps } from "client/common/components/action/Action";
 import { FunctionComponent } from "react";
 
 export interface ErrorPageProps {

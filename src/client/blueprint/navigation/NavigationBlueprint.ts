@@ -1,8 +1,37 @@
+import ComponentColor from "client/common/tailwind/constants/ComponentColor";
 import { NavigationProps } from "client/layout/navigation/Navigation";
 import PageRoute from "client/routes/PageRoute";
 
 const navigationBlueprint = (): NavigationProps => ({
   header: "Header",
+  menu: {
+    options: [
+      {
+        path: PageRoute.HOME,
+        label: "Profile",
+        color: ComponentColor.PRIMARY
+      },
+      {
+        path: PageRoute.ACCOUNT,
+        label: "Account",
+        color: ComponentColor.PRIMARY
+      },
+      {
+        path: PageRoute.HOME,
+        label: "Settings",
+        color: ComponentColor.PRIMARY
+      },
+      {
+        path: PageRoute.HOME,
+        label: "Logout",
+        color: ComponentColor.DANGER
+      },
+    ],
+    toggler: {
+      alt: 'https://picsum.photos/200',
+      src: 'https://picsum.photos/200',
+    }
+  },
   actions: [
     {
       label: "Home",
@@ -11,7 +40,7 @@ const navigationBlueprint = (): NavigationProps => ({
     {
       label: "Movies",
       path: PageRoute.MOVIE_EXPLORE
-    }, 
+    },
     {
       label: "TV Shows",
       path: PageRoute.SERIES_EXPLORE

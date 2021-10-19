@@ -9,9 +9,9 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
     return (
         <div className={`px-4 py-2 flex flex-col lg:flex-row lg:items-end lg:space-x-4`}>
             <div className={`flex items-end text-center space-x-2`}>
-                <p className={`text-2xl md:text-4xl font-bold`}>{props.title}</p>
+                <p className={`text-2xl md:text-3xl font-bold`}>{props.title}</p>
             </div>
-            <p className={`text-lg font-bold text-primary`}>{props.subtitle}</p>
+            <p className={`text-xl font-bold text-primary`}>{props.subtitle}</p>
         </div>
     );
 }

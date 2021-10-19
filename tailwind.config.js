@@ -11,21 +11,21 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: colors.yellow[200],
-          DEFAULT: colors.yellow[500],
-          dark: colors.yellow[600],
+          light: '#fff9cc',
+          DEFAULT: '#ffed66',
+          dark: '#ffe41a',
         },
         secondary: {
-          light: colors.orange[200],
-          DEFAULT: colors.orange[500],
-          dark: colors.orange[600],
+          light: "#bcd4e6",
+          DEFAULT: "#33648a",
+          dark: "#214159",
         },
         success: {
           DEFAULT: colors.green[500],
           dark: colors.green[600],
         },
         danger: {
-          DEFAULT: colors.red[600],
+          DEFAULT: colors.red[500],
           dark: colors.red[700],
         },
         warning: {

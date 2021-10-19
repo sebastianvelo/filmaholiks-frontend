@@ -12,31 +12,32 @@ export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
     props: {
         fetchTransformer: (id: string) => ({
             request: MovieRequest.detailById(id),
-            transformer: (i: MovieDetailById) => ({
-                title: i.title,
-                subtitle: i.year.toString(),
+            transformer: (movie: MovieDetailById) => ({
+                title: movie.title,
+                subtitle: movie.year.toString(),
                 image: {
-                    src: i.image_url,
-                    alt: i.title
-                }
+                    src: movie.image_url,
+                    alt: movie.title
+                },
+                path: `${PageRoute.MOVIE_EXPLORE}/${id}`
             })
         }),
         sections: [
             {
                 title: 'Best movies',
                 request: MovieRequest.best({ page_size: 35 }),
-                carouselId: 'best_movies',
+                id: 'best_movies',
             },
             {
                 title: 'Popular movies',
                 request: MovieRequest.popular({ page_size: 35 }),
-                carouselId: 'popular_movies',
+                id: 'popular_movies',
 
             },
             {
                 title: 'Upcoming movies',
                 request: MovieRequest.upcoming({ page_size: 35 }),
-                carouselId: 'upcoming_movies',
+                id: 'upcoming_movies',
             },
         ]
     }
@@ -48,30 +49,31 @@ export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
     props: {
         fetchTransformer: (id: string) => ({
             request: SeriesRequest.detailById(id),
-            transformer: (i: SeriesDetailById) => ({
-                title: i.title,
-                subtitle: i.start_year.toString(),
+            transformer: (serie: SeriesDetailById) => ({
+                title: serie.title,
+                subtitle: serie.start_year.toString(),
                 image: {
-                    src: i.image_url,
-                    alt: i.title
-                }
+                    src: serie.image_url,
+                    alt: serie.title
+                },
+                path: `${PageRoute.SERIES_EXPLORE}/${id}`
             })
         }),
         sections: [
             {
                 title: 'Best TV Shows',
                 request: SeriesRequest.best({ page_size: 35 }),
-                carouselId: 'best_series',
+                id: 'best_series',
             },
             {
                 title: 'Popular TV Shows',
                 request: SeriesRequest.popular({ page_size: 35 }),
-                carouselId: 'popular_series',
+                id: 'popular_series',
             },
             {
                 title: 'Upcoming TV Shows',
                 request: SeriesRequest.upcoming({ page_size: 35 }),
-                carouselId: 'upcoming_series',
+                id: 'upcoming_series',
             },
         ]
     }

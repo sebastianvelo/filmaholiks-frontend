@@ -1,6 +1,5 @@
 import useFetchTransformer, { FetchTransformer } from "client/hooks/useFetchTransformer";
 import { IdParams } from "client/util/params/Params";
-import Loading from "components/loading/Loading";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import Detail, { DetailProps } from "./detail/Detail";
@@ -15,9 +14,7 @@ const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) 
 
     return (
         <section className={`w-full flex justify-center`}>
-            <Loading loading={isLoading}>
-               {detail && <Detail {...detail} />}
-            </Loading>
+            <Detail {...detail} loading={isLoading} />
         </section>
     );
 }

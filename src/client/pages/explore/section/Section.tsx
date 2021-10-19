@@ -1,17 +1,17 @@
-import { useFetch } from "client/hooks/useFetch";
-import { FetchTransformer } from "client/hooks/useFetchTransformer";
+import Response from "api/common/Response";
 import { IMDbEntity } from "api/model/IMDbModels.types";
 import { AxiosRequestConfig } from "axios";
-import { CardProps } from "components/card/Card";
-import Carousel from "components/carousel/Carousel";
-import Headline from "components/headline/Headline";
+import { CardProps } from "client/common/components/card/Card";
+import Carousel from "client/common/components/carousel/Carousel";
+import Headline from "client/common/components/headline/Headline";
+import Skeleton from "client/common/components/skeleton/Skeleton";
+import CardFetcher from "client/components/card-fetcher/CardFetcher";
+import { useFetch } from "client/hooks/useFetch";
+import { FetchTransformer } from "client/hooks/useFetchTransformer";
 import { FunctionComponent } from "react";
-import DetailCard from "../detail-card/DetailCard";
-import Skeleton from "components/skeleton/Skeleton";
-import Response from "api/common/Response";
 
 export interface SectionProps {
-    carouselId: string;
+    id: string;
     title: string;
     request: AxiosRequestConfig;
     fetchTransformer?: (id: string) => FetchTransformer<any, CardProps>;
@@ -22,9 +22,9 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
     return (
         <section className={`px-4 pt-4`}>
             <Headline className={`text-3xl`}>{props.title}</Headline>
-            <Carousel id={props.carouselId}>
+            <Carousel id={props.id}>
                 <Skeleton loading={!results || !!results?.loading} className="h-96 w-screen">
-                    {results?.data?.map(entity => <DetailCard transformer={props.fetchTransformer!(entity.imdb_id)} key={entity.imdb_id} />)}
+                    {results?.data?.map(entity => <CardFetcher transformer={props.fetchTransformer!(entity.imdb_id)} key={entity.imdb_id} />)}
                 </Skeleton>
             </Carousel>
         </section>

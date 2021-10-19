@@ -7,7 +7,7 @@ export interface FooterProps {
 
 const Footer: FunctionComponent<FooterProps> = (props: FooterProps) => {
     return (
-        <footer className={`relative h-52 w-screen bg-dark text-primary-light mx-auto text-right`}>
+        <footer className={`relative h-52 w-screen bg-secondary text-primary-light mx-auto text-right`}>
             <Author {...props.author} />
         </footer>
     );

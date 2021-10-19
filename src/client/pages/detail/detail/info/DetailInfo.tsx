@@ -1,6 +1,6 @@
-import Container from "components/container/Container";
-import Headline from "components/headline/Headline";
-import Text from "components/text/Text";
+import Container from "client/common/components/container/Container";
+import Headline from "client/common/components/headline/Headline";
+import Text from "client/common/components/text/Text";
 import { FunctionComponent } from "react";
 
 export interface DetailInfoProps {
@@ -12,7 +12,7 @@ export interface DetailInfoProps {
 
 const DetailInfo: FunctionComponent<DetailInfoProps> = (props: DetailInfoProps) => {
     return (
-        <div className={`lg:space-y-4 divide-y divide-primary-light`}>
+        <div className={`lg:space-x-2 divide-x-2 divide-secondary-light flex`}>
             {props.data.map((info, index) => (
                 <Container key={index}>
                     <Headline>{info.title}</Headline>
