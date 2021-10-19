@@ -1,5 +1,6 @@
 import Response from "api/common/Response";
 import { IMDbEntity } from "api/model/IMDbModels.types";
+import Service from "api/service/Service";
 import { AxiosRequestConfig } from "axios";
 import { CardProps } from "client/common/components/card/Card";
 import Carousel from "client/common/components/carousel/Carousel";
@@ -7,7 +8,6 @@ import Headline from "client/common/components/headline/Headline";
 import Skeleton from "client/common/components/skeleton/Skeleton";
 import CardFetcher from "client/components/card-fetcher/CardFetcher";
 import { useFetch } from "client/hooks/useFetch";
-import { Service } from "client/hooks/useService";
 import { FunctionComponent } from "react";
 
 export interface SectionProps {

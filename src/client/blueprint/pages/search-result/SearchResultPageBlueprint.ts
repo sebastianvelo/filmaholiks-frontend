@@ -1,7 +1,7 @@
 import IMDbController from "api/controller/IMDbController";
-import ActorRequest from "api/imdb/actor/ActorRequest";
-import MovieRequest from "api/imdb/film/movie/MovieRequest";
-import SeriesRequest from "api/imdb/film/series/SeriesRequest";
+import ActorRequest from "api/request/actor/ActorRequest";
+import MovieRequest from "api/request/film/movie/MovieRequest";
+import SeriesRequest from "api/request/film/series/SeriesRequest";
 import SearchResultPage, { SearchResultsPageProps } from "client/pages/search-result/SearchResultPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";

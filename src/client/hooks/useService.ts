@@ -1,16 +1,11 @@
-import { AxiosRequestConfig } from "axios"
-import { useFetch } from "./useFetch"
-import Transformer from "client/util/transformer/Transformer";
+import Service from "api/service/Service";
+import { useFetch } from "./useFetch";
 
-export interface Service<I, O> { 
-    request: AxiosRequestConfig;
-    transformer: Transformer<I, O>;
-}
 
-const useService = <I, O>(cfg: Service<I, O>): [(O | null), boolean] => {
-    const result = useFetch<I>(cfg.request);
+const useService = <M, V>(cfg: Service<M, V>): [(V | null), boolean] => {
+    const result = useFetch<M>(cfg.request);
     if (result?.data)
-        return [cfg.transformer(result?.data), false];
+        return [cfg.getView(result?.data), false];
     return [null, !!result?.loading];
 }
 

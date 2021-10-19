@@ -1,6 +1,7 @@
-import useService, { Service } from "client/hooks/useService";
+import useService  from "client/hooks/useService";
 import Card, { CardProps } from "client/common/components/card/Card";
 import { FunctionComponent } from "react";
+import Service from "api/service/Service";
 
 interface CardFetcherProps {
     transformer: Service<any, CardProps>;

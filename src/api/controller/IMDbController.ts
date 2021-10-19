@@ -1,11 +1,11 @@
-import ActorRequest from "api/imdb/actor/ActorRequest";
-import { ActorDetailById } from "api/imdb/actor/ActorResponse.types";
-import MovieRequest from "api/imdb/film/movie/MovieRequest";
-import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types";
-import SeriesRequest from "api/imdb/film/series/SeriesRequest";
-import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types";
+import ActorRequest from "api/request/actor/ActorRequest";
+import { ActorDetailById } from "api/model/actor/ActorModels.types";
+import MovieRequest from "api/request/film/movie/MovieRequest";
+import { MovieDetailById } from "api/model/film/movie/MovieModels.types";
+import SeriesRequest from "api/request/film/series/SeriesRequest";
+import { SeriesDetailById } from "api/model/film/series/SeriesModels.types";
+import Service from "api/service/Service";
 import { CardProps } from "client/common/components/card/Card";
-import { Service } from "client/hooks/useService";
 import { DetailProps } from "client/pages/detail/detail/Detail";
 import PageRoute from "client/routes/PageRoute";
 
@@ -13,7 +13,7 @@ class IMDbController {
 
     public static getMovieDetail = (id: string): Service<MovieDetailById, DetailProps> => ({
         request: MovieRequest.detailById(id),
-        transformer: (movie: MovieDetailById) => ({
+        getView: (movie: MovieDetailById) => ({
             image: {
                 alt: movie.title,
                 src: movie.image_url,
@@ -48,7 +48,7 @@ class IMDbController {
 
     public static getSeriesDetail = (id: string): Service<SeriesDetailById, DetailProps> => ({
         request: SeriesRequest.detailById(id),
-        transformer: (series: SeriesDetailById) => ({
+        getView: (series: SeriesDetailById) => ({
             image: {
                 alt: series.title,
                 src: series.image_url,
@@ -83,7 +83,7 @@ class IMDbController {
 
     public static getActorDetail = (id: string): Service<ActorDetailById, DetailProps> => ({
         request: ActorRequest.detailById(id),
-        transformer: (actor: ActorDetailById) => ({
+        getView: (actor: ActorDetailById) => ({
             image: {
                 alt: actor.name,
                 src: actor.image_url,
@@ -117,7 +117,7 @@ class IMDbController {
 
     public static getMovieCard = (id: string): Service<MovieDetailById, CardProps> => ({
         request: MovieRequest.detailById(id),
-        transformer: (movie: MovieDetailById) => ({
+        getView: (movie: MovieDetailById) => ({
             title: movie.title,
             subtitle: movie.year.toString(),
             image: {
@@ -130,7 +130,7 @@ class IMDbController {
 
     public static getSeriesCard = (id: string): Service<SeriesDetailById, CardProps> => ({
         request: SeriesRequest.detailById(id),
-        transformer: (serie: SeriesDetailById) => ({
+        getView: (serie: SeriesDetailById) => ({
             title: serie.title,
             subtitle: serie.start_year.toString(),
             image: {
@@ -143,7 +143,7 @@ class IMDbController {
 
     public static getActorCard = (id: string): Service<ActorDetailById, CardProps> => ({
         request: ActorRequest.detailById(id),
-        transformer: (actor: ActorDetailById) => ({
+        getView: (actor: ActorDetailById) => ({
             title: actor.name,
             subtitle: actor.birth_date,
             image: {

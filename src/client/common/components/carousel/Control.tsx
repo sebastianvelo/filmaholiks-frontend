@@ -1,6 +1,6 @@
+import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import $ from "jquery";
 import { FunctionComponent } from "react";
-import ComponentColor from "client/common/tailwind/constants/ComponentColor";
 import Action from "../action/Action";
 import { ArrowLeftSvg, ArrowRightSvg } from "../svg/Svg";
 
@@ -21,7 +21,7 @@ export interface ControlProps {
 const Control: FunctionComponent<ControlProps> = (props: ControlProps) => {
     const position = props.right ? 'right-4' : 'left-4';
     return (
-        <Action color={ComponentColor.PRIMARY} onClick={() => slide(props.id, props.right)} className={`${position} z-20 absolute hidden md:block`}>
+        <Action color={ComponentHovereableColor.PRIMARY} onClick={() => slide(props.id, props.right)} className={`${position} z-20 absolute hidden md:block`}>
             {props.right ? <ArrowRightSvg /> : <ArrowLeftSvg />}
         </Action>
     );

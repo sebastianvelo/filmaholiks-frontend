@@ -1,7 +1,7 @@
+import Service from "api/service/Service";
 import { AxiosRequestConfig } from "axios";
 import { CardProps } from "client/common/components/card/Card";
 import Section from "client/components/section/Section";
-import { Service } from "client/hooks/useService";
 import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";

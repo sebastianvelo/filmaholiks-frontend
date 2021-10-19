@@ -1,4 +1,4 @@
-import ComponentColor from "client/common/tailwind/constants/ComponentColor";
+import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent, MouseEventHandler } from "react";
 import Anchor from "./anchor/Anchor";
@@ -11,7 +11,7 @@ export interface ActionProps {
   label?: string;
   className?: string;
   exact?: boolean;
-  color?: ComponentColor;
+  color?: ComponentHovereableColor;
   revert?: boolean;
   onClick?: MouseEventHandler<any>;
   children?: React.ReactNode | React.ReactNode[];

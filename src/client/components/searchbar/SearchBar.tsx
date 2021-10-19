@@ -1,6 +1,7 @@
 import Action from "client/common/components/action/Action";
 import Input from "client/common/components/form/input/Input";
 import { SearchSvg } from "client/common/components/svg/Svg";
+import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import PageRoute from "client/routes/PageRoute";
 import { FunctionComponent, useState } from "react";
 
@@ -16,7 +17,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => 
     return (
         <div className={`flex`}>
             <Input placeholder={props.placeholder} onChange={handleSearch} />
-            <Action path={path} className={`bg-dark hover:bg-dark-light`}>
+            <Action path={path} color={ComponentHovereableColor.DARK}>
                 <SearchSvg />
             </Action>
         </div>

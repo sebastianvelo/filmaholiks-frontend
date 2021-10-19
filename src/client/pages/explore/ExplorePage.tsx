@@ -1,6 +1,6 @@
+import Service from "api/service/Service";
 import { CardProps } from "client/common/components/card/Card";
 import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
-import { Service } from "client/hooks/useService";
 import { FunctionComponent } from "react";
 import Section, { SectionProps } from "../../components/section/Section";
 

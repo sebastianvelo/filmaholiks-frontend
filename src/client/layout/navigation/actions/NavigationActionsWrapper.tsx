@@ -1,6 +1,7 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import Action, { ActionProps } from "client/common/components/action/Action";
 import { FunctionComponent } from "react";
+import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 
 export interface NavigationActionsWrapperProps {
     actions?: ActionProps[];
@@ -10,7 +11,8 @@ export interface NavigationActionsWrapperProps {
 
 const NavigationActionsWrapper: FunctionComponent<NavigationActionsWrapperProps> = (props: NavigationActionsWrapperProps) => {
     const className = Tailwind.builder()
-        .add('sm:flex flex-col sm:space-y-0 w-full absolute h-screen bg-primary px-2 sm:h-full sm:flex-row sm:relative sm:px-0')
+        .add('flex-col w-full absolute h-screen bg-primary px-2 ')
+        .add('sm:flex sm:space-y-0 sm:h-full sm:flex-row sm:relative sm:px-0 sm:justify-center')
         .addIf('flex', props.isOpen)
         .addIf('hidden', !props.isOpen)
         .build();
@@ -18,7 +20,7 @@ const NavigationActionsWrapper: FunctionComponent<NavigationActionsWrapperProps>
     return (
         <div className={className}>
             {props.actions?.map((action) => (
-                <Action {...action} key={action.label} onClick={props.toggleLinks} className={'hover:bg-primary-dark px-4 py-2 mx-2'} />
+                <Action {...action} key={action.label} onClick={props.toggleLinks} color={ComponentHovereableColor.PRIMARY} className={'px-4 py-2 mx-2'} />
             ))}
         </div>
     );

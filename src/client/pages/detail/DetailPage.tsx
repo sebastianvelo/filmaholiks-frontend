@@ -1,4 +1,5 @@
-import useService, { Service } from "client/hooks/useService";
+import Service from "api/service/Service";
+import useService from "client/hooks/useService";
 import { IdParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
