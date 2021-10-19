@@ -1,13 +1,13 @@
-import useFetchTransformer, { FetchTransformer } from "client/hooks/useFetchTransformer";
+import useService, { Service } from "client/hooks/useService";
 import Card, { CardProps } from "client/common/components/card/Card";
 import { FunctionComponent } from "react";
 
 interface CardFetcherProps {
-    transformer: FetchTransformer<any, CardProps>;
+    transformer: Service<any, CardProps>;
 }
 
 const CardFetcher: FunctionComponent<CardFetcherProps> = (props: CardFetcherProps) => {
-    const [card, isLoading] = useFetchTransformer(props.transformer);
+    const [card, isLoading] = useService(props.transformer);
     return (
         <Card {...card} loading={isLoading} />
     );

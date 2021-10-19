@@ -5,13 +5,13 @@ import { MovieDetailById } from "api/imdb/film/movie/MovieResponse.types";
 import SeriesRequest from "api/imdb/film/series/SeriesRequest";
 import { SeriesDetailById } from "api/imdb/film/series/SeriesResponse.types";
 import { CardProps } from "client/common/components/card/Card";
-import { FetchTransformer } from "client/hooks/useFetchTransformer";
+import { Service } from "client/hooks/useService";
 import { DetailProps } from "client/pages/detail/detail/Detail";
 import PageRoute from "client/routes/PageRoute";
 
 class IMDbController {
 
-    public static getMovieDetail = (id: string): FetchTransformer<MovieDetailById, DetailProps> => ({
+    public static getMovieDetail = (id: string): Service<MovieDetailById, DetailProps> => ({
         request: MovieRequest.detailById(id),
         transformer: (movie: MovieDetailById) => ({
             image: {
@@ -46,7 +46,7 @@ class IMDbController {
         })
     })
 
-    public static getSeriesDetail = (id: string): FetchTransformer<SeriesDetailById, DetailProps> => ({
+    public static getSeriesDetail = (id: string): Service<SeriesDetailById, DetailProps> => ({
         request: SeriesRequest.detailById(id),
         transformer: (series: SeriesDetailById) => ({
             image: {
@@ -81,7 +81,7 @@ class IMDbController {
         })
     })
 
-    public static getActorDetail = (id: string): FetchTransformer<ActorDetailById, DetailProps> => ({
+    public static getActorDetail = (id: string): Service<ActorDetailById, DetailProps> => ({
         request: ActorRequest.detailById(id),
         transformer: (actor: ActorDetailById) => ({
             image: {
@@ -115,7 +115,7 @@ class IMDbController {
         })
     })
 
-    public static getMovieCard = (id: string): FetchTransformer<MovieDetailById, CardProps> => ({
+    public static getMovieCard = (id: string): Service<MovieDetailById, CardProps> => ({
         request: MovieRequest.detailById(id),
         transformer: (movie: MovieDetailById) => ({
             title: movie.title,
@@ -128,7 +128,7 @@ class IMDbController {
         })
     })
 
-    public static getSeriesCard = (id: string): FetchTransformer<SeriesDetailById, CardProps> => ({
+    public static getSeriesCard = (id: string): Service<SeriesDetailById, CardProps> => ({
         request: SeriesRequest.detailById(id),
         transformer: (serie: SeriesDetailById) => ({
             title: serie.title,
@@ -141,7 +141,7 @@ class IMDbController {
         })
     })
 
-    public static getActorCard = (id: string): FetchTransformer<ActorDetailById, CardProps> => ({
+    public static getActorCard = (id: string): Service<ActorDetailById, CardProps> => ({
         request: ActorRequest.detailById(id),
         transformer: (actor: ActorDetailById) => ({
             title: actor.name,

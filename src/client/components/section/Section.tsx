@@ -7,14 +7,14 @@ import Headline from "client/common/components/headline/Headline";
 import Skeleton from "client/common/components/skeleton/Skeleton";
 import CardFetcher from "client/components/card-fetcher/CardFetcher";
 import { useFetch } from "client/hooks/useFetch";
-import { FetchTransformer } from "client/hooks/useFetchTransformer";
+import { Service } from "client/hooks/useService";
 import { FunctionComponent } from "react";
 
 export interface SectionProps {
     id: string;
     title: string;
     request: AxiosRequestConfig;
-    getCard?: (id: string) => FetchTransformer<any, CardProps>;
+    getCard?: (id: string) => Service<any, CardProps>;
 }
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {

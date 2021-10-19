@@ -1,13 +1,13 @@
 import { CardProps } from "client/common/components/card/Card";
 import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
-import { FetchTransformer } from "client/hooks/useFetchTransformer";
+import { Service } from "client/hooks/useService";
 import { FunctionComponent } from "react";
 import Section, { SectionProps } from "../../components/section/Section";
 
 export interface ExplorePageProps {
     searchbar: SearchBarProps;
     sections: SectionProps[];
-    getCard: (id: string) => FetchTransformer<any, CardProps>;
+    getCard: (id: string) => Service<any, CardProps>;
 }
 
 const ExplorePage: FunctionComponent<ExplorePageProps> = (props: ExplorePageProps) => {
