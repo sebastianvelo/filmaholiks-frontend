@@ -15,6 +15,7 @@ export interface ActionProps {
   revert?: boolean;
   onClick?: MouseEventHandler<any>;
   children?: React.ReactNode | React.ReactNode[];
+  ariaLabel?: string;
 }
 
 const Action: FunctionComponent<ActionProps> = (props: ActionProps) => {

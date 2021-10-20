@@ -17,9 +17,9 @@ module.exports = {
           dark: '#ffe41a',
         },
         secondary: {
-          light: "#2EAADC",
-          DEFAULT: "#186A8B",
-          dark: "#030D11",
+          light: "#2C76A0",
+          DEFAULT: "#1B4965",
+          dark: "#0D2330",
         },
         success: {
           DEFAULT: colors.green[500],
