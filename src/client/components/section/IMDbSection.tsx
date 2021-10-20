@@ -3,14 +3,14 @@ import Headline from "client/common/components/headline/Headline";
 import Skeleton from "client/common/components/skeleton/Skeleton";
 import CardFetcher from "client/components/card-fetcher/CardFetcher";
 import { FunctionComponent } from "react";
-import { SectionFetcherProps } from "./SectionFetcher";
+import { IMDbSectionFetcherProps } from "./IMDbSectionFetcher";
 
-export interface SectionProps extends SectionFetcherProps {
+export interface IMDbSectionProps extends IMDbSectionFetcherProps {
     ids?: string[] | null;
     loading?: boolean;
 }
 
-const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
+const IMDbSection: FunctionComponent<IMDbSectionProps> = (props: IMDbSectionProps) => {
     return (
         <section className={`px-4 pt-4`}>
             <Headline className={`text-3xl`}>{props.title}</Headline>
@@ -23,4 +23,4 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
     );
 }
 
-export default Section;
+export default IMDbSection;

@@ -1,6 +1,6 @@
 import Service from "api/service/Service";
 import { CardProps } from "client/common/components/card/Card";
-import SectionFetcher from "client/components/section/SectionFetcher";
+import IMDbSectionFetcher from "client/components/section/IMDbSectionFetcher";
 import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
@@ -17,7 +17,7 @@ const SearchResultPage: FunctionComponent<SearchResultsPageProps> = (props: Sear
 
     return (
         <>
-            <SectionFetcher {...props} title={props.title(query)} getIDs={props.getIDs(query)} />
+            <IMDbSectionFetcher {...props} title={props.title(query)} getIDs={props.getIDs(query)} />
         </>
     );
 }
