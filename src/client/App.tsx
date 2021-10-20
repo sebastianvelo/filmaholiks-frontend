@@ -3,8 +3,6 @@ import Footer, { FooterProps } from "./layout/footer/Footer";
 import Main, { MainProps } from "./layout/main/Main";
 import Navigation, { NavigationProps } from "./layout/navigation/Navigation";
 
-const APP_CLASS_NAME = `font-sans`;
-
 export interface AppProps {
   navigation: () => NavigationProps;
   main: () => MainProps;
@@ -12,9 +10,8 @@ export interface AppProps {
  }
 
 const App: FunctionComponent<AppProps> = (props: AppProps) => {
-
   return (
-    <div className={APP_CLASS_NAME}>
+    <div className={`font-sans`}>
       <Navigation {...props.navigation()} />
       <Main {...props.main()} />
       <Footer {...props.footer()}/>

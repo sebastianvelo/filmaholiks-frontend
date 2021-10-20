@@ -12,11 +12,12 @@ export interface DetailPageProps {
 const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
     const { id }: IdParams = useParams();
     const [detail, isLoading] = useService(props.getDetail(id));
-
     return (
-        <section className={`w-full flex justify-center`}>
-            <Detail {...detail} loading={isLoading} />
-        </section>
+        <>
+            <section className={`w-full flex justify-center`}>
+                <Detail {...detail} loading={isLoading} />
+            </section>
+        </>
     );
 }
 

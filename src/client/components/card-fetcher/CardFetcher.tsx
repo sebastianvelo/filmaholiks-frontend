@@ -4,14 +4,12 @@ import { FunctionComponent } from "react";
 import Service from "api/service/Service";
 
 interface CardFetcherProps {
-    transformer: Service<any, CardProps>;
+    getCard: Service<any, CardProps>;
 }
 
 const CardFetcher: FunctionComponent<CardFetcherProps> = (props: CardFetcherProps) => {
-    const [card, isLoading] = useService(props.transformer);
-    return (
-        <Card {...card} loading={isLoading} />
-    );
+    const [card, isLoading] = useService(props.getCard);
+    return <Card {...card} loading={isLoading} />;
 }
 
 export default CardFetcher;

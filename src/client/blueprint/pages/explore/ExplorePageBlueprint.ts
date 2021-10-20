@@ -1,7 +1,4 @@
 import IMDbController from "api/controller/IMDbController";
-import ActorRequest from "api/request/actor/ActorRequest";
-import MovieRequest from "api/request/film/movie/MovieRequest";
-import SeriesRequest from "api/request/film/series/SeriesRequest";
 import ExplorePage, { ExplorePageProps } from "client/pages/explore/ExplorePage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
@@ -14,23 +11,24 @@ export const MovieExplorePageBlueprint: Page<ExplorePageProps> = {
             placeholder: "Search movies...",
             path: PageRoute.MOVIE_SEARCH,
         },
-        getCard: IMDbController.getMovieCard,
         sections: [
             {
                 title: 'Best movies',
-                request: MovieRequest.best({ page_size: 35 }),
                 id: 'best_movies',
+                getIDs: IMDbController.getBestMovies(),
+                getCard: IMDbController.getMovieCard,
             },
             {
                 title: 'Popular movies',
-                request: MovieRequest.popular({ page_size: 35 }),
                 id: 'popular_movies',
-
+                getIDs: IMDbController.getPopularMovies(),
+                getCard: IMDbController.getMovieCard,
             },
             {
                 title: 'Upcoming movies',
-                request: MovieRequest.upcoming({ page_size: 35 }),
                 id: 'upcoming_movies',
+                getIDs: IMDbController.getUpcomingMovies(),
+                getCard: IMDbController.getMovieCard,
             },
         ]
     }
@@ -44,22 +42,24 @@ export const SeriesExplorePageBlueprint: Page<ExplorePageProps> = {
             placeholder: "Search TV Shows...",
             path: PageRoute.SERIES_SEARCH,
         },
-        getCard: IMDbController.getSeriesCard,
         sections: [
             {
                 title: 'Best TV Shows',
-                request: SeriesRequest.best({ page_size: 35 }),
                 id: 'best_series',
+                getIDs: IMDbController.getBestSeries(),
+                getCard: IMDbController.getSeriesCard,
             },
             {
                 title: 'Popular TV Shows',
-                request: SeriesRequest.popular({ page_size: 35 }),
                 id: 'popular_series',
+                getIDs: IMDbController.getPopularSeries(),
+                getCard: IMDbController.getSeriesCard,
             },
             {
                 title: 'Upcoming TV Shows',
-                request: SeriesRequest.upcoming({ page_size: 35 }),
                 id: 'upcoming_series',
+                getIDs: IMDbController.getUpcomingSeries(),
+                getCard: IMDbController.getSeriesCard,
             },
         ]
     }
@@ -73,12 +73,12 @@ export const ActorExplorePageBlueprint: Page<ExplorePageProps> = {
             placeholder: "Search actors...",
             path: PageRoute.ACTOR_SEARCH,
         },
-        getCard: IMDbController.getActorCard,
         sections: [
             {
                 title: 'Birthday today',
-                request: ActorRequest.searchByName('Pacino'),
                 id: 'birthday_today',
+                getIDs: IMDbController.getBornToday(),
+                getCard: IMDbController.getActorCard,
             },
         ]
     }

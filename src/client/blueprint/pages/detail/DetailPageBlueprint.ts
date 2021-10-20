@@ -7,7 +7,7 @@ export const MovieDetailPageBlueprint: Page<DetailPageProps> = {
     route: PageRoute.MOVIE_DETAIL,
     component: DetailPage,
     props: {
-        getDetail: IMDbController.getMovieDetail
+        getDetail: IMDbController.getMovieDetail,
     }
 };
 

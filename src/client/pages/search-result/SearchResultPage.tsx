@@ -1,7 +1,6 @@
 import Service from "api/service/Service";
-import { AxiosRequestConfig } from "axios";
 import { CardProps } from "client/common/components/card/Card";
-import Section from "client/components/section/Section";
+import SectionFetcher from "client/components/section/SectionFetcher";
 import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
@@ -9,7 +8,7 @@ import { useParams } from "react-router";
 export interface SearchResultsPageProps {
     id: string;
     title: (query: string) => string;
-    request: (query: string) => AxiosRequestConfig;
+    getIDs: (query: string) => Service<any, string[]>;
     getCard: (id: string) => Service<any, CardProps>;
 }
 
@@ -18,7 +17,7 @@ const SearchResultPage: FunctionComponent<SearchResultsPageProps> = (props: Sear
 
     return (
         <>
-            <Section {...props} title={props.title(query)} request={props.request(query)} />
+            <SectionFetcher {...props} title={props.title(query)} getIDs={props.getIDs(query)} />
         </>
     );
 }

@@ -8,6 +8,8 @@ import Service from "api/service/Service";
 import { CardProps } from "client/common/components/card/Card";
 import { DetailProps } from "client/pages/detail/detail/Detail";
 import PageRoute from "client/routes/PageRoute";
+import { IMDbEntity } from "api/model/IMDbModels.types";
+import { AxiosRequestConfig } from "axios";
 
 class IMDbController {
 
@@ -154,6 +156,30 @@ class IMDbController {
         })
     })
 
+    private static getIDs = (req: AxiosRequestConfig): Service<IMDbEntity[], string[]> => ({
+        request: req,
+        getView: (entities: IMDbEntity[]) => entities.map(entity => entity.imdb_id)
+    });
+
+    public static getBestMovies = () => IMDbController.getIDs( MovieRequest.best({ page_size: 35 }));
+
+    public static getBestSeries = () => IMDbController.getIDs( SeriesRequest.best({ page_size: 35 }));
+
+    public static getPopularMovies = () => IMDbController.getIDs( MovieRequest.popular({ page_size: 35 }));
+
+    public static getPopularSeries = () => IMDbController.getIDs( SeriesRequest.popular({ page_size: 35 }));
+
+    public static getUpcomingMovies = () => IMDbController.getIDs( MovieRequest.upcoming({ page_size: 35 }));
+
+    public static getUpcomingSeries = () => IMDbController.getIDs( SeriesRequest.upcoming({ page_size: 35 }));
+
+    public static getBornToday = () => IMDbController.getIDs(ActorRequest.searchByName('Pacino'));
+
+    public static searchMoviesByTitle = (q: string) => IMDbController.getIDs(MovieRequest.searchByTitle(q));
+
+    public static searchSeriesByTitle = (q: string) => IMDbController.getIDs(SeriesRequest.searchByTitle(q));
+    
+    public static searchActorsByName = (q: string) => IMDbController.getIDs(ActorRequest.searchByName(q));
 }
 
 export default IMDbController;

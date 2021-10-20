@@ -1,7 +1,4 @@
 import IMDbController from "api/controller/IMDbController";
-import ActorRequest from "api/request/actor/ActorRequest";
-import MovieRequest from "api/request/film/movie/MovieRequest";
-import SeriesRequest from "api/request/film/series/SeriesRequest";
 import SearchResultPage, { SearchResultsPageProps } from "client/pages/search-result/SearchResultPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
@@ -13,7 +10,7 @@ export const MovieSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
         id: `result_movie`,
         title: (query: string) => `Results of "${query}"`,
         getCard: IMDbController.getMovieCard,
-        request: (query: string) => MovieRequest.searchByTitle(query)
+        getIDs: (query: string) => IMDbController.searchMoviesByTitle(query)
     }
 };
 
@@ -23,8 +20,8 @@ export const SeriesSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
     props: {
         id: `result_series`,
         title: (query: string) => `Results of "${query}"`,
-        getCard: IMDbController.getSeriesCard,
-        request: (query: string) => SeriesRequest.searchByTitle(query)
+        getCard: IMDbController.getSeriesCard,        
+        getIDs: (query: string) => IMDbController.searchSeriesByTitle(query)
     }
 };
 
@@ -34,8 +31,8 @@ export const ActorSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
     props: {
         id: `result_actor`,
         title: (query: string) => `Results of "${query}"`,
-        getCard: IMDbController.getActorCard,
-        request: (query: string) => ActorRequest.searchByName(query)
+        getCard: IMDbController.getActorCard,        
+        getIDs: (query: string) => IMDbController.searchActorsByName(query)
     }
 };
 
