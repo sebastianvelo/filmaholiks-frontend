@@ -1,4 +1,4 @@
-import { ActorDetailPageBlueprint, MovieDetailPageBlueprint, SeriesDetailPageBlueprint } from "./detail/DetailPageBlueprint";
+import { PersonDetailPageBlueprint, MovieDetailPageBlueprint, SeriesDetailPageBlueprint } from "./detail/DetailPageBlueprint";
 import { ErrorPageBlueprint } from "./error/ErrorPageBlueprint";
 import { ActorExplorePageBlueprint, MovieExplorePageBlueprint, SeriesExplorePageBlueprint } from "./explore/ExplorePageBlueprint"
 import { HomePageBlueprint } from "./home/HomePageBlueprint"
@@ -13,7 +13,7 @@ const Pages = [
 
     MovieDetailPageBlueprint, 
     SeriesDetailPageBlueprint,
-    ActorDetailPageBlueprint,
+    PersonDetailPageBlueprint,
 
     MovieSearchResultPageBlueprint,
     SeriesSearchResultPageBlueprint,

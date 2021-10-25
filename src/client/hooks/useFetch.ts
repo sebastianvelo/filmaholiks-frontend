@@ -8,8 +8,8 @@ export const useFetch = <T extends Object>(req: AxiosRequestConfig): Response<T>
   useEffect(() => {
     axios
       .request(req)
-      .then((response: AxiosResponse<{results: T}>) => {
-        setResponse({ data: response.data.results, loading: false });
+      .then((response: AxiosResponse<T>) => {
+        setResponse({ data: response.data, loading: false });
       })
       .catch((error: any) => {
         setResponse({ error, loading: false });
