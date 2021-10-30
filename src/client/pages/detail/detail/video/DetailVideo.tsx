@@ -12,7 +12,7 @@ const DetailVideo: FunctionComponent<DetailVideoProps> = (props: DetailVideoProp
     return (
         <Container>
             <Headline>{props.title}</Headline>
-            <Video src={props.src ?? 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'} />
+            <Video src={props.src ?? 'https://www.youtube.com/embed/dQw4w9WgXcQ'} />
         </Container>
     );
 }

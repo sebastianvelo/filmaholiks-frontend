@@ -14,11 +14,11 @@ export interface ExplorePageProps {
 
 const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
     const page = useFetch<ExplorePageProps>(props.getPage());
-
+    const skeletonSections = Array(3).fill({ cards: null });
     return (
         <>
-            <SearchBar {...page?.data?.searchbar} />
-            {page?.data?.sections.map(section => <MediaSection {...section} key={section.title} />)}
+            {page?.data?.searchbar && <SearchBar {...page.data.searchbar} />}
+            {(page?.data?.sections ?? skeletonSections).map(section => <MediaSection {...section} key={section.title} />)}
         </>
     );
 }

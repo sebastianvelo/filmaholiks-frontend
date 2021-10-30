@@ -1,9 +1,9 @@
 import SearchResultPageRequest from "api/request/pages/SearchResultPageRequest";
-import SearchResultPage, { SearchResultsPageBlueprintProps } from "client/pages/search-result/SearchResultPage";
+import SearchResultPage, { SearchResultPageBlueprintProps } from "client/pages/search-result/SearchResultPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
 
-export const MovieSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProps> = {
+export const MovieSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps> = {
     route: PageRoute.MOVIE_SEARCH,
     component: SearchResultPage,
     props: {
@@ -11,7 +11,7 @@ export const MovieSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProp
     }
 };
 
-export const TVShowSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProps> = {
+export const TVShowSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps> = {
     route: PageRoute.TV_SEARCH,
     component: SearchResultPage,
     props: {
@@ -19,7 +19,7 @@ export const TVShowSearchResultPageBlueprint: Page<SearchResultsPageBlueprintPro
     }
 };
 
-export const PersonSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProps> = {
+export const PersonSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps> = {
     route: PageRoute.PERSON_SEARCH,
     component: SearchResultPage,
     props: {

@@ -4,19 +4,19 @@ import { useFetch } from "client/hooks/useFetch";
 import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
-export interface SearchResultsPageBlueprintProps {
-    getPage: (query: string) => AxiosRequestConfig<SearchResultsPageProps>;
+export interface SearchResultPageBlueprintProps {
+    getPage: (query: string) => AxiosRequestConfig<SearchResultPageProps>;
 }
-export interface SearchResultsPageProps {
-    section: MediaSectionProps
+export interface SearchResultPageProps {
+    results: MediaSectionProps
 }
 
-const SearchResultPage: FunctionComponent<SearchResultsPageBlueprintProps> = (props: SearchResultsPageBlueprintProps) => {
+const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (props: SearchResultPageBlueprintProps) => {
     const { query }: QueryParams = useParams();
-    const page = useFetch<SearchResultsPageProps>(props.getPage(query));
+    const page = useFetch<SearchResultPageProps>(props.getPage(query));
     return (
         <>
-            <MediaSection {...page?.data?.section} />
+            <MediaSection {...(page?.data?.results ?? { cards: undefined })} />
         </>
     );
 }
