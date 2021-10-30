@@ -1,17 +1,24 @@
+import { AxiosRequestConfig } from "axios";
 import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
-import IMDbSectionFetcher from "client/components/section/IMDbSectionFetcher";
+import { useFetch } from "client/hooks/useFetch";
 import { FunctionComponent } from "react";
-import { IMDbSectionProps } from "../../components/section/IMDbSection";
+import MediaSection, { MediaSectionProps } from "../../components/section/MediaSection";
+
+export interface ExplorePageBlueprintProps {
+    getPage: () => AxiosRequestConfig<ExplorePageProps>;
+}
 export interface ExplorePageProps {
     searchbar: SearchBarProps;
-    sections: IMDbSectionProps[];
+    sections: MediaSectionProps[];
 }
 
-const ExplorePage: FunctionComponent<ExplorePageProps> = (props: ExplorePageProps) => {
+const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
+    const page = useFetch<ExplorePageProps>(props.getPage());
+
     return (
         <>
-            <SearchBar {...props.searchbar} />
-            {props.sections.map(section => <IMDbSectionFetcher {...section} key={section.title}  />)}
+            <SearchBar {...page?.data?.searchbar} />
+            {page?.data?.sections.map(section => <MediaSection {...section} key={section.title} />)}
         </>
     );
 }

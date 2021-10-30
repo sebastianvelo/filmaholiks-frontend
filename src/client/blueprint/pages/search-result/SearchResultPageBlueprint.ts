@@ -1,38 +1,29 @@
-import IMDbController from "api/controller/IMDbController";
-import SearchResultPage, { SearchResultsPageProps } from "client/pages/search-result/SearchResultPage";
+import SearchResultPageRequest from "api/request/pages/SearchResultPageRequest";
+import SearchResultPage, { SearchResultsPageBlueprintProps } from "client/pages/search-result/SearchResultPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
 
-export const MovieSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
+export const MovieSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProps> = {
     route: PageRoute.MOVIE_SEARCH,
     component: SearchResultPage,
     props: {
-        id: `result_movie`,
-        title: (query: string) => `Results of "${query}"`,
-        getCard: IMDbController.getMovieCard,
-        getIDs: (query: string) => IMDbController.searchMoviesByTitle(query)
+        getPage: SearchResultPageRequest.movie
     }
 };
 
-export const SeriesSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
-    route: PageRoute.SERIES_SEARCH,
+export const TVShowSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProps> = {
+    route: PageRoute.TV_SEARCH,
     component: SearchResultPage,
     props: {
-        id: `result_series`,
-        title: (query: string) => `Results of "${query}"`,
-        getCard: IMDbController.getSeriesCard,        
-        getIDs: (query: string) => IMDbController.searchSeriesByTitle(query)
+        getPage: SearchResultPageRequest.tv
     }
 };
 
-export const ActorSearchResultPageBlueprint: Page<SearchResultsPageProps> = {
-    route: PageRoute.ACTOR_SEARCH,
+export const PersonSearchResultPageBlueprint: Page<SearchResultsPageBlueprintProps> = {
+    route: PageRoute.PERSON_SEARCH,
     component: SearchResultPage,
     props: {
-        id: `result_actor`,
-        title: (query: string) => `Results of "${query}"`,
-        getCard: IMDbController.getActorCard,        
-        getIDs: (query: string) => IMDbController.searchActorsByName(query)
+        getPage: SearchResultPageRequest.person
     }
 };
 

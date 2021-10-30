@@ -1,23 +1,22 @@
-import Service from "api/service/Service";
-import { CardProps } from "client/common/components/card/Card";
-import IMDbSectionFetcher from "client/components/section/IMDbSectionFetcher";
+import { AxiosRequestConfig } from "axios";
+import MediaSection, { MediaSectionProps } from "client/components/section/MediaSection";
+import { useFetch } from "client/hooks/useFetch";
 import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
-
+export interface SearchResultsPageBlueprintProps {
+    getPage: (query: string) => AxiosRequestConfig<SearchResultsPageProps>;
+}
 export interface SearchResultsPageProps {
-    id: string;
-    title: (query: string) => string;
-    getIDs: (query: string) => Service<any, string[]>;
-    getCard: (id: string) => Service<any, CardProps>;
+    section: MediaSectionProps
 }
 
-const SearchResultPage: FunctionComponent<SearchResultsPageProps> = (props: SearchResultsPageProps) => {
+const SearchResultPage: FunctionComponent<SearchResultsPageBlueprintProps> = (props: SearchResultsPageBlueprintProps) => {
     const { query }: QueryParams = useParams();
-
+    const page = useFetch<SearchResultsPageProps>(props.getPage(query));
     return (
         <>
-            <IMDbSectionFetcher {...props} title={props.title(query)} getIDs={props.getIDs(query)} />
+            <MediaSection {...page?.data?.section} />
         </>
     );
 }

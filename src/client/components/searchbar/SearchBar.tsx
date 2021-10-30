@@ -6,8 +6,8 @@ import PageRoute from "client/routes/PageRoute";
 import { FunctionComponent, useState } from "react";
 
 export interface SearchBarProps {
-    placeholder: string;
-    path: PageRoute;
+    placeholder?: string;
+    path?: PageRoute;
 }
 
 const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => {

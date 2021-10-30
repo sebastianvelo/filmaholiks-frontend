@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import Tailwind from "client/common/tailwind/Tailwind";
 
 interface InputProps {
-    placeholder: string;
+    placeholder?: string;
     onChange?: (e: any) => void;
 }
 

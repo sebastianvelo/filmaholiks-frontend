@@ -5,17 +5,21 @@ import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import Detail, { DetailProps } from "./detail/Detail";
 
-export interface DetailPageProps {
-    getDetail: (id: string) => AxiosRequestConfig<DetailProps>;
+export interface DetailPageBlueprintProps {
+    getPage: (id: string) => AxiosRequestConfig<DetailPageProps>;
 }
 
-const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
+export interface DetailPageProps {
+    detail: DetailProps
+}
+
+const DetailPage: FunctionComponent<DetailPageBlueprintProps> = (props: DetailPageBlueprintProps) => {
     const { id }: IdParams = useParams();
-    const detail = useFetch<{detail: DetailProps}>(props.getDetail(id));
+    const page = useFetch<DetailPageProps>(props.getPage(id));
     return (
         <>
             <section className={`w-full flex justify-center`}>
-                <Detail {...detail?.data?.detail} loading={detail?.loading} />
+                <Detail {...page?.data?.detail} loading={page?.loading} />
             </section>
         </>
     );

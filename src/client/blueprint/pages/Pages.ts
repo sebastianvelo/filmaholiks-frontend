@@ -2,7 +2,7 @@ import { PersonDetailPageBlueprint, MovieDetailPageBlueprint, SeriesDetailPageBl
 import { ErrorPageBlueprint } from "./error/ErrorPageBlueprint";
 import { ActorExplorePageBlueprint, MovieExplorePageBlueprint, SeriesExplorePageBlueprint } from "./explore/ExplorePageBlueprint"
 import { HomePageBlueprint } from "./home/HomePageBlueprint"
-import { ActorSearchResultPageBlueprint, MovieSearchResultPageBlueprint, SeriesSearchResultPageBlueprint } from "./search-result/SearchResultPageBlueprint";
+import { PersonSearchResultPageBlueprint, MovieSearchResultPageBlueprint, TVShowSearchResultPageBlueprint } from "./search-result/SearchResultPageBlueprint";
 
 const Pages = [
     HomePageBlueprint, 
@@ -16,8 +16,8 @@ const Pages = [
     PersonDetailPageBlueprint,
 
     MovieSearchResultPageBlueprint,
-    SeriesSearchResultPageBlueprint,
-    ActorSearchResultPageBlueprint,
+    TVShowSearchResultPageBlueprint,
+    PersonSearchResultPageBlueprint,
 
     ErrorPageBlueprint,];
 

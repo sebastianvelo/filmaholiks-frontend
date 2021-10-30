@@ -14,7 +14,7 @@ export interface DetailProps {
     header?: DetailHeaderProps;
     description?: {
         title: string;
-        value: string;
+        description: string;
     };
     info?: DetailInfoProps;
     actions?: ActionProps[];
@@ -36,7 +36,7 @@ const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => {
                     <Skeleton loading={props.loading} className="w-full h-32">
                         <Container>
                             <Headline>{props.description?.title}</Headline>
-                            <Text>{props.description?.value}</Text>
+                            <Text>{props.description?.description}</Text>
                         </Container>
                     </Skeleton>
                     <Skeleton loading={props.loading} className="w-full h-28">

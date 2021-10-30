@@ -43,11 +43,11 @@ const navigationBlueprint = (): NavigationProps => ({
     },
     {
       label: "TV Shows",
-      path: PageRoute.SERIES_EXPLORE
+      path: PageRoute.TV_EXPLORE
     },
     {
-      label: "Actors",
-      path: PageRoute.ACTOR_EXPLORE
+      label: "People",
+      path: PageRoute.PERSON_EXPLORE
     },
     {
       label: "Login",
