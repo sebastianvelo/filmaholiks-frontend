@@ -1,8 +1,6 @@
 class Tailwind {
   private classNames: string[] = [];
 
-  private constructor() {}
-
   static builder(): Tailwind {
     return new Tailwind();
   }
@@ -13,7 +11,7 @@ class Tailwind {
   }
 
   addIf(className?: string, condition?: boolean): Tailwind {
-    condition && this.add(className);
+    if (condition) this.add(className);
     return this;
   }
 

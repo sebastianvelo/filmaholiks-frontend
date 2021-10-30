@@ -1,22 +1,11 @@
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
-import { FunctionComponent, MouseEventHandler } from "react";
+import { FunctionComponent } from "react";
+import ActionProps from "./ActionProps";
 import Anchor from "./anchor/Anchor";
 import Button from "./button/Button";
 import Link from "./route/Route";
 
 const EXTERNAL_PATH = "http";
-export interface ActionProps {
-  path?: string;
-  label?: string;
-  className?: string;
-  exact?: boolean;
-  color?: ComponentHovereableColor;
-  revert?: boolean;
-  onClick?: MouseEventHandler<any>;
-  children?: React.ReactNode | React.ReactNode[];
-  ariaLabel?: string;
-}
 
 const Action: FunctionComponent<ActionProps> = (props: ActionProps) => {
   const className = Tailwind.builder()
