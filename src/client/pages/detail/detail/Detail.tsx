@@ -1,10 +1,11 @@
-import Action, { ActionProps } from "client/common/components/action/Action";
+import Action from "client/common/components/action/Action";
+import ActionProps from "client/common/components/action/ActionProps";
 import Container from "client/common/components/container/Container";
 import Headline from "client/common/components/headline/Headline";
 import Image, { ImageProps } from "client/common/components/image/Image";
-import { FunctionComponent } from "react";
-import Text from "client/common/components/text/Text";
 import Skeleton from "client/common/components/skeleton/Skeleton";
+import Text from "client/common/components/text/Text";
+import { FunctionComponent } from "react";
 import DetailHeader, { DetailHeaderProps } from "./header/DetailHeader";
 import DetailInfo, { DetailInfoProps } from "./info/DetailInfo";
 import DetailVideo, { DetailVideoProps } from "./video/DetailVideo";

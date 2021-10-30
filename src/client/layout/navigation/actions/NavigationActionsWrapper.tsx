@@ -1,7 +1,8 @@
 import Tailwind from "client/common/tailwind/Tailwind";
-import Action, { ActionProps } from "client/common/components/action/Action";
+import Action from "client/common/components/action/Action";
 import { FunctionComponent } from "react";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
+import ActionProps from "client/common/components/action/ActionProps";
 
 export interface NavigationActionsWrapperProps {
     actions?: ActionProps[];

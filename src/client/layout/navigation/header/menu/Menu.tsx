@@ -1,4 +1,5 @@
-import Action, { ActionProps } from "client/common/components/action/Action";
+import Action from "client/common/components/action/Action";
+import ActionProps from "client/common/components/action/ActionProps";
 import Dropdown from "client/common/components/dropdown/Dropdown";
 import Image, { ImageProps } from "client/common/components/image/Image";
 
