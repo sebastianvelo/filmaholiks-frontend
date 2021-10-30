@@ -2,7 +2,9 @@ import { AxiosRequestConfig, Method } from 'axios';
 
 abstract class Request {
     protected abstract baseUrl: string;
+
     protected abstract collection: string;
+
     protected abstract headers: Record<string, string>;
 
     private req<P>(method: Method, url: string, params: P): AxiosRequestConfig {

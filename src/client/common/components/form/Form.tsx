@@ -4,12 +4,10 @@ interface FormProps {
     
 }
  
-const Form: FunctionComponent<FormProps> = (props: FormProps) => {
-    return ( 
+const Form: FunctionComponent<FormProps> = (props: FormProps) => ( 
         <form>
             
         </form>
-     );
-}
+     )
  
 export default Form;

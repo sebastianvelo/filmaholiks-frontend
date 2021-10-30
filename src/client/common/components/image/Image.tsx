@@ -6,8 +6,6 @@ export interface ImageProps {
     className?: string;
 }
  
-const Image: FunctionComponent<ImageProps> = (props: ImageProps) => {
-    return (<img alt={props.alt} className={props.className} src={props.src} />);
-}
+const Image: FunctionComponent<ImageProps> = (props: ImageProps) => (<img alt={props.alt} className={props.className} src={props.src} />)
  
 export default Image;

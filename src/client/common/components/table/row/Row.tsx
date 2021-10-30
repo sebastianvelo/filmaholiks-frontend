@@ -5,12 +5,10 @@ export interface RowProps {
     cells: string[];
 }
 
-const Row: FunctionComponent<RowProps> = (props: RowProps) => {
-    return (
+const Row: FunctionComponent<RowProps> = (props: RowProps) => (
         <tr>
             {props.cells.map((cell) => <BodyCell text={cell} />)}
         </tr>
-    );
-}
+    )
 
 export default Row;

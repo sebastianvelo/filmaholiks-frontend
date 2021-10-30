@@ -5,12 +5,10 @@ export interface ActionsTogglerProps {
     toggleLinks?: () => void;
 }
 
-const ActionsToggler: FunctionComponent<ActionsTogglerProps> = (props: ActionsTogglerProps) => {
-    return (
+const ActionsToggler: FunctionComponent<ActionsTogglerProps> = (props: ActionsTogglerProps) => (
         <div className={`block sm:hidden`} onClick={props.toggleLinks!}>
             <HamburgerSvg />
         </div>
-    );
-}
+    )
 
 export default ActionsToggler;

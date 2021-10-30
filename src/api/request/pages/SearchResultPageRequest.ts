@@ -5,7 +5,9 @@ class SearchResultPageRequest extends APIRequest {
     protected collection: string = '/search';
 
     public movie = (query: string) => this.get<DetailPageProps>(`/movie/${query}`);
+
     public tv = (query: string) => this.get<DetailPageProps>(`/tv/${query}`);
+
     public person = (query: string) => this.get<DetailPageProps>(`/person/${query}`);
 }
 

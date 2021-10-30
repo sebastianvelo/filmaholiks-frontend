@@ -4,6 +4,7 @@ import { useFetch } from "client/hooks/useFetch";
 import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
+
 export interface SearchResultPageBlueprintProps {
     getPage: (query: string) => AxiosRequestConfig<SearchResultPageProps>;
 }

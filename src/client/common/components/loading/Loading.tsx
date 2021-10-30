@@ -6,12 +6,10 @@ interface LoadingProps {
     children: React.ReactNode | React.ReactNode[];
 }
 
-const Loading: FunctionComponent<LoadingProps> = (props: LoadingProps) => {
-    return (
+const Loading: FunctionComponent<LoadingProps> = (props: LoadingProps) => (
         <>
             {props.loading ? <Spinner /> : props.children}
         </>
-    );
-}
+    )
 
 export default Loading;

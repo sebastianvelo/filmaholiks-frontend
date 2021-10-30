@@ -5,15 +5,13 @@ export interface DetailHeaderProps {
     subtitle?: string;
 }
 
-const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => {
-    return (
-        <div className={`px-4 py-2 flex flex-col lg:flex-row lg:items-end lg:space-x-4`}>
+const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => (
+        <div className={`px-4 py-2 flex items-center space-x-4`}>
             <div className={`flex items-end text-center space-x-2`}>
-                <p className={`text-2xl md:text-3xl font-bold`}>{props.title}</p>
+                <p className={`text-2xl md:text-4xl font-bold`}>{props.title}</p>
             </div>
-            <p className={`text-xl font-bold text-primary-dark`}>{props.subtitle}</p>
+            <p className={`text-2xl md:text-4xl font-bold text-primary-dark`}>{props.subtitle}</p>
         </div>
-    );
-}
+    )
 
 export default DetailHeader;

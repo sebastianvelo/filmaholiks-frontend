@@ -6,8 +6,7 @@ interface TableProps {
     rows: string[][];
 }
 
-const Table: FunctionComponent<TableProps> = (props: TableProps) => {
-    return (
+const Table: FunctionComponent<TableProps> = (props: TableProps) => (
         <table>
             <thead>
                 <tr>
@@ -18,7 +17,6 @@ const Table: FunctionComponent<TableProps> = (props: TableProps) => {
                 {props.rows.map(row => <Row cells={row} />)}
             </tbody>
         </table>
-    );
-}
+    )
 
 export default Table;

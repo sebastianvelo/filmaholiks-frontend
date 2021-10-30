@@ -4,12 +4,10 @@ interface BodyCellProps {
     text: string;
 }
  
-const BodyCell: FunctionComponent<BodyCellProps> = (props: BodyCellProps) => {
-    return ( 
+const BodyCell: FunctionComponent<BodyCellProps> = (props: BodyCellProps) => ( 
         <td>
             {props.text}
         </td>
-     );
-}
+     )
  
 export default BodyCell;

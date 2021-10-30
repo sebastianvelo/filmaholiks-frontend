@@ -3,6 +3,7 @@ import Carousel from "client/common/components/carousel/Carousel";
 import Headline from "client/common/components/headline/Headline";
 import Skeleton from "client/common/components/skeleton/Skeleton";
 import { FunctionComponent } from "react";
+
 export interface MediaSectionProps  {
     id?: string;
     title?: string;

@@ -9,14 +9,12 @@ export interface AppProps {
   footer: () => FooterProps;
  }
 
-const App: FunctionComponent<AppProps> = (props: AppProps) => {
-  return (
+const App: FunctionComponent<AppProps> = (props: AppProps) => (
     <div className={`font-sans`}>
       <Navigation {...props.navigation()} />
       <Main {...props.main()} />
       <Footer {...props.footer()}/>
     </div>
   );
-};
 
 export default App;

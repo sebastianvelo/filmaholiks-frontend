@@ -6,6 +6,7 @@ export const useFetch = <T extends Object>(req: AxiosRequestConfig): Response<T>
   const [response, setResponse] = useState<Response<T>>({ data: null, error: null, loading: true });
 
   useEffect(() => {
+    console.log(req.url)
     axios
       .request(req)
       .then((response: AxiosResponse<T>) => {
@@ -14,7 +15,7 @@ export const useFetch = <T extends Object>(req: AxiosRequestConfig): Response<T>
       .catch((error: any) => {
         setResponse({ error, loading: false });
       });
-  }, []);
+  }, [req.url]);
 
   return response;
 };

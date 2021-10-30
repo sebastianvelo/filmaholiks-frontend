@@ -5,8 +5,7 @@ interface DropdownProps {
     children: React.ReactNode | React.ReactNode[];
 }
 
-const Dropdown: FunctionComponent<DropdownProps> = (props: DropdownProps) => {
-    return (
+const Dropdown: FunctionComponent<DropdownProps> = (props: DropdownProps) => (
         <details className={'list-none'}>
             <summary className={'list-none w-full cursor-pointer'}>
                 <div className={'pointer-events-none'}>
@@ -15,7 +14,6 @@ const Dropdown: FunctionComponent<DropdownProps> = (props: DropdownProps) => {
             </summary>
             {props.children}
         </details>
-    );
-}
+    )
 
 export default Dropdown;
