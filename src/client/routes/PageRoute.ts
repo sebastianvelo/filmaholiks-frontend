@@ -12,7 +12,8 @@ enum PageRoute {
   SHOW_EXPLORE = "/show",
   SHOW_DETAIL = "/show/:id",
   SHOW_SEARCH = "/show/search/:query",
-  SEASON_DETAIL = "/show/:id/s/:season"
+  SEASON_DETAIL = "/show/:id/s/:season",
+  EPISODE_DETAIL = "/show/:id/s/:season/e/:episode",
 }
 
 export default PageRoute;

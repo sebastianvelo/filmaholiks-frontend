@@ -2,15 +2,14 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
 import Response from "api/common/Response";
 
-export const useFetch = <T extends Object>(req: AxiosRequestConfig): Response<T> | undefined => {
+ const useFetch = <T extends Object>(req: AxiosRequestConfig): Response<T> | undefined => {
   const [response, setResponse] = useState<Response<T>>({ data: null, error: null, loading: true });
 
   useEffect(() => {
-    console.log(req.url)
     axios
       .request(req)
-      .then((response: AxiosResponse<T>) => {
-        setResponse({ data: response.data, loading: false });
+      .then((axiosResponse: AxiosResponse<T>) => {
+        setResponse({ data: axiosResponse.data, loading: false });
       })
       .catch((error: any) => {
         setResponse({ error, loading: false });
@@ -19,3 +18,5 @@ export const useFetch = <T extends Object>(req: AxiosRequestConfig): Response<T>
 
   return response;
 };
+
+export default useFetch;

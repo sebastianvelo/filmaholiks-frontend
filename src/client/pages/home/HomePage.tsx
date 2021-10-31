@@ -4,7 +4,7 @@ export interface HomePageProps {
 
 }
 
-const HomePage: FunctionComponent<HomePageProps> = (props: HomePageProps) => (
+const HomePage: FunctionComponent<HomePageProps> = () => (
         <div>
         </div>
     )

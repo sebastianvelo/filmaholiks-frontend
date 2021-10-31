@@ -1,38 +1,47 @@
 import DetailPageRequest from "api/request/pages/DetailPageRequest";
-import DetailSeasonPage, { DetailSeasonPageBlueprintProps } from "client/pages/detail-season/DetailSeasonPage";
-import DetailPage, { DetailPageBlueprintProps } from "client/pages/detail/DetailPage";
+import DetailWrapperPage, { DetailWrapperPageProps } from "client/wrapper/detail/DetailWrapperPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
+import DetailSeasonWrapperPage from "client/wrapper/detail/DetailSeasonWrapperPage";
+import DetailEpisodeWrapperPage from "client/wrapper/detail/DetailEpisodeWrapperPage";
 
-export const MovieDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
+export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.MOVIE_DETAIL,
-    component: DetailPage,
+    component: DetailWrapperPage,
     props: {
-        getPage: DetailPageRequest.movieById
+        getPage: DetailPageRequest.movieById,
     }
 };
 
-export const ShowDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
+export const ShowDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.SHOW_DETAIL,
-    component: DetailPage,
+    component: DetailWrapperPage,
     props: {
         getPage: DetailPageRequest.showById
     }
 };
 
 
-export const PersonDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
+export const PersonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.PERSON_DETAIL,
-    component: DetailPage,
+    component: DetailWrapperPage,
     props: {
         getPage: DetailPageRequest.personById
     }
 };
 
-export const SeasonDetailPageBlueprint: Page<DetailSeasonPageBlueprintProps> = {
+export const SeasonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.SEASON_DETAIL,
-    component: DetailSeasonPage,
+    component: DetailSeasonWrapperPage,
     props: {
         getPage: DetailPageRequest.seasonByShowIdAndNumber
+    }
+}
+
+export const EpisodeDetailPageBlueprint: Page<DetailWrapperPageProps> = {
+    route: PageRoute.EPISODE_DETAIL,
+    component: DetailEpisodeWrapperPage,
+    props: {
+        getPage: DetailPageRequest.episodeByShowIdAndSeason
     }
 }

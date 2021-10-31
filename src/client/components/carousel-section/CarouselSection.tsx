@@ -4,13 +4,13 @@ import Headline from "client/common/components/headline/Headline";
 import Skeleton from "client/common/components/skeleton/Skeleton";
 import { FunctionComponent } from "react";
 
-export interface MediaSectionProps  {
+export interface CarouselSectionProps  {
     id?: string;
     title?: string;
     cards?: CardProps[];
 }
 
-const MediaSection: FunctionComponent<MediaSectionProps> = (props: MediaSectionProps) => {
+const CarouselSection: FunctionComponent<CarouselSectionProps> = (props: CarouselSectionProps) => {
     const skeletonCards = Array(10).fill({loading: true});
     return (
         <section className={`px-4 pt-4`}>
@@ -24,4 +24,4 @@ const MediaSection: FunctionComponent<MediaSectionProps> = (props: MediaSectionP
     );
 }
 
-export default MediaSection;
+export default CarouselSection;

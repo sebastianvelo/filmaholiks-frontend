@@ -7,9 +7,9 @@ interface LoadingProps {
 }
 
 const Loading: FunctionComponent<LoadingProps> = (props: LoadingProps) => (
-        <>
-            {props.loading ? <Spinner /> : props.children}
-        </>
-    )
+    <>
+        {props.loading ? <Spinner /> : props.children}
+    </>
+)
 
 export default Loading;

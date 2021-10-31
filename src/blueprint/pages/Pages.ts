@@ -1,25 +1,41 @@
-import { PersonDetailPageBlueprint, MovieDetailPageBlueprint, ShowDetailPageBlueprint, SeasonDetailPageBlueprint } from "./detail/DetailPageBlueprint";
+import {
+  PersonDetailPageBlueprint,
+  MovieDetailPageBlueprint,
+  ShowDetailPageBlueprint,
+  SeasonDetailPageBlueprint,
+  EpisodeDetailPageBlueprint
+} from "./detail/DetailPageBlueprint";
 import { ErrorPageBlueprint } from "./error/ErrorPageBlueprint";
-import { ActorExplorePageBlueprint, MovieExplorePageBlueprint, ShowExplorePageBlueprint } from "./explore/ExplorePageBlueprint"
-import { HomePageBlueprint } from "./home/HomePageBlueprint"
-import { PersonSearchResultPageBlueprint, MovieSearchResultPageBlueprint, ShowSearchResultPageBlueprint } from "./search-result/SearchResultPageBlueprint";
+import {
+  ActorExplorePageBlueprint,
+  MovieExplorePageBlueprint,
+  ShowExplorePageBlueprint
+} from "./explore/ExplorePageBlueprint";
+import { HomePageBlueprint } from "./home/HomePageBlueprint";
+import {
+  PersonSearchResultPageBlueprint,
+  MovieSearchResultPageBlueprint,
+  ShowSearchResultPageBlueprint
+} from "./search-result/SearchResultPageBlueprint";
 
 const Pages = [
-    HomePageBlueprint, 
+  HomePageBlueprint,
 
-    MovieExplorePageBlueprint, 
-    ShowExplorePageBlueprint, 
-    ActorExplorePageBlueprint,
+  MovieExplorePageBlueprint,
+  ShowExplorePageBlueprint,
+  ActorExplorePageBlueprint,
 
-    MovieDetailPageBlueprint, 
-    ShowDetailPageBlueprint,
-    PersonDetailPageBlueprint,
-    SeasonDetailPageBlueprint,
+  MovieDetailPageBlueprint,
+  ShowDetailPageBlueprint,
+  PersonDetailPageBlueprint,
+  SeasonDetailPageBlueprint,
+  EpisodeDetailPageBlueprint,
 
-    MovieSearchResultPageBlueprint,
-    ShowSearchResultPageBlueprint,
-    PersonSearchResultPageBlueprint,
+  MovieSearchResultPageBlueprint,
+  ShowSearchResultPageBlueprint,
+  PersonSearchResultPageBlueprint,
 
-    ErrorPageBlueprint,];
+  ErrorPageBlueprint
+];
 
 export default Pages;

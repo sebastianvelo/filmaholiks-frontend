@@ -13,6 +13,12 @@ class DetailPageRequest extends APIRequest {
 
   public seasonByShowIdAndNumber = (id: string, season: string) =>
     this.get<DetailPageProps>(`/show/${id}/s/${season}`);
+
+  public episodeByShowIdAndSeason = (
+    id: string,
+    season: string,
+    episode: string
+  ) => this.get<DetailPageProps>(`/show/${id}/s/${season}/e/${episode}`);
 }
 
 export default new DetailPageRequest();

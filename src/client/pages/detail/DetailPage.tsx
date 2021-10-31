@@ -1,32 +1,17 @@
-import { AxiosRequestConfig } from "axios";
-import MediaSection, { MediaSectionProps } from "client/components/section/MediaSection";
-import { useFetch } from "client/hooks/useFetch";
-import { IdParams } from "client/util/params/Params";
+import CarouselSection, { CarouselSectionProps } from "client/components/carousel-section/CarouselSection";
 import { FunctionComponent } from "react";
-import { useParams } from "react-router";
 import Detail, { DetailProps } from "./detail/Detail";
 
-export interface DetailPageBlueprintProps {
-    getPage: (id: string) => AxiosRequestConfig<DetailPageProps>;
-}
-
 export interface DetailPageProps {
-    detail: DetailProps,
-    sections?: MediaSectionProps[],
+    detail?: DetailProps,
+    sections?: CarouselSectionProps[],
 }
 
-const DetailPage: FunctionComponent<DetailPageBlueprintProps> = (props: DetailPageBlueprintProps) => {
-    const { id }: IdParams = useParams();
-    const page = useFetch<DetailPageProps>(props.getPage(id));
-    const skeletonSections = Array(3).fill({ cards: null });
-    return (
-        <>
-            <section className={`w-full justify-center divide-y divide-primary`}>
-                <Detail {...page?.data?.detail} loading={page?.loading} />
-                {(page?.data?.sections ?? skeletonSections).map(section => <MediaSection {...section} key={section.title} />)}
-            </section>
-        </>
-    );
-}
+const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => (
+    <section className={`w-full justify-center divide-y divide-primary`}>
+        <Detail {...props.detail} />
+        {props.sections?.map(section => <CarouselSection {...section} key={section.title} />)}
+    </section>
+);
 
 export default DetailPage;
