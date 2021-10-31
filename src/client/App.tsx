@@ -10,7 +10,7 @@ export interface AppProps {
  }
 
 const App: FunctionComponent<AppProps> = (props: AppProps) => (
-    <div className={`font-sans`}>
+    <div className={`font-sans max-w-screen`}>
       <Navigation {...props.navigation()} />
       <Main {...props.main()} />
       <Footer {...props.footer()}/>

@@ -6,7 +6,7 @@ export interface DetailHeaderProps {
 }
 
 const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => (
-        <div className={`px-4 py-2 flex items-center space-x-4`}>
+        <div className={`px-4 py-2 flex-col md:flex-row flex items-center justify-center space-x-4`}>
             <div className={`flex items-end text-center space-x-2`}>
                 <p className={`text-2xl md:text-4xl font-bold`}>{props.title}</p>
             </div>
