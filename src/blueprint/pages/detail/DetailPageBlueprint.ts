@@ -1,4 +1,5 @@
 import DetailPageRequest from "api/request/pages/DetailPageRequest";
+import DetailSeasonPage, { DetailSeasonPageBlueprintProps } from "client/pages/detail-season/DetailSeasonPage";
 import DetailPage, { DetailPageBlueprintProps } from "client/pages/detail/DetailPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
@@ -11,11 +12,11 @@ export const MovieDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
     }
 };
 
-export const SeriesDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
-    route: PageRoute.TV_DETAIL,
+export const ShowDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
+    route: PageRoute.SHOW_DETAIL,
     component: DetailPage,
     props: {
-        getPage: DetailPageRequest.tvShowById
+        getPage: DetailPageRequest.showById
     }
 };
 
@@ -27,3 +28,11 @@ export const PersonDetailPageBlueprint: Page<DetailPageBlueprintProps> = {
         getPage: DetailPageRequest.personById
     }
 };
+
+export const SeasonDetailPageBlueprint: Page<DetailSeasonPageBlueprintProps> = {
+    route: PageRoute.SEASON_DETAIL,
+    component: DetailSeasonPage,
+    props: {
+        getPage: DetailPageRequest.seasonByShowIdAndNumber
+    }
+}

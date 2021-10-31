@@ -6,7 +6,7 @@ class ExplorePageRequest extends APIRequest {
 
     public movie = () => this.get<DetailPageProps>(`/movie`);
 
-    public tv = () => this.get<DetailPageProps>(`/tv`);
+    public show = () => this.get<DetailPageProps>(`/show`);
 
     public person = () => this.get<DetailPageProps>(`/person`);
 }

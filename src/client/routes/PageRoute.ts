@@ -3,15 +3,16 @@ enum PageRoute {
   LOGIN = "/login",
   ERROR = "/*",
   ACCOUNT = "/account",
-  TV_EXPLORE = "/tv",
-  TV_DETAIL = "/tv/:id",
-  TV_SEARCH = "/tv/search/:query",
   MOVIE_EXPLORE = "/movie",
   MOVIE_DETAIL = "/movie/:id",
   MOVIE_SEARCH = "/movie/search/:query",
   PERSON_EXPLORE = "/person",
   PERSON_DETAIL = "/person/:id",
   PERSON_SEARCH = "/person/search/:query",
+  SHOW_EXPLORE = "/show",
+  SHOW_DETAIL = "/show/:id",
+  SHOW_SEARCH = "/show/search/:query",
+  SEASON_DETAIL = "/show/:id/s/:season"
 }
 
 export default PageRoute;

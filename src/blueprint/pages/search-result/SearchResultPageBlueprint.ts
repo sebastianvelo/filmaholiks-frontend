@@ -11,11 +11,11 @@ export const MovieSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps
     }
 };
 
-export const TVShowSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps> = {
-    route: PageRoute.TV_SEARCH,
+export const ShowSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps> = {
+    route: PageRoute.SHOW_SEARCH,
     component: SearchResultPage,
     props: {
-        getPage: SearchResultPageRequest.tv
+        getPage: SearchResultPageRequest.show
     }
 };
 

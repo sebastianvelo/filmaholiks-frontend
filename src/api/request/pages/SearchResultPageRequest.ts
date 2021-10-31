@@ -6,7 +6,7 @@ class SearchResultPageRequest extends APIRequest {
 
     public movie = (query: string) => this.get<DetailPageProps>(`/movie/${query}`);
 
-    public tv = (query: string) => this.get<DetailPageProps>(`/tv/${query}`);
+    public show = (query: string) => this.get<DetailPageProps>(`/show/${query}`);
 
     public person = (query: string) => this.get<DetailPageProps>(`/person/${query}`);
 }

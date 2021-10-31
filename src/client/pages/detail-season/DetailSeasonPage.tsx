@@ -1,23 +1,23 @@
 import { AxiosRequestConfig } from "axios";
 import MediaSection, { MediaSectionProps } from "client/components/section/MediaSection";
 import { useFetch } from "client/hooks/useFetch";
-import { IdParams } from "client/util/params/Params";
+import { DetailSeasonPageParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import Detail, { DetailProps } from "./detail/Detail";
 
-export interface DetailPageBlueprintProps {
-    getPage: (id: string) => AxiosRequestConfig<DetailPageProps>;
+export interface DetailSeasonPageBlueprintProps {
+    getPage: (id: string, season: string) => AxiosRequestConfig<DetailSeasonPageProps>;
 }
 
-export interface DetailPageProps {
+export interface DetailSeasonPageProps {
     detail: DetailProps,
     sections?: MediaSectionProps[],
 }
 
-const DetailPage: FunctionComponent<DetailPageBlueprintProps> = (props: DetailPageBlueprintProps) => {
-    const { id }: IdParams = useParams();
-    const page = useFetch<DetailPageProps>(props.getPage(id));
+const DetailSeasonPage: FunctionComponent<DetailSeasonPageBlueprintProps> = (props: DetailSeasonPageBlueprintProps) => {
+    const { id, season }: DetailSeasonPageParams = useParams();
+    const page = useFetch<DetailSeasonPageProps>(props.getPage(id, season));
     const skeletonSections = Array(3).fill({ cards: null });
     return (
         <>
@@ -29,4 +29,4 @@ const DetailPage: FunctionComponent<DetailPageBlueprintProps> = (props: DetailPa
     );
 }
 
-export default DetailPage;
+export default DetailSeasonPage;

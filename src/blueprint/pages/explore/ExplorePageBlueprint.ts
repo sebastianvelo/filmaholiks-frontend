@@ -11,11 +11,11 @@ export const MovieExplorePageBlueprint: Page<ExplorePageBlueprintProps> = {
     }
 };
 
-export const SeriesExplorePageBlueprint: Page<ExplorePageBlueprintProps> = {
-    route: PageRoute.TV_EXPLORE,
+export const ShowExplorePageBlueprint: Page<ExplorePageBlueprintProps> = {
+    route: PageRoute.SHOW_EXPLORE,
     component: ExplorePage,
     props: {
-        getPage: ExplorePageRequest.tv
+        getPage: ExplorePageRequest.show
     }
 };
 
