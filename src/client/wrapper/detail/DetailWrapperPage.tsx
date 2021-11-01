@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 import DetailPage, { DetailPageProps } from "../../pages/detail/DetailPage";
 
 export interface DetailWrapperPageProps {
-    getPage: (...params: string[]) => AxiosRequestConfig<DetailPageProps>;
+    getPage: (id: string) => AxiosRequestConfig<DetailPageProps>;
 }
 
 const DetailWrapperPage: FunctionComponent<DetailWrapperPageProps> = (props: DetailWrapperPageProps) => {

@@ -22,11 +22,11 @@ export interface DetailProps {
 }
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
-    <div className={`w-screen`}>
+    <>
         <div className={`flex flex-col lg:space-x-2 items-center sm:items-start lg:pb-0 divide-y divide-primary`}>
-            <div className={`flex flex-col md:flex-row w-full space-x-2 space-y-2 min-h-96`}>
-                <Image {...props.image!} className={`self-center md:self-start w-full md:w-1/3`} />
-                <div className="md:w-2/3 flex flex-col items-center justify-around">
+            <div className={`flex flex-col md:flex-row justify-center w-full space-x-2 space-y-2`}>
+                <Image {...props.image!} className={`w-full md:w-1/3`} />
+                <div className="md:w-2/3">
                     <DetailHeader {...props.header!} />
                     {props.video && <DetailVideo {...props.video} />}
                     <Container>
@@ -42,7 +42,7 @@ const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
         <div className={`justify-items-stretch grid grid-cols-1 lg:grid-cols-2 divide-y divide-primary-light lg:divide-y-0`}>
             {props.actions?.map((action, index) => <Action key={index} {...action} />)}
         </div>
-    </div>
+    </>
 )
 
 export default Detail;

@@ -2,8 +2,8 @@ import DetailPageRequest from "api/request/pages/DetailPageRequest";
 import DetailWrapperPage, { DetailWrapperPageProps } from "client/wrapper/detail/DetailWrapperPage";
 import PageRoute from "client/routes/PageRoute";
 import Page from "client/util/page/Page";
-import DetailSeasonWrapperPage from "client/wrapper/detail/DetailSeasonWrapperPage";
-import DetailEpisodeWrapperPage from "client/wrapper/detail/DetailEpisodeWrapperPage";
+import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/wrapper/detail/DetailSeasonWrapperPage";
+import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/wrapper/detail/DetailEpisodeWrapperPage";
 
 export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.MOVIE_DETAIL,
@@ -30,7 +30,7 @@ export const PersonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     }
 };
 
-export const SeasonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
+export const SeasonDetailPageBlueprint: Page<DetailSeasonWrapperPageProps> = {
     route: PageRoute.SEASON_DETAIL,
     component: DetailSeasonWrapperPage,
     props: {
@@ -38,7 +38,7 @@ export const SeasonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     }
 }
 
-export const EpisodeDetailPageBlueprint: Page<DetailWrapperPageProps> = {
+export const EpisodeDetailPageBlueprint: Page<DetailEpisodeWrapperPageProps> = {
     route: PageRoute.EPISODE_DETAIL,
     component: DetailEpisodeWrapperPage,
     props: {
