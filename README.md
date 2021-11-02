@@ -11,7 +11,7 @@ https://internetfilmdb.web.app/#/show
 * [TypeScript](https://www.typescriptlang.org/) 
 * [Tailwind](https://tailwindcss.com/) 
 
-## Starting... ⚙️
+## ⚙️ Starting... 
 
 _Clone the repository:_
 
@@ -33,4 +33,4 @@ npm i
 npm start
 ```
 
-That's all! 
+That's all! See http://localhost:3000/#/show
