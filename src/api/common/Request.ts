@@ -7,14 +7,14 @@ abstract class Request {
 
   protected abstract headers: Record<string, string>;
 
-  private req<P>(method: Method, url: string, params: P): AxiosRequestConfig {
+  private req(method: Method, url: string, params?: object): AxiosRequestConfig {
     return this.getOptions(method, url, params);
   }
 
-  private getOptions<P>(
+  private getOptions(
     method: Method,
     url: string,
-    params?: P
+    params?: any
   ): AxiosRequestConfig {
     return {
       method,
@@ -24,11 +24,11 @@ abstract class Request {
     };
   }
 
-  protected get<P>(url: string, params?: P): AxiosRequestConfig {
+  protected get(url: string, params?: object): AxiosRequestConfig {
     return this.req("GET", url, params);
   }
 
-  protected post<P>(url: string, params?: P): AxiosRequestConfig {
+  protected post(url: string, params?: object): AxiosRequestConfig {
     return this.req("POST", url, params);
   }
 
