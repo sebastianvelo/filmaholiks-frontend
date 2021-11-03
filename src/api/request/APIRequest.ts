@@ -1,4 +1,4 @@
-import Request from "../common/Request";
+import Request from "../entities/Request";
 import config from "../api.env.config";
 
 abstract class APIRequest extends Request {
