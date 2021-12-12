@@ -5,7 +5,7 @@ import ChartHeader, { ChartHeaderProps } from "./header/ChartHeader";
 export interface ChartProps extends ChartBodyProps, ChartHeaderProps {}
 
 const Chart: FunctionComponent<ChartProps> = (props: ChartProps) => (
-  <div className={`text-center overflow-x-scroll bg-dark`}>
+  <div className={`text-center overflow-x-scroll bg-secondary-dark`}>
     <ChartHeader {...props} />
     <ChartBody {...props} />
   </div>

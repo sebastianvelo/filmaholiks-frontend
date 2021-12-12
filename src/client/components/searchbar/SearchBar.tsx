@@ -17,7 +17,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => 
     return (
         <div className={`flex`}>
             <Input placeholder={props.placeholder} onChange={handleSearch} />
-            <Action path={path} color={ComponentHovereableColor.LIGHT}>
+            <Action path={path} color={ComponentHovereableColor.PRIMARY} revert className={`px-4 py-2`}>
                 <SearchSvg />
             </Action>
         </div>

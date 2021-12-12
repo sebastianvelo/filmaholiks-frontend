@@ -12,7 +12,7 @@ const Main: FunctionComponent<MainProps> = (props: MainProps) => {
     useScrollTop();
 
     return (
-        <main className={`bg-gradient-to-b from-secondary-dark via-secondary-light to-secondary-dark text-white min-h-screen`}>
+        <main className={`bg-gradient-to-b from-dark via-dark-light to-dark text-white min-h-screen`}>
             <Switch>
                 {props.pages.map((page: Page<any>, i: number) => (
                     <Route key={i} exact path={page.route}>

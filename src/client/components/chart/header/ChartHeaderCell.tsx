@@ -5,7 +5,7 @@ export interface ChartHeaderCellProps {
 }
 
 const ChartHeaderCell: FunctionComponent<ChartHeaderCellProps> = (props: ChartHeaderCellProps) => (
-    <span className="p-2 w-16 bg-dark text-primary font-bold border border-black flex-shrink-0">{props.value}</span>
+    <span className="p-2 w-16 bg-secondary-dark text-primary font-bold border border-black flex-shrink-0">{props.value}</span>
 );
 
 export default ChartHeaderCell;

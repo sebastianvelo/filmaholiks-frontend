@@ -5,14 +5,14 @@ import ActionsToggler, { ActionsTogglerProps } from "./toggler/ActionsToggler";
 
 export interface NavigationHeaderProps extends ActionsTogglerProps, BrandProps {
   header?: string;
-  menu: MenuProps;
+  menu?: MenuProps;
 }
 
 const NavigationHeader: FunctionComponent<NavigationHeaderProps> = (props: NavigationHeaderProps) => (
     <div className={`flex justify-between items-center w-full pt-2 pb-2 lg:pb-0`}>
       <ActionsToggler {...props} />
       <Brand {...props} />
-      <Menu {...props.menu} />
+      {props.menu && <Menu {...props.menu} />}
     </div>
   );
 

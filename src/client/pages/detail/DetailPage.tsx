@@ -23,7 +23,7 @@ const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) 
             <Detail {...props.detail} />
             {props.charts?.map((chart) => (
                 <Container>
-                    <Headline>{chart.title}</Headline>
+                    <Headline className={`text-3xl`}>{chart.title}</Headline>
                     <Chart {...chart.chart} />
                 </Container>
             ))}

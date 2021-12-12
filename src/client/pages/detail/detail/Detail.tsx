@@ -25,14 +25,16 @@ const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
     <>
         <div className={`flex flex-col lg:space-x-2 items-center sm:items-start lg:pb-0 divide-y divide-primary`}>
             <div className={`flex flex-col md:flex-row justify-center w-full space-x-2 space-y-2`}>
-                <Image {...props.image!} className={`w-full md:w-1/3`} />
-                <div className="md:w-2/3">
+                <div className={`${props.video ? "md:w-1/2" : ''} flex flex-col items-center justify-center`}>
                     <DetailHeader {...props.header!} />
-                    {props.video && <DetailVideo {...props.video} />}
+                    <Image {...props.image!} className={``} />
                     <Container>
                         <Headline>{props.description?.title}</Headline>
                         <Text>{props.description?.description}</Text>
                     </Container>
+                </div>
+                <div className={`${props.video ? "md:w-1/2" : ''}`}>
+                    {props.video && <DetailVideo {...props.video} />}
                 </div>
             </div>
             <div className={`flex flex-col justify-items-center pt-2 space-y-2 w-full divide-y divide-primary`}>

@@ -14,23 +14,23 @@ export interface CardProps {
 
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const className = Tailwind.builder()
-        .add(`flex-none flex flex-col px-2 py-1 space-y-2`)
-        .add(`w-64 shadow-lg mb-10 bg-black`)
+        .add(`flex-none flex flex-col space-y-2`)
+        .add(`w-48 shadow-lg bg-gradient-to-b from-secondary-dark via-secondary to-secondary-dark`)
         .add(`transform `)
         .add(`hover:scale-110`)
         .add(`transition-all ease-in duration-200`)
-        .add(`border border-dark-light rounded-md `)
+        .add(`border border-secondary rounded-md text-center`)
         .build();
 
     return (
         <div className={className}>
-            <Action path={props.path} className={`flex justify-center`}>
+            <Action path={props.path} className={`flex justify-center`} revert>
                 <Image {...props.image!} />
             </Action>
-            <Headline className={`truncate text-xl`}>
+            <Headline className={`truncate text-md px-2`}>
                 <Action path={props.path} label={props.title} revert />
             </Headline>
-            <Text>{props.subtitle}</Text>
+            <Text className={`pb-1`}>{props.subtitle}</Text>
         </div>
     );
 }

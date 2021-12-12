@@ -10,7 +10,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
             <div className={`flex items-end text-center space-x-2`}>
                 <p className={`text-4xl md:text-4xl font-bold`}>{props.title}</p>
             </div>
-            <p className={`text-2xl font-bold text-primary-dark`}>{props.subtitle}</p>
+            <p className={`text-2xl font-bold text-primary`}>{props.subtitle}</p>
         </div>
     )
 

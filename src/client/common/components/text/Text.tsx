@@ -6,7 +6,7 @@ interface TextProps {
 }
 
 const Text: FunctionComponent<TextProps> = (props: TextProps) => 
-     (<p className={`${props.className} text-justify`}>{props.children}</p>)  // TODO Refactor with props like the others components
+     (<p className={`${props.className ?? 'text-justify'}`}>{props.children}</p>)  // TODO Refactor with props like the others components
 
 
 export default Text;
