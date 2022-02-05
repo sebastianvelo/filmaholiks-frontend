@@ -19,10 +19,10 @@ export interface DetailPageProps {
 const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => (
     <>
         {props.searchbar && <SearchBar {...props.searchbar} />}
-        <section className={`w-full justify-center divide-y divide-primary`}>
+        <section className={`h-full w-full justify-center divide-y divide-primary`}>
             <Detail {...props.detail} />
             {props.charts?.map((chart) => (
-                <Container>
+                <Container className="resize-y h-96 overflow-y-scroll">
                     <Headline className={`text-3xl`}>{chart.title}</Headline>
                     <Chart {...chart.chart} />
                 </Container>
