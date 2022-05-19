@@ -1,4 +1,4 @@
-import { FooterProps } from "client/layout/footer/Footer";
+import { FooterProps } from "client/views/layout/footer/Footer";
 
 const footerBlueprint = (): FooterProps => ({
     author: {

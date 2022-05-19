@@ -1,7 +1,7 @@
 import SearchResultPageRequest from "api/request/pages/SearchResultPageRequest";
-import SearchResultPage, { SearchResultPageBlueprintProps } from "client/pages/search-result/SearchResultPage";
 import PageRoute from "client/routes/PageRoute";
-import Page from "client/util/page/Page";
+import Page from "client/common/page/Page";
+import SearchResultPage, { SearchResultPageBlueprintProps } from "client/views/pages/search-result/SearchResultPage";
 
 export const MovieSearchResultPageBlueprint: Page<SearchResultPageBlueprintProps> = {
     route: PageRoute.MOVIE_SEARCH,

@@ -1,4 +1,4 @@
-import { MainProps } from "client/layout/main/Main";
+import { MainProps } from "client/views/layout/main/Main";
 import Pages from "../pages/Pages";
 
 const mainBlueprint = (): MainProps => ({

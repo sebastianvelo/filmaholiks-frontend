@@ -1,10 +1,10 @@
 import { AxiosRequestConfig } from "axios";
-import CarouselSection, { CarouselSectionProps } from "client/components/carousel-section/CarouselSection";
-import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
+import CarouselSection, { CarouselSectionProps } from "client/views/components/carousel-section/CarouselSection";
+import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import useFetch from "client/hooks/useFetch";
-import { QueryParams } from "client/util/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
+import { QueryParams } from "client/common/params/Params";
 
 export interface SearchResultPageBlueprintProps {
     getPage: (query: string) => AxiosRequestConfig<SearchResultPageProps>;

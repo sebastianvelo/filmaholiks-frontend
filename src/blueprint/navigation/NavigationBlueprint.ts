@@ -1,5 +1,5 @@
-import { NavigationProps } from "client/layout/navigation/Navigation";
 import PageRoute from "client/routes/PageRoute";
+import { NavigationProps } from "client/views/layout/navigation/Navigation";
 
 const navigationBlueprint = (): NavigationProps => ({
   header: "IFDb",

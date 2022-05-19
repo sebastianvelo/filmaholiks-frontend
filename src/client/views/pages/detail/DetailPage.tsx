@@ -1,8 +1,8 @@
 import Container from "client/common/components/container/Container";
 import Headline from "client/common/components/headline/Headline";
-import CarouselSection, { CarouselSectionProps } from "client/components/carousel-section/CarouselSection";
-import Chart, { ChartProps } from "client/components/chart/Chart";
-import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
+import CarouselSection, { CarouselSectionProps } from "client/views/components/carousel-section/CarouselSection";
+import Chart, { ChartProps } from "client/views/components/chart/Chart";
+import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import { FunctionComponent } from "react";
 import Detail, { DetailProps } from "./detail/Detail";
 

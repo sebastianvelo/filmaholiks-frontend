@@ -1,9 +1,9 @@
 import DetailPageRequest from "api/request/pages/DetailPageRequest";
-import DetailWrapperPage, { DetailWrapperPageProps } from "client/wrapper/detail/DetailWrapperPage";
+import Page from "client/common/page/Page";
 import PageRoute from "client/routes/PageRoute";
-import Page from "client/util/page/Page";
-import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/wrapper/detail/DetailSeasonWrapperPage";
-import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/wrapper/detail/DetailEpisodeWrapperPage";
+import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/views/detail/DetailEpisodeWrapperPage";
+import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/views/detail/DetailSeasonWrapperPage";
+import DetailWrapperPage, { DetailWrapperPageProps } from "client/views/detail/DetailWrapperPage";
 
 export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.MOVIE_DETAIL,

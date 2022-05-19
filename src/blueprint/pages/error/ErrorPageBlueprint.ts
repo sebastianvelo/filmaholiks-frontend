@@ -1,6 +1,6 @@
-import ErrorPage, { ErrorPageProps } from "client/pages/error/ErrorPage";
 import PageRoute from "client/routes/PageRoute";
-import Page from "client/util/page/Page";
+import Page from "client/common/page/Page";
+import ErrorPage, { ErrorPageProps } from "client/views/pages/error/ErrorPage";
 
 export const ErrorPageBlueprint: Page<ErrorPageProps> = {
     route: PageRoute.ERROR,

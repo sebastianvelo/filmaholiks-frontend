@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from "axios";
 import Loading from "client/common/components/loading/Loading";
 import Tailwind from "client/common/tailwind/Tailwind";
-import SearchBar, { SearchBarProps } from "client/components/searchbar/SearchBar";
+import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent } from "react";
 import CarouselSection, { CarouselSectionProps } from "../../components/carousel-section/CarouselSection";

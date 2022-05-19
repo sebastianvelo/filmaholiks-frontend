@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import Footer, { FooterProps } from "./layout/footer/Footer";
-import Main, { MainProps } from "./layout/main/Main";
-import Navigation, { NavigationProps } from "./layout/navigation/Navigation";
+import Footer, { FooterProps } from "./views/layout/footer/Footer";
+import Main, { MainProps } from "./views/layout/main/Main";
+import Navigation, { NavigationProps } from "./views/layout/navigation/Navigation";
 
 export interface AppProps {
   navigation: () => NavigationProps;
