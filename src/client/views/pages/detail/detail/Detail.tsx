@@ -1,10 +1,8 @@
 import Action from "client/common/components/action/Action";
 import ActionProps from "client/common/components/action/ActionProps";
-import Container from "client/common/components/container/Container";
-import Headline from "client/common/components/headline/Headline";
 import Image, { ImageProps } from "client/common/components/image/Image";
-import Text from "client/common/components/text/Text";
 import { FunctionComponent } from "react";
+import DetailDescription, { DetailDescriptionProps } from "./description/DetailDescription";
 import DetailHeader, { DetailHeaderProps } from "./header/DetailHeader";
 import DetailInfo, { DetailInfoProps } from "./info/DetailInfo";
 import DetailVideo, { DetailVideoProps } from "./video/DetailVideo";
@@ -12,10 +10,7 @@ import DetailVideo, { DetailVideoProps } from "./video/DetailVideo";
 export interface DetailProps {
     image?: ImageProps;
     header?: DetailHeaderProps;
-    description?: {
-        title: string;
-        description: string;
-    };
+    description?: DetailDescriptionProps;
     info?: DetailInfoProps;
     actions?: ActionProps[];
     video?: DetailVideoProps;
@@ -23,22 +18,17 @@ export interface DetailProps {
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
     <>
-        <div className={`flex flex-col lg:space-x-2 items-center sm:items-start lg:pb-0 divide-y divide-primary`}>
-            <div className={`flex flex-col md:flex-row justify-center w-full space-x-2 space-y-2`}>
-                <div className={`${props.video ? "md:w-1/2" : ''} flex flex-col items-center justify-center`}>
-                    <DetailHeader {...props.header!} />
-                    <Image {...props.image!} className={``} />
-                    <Container>
-                        <Headline>{props.description?.title}</Headline>
-                        <Text>{props.description?.description}</Text>
-                    </Container>
+        <div className={`flex flex-col md:flex-row w-full`}>
+            <Image {...props.image!} className={`md:w-1/4 2xl:w-1/5`} />
+            <div className={`md:w-3/4 2xl:w-4/5 flex flex-col`}>
+                <div>
+                    {props.header && <DetailHeader {...props.header} />}
+                    {props.description && <DetailDescription {...props.description} />}
                 </div>
-                <div className={`${props.video ? "md:w-1/2" : ''}`}>
+                <div className={`grid md:grid-cols-3 w-full`}>
                     {props.video && <DetailVideo {...props.video} />}
+                    {props.info && <DetailInfo {...props.info} />}
                 </div>
-            </div>
-            <div className={`flex flex-col justify-items-center pt-2 space-y-2 w-full divide-y divide-primary`}>
-                <DetailInfo {...props.info!} />
             </div>
         </div>
         <div className={`justify-items-stretch grid grid-cols-1 lg:grid-cols-2 divide-y divide-primary-light lg:divide-y-0`}>

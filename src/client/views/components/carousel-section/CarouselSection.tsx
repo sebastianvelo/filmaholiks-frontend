@@ -11,6 +11,7 @@ export interface CarouselSectionProps {
 
 const CarouselSection: FunctionComponent<CarouselSectionProps> = (props: CarouselSectionProps) => {
     const skeletonCards = Array(10).fill({ loading: true });
+    if (props.cards && !props.cards.length) return <></>;
     return (
         <section className={`px-4 pt-4`}>
             <Headline className={`text-3xl`}>{props.title}</Headline>

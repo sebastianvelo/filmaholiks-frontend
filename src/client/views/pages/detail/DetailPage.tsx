@@ -7,6 +7,7 @@ import { FunctionComponent } from "react";
 import Detail, { DetailProps } from "./detail/Detail";
 
 export interface DetailPageProps {
+    title: string;
     detail?: DetailProps,
     searchbar?: SearchBarProps;
     charts?: {
@@ -16,20 +17,24 @@ export interface DetailPageProps {
     sections?: CarouselSectionProps[],
 }
 
-const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => (
-    <>
-        {props.searchbar && <SearchBar {...props.searchbar} />}
-        <section className={`h-full w-full justify-center divide-y divide-primary`}>
-            <Detail {...props.detail} />
-            {props.charts?.map((chart) => (
-                <Container className="resize-y h-96 overflow-y-scroll">
-                    <Headline className={`text-3xl`}>{chart.title}</Headline>
-                    <Chart {...chart.chart} />
-                </Container>
-            ))}
-            {props.sections?.map(section => <CarouselSection {...section} key={section.title} />)}
-        </section>
-    </>
-);
+
+const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
+    document.title = props.title;
+    return (
+        <>
+            {props.searchbar && <SearchBar {...props.searchbar} />}
+            <section className={`h-full w-full justify-center divide-y divide-primary`}>
+                <Detail {...props.detail} />
+                {props.charts?.map((chart) => (
+                    <Container className={`space-y-4`}>
+                        <Headline className={`text-3xl`}>{chart.title}</Headline>
+                        <Chart {...chart.chart} />
+                    </Container>
+                ))}
+                {props.sections?.map(section => <CarouselSection {...section} key={section.title} />)}
+            </section>
+        </>
+    );
+};
 
 export default DetailPage;

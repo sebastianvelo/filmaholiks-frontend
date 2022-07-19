@@ -14,7 +14,7 @@ export interface CardProps {
 
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const className = Tailwind.builder()
-        .add(`flex-none flex flex-col space-y-2`)
+        .add(`flex-none flex flex-col space-y-2 justify-between`)
         .add(`w-48 shadow-lg bg-gradient-to-b from-secondary-dark via-secondary to-secondary-dark`)
         .add(`transform `)
         .add(`hover:scale-110`)
@@ -24,13 +24,17 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
 
     return (
         <div className={className}>
-            <Action path={props.path} className={`flex justify-center`} revert>
-                <Image {...props.image!} />
-            </Action>
-            <Headline className={`truncate text-md px-2`}>
-                <Action path={props.path} label={props.title} revert />
-            </Headline>
-            <Text className={`pb-1`}>{props.subtitle}</Text>
+            {props.image &&
+                <Action path={props.path} className={`flex justify-center`} revert>
+                    <Image {...props.image!} />
+                </Action>
+            }
+            <div>
+                <Headline className={`truncate text-md px-2`}>
+                    <Action path={props.path} label={props.title} revert />
+                </Headline>
+                <Text className={`pb-1`}>{props.subtitle}</Text>
+            </div>
         </div>
     );
 }

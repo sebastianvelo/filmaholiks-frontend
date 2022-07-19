@@ -11,14 +11,14 @@ export interface DetailInfoProps {
 }
 
 const DetailInfo: FunctionComponent<DetailInfoProps> = (props: DetailInfoProps) => (
-        <div className={`sm:space-x-2 divide-x-2 divide-primary-dark flex flex-col sm:flex-row`}>
-            {props.data?.map((info, index) => (
-                <Container key={index}>
-                    <Headline>{info.title}</Headline>
-                    <Text>{info.description}</Text>
-                </Container>
-            ))}
-        </div>
-    )
+    <div className={`md:col-span-2 grid sm:grid-cols-3 2xl:grid-cols-4 place-content-start w-full`}>
+        {props.data?.map((info, index) => (
+            <Container key={index}>
+                <Headline>{info?.title}</Headline>
+                <Text className={`text-start`}>{info?.description}</Text>
+            </Container>
+        ))}
+    </div>
+)
 
 export default DetailInfo;

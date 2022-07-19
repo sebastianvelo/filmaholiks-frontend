@@ -12,6 +12,12 @@ const useFetch = <T extends Object>(
   });
 
   useEffect(() => {
+    setResponse({
+      data: null,
+      error: null,
+      loading: true
+    });
+    
     axios
       .request(req)
       .then((axiosResponse: AxiosResponse<T>) => {

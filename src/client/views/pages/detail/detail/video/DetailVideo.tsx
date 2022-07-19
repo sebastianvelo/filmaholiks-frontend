@@ -6,12 +6,15 @@ import { FunctionComponent } from "react";
 export interface DetailVideoProps {
     title?: string;
     src?: string;
+    className?: string;
 }
 
 const DetailVideo: FunctionComponent<DetailVideoProps> = (props: DetailVideoProps) => (
     <Container>
         <Headline>{props.title}</Headline>
-        <Video src={props.src ?? 'https://www.youtube.com/embed/dQw4w9WgXcQ'} />
+        <div className={props.className}>
+            <Video src={props.src ?? 'https://www.youtube.com/embed/dQw4w9WgXcQ'} />
+        </div>
     </Container>
 )
 

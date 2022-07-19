@@ -11,6 +11,8 @@ module.exports = {
         'letterSpacing': 'letterSpacing',
       },
       colors: {
+        teal: colors.teal,
+        orange: colors.orange,
         primary: {
           light: '#fff9cc',
           DEFAULT: '#ffe41a',
@@ -22,8 +24,8 @@ module.exports = {
           dark: "#0D2330",
         },
         success: {
-          DEFAULT: colors.green[500],
-          dark: colors.green[600],
+          DEFAULT: colors.green[700],
+          dark: colors.green[800],
         },
         danger: {
           DEFAULT: colors.red[500],
@@ -54,6 +56,8 @@ module.exports = {
       ringWidth: ['hover'],
       ringColor: ['hover'],
       letterSpacing: ['hover', 'focus'],
+      borderWidth: ['hover'],
+      display: ['group-hover']
     },
   },
   plugins: [],

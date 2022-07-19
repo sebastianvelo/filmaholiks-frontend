@@ -3,10 +3,10 @@ const config: { [key: string]: { [key: string]: string } } = {
     baseUrl: "https://us-central1-internetfilmdb.cloudfunctions.net/default"
   },
   development: {
-    baseUrl: "http://localhost:5001/internetfilmdb/us-central1/default"
+    baseUrl: "http://192.168.0.171:5001/internetfilmdb/us-central1/default"
   }
 };
 
-const env = "production"; // process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || "development";
 
 export default config[env];

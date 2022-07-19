@@ -2,7 +2,7 @@ import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
 interface SkeletonProps {
-    className: string;
+    className?: string;
     children: React.ReactNode | React.ReactNode[];
     loading?: boolean;
 }

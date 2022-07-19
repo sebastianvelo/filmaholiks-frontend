@@ -2,7 +2,7 @@ import PageRoute from "client/routes/PageRoute";
 import { NavigationProps } from "client/views/layout/navigation/Navigation";
 
 const navigationBlueprint = (): NavigationProps => ({
-  header: "IFDb",
+  header: "Filmaholiks",
   actions: [
    /* {
       label: "Home",
@@ -19,6 +19,10 @@ const navigationBlueprint = (): NavigationProps => ({
     {
       label: "People",
       path: PageRoute.PERSON_EXPLORE
+    },
+    {
+      label: "Watch list",
+      path: PageRoute.WATCH_LIST_LOGGED_IN
     },
    /* {
       label: "Login",

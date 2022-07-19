@@ -11,4 +11,5 @@ export default interface ActionProps {
   onClick?: MouseEventHandler<any>;
   children?: React.ReactNode | React.ReactNode[];
   ariaLabel?: string;
+  disabled?: boolean;
 }
