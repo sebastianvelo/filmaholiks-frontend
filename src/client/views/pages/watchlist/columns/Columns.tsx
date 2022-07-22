@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from "react";
+import swal from 'sweetalert';
 import AddColumnButton from "./add-column-button/AddColumnButton";
 import Column, { ColumnProps } from "./column/Column";
 import { ItemProps } from "./column/item/Item";
@@ -20,6 +21,17 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
         setColumnsInLocalStorage([...newColumns]);
     }
 
+    const removeColumn = (columnIdx: number) => {
+        swal("Are you sure?", {
+            buttons: {
+                cancel: true,
+                confirm: true,
+            },
+        }).then(confirm => {
+            if (confirm) updateColumns(columns.filter((_, idx) => idx !== columnIdx));
+        });
+    }
+
     const addColumn = () => {
         const dummyColumn: any = {
             title: `Column ${columns.length + 1}`,
@@ -29,10 +41,22 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
     }
 
     const addCard = (columnIdx: number, item: ItemProps) => {
-        const column = columns[columnIdx];
-        column.items.push(item);
-        columns[columnIdx] = column;
+        columns[columnIdx].items.push(item);
         updateColumns([...columns]);
+    }
+
+    const deleteCard = (columnIdx: number, itemIdx: number) => {
+        swal("Are you sure?", {
+            buttons: {
+                cancel: true,
+                confirm: true,
+            },
+        }).then(confirm => {
+            if (confirm) {
+                columns[columnIdx].items = columns[columnIdx].items.filter((_, idx) => idx !== itemIdx);
+                updateColumns([...columns]);
+            }
+        });
     }
 
     const changeTitle = (columnIdx: number, title: string) => {
@@ -44,15 +68,17 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
 
     return (
         <>
-            <AddColumnButton columns={columns} addColumn={addColumn} />
-            <div className="flex space-x-4 overflow-x-auto w-full pb-8">
+            <div className="flex space-x-4 overflow-x-auto w-full py-8">
                 {columns?.map((column, idx: number) => (
                     <Column {...column}
+                        delete={() => removeColumn(idx)}
                         addCard={(item: ItemProps) => addCard(idx, item)}
                         changeTitle={(title: string) => changeTitle(idx, title)}
+                        deleteCard={(cardIdx: number) => deleteCard(idx, cardIdx)}
                     />
                 ))}
             </div>
+            <AddColumnButton columns={columns} addColumn={addColumn} />
         </>
     );
 }

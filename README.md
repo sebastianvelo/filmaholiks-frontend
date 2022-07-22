@@ -3,7 +3,7 @@
 _In Filmaholiks, you can search for your favorite movies and TV Shows!._
 
 ## :link:
-https://internetfilmdb.web.app/#/show
+https://filmaholiks.web.app/#/show
 
 ## 🛠️
 

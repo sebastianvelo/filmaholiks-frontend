@@ -14,9 +14,9 @@ module.exports = {
         teal: colors.teal,
         orange: colors.orange,
         primary: {
-          light: '#fff9cc',
-          DEFAULT: '#ffe41a',
-          dark: '#FFC624',
+          light: '#ffffff',
+          DEFAULT: '#faeca7',
+          dark: '#f6db58',
         },
         secondary: {
           light: "#2C76A0",
@@ -28,8 +28,8 @@ module.exports = {
           dark: colors.green[800],
         },
         danger: {
-          DEFAULT: colors.red[500],
-          dark: colors.red[700],
+          DEFAULT: colors.red[600],
+          dark: colors.red[800],
         },
         warning: {
           DEFAULT: colors.orange[500],

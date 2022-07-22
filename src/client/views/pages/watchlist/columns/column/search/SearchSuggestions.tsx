@@ -11,7 +11,7 @@ interface SearchProps {
     addCard: (item: ItemProps) => void
 }
 
-const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
+const SearchSuggestions: FunctionComponent<SearchProps> = (props: SearchProps) => {
     const [url, setUrl] = useState(WatchlistPageRequest.showsSuggestions(''));
     const suggestions = useFetch<ItemProps[]>(url);
 
@@ -21,16 +21,16 @@ const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
         }
     };
 
-    const getWrapperClassName = () => suggestions?.loading ? "w-full flex items-center h-96 justify-center absolute bg-gray-400" : "";
+    const getWrapperClassName = () => suggestions?.loading ? "w-full flex items-center h-96 justify-center absolute" : "";
 
     return (
         <div className={`group h-full relative`}>
-            <Input placeholder={`Search`} onChange={handleSearch} />
+            <Input placeholder={`Add show`} onChange={handleSearch} />
             <div className={getWrapperClassName()}>
                 <Loading loading={suggestions?.loading}>
                     {suggestions?.data && (
-                        <div className="space-y-4 bg-gray-400 group-hover:block hidden w-96 absolute h-96 overflow-y-auto p-4 rounded-xl">
-                            <Headline className="text-2xl text-dark">Results</Headline>
+                        <div className="space-y-4 bg-gradient-to-b from-secondary-dark to-black group-hover:block hidden w-full absolute h-96 overflow-y-auto p-2">
+                            <Headline className="text-2xl text-primary-light border-b-2 border-primary-dark">Results</Headline>
                             {suggestions?.data?.map((suggestion: any) => <Suggestion suggestion={suggestion} addCard={props.addCard} />)}
                         </div>
                     )}
@@ -40,4 +40,4 @@ const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
     );
 }
 
-export default Search;
+export default SearchSuggestions;

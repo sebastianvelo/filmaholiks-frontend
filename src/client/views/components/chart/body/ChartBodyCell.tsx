@@ -24,7 +24,7 @@ const getClassName = (value: number) => Tailwind.builder()
     .addIf(`from-teal-600 to-blue-400 text-dark`, value >= 9.5 && value < 10)
     .addIf(`from-blue-400 to-blue-600 text-dark`, value === 10)
     .add("p-2 w-full border border-dark group relative")
-    .add("hover:border-primary box-border transition-all duration-300")
+    .add("hover:border-primary-dark box-border transition-all duration-300")
     .build();
 
 const getEpisodeNameClassName = () => Tailwind.builder()

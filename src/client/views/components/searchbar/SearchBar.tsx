@@ -15,7 +15,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => 
     const handleSearch = (e: any) => { setQuery(e.target.value); };
     const path = `${props.path}`.replace(`:query`, query);
     return (
-        <div className={`flex`}>
+        <div className={`flex w-screen xl:-mx-32`}>
             <Input placeholder={props.placeholder} onChange={handleSearch} />
             {query && (
                 <Action path={path} color={ComponentHovereableColor.PRIMARY} revert className={`px-4 py-2`}>

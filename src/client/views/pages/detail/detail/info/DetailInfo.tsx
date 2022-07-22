@@ -11,9 +11,9 @@ export interface DetailInfoProps {
 }
 
 const DetailInfo: FunctionComponent<DetailInfoProps> = (props: DetailInfoProps) => (
-    <div className={`md:col-span-2 grid sm:grid-cols-3 2xl:grid-cols-4 place-content-start w-full`}>
-        {props.data?.map((info, index) => (
-            <Container key={index}>
+    <div className={`md:col-span-2 grid sm:grid-cols-3 w-full space-y-2 place-content-between py-4`}>
+        {props.data?.filter(info => info?.title).map((info) => (
+            <Container className="border-l-2 border-primary" key={info?.title}>
                 <Headline>{info?.title}</Headline>
                 <Text className={`text-start`}>{info?.description}</Text>
             </Container>

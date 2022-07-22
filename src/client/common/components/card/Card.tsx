@@ -16,17 +16,17 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const className = Tailwind.builder()
         .add(`flex-none flex flex-col space-y-2 justify-between`)
         .add(`w-48 shadow-lg bg-gradient-to-b from-secondary-dark via-secondary to-secondary-dark`)
-        .add(`transform `)
+        .add(`transform`)
         .add(`hover:scale-110`)
         .add(`transition-all ease-in duration-200`)
-        .add(`border border-secondary rounded-md text-center`)
+        .add(`border border-primary-dark rounded-sm text-center`)
         .build();
 
     return (
         <div className={className}>
             {props.image &&
                 <Action path={props.path} className={`flex justify-center`} revert>
-                    <Image {...props.image!} />
+                    <Image className="rounded-tl-sm rounded-tr-sm" {...props.image} />
                 </Action>
             }
             <div>

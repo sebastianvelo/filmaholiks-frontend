@@ -18,9 +18,9 @@ export interface DetailProps {
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
     <>
-        <div className={`flex flex-col md:flex-row w-full`}>
-            <Image {...props.image!} className={`md:w-1/4 2xl:w-1/5`} />
-            <div className={`md:w-3/4 2xl:w-4/5 flex flex-col`}>
+        <div className={`flex flex-col md:flex-row w-full pt-2`}>
+            <Image {...props.image!} className={`md:w-1/4 2xl:w-1/5 border border-primary`} />
+            <div className={`md:w-3/4 2xl:w-4/5 flex flex-col justify-between px-2`}>
                 <div>
                     {props.header && <DetailHeader {...props.header} />}
                     {props.description && <DetailDescription {...props.description} />}

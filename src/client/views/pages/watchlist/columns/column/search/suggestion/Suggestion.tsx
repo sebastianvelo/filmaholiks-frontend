@@ -9,12 +9,12 @@ interface SuggestionProps {
 }
 
 const Suggestion: FunctionComponent<SuggestionProps> = (props: SuggestionProps) => (
-    <div>
+    <div className="flex">
         <Item {...props.suggestion} />
         <Action
-            className="w-full"
-            label="Add card"
+            label="✓"
             onClick={() => props.addCard(props.suggestion)} color={ComponentHovereableColor.SUCCESS}
+            className="rounded-tr-xl rounded-br-xl"
         />
     </div>
 );

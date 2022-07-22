@@ -19,7 +19,7 @@ export interface ControlProps {
 }
 
 const Control: FunctionComponent<ControlProps> = (props: ControlProps) => {
-    const position = props.right ? 'right-4' : 'left-4';
+    const position = props.right ? '-right-8' : '-left-8';
     return (
         <Action color={ComponentHovereableColor.PRIMARY} onClick={() => slide(props.id, props.right)} className={`${position} z-20 absolute hidden md:block`}>
             {props.right ? <ArrowRightSvg /> : <ArrowLeftSvg />}

@@ -8,7 +8,7 @@ interface HeadlineProps {
 
 const Headline: FunctionComponent<HeadlineProps> = (props: HeadlineProps) => {
     const className = Tailwind.builder()
-        .add('font-bold text-primary')
+        .add('font-bold text-primary-dark')
         .add(props.className)
         .addIf(`text-xl`, !props.className)
         .build();

@@ -14,7 +14,7 @@ const CarouselSection: FunctionComponent<CarouselSectionProps> = (props: Carouse
     if (props.cards && !props.cards.length) return <></>;
     return (
         <section className={`px-4 pt-4`}>
-            <Headline className={`text-3xl`}>{props.title}</Headline>
+            <Headline className={`text-3xl text-primary-dark`}>{props.title}</Headline>
             <Carousel id={props.id!}>
                 {(props.cards ?? skeletonCards)?.map(card => <Card {...card} key={card.title} />)}
             </Carousel>
