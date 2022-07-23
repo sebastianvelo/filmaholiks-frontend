@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CarouselSection";
+import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CardsSection";
 import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent } from "react";

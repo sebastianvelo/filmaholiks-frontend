@@ -19,8 +19,8 @@ export interface DetailProps {
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
     <> 
-        <div className={`flex flex-col md:flex-row w-full bg-gradient-to-tr from-black to-secondary-dark rounded-sm`}  style={{boxShadow: "0px 0px 5px rgba(250, 236, 167, 1)"}}>
-            <Image {...props.poster!} className={`hidden md:block md:w-1/4 2xl:w-1/5 md:border-r border-b-2 border-primary-dark`} />
+        <div className={`flex flex-col md:flex-row w-full bg-gradient-to-tr from-black to-secondary-dark rounded-sm border border-primary-dark`}  >
+            <Image {...props.poster!} className={`hidden md:block md:w-1/4 2xl:w-1/5 md:border-r border-primary-dark`} />
             <Image {...props.backdrop!} className={`md:hidden border-b-2 border-primary-dark`} />
             <div className={`md:w-3/4 2xl:w-4/5 flex flex-col justify-between p-4`}>
                 <div>
@@ -33,7 +33,7 @@ const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
                 </div>
             </div>
         </div>
-        <div className={`justify-items-stretch grid grid-cols-1 lg:grid-cols-2 divide-y divide-primary-light lg:divide-y-0`}>
+        <div className={`justify-items-stretch grid grid-cols-1 lg:grid-cols-2 divide-y divide-primary-dark lg:divide-y-0`}>
             {props.actions?.map((action, index) => <Action key={index} {...action} />)}
         </div>
     </>

@@ -1,4 +1,4 @@
-import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CarouselSection";
+import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CardsSection";
 import ChartSection, { ChartSectionProps } from "client/views/components/chart-section/ChartSection";
 import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import { FunctionComponent } from "react";

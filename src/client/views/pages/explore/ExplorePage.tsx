@@ -4,7 +4,7 @@ import Tailwind from "client/common/tailwind/Tailwind";
 import useFetch from "client/hooks/useFetch";
 import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import { FunctionComponent } from "react";
-import CardsSection, { CardsSectionProps } from "../../components/cards-section/CarouselSection";
+import CardsSection, { CardsSectionProps } from "../../components/cards-section/CardsSection";
 
 export interface ExplorePageBlueprintProps {
     getPage: () => AxiosRequestConfig<ExplorePageProps>;

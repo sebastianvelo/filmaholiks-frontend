@@ -15,8 +15,8 @@ module.exports = {
         orange: colors.orange,
         primary: {
           light: '#ffffff',
-          DEFAULT: '#faeca7',
-          dark: '#f6db58',
+          DEFAULT: '#c7fbef',
+          dark: '#30f0c4',
         },
         secondary: {
           light: "#2C76A0",

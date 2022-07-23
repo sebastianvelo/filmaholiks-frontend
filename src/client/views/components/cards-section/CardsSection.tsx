@@ -16,7 +16,7 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
 
     const cards = (props.cards ?? skeletonCards)?.map(card => <Card {...card} key={card.title} />);
     return (
-        <section className={`px-4 pt-4 bg-gradient-to-t from-black to-secondary-dark space-y-4`} style={{ boxShadow: "0px 0px 5px rgba(250, 236, 167, 1)" }}>
+        <section className={`px-4 pt-4 bg-gradient-to-t from-black to-secondary-dark space-y-4 border border-primary-dark`} >
             <Headline className={`text-3xl text-primary-dark`}>{props.title}</Headline>
             <div className={`${props.isGrid ? "block xl:hidden" : ""}`}>
                 <Carousel id={props.id!}>{cards}</Carousel>
