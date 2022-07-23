@@ -34,7 +34,7 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
 
     const addColumn = () => {
         const dummyColumn: any = {
-            title: `Column ${columns.length + 1}`,
+            title: `Category ${columns.length + 1}`,
             items: []
         };
         updateColumns([...columns, dummyColumn]);

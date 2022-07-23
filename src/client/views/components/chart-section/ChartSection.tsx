@@ -9,7 +9,7 @@ export interface ChartSectionProps {
 }
 
 const ChartSection: FunctionComponent<ChartSectionProps> = (props: ChartSectionProps) => (
-    <Container className={`space-y-4`}>
+    <Container className={`space-y-4 bg-gradient-to-tr from-black to-secondary-dark rounded-sm`} style={{ boxShadow: "0px 0px 5px rgba(250, 236, 167, 1)" }}>
         <Headline className={`text-3xl text-primary-dark`}>{props.title}</Headline>
         <Chart {...props.chart} />
     </Container>

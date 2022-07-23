@@ -12,7 +12,7 @@ export interface NavigationActionsWrapperProps {
 
 const NavigationActionsWrapper: FunctionComponent<NavigationActionsWrapperProps> = (props: NavigationActionsWrapperProps) => {
     const className = Tailwind.builder()
-        .add('flex-col w-full absolute h-screen bg-primary px-2 ')
+        .add('flex-col w-full absolute h-screen bg-primary px-2')
         .add('sm:flex sm:space-y-0 sm:h-full sm:flex-row sm:relative sm:px-0 sm:justify-center')
         .addIf('flex', props.isOpen)
         .addIf('hidden', !props.isOpen)

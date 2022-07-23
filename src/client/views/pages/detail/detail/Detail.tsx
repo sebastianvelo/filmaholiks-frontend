@@ -8,7 +8,8 @@ import DetailInfo, { DetailInfoProps } from "./info/DetailInfo";
 import DetailVideo, { DetailVideoProps } from "./video/DetailVideo";
 
 export interface DetailProps {
-    image?: ImageProps;
+    poster?: ImageProps;
+    backdrop?: ImageProps;
     header?: DetailHeaderProps;
     description?: DetailDescriptionProps;
     info?: DetailInfoProps;
@@ -17,10 +18,11 @@ export interface DetailProps {
 }
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
-    <>
-        <div className={`flex flex-col md:flex-row w-full pt-2`}>
-            <Image {...props.image!} className={`md:w-1/4 2xl:w-1/5 border border-primary`} />
-            <div className={`md:w-3/4 2xl:w-4/5 flex flex-col justify-between px-2`}>
+    <> 
+        <div className={`flex flex-col md:flex-row w-full bg-gradient-to-tr from-black to-secondary-dark rounded-sm`}  style={{boxShadow: "0px 0px 5px rgba(250, 236, 167, 1)"}}>
+            <Image {...props.poster!} className={`hidden md:block md:w-1/4 2xl:w-1/5 md:border-r border-b-2 border-primary-dark`} />
+            <Image {...props.backdrop!} className={`md:hidden border-b-2 border-primary-dark`} />
+            <div className={`md:w-3/4 2xl:w-4/5 flex flex-col justify-between p-4`}>
                 <div>
                     {props.header && <DetailHeader {...props.header} />}
                     {props.description && <DetailDescription {...props.description} />}

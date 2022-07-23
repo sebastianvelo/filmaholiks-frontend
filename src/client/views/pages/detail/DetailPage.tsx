@@ -16,14 +16,14 @@ export interface DetailPageProps {
 const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
     document.title = props.title;
     return (
-        <>
+        <div className="sm:space-y-4">
             {props.searchbar && <SearchBar {...props.searchbar} />}
-            <section className={`h-full w-full justify-center divide-y-2 divide-primary`}>
+            <section className={`h-full w-full justify-center space-y-4`}>
                 <Detail {...props.detail} />
                 {props.charts?.map((chart) => <ChartSection {...chart} key={chart.title} />)}
                 {props.sections?.map(section => <CarouselSection {...section} key={section.title} />)}
             </section>
-        </>
+        </div>
     );
 };
 
