@@ -4,7 +4,7 @@ import Tailwind from "client/common/tailwind/Tailwind";
 import useFetch from "client/hooks/useFetch";
 import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import { FunctionComponent } from "react";
-import CarouselSection, { CarouselSectionProps } from "../../components/carousel-section/CarouselSection";
+import CardsSection, { CardsSectionProps } from "../../components/cards-section/CarouselSection";
 
 export interface ExplorePageBlueprintProps {
     getPage: () => AxiosRequestConfig<ExplorePageProps>;
@@ -12,7 +12,7 @@ export interface ExplorePageBlueprintProps {
 export interface ExplorePageProps {
     title: string;
     searchbar: SearchBarProps;
-    sections: CarouselSectionProps[];
+    sections: CardsSectionProps[];
 }
 
 const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
@@ -27,7 +27,7 @@ const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: Explor
                 <div className="space-y-4">
                     <SearchBar {...page?.data?.searchbar} />
                     <div className="space-y-4">
-                        {page?.data?.sections.map(section => <CarouselSection {...section} key={section.title} />)}
+                        {page?.data?.sections.map(section => <CardsSection {...section} key={section.title} />)}
                     </div>
                 </div>
             </Loading>

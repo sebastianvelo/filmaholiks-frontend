@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import CarouselSection, { CarouselSectionProps } from "client/views/components/carousel-section/CarouselSection";
+import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CarouselSection";
 import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent } from "react";
@@ -13,7 +13,7 @@ export interface SearchResultPageBlueprintProps {
 export interface SearchResultPageProps {
     title: string;
     searchbar: SearchBarProps;
-    results: CarouselSectionProps
+    results: CardsSectionProps;
 }
 
 const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (props: SearchResultPageBlueprintProps) => {
@@ -21,10 +21,10 @@ const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (pro
     const page = useFetch<SearchResultPageProps>(props.getPage(query));
     document.title = page?.data?.title ?? "Loading...";
     return (
-        <>
+        <div className="sm:space-y-4">
             <SearchBar {...page?.data?.searchbar} />
-            <CarouselSection {...(page?.data?.results ?? { cards: undefined })} />
-        </>
+            <CardsSection {...(page?.data?.results)} />
+        </div>
     );
 }
 
