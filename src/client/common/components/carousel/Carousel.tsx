@@ -1,9 +1,10 @@
-import Items, { ItemsProps } from "./Items";
+import { FunctionComponent } from "react";
 import Control from "./Control";
+import Items, { ItemsProps } from "./Items";
 
 export interface CarouselProps extends ItemsProps {}
 
-const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => (
+const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps) => (
         <div className={`flex items-center relative`}>
             <Control id={props.id} right={false} />
             <Items {...props} />

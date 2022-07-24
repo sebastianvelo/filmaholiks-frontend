@@ -24,12 +24,8 @@ const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: Explor
     return (
         <div className={className}>
             <Loading loading={page?.loading}>
-                <div className="space-y-4">
-                    <SearchBar {...page?.data?.searchbar} />
-                    <div className="space-y-4">
-                        {page?.data?.sections.map(section => <CardsSection {...section} key={section.title} />)}
-                    </div>
-                </div>
+                <SearchBar {...page?.data?.searchbar} />
+                {page?.data?.sections.map(section => <CardsSection {...section} key={section.title} />)}
             </Loading>
         </div>
     );

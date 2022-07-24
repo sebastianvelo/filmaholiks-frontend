@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 import AddColumnButton from "./add-column-button/AddColumnButton";
 import Column, { ColumnProps } from "./column/Column";
 import { ItemProps } from "./column/item/Item";
@@ -22,13 +22,13 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
     }
 
     const removeColumn = (columnIdx: number) => {
-        swal("Are you sure?", {
-            buttons: {
-                cancel: true,
-                confirm: true,
-            },
-        }).then(confirm => {
-            if (confirm) updateColumns(columns.filter((_, idx) => idx !== columnIdx));
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            denyButtonText: `Delete`,
+            confirmButtonText: 'Cancel',
+        }).then(result => {
+            if (!result.isConfirmed) updateColumns(columns.filter((_, idx) => idx !== columnIdx));
         });
     }
 
@@ -40,23 +40,40 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
         updateColumns([...columns, dummyColumn]);
     }
 
+    const swapColumns = (idxA: number, idxB: number) => {
+        const columnA = columns[idxA];
+        const columnB = columns[idxB];
+        columns[idxB] = columnA;
+        columns[idxA] = columnB;
+        updateColumns([...columns]);
+    }
+
     const addCard = (columnIdx: number, item: ItemProps) => {
         columns[columnIdx].items.push(item);
         updateColumns([...columns]);
     }
 
-    const deleteCard = (columnIdx: number, itemIdx: number) => {
-        swal("Are you sure?", {
-            buttons: {
-                cancel: true,
-                confirm: true,
-            },
-        }).then(confirm => {
-            if (confirm) {
-                columns[columnIdx].items = columns[columnIdx].items.filter((_, idx) => idx !== itemIdx);
-                updateColumns([...columns]);
-            }
-        });
+    const removeCard = (columnIdx: number, itemIdx: number) => {
+        columns[columnIdx].items = columns[columnIdx].items.filter((_, idx) => idx !== itemIdx);
+        updateColumns([...columns]);
+    }
+
+    const deleteCard = (requiresConfirmation: boolean, columnIdx: number, itemIdx: number) => {
+        if (requiresConfirmation) {
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: true,
+                denyButtonText: `Delete`,
+                confirmButtonText: 'Cancel',
+            }).then(result => {
+                if (!result.isConfirmed) {
+                    removeCard(columnIdx, itemIdx);
+                    Swal.fire('Deleted!', '', 'success')
+                }
+            });
+            return;
+        }
+        removeCard(columnIdx, itemIdx);
     }
 
     const changeTitle = (columnIdx: number, title: string) => {
@@ -71,10 +88,12 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
             <div className="flex space-x-4 overflow-x-auto w-full py-8">
                 {columns?.map((column, idx: number) => (
                     <Column {...column}
+                        idx={idx}
+                        swap={(target: number) => swapColumns(idx, target)}
                         delete={() => removeColumn(idx)}
                         addCard={(item: ItemProps) => addCard(idx, item)}
                         changeTitle={(title: string) => changeTitle(idx, title)}
-                        deleteCard={(cardIdx: number) => deleteCard(idx, cardIdx)}
+                        deleteCard={(cardIdx: number, requiresConfirmation?: boolean) => deleteCard(!!requiresConfirmation, idx, cardIdx)}
                     />
                 ))}
             </div>

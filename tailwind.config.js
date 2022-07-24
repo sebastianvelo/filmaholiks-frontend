@@ -8,6 +8,7 @@ module.exports = {
       transitionProperty: {
         'width': 'width',
         'borderWidth': 'borderWidth',
+        'borderColor': 'borderColor',
         'letterSpacing': 'letterSpacing',
       },
       colors: {

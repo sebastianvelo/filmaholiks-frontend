@@ -17,6 +17,8 @@ const useFetch = <T extends Object>(
       error: null,
       loading: true
     });
+
+    if (!req.url) return;
     
     axios
       .request(req)

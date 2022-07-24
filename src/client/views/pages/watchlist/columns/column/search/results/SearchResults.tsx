@@ -18,7 +18,7 @@ const SearchResults: FunctionComponent<SearchResultsProps> = (props: SearchResul
             <Loading loading={props.loading}>
                 {props.items && (
                     <div className="space-y-4 bg-gradient-to-b from-secondary-dark to-black group-hover:block hidden w-full absolute h-96 overflow-y-auto p-2">
-                        <Headline className="text-2xl text-primary-light border-b-2 border-primary-dark">Results</Headline>
+                        <Headline className="text-2xl text-primary-light border-b-2 border-primary">Results</Headline>
                         {props.items?.map((item: ItemProps) => <ActionableItem item={item} action={() => props.addCard(item)} />)}
                     </div>
                 )}

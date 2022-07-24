@@ -1,7 +1,7 @@
 import Card, { CardProps } from "client/common/components/card/Card";
 import Carousel from "client/common/components/carousel/Carousel";
-import Headline from "client/common/components/headline/Headline";
 import { FunctionComponent } from "react";
+import Section from "../section/Section";
 
 export interface CardsSectionProps {
     id?: string;
@@ -16,13 +16,12 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
 
     const cards = (props.cards ?? skeletonCards)?.map(card => <Card {...card} key={card.title} />);
     return (
-        <section className={`px-4 pt-4 bg-gradient-to-t from-black to-secondary-dark space-y-4 border border-primary-dark`} >
-            <Headline className={`text-3xl text-primary-dark`}>{props.title}</Headline>
+        <Section title={props.title}>
             <div className={`${props.isGrid ? "block xl:hidden" : ""}`}>
                 <Carousel id={props.id!}>{cards}</Carousel>
             </div>
             {props.isGrid && <div className="hidden xl:grid grid-cols-7 gap-y-8 h-screen overflow-y-auto">{cards}</div>}
-        </section>
+        </Section>
     );
 }
 
