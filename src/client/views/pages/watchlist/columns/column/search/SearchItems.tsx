@@ -20,7 +20,7 @@ const SearchItems: FunctionComponent<SearchProps> = (props: SearchProps) => {
     };
 
     return (
-        <div className={`group h-full relative`}>
+        <div className={`group relative`}>
             <Input placeholder={`Add show`} onChange={handleSearch} />
             <SearchResults items={response?.data} loading={response?.loading} addCard={props.addCard} />
         </div>

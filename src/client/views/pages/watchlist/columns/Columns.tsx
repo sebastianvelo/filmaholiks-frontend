@@ -23,7 +23,7 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
 
     const removeColumn = (columnIdx: number) => {
         Swal.fire({
-            title: 'Do you want to save the changes?',
+            title: 'Ara you sure?',
             showDenyButton: true,
             denyButtonText: `Delete`,
             confirmButtonText: 'Cancel',
@@ -61,7 +61,7 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
     const deleteCard = (requiresConfirmation: boolean, columnIdx: number, itemIdx: number) => {
         if (requiresConfirmation) {
             Swal.fire({
-                title: 'Do you want to save the changes?',
+                title: 'Ara you sure?',
                 showDenyButton: true,
                 denyButtonText: `Delete`,
                 confirmButtonText: 'Cancel',

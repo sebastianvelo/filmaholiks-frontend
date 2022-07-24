@@ -4,6 +4,7 @@ import { SearchSvg } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import PageRoute from "client/routes/PageRoute";
 import { FunctionComponent, useState } from "react";
+import { useHistory } from "react-router";
 
 export interface SearchBarProps {
     placeholder?: string;
@@ -12,17 +13,21 @@ export interface SearchBarProps {
 
 const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => {
     const [query, setQuery] = useState<string>('');
+    const history = useHistory();
     const handleSearch = (e: any) => { setQuery(e.target.value); };
-    const path = `${props.path}`.replace(`:query`, query);
+    const handleSubmit = () => {
+        const path = `${props.path}`.replace(`:query`, query);
+        history.push(path);
+    }
     return (
-        <div className={`flex w-screen xl:-mx-32`}>
+        <form onSubmit={handleSubmit} className={`flex w-screen border-b-4 border-black`}>
             <Input placeholder={props.placeholder} onChange={handleSearch} />
             {query && (
-                <Action path={path} color={ComponentHovereableColor.PRIMARY} revert className={`px-4 py-2`}>
+                <Action onClick={handleSubmit} color={ComponentHovereableColor.SUCCESS} revert className={`px-4 py-2 xl:mr-4`}>
                     <SearchSvg />
                 </Action>
             )}
-        </div>
+        </form >
     );
 }
 

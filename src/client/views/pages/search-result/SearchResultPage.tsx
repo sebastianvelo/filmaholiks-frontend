@@ -21,7 +21,7 @@ const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (pro
     const page = useFetch<SearchResultPageProps>(props.getPage(query));
     document.title = page?.data?.title ?? "Loading...";
     return (
-        <div className="sm:space-y-4">
+        <div>
             <SearchBar {...page?.data?.searchbar} />
             <CardsSection {...(page?.data?.results)} />
         </div>
