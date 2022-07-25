@@ -19,26 +19,26 @@ const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) 
     return (
         <div>
             {props.searchbar && <SearchBar {...props.searchbar} />}
-            <section className={`h-full w-full justify-center`}>
+            <section className={`h-full w-full justify-center xl:px-28`}>
                 <Detail {...props.detail} />
-                    {props.sections && (
-                        <Tabs
-                            tabsClassName="bg-gradient-to-l from-secondary via-secondary-dark to-secondary-dark md:text-2xl font-bold"
-                            tabs={props.sections?.map(section => ({
-                                content: <CardsSection cards={section.cards} key={section.title} />,
-                                label: section.title ?? "error"
-                            }))}
-                        />
-                    )}
-                    {props.charts && (
-                        <Tabs
-                            tabsClassName="bg-gradient-to-l from-secondary via-secondary-dark to-secondary-dark md:text-2xl"
-                            tabs={props.charts?.map(chart => ({
-                                content: <ChartSection chart={chart.chart} key={chart.title} />,
-                                label: chart.title ?? "error"
-                            }))}
-                        />
-                    )}
+                {props.sections && (
+                    <Tabs
+                        tabsClassName=" md:text-2xl font-bold"
+                        tabs={props.sections?.map(section => ({
+                            content: <CardsSection cards={section.cards} key={section.title} />,
+                            label: section.title ?? "error"
+                        }))}
+                    />
+                )}
+                {props.charts && (
+                    <Tabs
+                        tabsClassName=" md:text-2xl"
+                        tabs={props.charts?.map(chart => ({
+                            content: <ChartSection chart={chart.chart} key={chart.title} />,
+                            label: chart.title ?? "error"
+                        }))}
+                    />
+                )}
             </section>
         </div>
     );

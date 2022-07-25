@@ -9,9 +9,9 @@ interface InputProps {
 
 const Input: FunctionComponent<InputProps> = (props: InputProps) => {
     const className = Tailwind.builder()
-        .add('bg-primary-dark text-black placeholder-opacity-40 placeholder-black px-4 py-2 w-full transition-color duration-500 cursor-pointer border-t-2 border-black')
-        .add('focus:bg-primary focus:border-secondary focus:outline-none')
-        .add('hover:bg-primary hover:border-secondary')
+        .add('bg-secondary placeholder-opacity-50 placeholder-light px-4 py-2 w-full transition-color duration-500 cursor-pointer')
+        .add('focus:bg-secondary-light focus:border-secondary-light focus:outline-none')
+        .add('hover:bg-secondary-light hover:border-secondary-light')
         .addIf(props.className, !!props.className)
         .build();
 

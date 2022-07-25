@@ -7,7 +7,7 @@ interface SectionProps {
 }
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => (
-    <section className={`px-4 py-4 bg-gradient-to-l from-secondary via-secondary-dark to-secondary-dark space-y-4`} >
+    <section className={`px-4 py-4  space-y-4`} >
         {props.title && <Headline className={`text-3xl text-primary`}>{props.title}</Headline>}
         {props.children}
     </section>

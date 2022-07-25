@@ -20,9 +20,12 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
     const page = useFetch<WatchlistPageProps>(props.getPage(user));
 
     return (
-        <Section title={"Watchlist"}>
-            <Columns columns={page?.data?.columns} />
-        </Section>
+        <div className="xl:px-28">
+            <Section title={"Watchlist"}>
+                <Columns columns={page?.data?.columns} />
+            </Section>
+        </div>
+
     );
 }
 

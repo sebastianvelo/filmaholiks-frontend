@@ -23,7 +23,9 @@ const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (pro
     return (
         <div>
             <SearchBar {...page?.data?.searchbar} />
-            <CardsSection {...(page?.data?.results)} />
+            <div className="xl:px-28">
+                <CardsSection {...(page?.data?.results)} />
+            </div>
         </div>
     );
 }

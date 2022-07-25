@@ -10,7 +10,7 @@ export interface DetailProps extends DetailPostersProps, DetailBodyProps {
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
     <>
-        <div className={`flex flex-col md:flex-row w-full bg-gradient-to-l from-secondary via-secondary-dark to-secondary-dark`}  >
+        <div className={`flex flex-col md:flex-row w-full `}  >
             <DetailPosters {...props} />
             <DetailBody {...props} />
         </div>
