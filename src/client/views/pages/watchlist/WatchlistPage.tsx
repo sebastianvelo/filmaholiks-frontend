@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from "axios";
+import Loading from "client/common/components/loading/Loading";
 import { UserParams } from "client/common/params/Params";
 import useFetch from "client/hooks/useFetch";
 import Section from "client/views/components/section/Section";
@@ -22,7 +23,9 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
     return (
         <div className="xl:px-28">
             <Section title={"Watchlist"}>
-                <Columns columns={page?.data?.columns} />
+                <Loading loading={page?.loading}>
+                    <Columns columns={page?.data?.columns!} />
+                </Loading>
             </Section>
         </div>
 

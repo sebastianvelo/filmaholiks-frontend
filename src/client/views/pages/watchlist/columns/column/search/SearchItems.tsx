@@ -2,7 +2,7 @@ import WatchlistPageRequest from "api/request/pages/WatchlistPageRequest";
 import Input from "client/common/components/form/input/Input";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent, useState } from "react";
-import { ItemProps } from "../item/Item";
+import { ItemProps } from "../actionable-item/item/Item";
 import SearchResults from "./results/SearchResults";
 
 interface SearchProps {

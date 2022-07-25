@@ -2,17 +2,17 @@ import { FunctionComponent, useState } from "react";
 import Swal from 'sweetalert2'
 import AddColumnButton from "./add-column-button/AddColumnButton";
 import Column, { ColumnProps } from "./column/Column";
-import { ItemProps } from "./column/item/Item";
+import { ItemProps } from "./column/actionable-item/item/Item";
 
 const getColumnsFromLocalStorage = () => JSON.parse(localStorage.getItem("columns") || "[]")
 const setColumnsInLocalStorage = (columns: ColumnProps[]) => localStorage.setItem("columns", JSON.stringify(columns));
 
 interface ColumnsProps {
-    columns?: ColumnProps[];
+    columns: ColumnProps[];
 }
 
-const Columns: FunctionComponent<ColumnsProps> = () => {
-    const [columns, setColumns] = useState<ColumnProps[]>(getColumnsFromLocalStorage());
+const Columns: FunctionComponent<ColumnsProps> = (props: ColumnsProps) => {
+    const [columns, setColumns] = useState<ColumnProps[]>(getColumnsFromLocalStorage() || props.columns);
 
     if (!columns) return <></>;
 
@@ -90,7 +90,7 @@ const Columns: FunctionComponent<ColumnsProps> = () => {
                     <Column {...column}
                         idx={idx}
                         swap={(target: number) => swapColumns(idx, target)}
-                        delete={() => removeColumn(idx)}
+                        deleteColumn={() => removeColumn(idx)}
                         addCard={(item: ItemProps) => addCard(idx, item)}
                         changeTitle={(title: string) => changeTitle(idx, title)}
                         deleteCard={(cardIdx: number, requiresConfirmation?: boolean) => deleteCard(!!requiresConfirmation, idx, cardIdx)}

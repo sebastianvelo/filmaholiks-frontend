@@ -2,7 +2,7 @@ import Headline from "client/common/components/headline/Headline";
 import Loading from "client/common/components/loading/Loading";
 import { FunctionComponent } from "react";
 import ActionableItem from "../../actionable-item/ActionableItem";
-import { ItemProps } from "../../item/Item";
+import { ItemProps } from "../../actionable-item/item/Item";
 
 interface SearchResultsProps {
     items?: ItemProps[] | null;

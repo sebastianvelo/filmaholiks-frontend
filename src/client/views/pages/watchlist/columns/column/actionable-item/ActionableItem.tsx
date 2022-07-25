@@ -1,7 +1,7 @@
 import Action from "client/common/components/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
-import Item, { ItemProps } from "../item/Item";
+import Item, { ItemProps } from "./item/Item";
 
 interface ActionableItemProps {
     item: ItemProps;

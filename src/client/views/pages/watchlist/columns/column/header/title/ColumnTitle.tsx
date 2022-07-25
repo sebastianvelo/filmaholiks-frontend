@@ -7,7 +7,7 @@ interface ColumnTitleProps {
 
 const ColumnTitle: FunctionComponent<ColumnTitleProps> = (props: ColumnTitleProps) =>
     <input
-        className="bg-transparent text-2xl font-black text-primary pl-4 py-2 decoration-double underline focus:outline-none"
+        className="bg-transparent text-3xl font-black text-primary pl-4 py-2"
         spellCheck="false"
         type="text"
         name={props.title}
