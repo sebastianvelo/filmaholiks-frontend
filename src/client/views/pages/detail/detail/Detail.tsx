@@ -9,7 +9,7 @@ export interface DetailProps extends DetailPostersProps, DetailBodyProps {
 }
 
 const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
-    <>
+    <div className="bg-gradient-to-t from-secondary to-secondary-dark md:border-r md:border-l border-b border-primary">
         <div className={`flex flex-col md:flex-row w-full `}  >
             <DetailPosters {...props} />
             <DetailBody {...props} />
@@ -17,7 +17,7 @@ const Detail: FunctionComponent<DetailProps> = (props: DetailProps) => (
         <div className={`justify-items-stretch grid grid-cols-1 lg:grid-cols-2 divide-y divide-primary-dark lg:divide-y-0`}>
             {props.actions?.map((action, index) => <Action key={index} {...action} />)}
         </div>
-    </>
+    </div>
 )
 
 export default Detail;

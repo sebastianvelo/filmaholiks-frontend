@@ -8,7 +8,7 @@ export interface ColumnBodyProps {
 }
 
 const ColumnBody: FunctionComponent<ColumnBodyProps> = (props: ColumnBodyProps) => (
-    <div className="space-y-4 h-96 overflow-y-auto px-2 py-4 border-b border-t-2 border-primary resize-y">
+    <div className="space-y-4 overflow-y-auto px-2 py-4">
         {props.items.map((item: ItemProps, idx: number) => (
             <ActionableItem
                 key={item.title + idx}

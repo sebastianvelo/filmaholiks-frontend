@@ -10,7 +10,7 @@ export interface ColumnHeaderProps {
 }
 
 const ColumnHeader: FunctionComponent<ColumnHeaderProps> = (props: ColumnHeaderProps) => (
-    <div className="flex justify-between">
+    <div className="flex justify-between w-full">
         <ColumnTitle title={props.title} changeTitle={props.changeTitle} />
         <Action className="w-8 h-6 font-bold rounded-bl-md" onClick={props.deleteColumn} label="X" color={ComponentHovereableColor.DANGER} revert />
     </div>

@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from "axios";
+import Headline from "client/common/components/headline/Headline";
 import Loading from "client/common/components/loading/Loading";
 import { UserParams } from "client/common/params/Params";
 import useFetch from "client/hooks/useFetch";
-import Section from "client/views/components/section/Section";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import { ColumnProps } from "./columns/column/Column";
@@ -21,14 +21,12 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
     const page = useFetch<WatchlistPageProps>(props.getPage(user));
 
     return (
-        <div className="xl:px-28">
-            <Section title={"Watchlist"}>
-                <Loading loading={page?.loading}>
-                    <Columns columns={page?.data?.columns!} />
-                </Loading>
-            </Section>
-        </div>
-
+        <Loading loading={page?.loading}>
+            <div className="px-32 space-y-8 pt-8">
+                <Headline className={`text-5xl text-primary`}>Watchlist</Headline>
+                <Columns columns={page?.data?.columns!} />
+            </div>
+        </Loading>
     );
 }
 

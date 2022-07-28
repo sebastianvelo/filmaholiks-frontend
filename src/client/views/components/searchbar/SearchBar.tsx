@@ -20,7 +20,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => 
         history.push(path);
     }
     return (
-        <form onSubmit={handleSubmit} className={`flex w-screen border-b-4 border-black`}>
+        <form onSubmit={handleSubmit} className={`flex w-screen`}>
             <Input placeholder={props.placeholder} onChange={handleSearch} />
             {query && (
                 <Action onClick={handleSubmit} color={ComponentHovereableColor.SUCCESS} revert className={`px-4 py-2 xl:mr-4`}>

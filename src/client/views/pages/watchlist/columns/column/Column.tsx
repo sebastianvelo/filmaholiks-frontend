@@ -31,9 +31,14 @@ const Column: FunctionComponent<ColumnProps> = (props: ColumnProps) => {
     };
 
     return (
-        <section draggable="true" onDrop={onDrop} onDragStart={onDragStart} onDragOver={onDragOver} className="bg-gradient-to-b from-secondary-dark to-black rounded-sm h-5/6 shadow-2xl max-w-1/3 md:border-l md:border-r md:border-t-4 ">
-            <ColumnHeader {...props} />
+        <section
+            className="bg-gradient-to-t from-black to-secondary-dark rounded-sm shadow-2xl h-screen border border-primary-dark flex flex-col justify-start"
+            draggable="true"
+            onDrop={onDrop}
+            onDragStart={onDragStart}
+            onDragOver={onDragOver}>
             <SearchItems addCard={props.addCard} />
+            <ColumnHeader {...props} />
             <ColumnBody {...props} />
         </section>
     );

@@ -15,11 +15,11 @@ export interface CardProps {
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const className = Tailwind.builder()
         .add(`flex-none flex flex-col space-y-2 justify-between`)
-        .add(`w-32 sm:w-48 shadow-lg bg-gradient-to-b from-black via-secondary to-black`)
+        .add(`w-44 sm:w-48 shadow-lg bg-gradient-to-b from-secondary-dark to-black`)
         .add(`transform`)
         .add(`hover:scale-110`)
         .add(`transition-all ease-in duration-200`)
-        .add(`border border-primary rounded-sm text-center`)
+        .add(`border border-primary hover:border-primary-dark rounded-sm text-center group`)
         .build();
 
 return (
@@ -30,7 +30,7 @@ return (
                 </Action>
             }
             <div>
-                <Headline className={`truncate text-md px-2`}>
+                <Headline className={`truncate text-md px-2 group-hover:text-primary-dark`}>
                     <Action path={props.path} label={props.title} revert />
                 </Headline>
                 <Text className={`pb-1`}>{props.subtitle}</Text>
