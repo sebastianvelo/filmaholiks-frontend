@@ -1,10 +1,10 @@
 import { AxiosRequestConfig } from "axios";
-import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CardsSection";
-import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
+import { QueryParams } from "client/common/params/Params";
 import useFetch from "client/hooks/useFetch";
+import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
-import { QueryParams } from "client/common/params/Params";
+import SearchResultPageBody, { SearchResultPageBodyProps } from "./body/SearchResultPageBody";
 
 export interface SearchResultPageBlueprintProps {
     getPage: (query: string) => AxiosRequestConfig<SearchResultPageProps>;
@@ -13,20 +13,19 @@ export interface SearchResultPageBlueprintProps {
 export interface SearchResultPageProps {
     title: string;
     searchbar: SearchBarProps;
-    results: CardsSectionProps;
+    body: SearchResultPageBodyProps;
 }
 
 const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (props: SearchResultPageBlueprintProps) => {
     const { query }: QueryParams = useParams();
     const page = useFetch<SearchResultPageProps>(props.getPage(query));
     document.title = page?.data?.title ?? "Loading...";
+    
     return (
-        <div>
+        <>
             <SearchBar {...page?.data?.searchbar} />
-            <div className="xl:px-28">
-                <CardsSection {...(page?.data?.results)} />
-            </div>
-        </div>
+            <SearchResultPageBody {...page?.data?.body} />
+        </>
     );
 }
 

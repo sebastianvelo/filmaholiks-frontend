@@ -1,3 +1,4 @@
+import Image, { ImageProps } from "client/common/components/image/Image";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
@@ -28,11 +29,10 @@ const getClassName = (value: number) => Tailwind.builder()
     .build();
 
 const getEpisodeNameClassName = () => Tailwind.builder()
-    .add("hidden group-hover:block text-primary")
+    .add("hidden group-hover:flex flex-col justify-between text-primary")
     .add("absolute left-30 z-20")
     .add("bg-gradient-to-tl from-secondary-dark to-black")
     .add("font-bold p-2 rounded-sm w-64")
-    .add("border-2 border-primary")
     .build();
 
 export interface ChartBodyCellProps {
@@ -40,6 +40,7 @@ export interface ChartBodyCellProps {
     value: string;
     href: string;
     title: string;
+    image: ImageProps;
 }
 
 const ChartBodyCell: FunctionComponent<ChartBodyCellProps> = (props: ChartBodyCellProps) => {
@@ -49,6 +50,7 @@ const ChartBodyCell: FunctionComponent<ChartBodyCellProps> = (props: ChartBodyCe
             {props.value}
             <div className={getEpisodeNameClassName()}>
                 {props.title}
+                <Image className="w-64" {...props.image} />
             </div>
         </a>
     );
