@@ -14,7 +14,7 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
     const skeletonCards = Array(10).fill({ loading: true });
     if (props.cards && !props.cards.length) return <></>;
 
-    const cards = (props.cards ?? skeletonCards)?.map(card => <Card {...card} key={card.title} />);
+    const cards = (props.cards ?? skeletonCards)?.map((card, i) => <Card {...card} key={`card${i}${card.title}`} />);
     return (
         <Section title={props.title}>
             <div className={`${props.isGrid ? "block xl:hidden" : ""}`}>

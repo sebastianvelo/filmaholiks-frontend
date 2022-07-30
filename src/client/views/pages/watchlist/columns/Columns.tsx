@@ -18,6 +18,7 @@ const Columns: FunctionComponent<ColumnsProps> = (props: ColumnsProps) => {
             <Carousel id="watchlist">
                 {service.columns.value?.map((column, idx: number) => (
                     <Column {...column}
+                        key={column.title}
                         idx={idx}
                         swap={(target: number) => service.columns.swap(idx, target)}
                         deleteColumn={() => service.columns.delete(idx)}

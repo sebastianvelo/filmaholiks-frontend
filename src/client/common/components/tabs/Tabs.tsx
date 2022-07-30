@@ -25,14 +25,14 @@ const Tabs: FunctionComponent<TabsProps> = (props: TabsProps) => {
         <div className={className}>
             <div className={tabsClassName}>
                 {props.tabs.map((tab, i) => (
-                    <Button onClick={() => setTabActive(i)}>
+                    <Button onClick={() => setTabActive(i)} key={`tabHeader-${tab.label}`}>
                         <Tab label={tab.label} key={i} active={tabActive === i} />
                     </Button>
                 ))}
             </div>
             <div>
                 {props.tabs.map((tab, i) =>
-                    <TabContent key={i} active={tabActive === i}>
+                    <TabContent active={tabActive === i} key={`tabContent-${tab.label}`}>
                         {tab.content}
                     </TabContent>
                 )}

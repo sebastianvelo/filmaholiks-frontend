@@ -31,4 +31,8 @@
     border-radius: 1px;
     border: 0px solid #ffffff;
   }
+
+  .brand {
+    font-family: 'Lobster', cursive;
+  }
 }
