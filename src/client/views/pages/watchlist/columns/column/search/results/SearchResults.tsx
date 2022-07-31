@@ -1,5 +1,5 @@
-import Headline from "client/common/components/headline/Headline";
 import Loading from "client/common/components/loading/Loading";
+import Section from "client/views/components/section/Section";
 import { FunctionComponent } from "react";
 import ActionableItem from "../../actionable-item/ActionableItem";
 import { ItemProps } from "../../actionable-item/item/Item";
@@ -17,10 +17,9 @@ const SearchResults: FunctionComponent<SearchResultsProps> = (props: SearchResul
         <div className={getWrapperClassName()}>
             <Loading loading={props.loading}>
                 {props.items && (
-                    <div className="space-y-4 bg-gradient-to-b from-secondary-dark to-black group-hover:block hidden w-full absolute h-96 overflow-y-auto p-2">
-                        <Headline className="text-2xl text-primary-light border-b-2 border-primary">Results</Headline>
+                    <Section title="Results">
                         {props.items?.map((item: ItemProps) => <ActionableItem item={item} action={() => props.addCard(item)} />)}
-                    </div>
+                    </Section>
                 )}
             </Loading>
         </div>

@@ -10,14 +10,16 @@ module.exports = {
         'borderWidth': 'borderWidth',
         'borderColor': 'borderColor',
         'letterSpacing': 'letterSpacing',
+        'backgroundOpacity': 'backgroundOpacity',
+        'opacity': 'opacity'
       },
       colors: {
         teal: colors.teal,
         orange: colors.orange,
         primary: {
-          light: colors.emerald[50],
-          DEFAULT: colors.emerald[100],
-          dark: colors.emerald[200],
+          light: '#ffffff',
+          DEFAULT: '#faeca7',
+          dark: '#f6db58',
         },
         secondary: {
           light: "#2C76A0",
@@ -58,7 +60,8 @@ module.exports = {
       ringColor: ['hover'],
       letterSpacing: ['hover', 'focus'],
       borderWidth: ['hover'],
-      display: ['group-hover']
+      display: ['group-hover'],
+      opacity: ['group-hover']
     },
   },
   plugins: [],

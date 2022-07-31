@@ -1,21 +1,18 @@
-import Action from "client/common/components/action/Action";
-import ActionProps from "client/common/components/action/ActionProps";
 import { FunctionComponent } from "react";
+import DetailActions, { DetailActionsProps } from "./actions/DetailActions";
 import DetailBody, { DetailBodyProps } from "./body/DetailBody";
 import DetailPosters, { DetailPostersProps } from "./posters/DetailPosters";
 
-export interface DetailProps extends DetailPostersProps, DetailBodyProps {
-    actions?: ActionProps[];
+export interface DetailHeaderProps extends DetailPostersProps, DetailBodyProps {
+    actions?: DetailActionsProps;
 }
 
-const DetailHeader: FunctionComponent<DetailProps> = (props: DetailProps) => (
+const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => (
     <div className="bg-gradient-to-t from-secondary to-secondary-dark md:border-r md:border-l border-b border-primary">
         <div className={`flex flex-col md:flex-row w-full `}  >
             <DetailPosters {...props} />
             <DetailBody {...props} />
-        </div>
-        <div className={`justify-items-stretch grid grid-cols-1 lg:grid-cols-2 divide-y divide-primary-dark lg:divide-y-0`}>
-            {props.actions?.map((action, index) => <Action key={index} {...action} />)}
+            <DetailActions {...props.actions} />
         </div>
     </div>
 );

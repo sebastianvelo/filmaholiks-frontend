@@ -1,3 +1,4 @@
+import WatchlistService from "client/service/WatchlistService";
 import { FunctionComponent } from "react";
 import { ItemProps } from "./actionable-item/item/Item";
 import ColumnBody, { ColumnBodyProps } from "./body/ColumnBody";
@@ -6,7 +7,7 @@ import SearchItems from "./search/SearchItems";
 
 export interface ColumnProps extends ColumnHeaderProps, ColumnBodyProps {
     idx: number;
-    swap: (target: number) => void;
+    swapColumns: (target: number) => void;
     addCard: (item: ItemProps) => void;
 }
 
@@ -17,17 +18,12 @@ const Column: FunctionComponent<ColumnProps> = (props: ColumnProps) => {
 
     const onDrop: React.DragEventHandler<HTMLElement> = (event) => {
         event.preventDefault();
-        if (event.dataTransfer.getData("item")) {
-            const data: ItemProps = JSON.parse(event.dataTransfer.getData("item"));
-            props.addCard(data);
-        } else if (event.dataTransfer.getData("column")) {
-            const target: number = +event.dataTransfer.getData("column");
-            props.swap(target);
-        }
+        WatchlistService.handleAddCard(event, props.addCard);
+        WatchlistService.handleSwapColumns(event, props.swapColumns);
     };
 
     const onDragStart: React.DragEventHandler<HTMLDivElement> = (e) => {
-        e.dataTransfer.setData("column", `${props.idx}`);
+        WatchlistService.setColumnFromEvent(e, props.idx);
     };
 
     return (

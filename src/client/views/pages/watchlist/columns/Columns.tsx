@@ -20,7 +20,7 @@ const Columns: FunctionComponent<ColumnsProps> = (props: ColumnsProps) => {
                     <Column {...column}
                         key={column.title}
                         idx={idx}
-                        swap={(target: number) => service.columns.swap(idx, target)}
+                        swapColumns={(target: number) => service.columns.swap(idx, target)}
                         deleteColumn={() => service.columns.delete(idx)}
                         addCard={(item: ItemProps) => service.cards.add(idx, item)}
                         changeTitle={(title: string) => service.columns.changeTitle(idx, title)}
