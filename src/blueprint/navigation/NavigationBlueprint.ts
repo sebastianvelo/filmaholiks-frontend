@@ -22,7 +22,7 @@ const navigationBlueprint = (): NavigationProps => ({
     },
     {
       label: "Watch list",
-      path: PageRoute.WATCH_LIST_LOGGED_IN
+      path: PageRoute.WATCH_LIST_BY_USER.replace(":user", "my")
     },
    /* {
       label: "Login",

@@ -15,7 +15,7 @@ enum PageRoute {
   SEASON_DETAIL = "/show/:id/s/:season",
   EPISODE_DETAIL = "/show/:id/s/:season/e/:episode",
   WATCH_LIST_LOGGED_IN = "/user/my/watch-list",
-  WATCH_LIST_BY_USER = "/user/:user/watch-list/:user"
+  WATCH_LIST_BY_USER = "/user/:user/watch-list"
 }
 
 export default PageRoute;

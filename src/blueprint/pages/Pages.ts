@@ -11,7 +11,7 @@ import { HomePageBlueprint } from "./home/HomePageBlueprint";
 import {
   MovieSearchResultPageBlueprint, PersonSearchResultPageBlueprint, ShowSearchResultPageBlueprint
 } from "./search-result/SearchResultPageBlueprint";
-import { WatchlistLoggedinPageBlueprint, WatchlistPageBlueprint } from "./watchlist/WatchlistPageBlueprint";
+import { WatchlistPageBlueprint } from "./watchlist/WatchlistPageBlueprint";
 
 const Pages = [
   HomePageBlueprint,
@@ -30,9 +30,9 @@ const Pages = [
   ShowSearchResultPageBlueprint,
   PersonSearchResultPageBlueprint,
 
-  WatchlistLoggedinPageBlueprint,
+
   WatchlistPageBlueprint,
-  
+
   ErrorPageBlueprint
 ];
 

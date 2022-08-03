@@ -1,5 +1,6 @@
+import Headline from "client/common/components/headline/Headline";
 import Loading from "client/common/components/loading/Loading";
-import Section from "client/views/components/section/Section";
+import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 import ActionableItem from "../../actionable-item/ActionableItem";
 import { ItemProps } from "../../actionable-item/item/Item";
@@ -11,15 +12,19 @@ interface SearchResultsProps {
 }
 
 const SearchResults: FunctionComponent<SearchResultsProps> = (props: SearchResultsProps) => {
-    const getWrapperClassName = () => props.loading ? "w-full flex items-center h-96 justify-center absolute" : "";
+    const className = Tailwind.builder()
+        .addIf("w-full bg-black flex items-center justify-center absolute bg-gradient-to-t from-secondary to-secondary-dark", props.loading)
+        .add("hidden group-hover:flex w-full absolute left-0 h-96")
+        .build();
 
     return (
-        <div className={getWrapperClassName()}>
+        <div className={className}>
             <Loading loading={props.loading}>
                 {props.items && (
-                    <Section title="Results">
+                    <section className={`px-4 py-4 space-y-4 bg-gradient-to-t from-secondary to-secondary-dark w-full h-full overflow-y-scroll z-50`} >
+                        <Headline className={`text-5xl`}>Results</Headline>
                         {props.items?.map((item: ItemProps) => <ActionableItem item={item} action={() => props.addCard(item)} />)}
-                    </Section>
+                    </section>
                 )}
             </Loading>
         </div>

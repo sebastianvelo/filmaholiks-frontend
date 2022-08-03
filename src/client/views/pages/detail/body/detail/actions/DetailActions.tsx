@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
-import AddToWatchlist, { AddToWatchlistProps } from "./add-to-watchlist/AddToWatchlist";
+import WatchlistButton, { WatchlistButtonProps } from "./watchlist/WatchlistButton";
 
 export interface DetailActionsProps {
-    addToWatchlist?: AddToWatchlistProps;
+    watchlistButton?: WatchlistButtonProps;
 }
 
 const DetailActions: FunctionComponent<DetailActionsProps> = (props: DetailActionsProps) => (
-    <div className="flex">
-        {props.addToWatchlist && <AddToWatchlist {...props.addToWatchlist} />}
+    <div className="flex md:pl-8 md:py-2 w-full">
+        {props.watchlistButton && <WatchlistButton {...props.watchlistButton} />}
     </div>
 );
 

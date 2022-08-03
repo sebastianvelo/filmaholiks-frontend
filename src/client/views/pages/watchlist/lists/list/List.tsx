@@ -1,17 +1,17 @@
 import WatchlistService from "client/service/WatchlistService";
 import { FunctionComponent } from "react";
 import { ItemProps } from "./actionable-item/item/Item";
-import ColumnBody, { ColumnBodyProps } from "./body/ColumnBody";
-import ColumnHeader, { ColumnHeaderProps } from "./header/ColumnHeader";
+import ListBody, { ListBodyProps } from "./body/ListBody";
+import ListHeader, { ListHeaderProps } from "./header/ListHeader";
 import SearchItems from "./search/SearchItems";
 
-export interface ColumnProps extends ColumnHeaderProps, ColumnBodyProps {
+export interface ListProps extends ListHeaderProps, ListBodyProps {
     idx: number;
-    swapColumns: (target: number) => void;
+    swapLists: (target: number) => void;
     addCard: (item: ItemProps) => void;
 }
 
-const Column: FunctionComponent<ColumnProps> = (props: ColumnProps) => {
+const List: FunctionComponent<ListProps> = (props: ListProps) => {
     const onDragOver: React.DragEventHandler<HTMLElement> = (event) => {
         event.preventDefault();
     };
@@ -19,7 +19,7 @@ const Column: FunctionComponent<ColumnProps> = (props: ColumnProps) => {
     const onDrop: React.DragEventHandler<HTMLElement> = (event) => {
         event.preventDefault();
         WatchlistService.handleAddCard(event, props.addCard);
-        WatchlistService.handleSwapColumns(event, props.swapColumns);
+        WatchlistService.handleSwapColumns(event, props.swapLists);
     };
 
     const onDragStart: React.DragEventHandler<HTMLDivElement> = (e) => {
@@ -28,16 +28,13 @@ const Column: FunctionComponent<ColumnProps> = (props: ColumnProps) => {
 
     return (
         <section
-            className="bg-gradient-to-t from-black to-secondary-dark rounded-sm shadow-2xl h-screen border border-primary-dark flex flex-col justify-start"
-            draggable="true"
-            onDrop={onDrop}
-            onDragStart={onDragStart}
-            onDragOver={onDragOver}>
+            className="bg-gradient-to-t from-black to-secondary-dark rounded-sm shadow-2xl h-screen flex flex-col justify-start border border-primary-dark"
+            onDrop={onDrop}>
             <SearchItems addCard={props.addCard} />
-            <ColumnHeader {...props} />
-            <ColumnBody {...props} />
+            <ListHeader {...props} />
+            <ListBody {...props} onDragOver={onDragOver} onDragStart={onDragStart} />
         </section>
     );
 }
 
-export default Column;
+export default List;

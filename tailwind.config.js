@@ -17,14 +17,14 @@ module.exports = {
         teal: colors.teal,
         orange: colors.orange,
         primary: {
-          light: '#ffffff',
-          DEFAULT: '#faeca7',
-          dark: '#f6db58',
+          light: '#EFFFFD',
+          DEFAULT: '#B8FFF9',
+          dark: '#39edff',
         },
         secondary: {
-          light: "#2C76A0",
-          DEFAULT: "#1B4965",
-          dark: "#0D2330",
+          light: "#064663",
+          DEFAULT: "#04293A",
+          dark: "#041C32",
         },
         success: {
           DEFAULT: colors.green[700],

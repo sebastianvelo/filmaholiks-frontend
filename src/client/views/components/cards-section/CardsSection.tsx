@@ -20,7 +20,7 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
             <div className={`${props.isGrid ? "block xl:hidden" : ""}`}>
                 <Carousel id={props.id!}>{cards}</Carousel>
             </div>
-            {props.isGrid && <div className="hidden xl:grid grid-cols-5 2xl:grid-cols-7 gap-y-8  overflow-y-auto">{cards}</div>}
+            {props.isGrid && <div className="hidden xl:grid grid-cols-5 2xl:grid-cols-7 gap-y-8 overflow-y-auto">{cards}</div>}
         </Section>
     );
 }

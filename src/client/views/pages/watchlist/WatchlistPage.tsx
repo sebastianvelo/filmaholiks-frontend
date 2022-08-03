@@ -1,19 +1,19 @@
 import { AxiosRequestConfig } from "axios";
-import Headline from "client/common/components/headline/Headline";
 import Loading from "client/common/components/loading/Loading";
 import { UserParams } from "client/common/params/Params";
 import useFetch from "client/hooks/useFetch";
+import Section from "client/views/components/section/Section";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
-import { ColumnProps } from "./columns/column/Column";
-import Columns from "./columns/Columns";
+import { ListProps } from "./lists/list/List";
+import Lists from "./lists/Lists";
 
 export interface WatchlistPageBlueprintProps {
     getPage: (user: string) => AxiosRequestConfig<WatchlistPageProps>;
 }
 
 export interface WatchlistPageProps {
-    columns: ColumnProps[];
+    lists: ListProps[];
 }
 
 const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: WatchlistPageBlueprintProps) => {
@@ -22,9 +22,10 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
 
     return (
         <Loading loading={page?.loading}>
-            <div className="px-32 space-y-8 pt-8">
-                <Headline className={`text-5xl text-primary`}>Watchlist</Headline>
-                <Columns columns={page?.data?.columns!} />
+            <div className="px-28 py-8">
+                <Section title={`Watchlist of ${user}`}>
+                    <Lists lists={page?.data?.lists!} />
+                </Section>
             </div>
         </Loading>
     );

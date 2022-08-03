@@ -30,7 +30,7 @@ const ChartBody: FunctionComponent<ChartBodyProps> = (props: ChartBodyProps) => 
                     {column.map((cell, cellIdx) =>
                         <ChartBodyCell
                             {...cell}
-                            isTopHalf={cellIdx <= column.length / 2}
+                            isTopHalf={cellIdx < 4 || cellIdx <= column.length / 2}
                             isLeftHalf={columnIdx < 5 || columnIdx <= props.body!.ratings.length / 2}
                             isOpened={opened[columnIdx][cellIdx]}
                             toggle={() => toggle(columnIdx, cellIdx)}

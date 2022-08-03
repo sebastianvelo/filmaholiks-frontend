@@ -12,7 +12,7 @@ export interface DetailBodyProps {
 }
 
 const DetailBody: FunctionComponent<DetailBodyProps> = (props: DetailBodyProps) => (
-    <div className={`md:w-3/4 2xl:w-4/5 flex flex-col justify-between p-4`}>
+    <div className={`flex flex-col justify-between md:p-4 h-full`}>
         <div>
             {props.header && <DetailHeader {...props.header} />}
             {props.description && <DetailDescription {...props.description} />}

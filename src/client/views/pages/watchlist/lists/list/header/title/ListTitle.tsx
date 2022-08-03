@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 
-interface ColumnTitleProps {
+interface ListTitleProps {
     title?: string;
     changeTitle: (title: string) => void;
 }
 
-const ColumnTitle: FunctionComponent<ColumnTitleProps> = (props: ColumnTitleProps) =>
+const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
     <input
-        className="bg-transparent text-3xl font-black text-primary-dark pl-4 py-2 focus:outline-none"
+        className="bg-transparent text-4xl font-black text-light pl-4 py-2 focus:outline-none cursor-text w-96"
         spellCheck="false"
         type="text"
         name={props.title}
@@ -15,4 +15,4 @@ const ColumnTitle: FunctionComponent<ColumnTitleProps> = (props: ColumnTitleProp
         onChange={(e) => props.changeTitle(e.target.value)}
     />
 
-export default ColumnTitle;
+export default ListTitle;

@@ -1,4 +1,4 @@
-import { ItemProps } from "client/views/pages/watchlist/columns/column/actionable-item/item/Item";
+import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
 
 class WatchlistService {
     private static ITEM_KEY = "item";
