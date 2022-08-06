@@ -22,7 +22,7 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
 
     return (
         <Loading loading={page?.loading}>
-            <div className="px-28 py-8">
+            <div className="2xl:px-28 py-8">
                 <Section title={`Watchlist of ${user}`}>
                     <Lists lists={page?.data?.lists!} />
                 </Section>

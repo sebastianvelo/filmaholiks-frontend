@@ -14,17 +14,19 @@ const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
 
     return (
         <>
-            <AddListButton addColumn={service.lists.add} />
+            <AddListButton addColumn={service.list.add} />
             <Carousel id="watchlist">
-                {service.lists.value?.map((column, idx: number) => (
+                {service.list.value?.map((column, idx: number) => (
                     <List {...column}
                         key={column.title}
-                        idx={idx}
-                        swapLists={(target: number) => service.lists.swap(idx, target)}
-                        deleteColumn={() => service.lists.delete(idx)}
-                        addCard={(item: ItemProps) => service.cards.add(idx, item)}
-                        changeTitle={(title: string) => service.lists.changeTitle(idx, title)}
-                        deleteCard={(cardIdx: number, requiresConfirmation?: boolean) => service.cards.delete(!!requiresConfirmation, idx, cardIdx)}
+                        listIdx={idx}
+                        swapLists={(targetListIdx: number) => service.list.swap(idx, targetListIdx)}
+                        swapItems={(itemIdx: number, targetItemIdx: number) => service.item.swap(idx, itemIdx, targetItemIdx)}
+                        deleteColumn={() => service.list.delete(idx)}
+                        addItem={(item: ItemProps) => service.item.add(idx, item)}
+                        changeTitle={(title: string) => service.list.changeTitle(idx, title)}
+                        deleteItem={(cardIdx: number, requiresConfirmation?: boolean) => service.item.delete(!!requiresConfirmation, idx, cardIdx)}
+                        deleteItemOfOtherList={(columnIdx: number, cardIdx: number) => service.item.delete(true, columnIdx, cardIdx)}
                     />
                 ))}
             </Carousel>

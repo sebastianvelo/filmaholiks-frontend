@@ -2,10 +2,7 @@ import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-it
 import { ListProps } from "client/views/pages/watchlist/lists/list/List";
 import { useState } from "react";
 import Swal, { SweetAlertResult } from 'sweetalert2';
-
-export const getListsFromLocalStorage = (): ListProps[] => JSON.parse(localStorage.getItem("columns") || "[]");
-
-export const setListsInLocalStorage = (columns: ListProps[]) => localStorage.setItem("columns", JSON.stringify(columns));
+import WatchlistService from "client/service/WatchlistService";
 
 const requireConfirmation = (config: { title: string, cback: (result: SweetAlertResult<any>) => void }) => {
     Swal.fire({
@@ -16,43 +13,13 @@ const requireConfirmation = (config: { title: string, cback: (result: SweetAlert
     }).then(config.cback);
 };
 
-const saveCard = (columns: ListProps[], columnIdx: number, item: ItemProps, updateColumns: (newColumns: ListProps[]) => void) => {
-    columns[columnIdx].items.push(item);
-    updateColumns([...columns]);
-};
-
-const deleteCard = (columns: ListProps[], columnIdx: number, itemIdx: number, updateColumns: (newColumns: ListProps[]) => void) => {
-    columns[columnIdx].items = columns[columnIdx].items.filter((_, idx) => idx !== itemIdx);
-    updateColumns([...columns]);
-};
-
-
-export const getItemFromLocalStorage = (query?: string): { itemIdx: number, columnIdx: number } | undefined => {
-    const columns = getListsFromLocalStorage();
-    const columnIdx = columns.findIndex(column => column.items.some(item => item.title === query));
-    if (columnIdx === -1) return undefined;
-    const itemIdx = columns[columnIdx].items.findIndex(item => item.title === query);
-    return {
-        itemIdx,
-        columnIdx,
-    };
-};
-
-export const saveCardInLocalStorage = (columnIdx: number, item: ItemProps) => saveCard(getListsFromLocalStorage(), columnIdx, item, setListsInLocalStorage);
-export const deleteCardInLocalStorage = (columnIdx: number, itemIdx: number) => deleteCard(getListsFromLocalStorage(), columnIdx, itemIdx, setListsInLocalStorage);
-export const deleteCardInLocalStorageByName = (query?: string) => {
-    const item = getItemFromLocalStorage(query);
-    if (!item) return;
-    deleteCardInLocalStorage(item.columnIdx, item.itemIdx);
-};
-export const existsInLocalStorageByName = (query?: string) => getItemFromLocalStorage(query) !== undefined;
-
 const useWatchlist = (apiColumns: ListProps[]) => {
-    const [lists, setLists] = useState<ListProps[]>(getListsFromLocalStorage().length ? getListsFromLocalStorage() : apiColumns);
+    const listsFromLS = WatchlistService.fromLocalStorage.list.retrieve();
+    const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiColumns);
 
     const updateLists = (newColumns: ListProps[]) => {
         setLists([...newColumns]);
-        setListsInLocalStorage([...newColumns]);
+        WatchlistService.fromLocalStorage.list.save([...newColumns]);
     };
 
     const changeListTitle = (columnIdx: number, title: string) => {
@@ -87,44 +54,45 @@ const useWatchlist = (apiColumns: ListProps[]) => {
         updateLists([...lists]);
     };
 
-    const addCard = (columnIdx: number, item: ItemProps) => saveCard(lists, columnIdx, item, updateLists);
+    const addItem = (columnIdx: number, item: ItemProps) =>
+        WatchlistService.item.save(lists, columnIdx, item, updateLists);
 
-    const removeCard = (requiresConfirmation: boolean, columnIdx: number, itemIdx: number) => {
+    const deleteItem = (requiresConfirmation: boolean, columnIdx: number, itemIdx: number) => {
         if (!requiresConfirmation) {
-            deleteCard(lists, columnIdx, itemIdx, updateLists);
+            WatchlistService.item.delete(lists, columnIdx, itemIdx, updateLists);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    deleteCard(lists, columnIdx, itemIdx, updateLists);
+                    WatchlistService.item.delete(lists, columnIdx, itemIdx, updateLists);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
         });
     };
 
-    const swapCards = (columnA: number, idxA: number, columnB: number, idxB: number) => {
-        const itemA = lists[columnA].items[idxA];
-        const itemB = lists[columnB].items[idxB];
-        lists[columnA].items[idxA] = itemB;
-        lists[columnA].items[idxB] = itemA;
+    const swapItems = (list: number, idxA: number, idxB: number) => {
+        const itemA = lists[list].items[idxA];
+        const itemB = lists[list].items[idxB];
+        lists[list].items[idxB] = itemA;
+        lists[list].items[idxA] = itemB;
         updateLists([...lists]);
     };
 
     return {
-        lists: {
+        list: {
             value: lists,
             changeTitle: changeListTitle,
             swap: swapLists,
             add: addList,
             delete: deleteList,
         },
-        cards: {
-            delete: removeCard,
-            add: addCard,
-            swap: swapCards,
+        item: {
+            delete: deleteItem,
+            add: addItem,
+            swap: swapItems,
         }
     };
 };

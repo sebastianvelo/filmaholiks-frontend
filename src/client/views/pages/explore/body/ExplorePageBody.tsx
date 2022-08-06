@@ -6,7 +6,7 @@ export interface ExplorePageBodyProps {
 }
 
 const ExplorePageBody: FunctionComponent<ExplorePageBodyProps> = (props: ExplorePageBodyProps) => (
-    <div className="2xl:px-20 3xl:px-28 space-y-8">
+    <div className="2xl:px-16  space-y-8">
         {props.sections?.map(section => <CardsSection {...section} key={section.title} />)}
     </div>
 )

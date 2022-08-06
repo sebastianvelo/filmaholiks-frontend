@@ -6,23 +6,36 @@ import { ItemProps } from "../actionable-item/item/Item";
 import SearchResults from "./results/SearchResults";
 
 interface SearchProps {
-    addCard: (item: ItemProps) => void
+    addItem: (item: ItemProps) => void
+    deleteItem: (listIdx: number, idx: number, requiresConfirmation?: boolean) => void;
 }
 
 const SearchItems: FunctionComponent<SearchProps> = (props: SearchProps) => {
-    const [url, setUrl] = useState(WatchlistPageRequest.showsSuggestions(''));
+    const [query, setQuery] = useState('');
+    const [url, setUrl] = useState(WatchlistPageRequest.showsSuggestions(query));
     const response = useFetch<ItemProps[]>(url);
 
-    const handleSearch = (e: any) => {
-        if (e.target.value.length > 3) {
-            setUrl(WatchlistPageRequest.showsSuggestions(e.target.value));
+    const handleSearch = (value: string) => {
+        setQuery(value);
+        if (value.length > 3) {
+            setUrl(WatchlistPageRequest.showsSuggestions(value));
         }
     };
 
+    const addItem = (item: ItemProps) => {
+        handleSearch('');
+        props.addItem(item);
+    };
+
+    const deleteItem = (listIdx: number, idx: number, requiresConfirmation?: boolean) => {
+        handleSearch('');
+        props.deleteItem(listIdx, idx, requiresConfirmation);
+    }
+
     return (
-        <div className={`group relative`}>
-            <Input placeholder={`Add show`} onChange={handleSearch} className="z-50 border-b-2 border-primary-dark" />
-            <SearchResults items={response?.data} loading={response?.loading} addCard={props.addCard} />
+        <div className={`group relative w-96`}>
+            <Input value={query} placeholder={`Add show`} onChange={(e) => handleSearch(e.target.value)} className="z-50" />
+            <SearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </div>
     );
 }

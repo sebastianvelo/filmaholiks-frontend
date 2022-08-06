@@ -4,6 +4,7 @@ import Tailwind from "client/common/tailwind/Tailwind";
 interface InputProps {
     placeholder?: string;
     className?: string;
+    value?: string;
     onChange?: (e: any) => void;
 }
 
@@ -15,6 +16,10 @@ const Input: FunctionComponent<InputProps> = (props: InputProps) => {
         .addIf(props.className, !!props.className)
         .build();
 
+    if (props.value)
+        return (
+            <input value={props.value} placeholder={props.placeholder} onChange={props.onChange} className={className} spellCheck="false" />
+        );
     return (
         <input placeholder={props.placeholder} onChange={props.onChange} className={className} spellCheck="false" />
     );

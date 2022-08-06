@@ -13,9 +13,9 @@ export interface ItemProps {
 }
 
 const Item: FunctionComponent<ItemProps> = (props: ItemProps) =>
-    <article draggable="true" className="bg-gradient-to-tr from-primary-light to-light rounded-tl-xl rounded-bl-xl flex justify-between space-x-4 shadow-lg w-full">
+    <article className="bg-gradient-to-r from-primary-light to-light flex justify-between space-x-4 shadow-lg w-full">
         <Action path={props.path} revert>
-            {props.poster && <Image className="h-24 w-20 rounded-tl-xl rounded-bl-xl cursor-pointer" {...props.poster} />}
+            {props.poster && <Image className="w-24 cursor-pointer" {...props.poster} />}
         </Action>
         <div className="space-y-1 flex flex-col justify-between w-full py-2 text-black">
             <Action className={`text-black font-bold truncate text-left w-64`} path={props.path} label={props.title} revert />

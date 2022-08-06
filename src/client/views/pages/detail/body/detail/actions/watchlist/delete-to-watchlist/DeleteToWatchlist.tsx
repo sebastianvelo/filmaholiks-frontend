@@ -1,6 +1,6 @@
 import Action from "client/common/components/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import { deleteCardInLocalStorageByName } from "client/hooks/useWatchlist";
+import WatchlistService from "client/service/WatchlistService";
 import { FunctionComponent } from "react";
 
 export interface DeleteToWatchlistProps {
@@ -10,7 +10,7 @@ export interface DeleteToWatchlistProps {
 
 const DeleteToWatchlist: FunctionComponent<DeleteToWatchlistProps> = (props: DeleteToWatchlistProps) => {
     const deleteItem = () => {
-        deleteCardInLocalStorageByName(props.title);
+        WatchlistService.fromLocalStorage.item.deleteByName(props.title);
         props.setExists(false);
     }
 

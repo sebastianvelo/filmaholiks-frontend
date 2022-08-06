@@ -4,18 +4,21 @@ import { ItemProps } from "../actionable-item/item/Item";
 
 export interface ListBodyProps {
     items: ItemProps[];
-    deleteCard: (idx: number, requiresConfirmation?: boolean) => void;
-    onDragStart: React.DragEventHandler<HTMLDivElement>;
-    onDragOver: React.DragEventHandler<HTMLElement>;
+    listIdx: number;
+    deleteItem: (idx: number, requiresConfirmation?: boolean) => void;
+    swapItems: (itemIdx: number, position: number) => void;
 }
 
 const Items = (props: ListBodyProps) => (
     <>
         {props.items.map((item: ItemProps, idx: number) => (
             <ActionableItem
+                listIdx={props.listIdx}
+                idx={idx}
+                swapItems={props.swapItems}
                 key={`${item.title}${idx}`}
                 item={item}
-                action={(requiresConfirmation?: boolean) => props.deleteCard(idx, requiresConfirmation)}
+                action={(requiresConfirmation?: boolean) => props.deleteItem(idx, requiresConfirmation)}
                 delete
             />
         ))}
@@ -25,12 +28,7 @@ const Items = (props: ListBodyProps) => (
 const ItemsEmpty = () => <p className="text-xl px-4">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div
-        draggable="true"
-        className="space-y-4 overflow-y-auto px-2 py-4 cursor-move h-full"
-        onDragStart={props.onDragStart}
-        onDragOver={props.onDragOver}
-    >
+    <div className="space-y-4 overflow-y-auto py-4 h-full">
         <Items {...props} />
         {!props.items.length && <ItemsEmpty />}
     </div>

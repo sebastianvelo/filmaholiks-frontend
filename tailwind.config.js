@@ -50,6 +50,10 @@ module.exports = {
           DEFAULT: colors.gray[900],
           light: colors.gray[800],
         },
+      },
+      cursor: {
+        grab: 'grab',
+        'context-menu': 'context-menu'
       }
     }
   },

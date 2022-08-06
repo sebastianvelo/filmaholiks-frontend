@@ -6,7 +6,7 @@ export interface SearchResultPageBodyProps {
 }
 
 const SearchResultPageBody: FunctionComponent<SearchResultPageBodyProps> = (props: SearchResultPageBodyProps) => (
-    <div className="2xl:px-20 3xl:px-28">
+    <div className="2xl:px-16 ">
         <CardsSection {...(props?.results)} />
     </div>
 );
