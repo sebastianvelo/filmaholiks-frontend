@@ -1,5 +1,4 @@
 import WatchlistPageRequest from "api/request/pages/WatchlistPageRequest";
-import Input from "client/common/components/form/input/Input";
 import Tailwind from "client/common/tailwind/Tailwind";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent, useState } from "react";
@@ -35,12 +34,12 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
 
     const className = Tailwind.builder()
         .add('bg-black placeholder-opacity-50 placeholder-light p-4 w-full transition-color duration-500 cursor-pointer')
-        .add('focus:outline-none focus:border-light focus:border-2')
+        .add('focus:outline-none focus:border-light focus:border-2 border-primary-dark')
         .build();
 
     return (
         <form className={`group relative w-full`}>
-            <Input className={className} value={query} placeholder={`Add show`} onChange={(e) => handleSearch(e.target.value)} />
+            <input className={className} value={query} placeholder={`Add show`} onChange={(e) => handleSearch(e.target.value)} />
             <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </form>
     );

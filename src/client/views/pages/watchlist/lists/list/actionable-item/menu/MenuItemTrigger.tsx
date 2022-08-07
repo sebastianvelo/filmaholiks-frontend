@@ -4,11 +4,16 @@ import ComponentHovereableColor from "client/common/tailwind/constants/Component
 import { FunctionComponent } from "react";
 
 interface MenuItemTriggerProps {
-    toggle: () => void;
+    setOpen: (value: boolean) => void;
 }
 
 const MenuItemTrigger: FunctionComponent<MenuItemTriggerProps> = (props: MenuItemTriggerProps) => (
-    <Action className="flex justify-center items-center cursor-context-menu" onClick={props.toggle} color={ComponentHovereableColor.INFO}>
+    <Action
+        className="flex justify-center items-center cursor-context-menu"
+        color={ComponentHovereableColor.INFO}
+        onClick={() => props.setOpen(true)}
+        onMouseLeave={() => props.setOpen(false)}
+    >
         <DotsVertical />
     </Action>
 )

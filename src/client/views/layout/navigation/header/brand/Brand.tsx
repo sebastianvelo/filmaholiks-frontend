@@ -7,7 +7,7 @@ export interface BrandProps {
 
 const Brand: FunctionComponent<BrandProps> = (props: BrandProps) => {
     const className = Tailwind.builder()
-        .add('text-3xl md:text-4xl pl-1 pr-4 mx-2 rounded-lg border-b-4 border-l-4 border-secondary-light')
+        .add('text-3xl md:text-4xl pl-1 pr-4 mx-2 rounded-lg')
         .add('hover:tracking-widest transition-letter-spacing duration-200 ease-in')
         .add(`bg-clip-text text-transparent bg-gradient-to-b from-secondary via-secondary-dark to-primary-dark font-bold`)
         .build();

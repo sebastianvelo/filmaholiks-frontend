@@ -31,7 +31,7 @@ const DragItem: FunctionComponent<DragItemProps> = (props: DragItemProps) => {
     };
 
     return (
-        <Action className="flex justify-center items-center cursor-move" color={ComponentHovereableColor.PRIMARY} >
+        <Action className="flex justify-center items-center cursor-move" color={ComponentHovereableColor.SECONDARY} >
             <div draggable={true} onDragStart={onDragStart}>
                 <DragSvg />
             </div>

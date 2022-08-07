@@ -15,11 +15,8 @@ export interface MenuItemProps {
 const useActionableItemMenu = (props: MenuItemProps) => {
     const [opened, setOpen] = useState(false);
 
-    const toggle = () => { setOpen(!opened) };
-
-
     return ([
-        () => <MenuItemTrigger toggle={toggle} />,
+        () => <MenuItemTrigger setOpen={setOpen} />,
         () => <MenuItemContent {...props} opened={opened} />
     ]);
 }

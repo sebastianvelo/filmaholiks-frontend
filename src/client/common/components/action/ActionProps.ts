@@ -9,6 +9,8 @@ export default interface ActionProps {
   color?: ComponentHovereableColor;
   revert?: boolean;
   onClick?: MouseEventHandler<any>;
+  onMouseEnter?: MouseEventHandler<any>;
+  onMouseLeave?: MouseEventHandler<any>;
   children?: React.ReactNode | React.ReactNode[];
   ariaLabel?: string;
   disabled?: boolean;
