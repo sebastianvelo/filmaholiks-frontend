@@ -3,7 +3,7 @@ import { ExpandSvg } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
-interface ModalItemTriggerProps {
+export interface ModalItemTriggerProps {
     toggle: () => void;
     listIdx?: number;
 }
@@ -11,7 +11,7 @@ interface ModalItemTriggerProps {
 const ModalItemTrigger: FunctionComponent<ModalItemTriggerProps> = (props: ModalItemTriggerProps) => {
     if (props.listIdx === undefined) return <></>;
     return (
-        <Action className="h-full flex justify-center items-center cursor-context-menu" onClick={props.toggle} color={ComponentHovereableColor.SECONDARY}>
+        <Action className="h-12 flex justify-center items-center cursor-context-menu" onClick={props.toggle} color={ComponentHovereableColor.SECONDARY}>
             <ExpandSvg />
         </Action>
     );

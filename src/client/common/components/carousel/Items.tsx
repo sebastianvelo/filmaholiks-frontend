@@ -6,7 +6,7 @@ export interface ItemsProps {
 }
 
 const Items: FunctionComponent<ItemsProps> = (props: ItemsProps) => (
-        <div className="overflow-x-scroll lg:overflow-hidden space-x-6 flex py-6" id={props.id} style={{ scrollBehavior: 'smooth' }}>
+        <div className="overflow-x-scroll lg:overflow-hidden space-x-6 flex py-6 px-4" id={props.id} style={{ scrollBehavior: 'smooth' }}>
             {props.children}
         </div>
     )

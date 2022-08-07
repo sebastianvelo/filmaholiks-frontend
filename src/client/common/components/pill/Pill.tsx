@@ -10,7 +10,7 @@ export interface PillProps {
 
 const Pill: FunctionComponent<PillProps> = (props: PillProps) => {
     const className = Tailwind.builder()
-        .add('py-2 px-4 shadow-md rounded-full font-semibold text-sm mr-2 w-max')
+        .add('py-2 px-4 shadow-md rounded-full font-semibold mr-2 w-max')
         .add(props.color)
         .add(props.className)
         .build()

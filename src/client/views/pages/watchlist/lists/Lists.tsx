@@ -12,24 +12,31 @@ interface ListsProps {
 const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
     const service = useWatchlist(props.lists);
 
+    const lists = service.list.value?.map((list, idx: number) => (
+        <List {...list}
+            key={list.title}
+            listIdx={idx}
+            changeTitle={(title: string) => service.list.changeTitle(idx, title)}
+            swapLists={(targetListIdx: number) => service.list.swap(idx, targetListIdx)}
+            deleteList={() => service.list.delete(idx)}
+            moveItem={(item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,)}
+            addItem={(item: ItemProps) => service.item.add(idx, item)}
+            deleteItem={(cardIdx: number, requiresConfirmation?: boolean) => service.item.delete(!!requiresConfirmation, idx, cardIdx)}
+            deleteItemOfOtherList={(listIdx: number, cardIdx: number) => service.item.delete(true, listIdx, cardIdx)}
+            swapItems={(itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx)}
+        />
+    ));
     return (
         <>
-            <AddListButton addColumn={service.list.add} />
-            <Carousel id="watchlist">
-                {service.list.value?.map((column, idx: number) => (
-                    <List {...column}
-                        key={column.title}
-                        listIdx={idx}
-                        swapLists={(targetListIdx: number) => service.list.swap(idx, targetListIdx)}
-                        swapItems={(itemIdx: number, targetItemIdx: number) => service.item.swap(idx, itemIdx, targetItemIdx)}
-                        deleteColumn={() => service.list.delete(idx)}
-                        addItem={(item: ItemProps) => service.item.add(idx, item)}
-                        changeTitle={(title: string) => service.list.changeTitle(idx, title)}
-                        deleteItem={(cardIdx: number, requiresConfirmation?: boolean) => service.item.delete(!!requiresConfirmation, idx, cardIdx)}
-                        deleteItemOfOtherList={(columnIdx: number, cardIdx: number) => service.item.delete(true, columnIdx, cardIdx)}
-                    />
-                ))}
-            </Carousel>
+            <AddListButton addList={service.list.add} />
+            <div className="hidden md:block">
+                <Carousel id="watchlist">
+                    {lists}
+                </Carousel>
+            </div>
+            <div className="md:hidden space-y-4">
+                {lists}
+            </div>
         </>
     );
 }

@@ -19,7 +19,7 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
         .add(`transform`)
         .add(`hover:scale-110`)
         .add(`transition-all ease-in duration-200`)
-        .add(`border border-primary hover:border-primary-dark rounded-sm text-center group`)
+        .add(`border border-primary hover:border-primary-dark rounded-sm text-center group shadow-lg shadow-cyan-500/50`)
         .build();
 
 return (

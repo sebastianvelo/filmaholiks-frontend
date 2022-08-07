@@ -13,71 +13,78 @@ const requireConfirmation = (config: { title: string, cback: (result: SweetAlert
     }).then(config.cback);
 };
 
-const useWatchlist = (apiColumns: ListProps[]) => {
-    const listsFromLS = WatchlistService.fromLocalStorage.list.retrieve();
-    const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiColumns);
+const dummyList: any = (lists: ListProps[]) => ({
+    title: `List ${lists.length + 1}`,
+    items: []
+});
 
-    const updateLists = (newColumns: ListProps[]) => {
-        setLists([...newColumns]);
-        WatchlistService.fromLocalStorage.list.save([...newColumns]);
+const useWatchlist = (apiLists: ListProps[]) => {
+    const listsFromLS = WatchlistService.fromLocalStorage.list.retrieve();
+    const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiLists);
+
+    const updateLists = (newLists: ListProps[]) => {
+        setLists([...newLists]);
+        WatchlistService.fromLocalStorage.list.save([...newLists]);
     };
 
-    const changeListTitle = (columnIdx: number, title: string) => {
-        const column = lists[columnIdx];
-        column.title = title;
-        lists[columnIdx] = column;
+    const changeListTitle = (listIdx: number, title: string) => {
+        const list = lists[listIdx];
+        list.title = title;
+        lists[listIdx] = list;
         updateLists([...lists]);
     };
 
-    const deleteList = (columnIdx: number) => {
+    const deleteList = (listIdx: number) => {
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
-                if (!result.isConfirmed) updateLists(lists.filter((_, idx) => idx !== columnIdx));
+                if (!result.isConfirmed) updateLists(lists.filter((_, idx) => idx !== listIdx));
             }
         });
     };
 
     const addList = () => {
-        const dummyList: any = {
-            title: `List ${lists.length + 1}`,
-            items: []
-        };
-        updateLists([...lists, dummyList]);
+        updateLists([...lists, dummyList(lists)]);
     };
 
     const swapLists = (idxA: number, idxB: number) => {
-        const columnA = lists[idxA];
-        const columnB = lists[idxB];
-        lists[idxB] = columnA;
-        lists[idxA] = columnB;
+        const listA = lists[idxA];
+        const listB = lists[idxB];
+        lists[idxB] = listA;
+        lists[idxA] = listB;
         updateLists([...lists]);
     };
 
-    const addItem = (columnIdx: number, item: ItemProps) =>
-        WatchlistService.item.save(lists, columnIdx, item, updateLists);
+    const addItem = (listIdx: number, item: ItemProps) =>
+        WatchlistService.item.save(lists, listIdx, item, updateLists);
 
-    const deleteItem = (requiresConfirmation: boolean, columnIdx: number, itemIdx: number) => {
+    const deleteItem = (requiresConfirmation: boolean, listIdx: number, itemIdx: number) => {
         if (!requiresConfirmation) {
-            WatchlistService.item.delete(lists, columnIdx, itemIdx, updateLists);
+            WatchlistService.item.delete(lists, listIdx, itemIdx, updateLists);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    WatchlistService.item.delete(lists, columnIdx, itemIdx, updateLists);
+                    WatchlistService.item.delete(lists, listIdx, itemIdx, updateLists);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
         });
     };
 
-    const swapItems = (list: number, idxA: number, idxB: number) => {
-        const itemA = lists[list].items[idxA];
-        const itemB = lists[list].items[idxB];
-        lists[list].items[idxB] = itemA;
-        lists[list].items[idxA] = itemB;
+    const moveItem = (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => {
+        addItem(targetListIdx, item);
+        deleteItem(false, sourceListIdx, sourceItemIdx);
+    };
+
+    const swapItems = (listIdx: number, idxA: number, idxB: number) => {
+        console.log(listIdx, idxA, idxB);
+        const itemA = lists[listIdx].items[idxA];
+        const itemB = lists[listIdx].items[idxB];
+        lists[listIdx].items[idxB] = itemA;
+        lists[listIdx].items[idxA] = itemB;
         updateLists([...lists]);
     };
 
@@ -93,6 +100,7 @@ const useWatchlist = (apiColumns: ListProps[]) => {
             delete: deleteItem,
             add: addItem,
             swap: swapItems,
+            move: moveItem,
         }
     };
 };

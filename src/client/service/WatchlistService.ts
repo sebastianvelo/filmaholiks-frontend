@@ -12,13 +12,13 @@ class WatchlistService {
     public static LIST_IDX_KEY = "list_idx";
 
     public static item = {
-        save: (columns: ListProps[], columnIdx: number, item: ItemProps, updateColumns: (newColumns: ListProps[]) => void) => {
-            columns[columnIdx].items.push(item);
-            updateColumns([...columns]);
+        save: (lists: ListProps[], listIdx: number, item: ItemProps, updateLists: (newLists: ListProps[]) => void) => {
+            lists[listIdx].items.push(item);
+            updateLists([...lists]);
         },
-        delete: (columns: ListProps[], columnIdx: number, itemIdx: number, updateColumns: (newColumns: ListProps[]) => void) => {
-            columns[columnIdx].items = columns[columnIdx].items.filter((_, idx) => idx !== itemIdx);
-            updateColumns([...columns]);
+        delete: (lists: ListProps[], listIdx: number, itemIdx: number, updateLists: (newLists: ListProps[]) => void) => {
+            lists[listIdx].items = lists[listIdx].items.filter((_, idx) => idx !== itemIdx);
+            updateLists([...lists]);
         },
     };
 
@@ -33,10 +33,19 @@ class WatchlistService {
                 event.dataTransfer.setData(WatchlistService.ITEM_IDX_KEY, String(idx));
                 event.dataTransfer.setData(WatchlistService.LIST_IDX_KEY, String(listIdx));
             },
-            handleSave: (event: React.DragEvent<HTMLElement>, listIdx: number, addItem: (item: ItemProps) => void) => {
+            handleSave: (event: React.DragEvent<HTMLElement>, addItem: (item: ItemProps) => void) => {
                 const item = WatchlistService.fromEvent.item.retrieve(event);
-                const targetListIdx = WatchlistService.fromEvent.list.retrieveIdx(event);
-                if (item && (targetListIdx !== listIdx)) addItem(item);
+                if (item) addItem(item);
+            },
+            handleMove: (event: React.DragEvent<HTMLElement>, targetListIdx: number, moveItem: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => void) => {
+                const item = WatchlistService.fromEvent.item.retrieve(event);
+                const itemIdx = WatchlistService.fromEvent.item.retrieveIdx(event);
+                const sourceListIdx = WatchlistService.fromEvent.list.retrieveIdx(event);
+                if (item && targetListIdx !== sourceListIdx) moveItem(item, sourceListIdx, itemIdx);
+            },
+            handleSwap: (event: React.DragEvent<HTMLElement>, swapItem: (targetItemIdx: number) => void) => {
+                const targetItemIdx = WatchlistService.fromEvent.item.retrieveIdx(event);
+                swapItem(targetItemIdx);
             },
         },
         list: {
@@ -59,35 +68,45 @@ class WatchlistService {
         list: {
             retrieve: (): ListProps[] =>
                 JSON.parse(localStorage.getItem(WatchlistService.LIST_KEY) || "[]"),
-            save: (columns: ListProps[]) =>
-                localStorage.setItem(WatchlistService.LIST_KEY, JSON.stringify(columns)),
+            save: (lists: ListProps[]) =>
+                localStorage.setItem(WatchlistService.LIST_KEY, JSON.stringify(lists)),
+            find: (query?: string): ListProps | undefined => {
+                const idxs = WatchlistService.fromLocalStorage.item.retrieveIdx(query);
+                if (!idxs) return undefined;
+                return WatchlistService.fromLocalStorage.list.retrieve()[idxs.listIdx];
+            },
 
         },
         item: {
-            retrieve: (query?: string): { itemIdx: number, columnIdx: number } | undefined => {
-                const columns = WatchlistService.fromLocalStorage.list.retrieve();
-                const columnIdx = columns.findIndex(column => column.items.some(item => item.title === query));
-                if (columnIdx === -1) return undefined;
-                const itemIdx = columns[columnIdx].items.findIndex(item => item.title === query);
+            retrieveIdx: (query?: string): { itemIdx: number, listIdx: number } | undefined => {
+                const lists = WatchlistService.fromLocalStorage.list.retrieve();
+                const listIdx = lists.findIndex(list => list.items.some(item => item.title === query));
+                if (listIdx === -1) return undefined;
+                const itemIdx = lists[listIdx].items.findIndex(item => item.title === query);
                 return {
                     itemIdx,
-                    columnIdx,
+                    listIdx,
                 };
             },
-            save: (columnIdx: number, item: ItemProps) =>
+            find: (query?: string): ItemProps | undefined => {
+                const idxs = WatchlistService.fromLocalStorage.item.retrieveIdx(query);
+                if (!idxs) return undefined;
+                return WatchlistService.fromLocalStorage.list.retrieve()[idxs.listIdx].items[idxs.itemIdx];
+            },
+            save: (listIdx: number, item: ItemProps) =>
                 WatchlistService.item.save(
-                    WatchlistService.fromLocalStorage.list.retrieve(), columnIdx, item, WatchlistService.fromLocalStorage.list.save
+                    WatchlistService.fromLocalStorage.list.retrieve(), listIdx, item, WatchlistService.fromLocalStorage.list.save
                 ),
-            delete: (columnIdx: number, itemIdx: number) =>
+            delete: (listIdx: number, itemIdx: number) =>
                 WatchlistService.item.delete(
-                    WatchlistService.fromLocalStorage.list.retrieve(), columnIdx, itemIdx, WatchlistService.fromLocalStorage.list.save,
+                    WatchlistService.fromLocalStorage.list.retrieve(), listIdx, itemIdx, WatchlistService.fromLocalStorage.list.save,
                 ),
             deleteByName: (query?: string) => {
-                const item = WatchlistService.fromLocalStorage.item.retrieve(query);
+                const item = WatchlistService.fromLocalStorage.item.retrieveIdx(query);
                 if (!item) return;
-                WatchlistService.fromLocalStorage.item.delete(item.columnIdx, item.itemIdx);
+                WatchlistService.fromLocalStorage.item.delete(item.listIdx, item.itemIdx);
             },
-            exists: (query?: string) => WatchlistService.fromLocalStorage.item.retrieve(query) !== undefined
+            exists: (query?: string) => WatchlistService.fromLocalStorage.item.retrieveIdx(query) !== undefined
 
         }
 

@@ -6,7 +6,7 @@ export interface ListBodyProps {
     items: ItemProps[];
     listIdx: number;
     deleteItem: (idx: number, requiresConfirmation?: boolean) => void;
-    swapItems: (itemIdx: number, position: number) => void;
+    swapItems: (itemAIdx: number, itemBIdx: number) => void;
 }
 
 const Items = (props: ListBodyProps) => (
@@ -15,7 +15,7 @@ const Items = (props: ListBodyProps) => (
             <ActionableItem
                 listIdx={props.listIdx}
                 idx={idx}
-                swapItems={props.swapItems}
+                swapItems={(idxB: number) => { if (props.swapItems) props.swapItems(idx, idxB) }}
                 key={`${item.title}${idx}`}
                 item={item}
                 action={(requiresConfirmation?: boolean) => props.deleteItem(idx, requiresConfirmation)}
@@ -25,10 +25,10 @@ const Items = (props: ListBodyProps) => (
     </>
 );
 
-const ItemsEmpty = () => <p className="text-xl px-4">You haven't added a show yet!</p>
+const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-600">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-4 overflow-y-auto py-4 h-full">
+    <div className="space-y-4 overflow-y-auto h-full text-dark p-2">
         <Items {...props} />
         {!props.items.length && <ItemsEmpty />}
     </div>

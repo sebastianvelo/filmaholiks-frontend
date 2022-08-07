@@ -3,15 +3,15 @@ import ComponentHovereableColor from "client/common/tailwind/constants/Component
 import { FunctionComponent } from "react";
 
 interface AddListButtonProps {
-    addColumn: () => void;
+    addList: () => void;
 }
 
 const AddListButton: FunctionComponent<AddListButtonProps> = (props: AddListButtonProps) =>
     <Action
-        onClick={props.addColumn}
+        onClick={props.addList}
         label={`Add list`}
         color={ComponentHovereableColor.SUCCESS}
-        className={"px-4 py-2 w-full"}
+        className={"w-full"}
     />;
 
 export default AddListButton;

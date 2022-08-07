@@ -1,64 +1,50 @@
 import WatchlistService from "client/service/WatchlistService";
-import { FunctionComponent, useState } from "react";
-import ActionItem, { ActionItemProps } from "./action/ActionItem";
-import DragItem, { DragItemProps } from "./drag/DragItem";
+import { FunctionComponent } from "react";
 import Item, { ItemProps } from "./item/Item";
-import ModalItem from "./modal/ModalItem";
-import ModalItemTrigger from "./modal/ModalItemTrigger";
+import ActionItem, { ActionItemProps } from "./menu/content/action/ActionItem";
+import useActionableItemMenu from "./menu/useMenuItem";
+import useModalItem from "./modal/useModalItem";
 
-interface ActionableItemProps extends ActionItemProps, DragItemProps {
+interface ActionableItemProps extends ActionItemProps {
     item: ItemProps;
     idx: number;
-    swapItems?: (itemIdx: number, position: number) => void;
-    onDrop?: () => void;
+    listIdx?: number;
+    swapItems?: (idxB: number) => void;
 }
 
 const ActionableItem: FunctionComponent<ActionableItemProps> = (props: ActionableItemProps) => {
-    const [opened, setOpen] = useState(false);
-
-    const getImage = () => {
-        const image = new Image(200, 100);
-        image.src = props.item.poster?.src ?? "";
-        return image;
-    }
-
-    const onDragStart: React.DragEventHandler<HTMLDivElement> = (event) => {
-        if (props.delete) {
-            WatchlistService.fromEvent.item.save(event, props.item, props.idx, props.listIdx);
-            event.dataTransfer.setDragImage(getImage(), 100, 100)
-        }
-    };
-
-    const onDragEnd: React.DragEventHandler<HTMLDivElement> = (event) => {
-        const targetListIdx = WatchlistService.fromEvent.list.retrieveIdx(event);
-        if (props.delete || (!props.delete && targetListIdx !== props.listIdx))
-            props.action();
-    };
+    const [ModalTrigger, ModalContent] = useModalItem(props);
+    const [MenuTrigger, MenuContent] = useActionableItemMenu({
+        ModalTrigger,
+        ...props
+    });
 
     const onDrop = (event: any) => {
         event.preventDefault();
-
+        console.log("init on drop")
         if (props.swapItems) {
-            const idx = WatchlistService.fromEvent.item.retrieveIdx(event);
-            props.swapItems(idx, props.idx);
+            console.log("if on drop")
+            WatchlistService.fromEvent.item.handleSwap(event, props.swapItems);
         }
     };
 
-    const toggle = () => { if (props.delete) setOpen(!opened) };
-
     return (
         <>
-            <div className="flex flex-col w-full" onDrop={onDrop}>
-                <div className="flex">
+            <div className="flex flex-col w-full shadow-xl" onDrop={onDrop}>
+                <div className="flex relative">
                     <Item {...props.item} />
-                    <div className="flex flex-col justify-center">
-                        <DragItem {...props} onDragStart={onDragStart} onDragEnd={onDragEnd} />
-                        <ModalItemTrigger {...props} toggle={toggle} />
-                    </div>
+                    {props.listIdx !== undefined && (
+                        <>
+                            <MenuTrigger />
+                            <MenuContent />
+                        </>
+                    )}
+                    {props.listIdx === undefined && (
+                        <ActionItem {...props} />
+                    )}
                 </div>
-                <ActionItem {...props} />
             </div>
-            <ModalItem opened={opened} toggle={toggle} item={props.item} />
+            <ModalContent />
         </>
     );
 }

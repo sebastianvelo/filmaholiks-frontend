@@ -1,16 +1,17 @@
 import WatchlistPageRequest from "api/request/pages/WatchlistPageRequest";
 import Input from "client/common/components/form/input/Input";
+import Tailwind from "client/common/tailwind/Tailwind";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent, useState } from "react";
 import { ItemProps } from "../actionable-item/item/Item";
-import SearchResults from "./results/SearchResults";
+import ListSearchResults from "./results/ListSearchResults";
 
-interface SearchProps {
+interface ListSearchItemsProps {
     addItem: (item: ItemProps) => void
     deleteItem: (listIdx: number, idx: number, requiresConfirmation?: boolean) => void;
 }
 
-const SearchItems: FunctionComponent<SearchProps> = (props: SearchProps) => {
+const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSearchItemsProps) => {
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(WatchlistPageRequest.showsSuggestions(query));
     const response = useFetch<ItemProps[]>(url);
@@ -32,12 +33,17 @@ const SearchItems: FunctionComponent<SearchProps> = (props: SearchProps) => {
         props.deleteItem(listIdx, idx, requiresConfirmation);
     }
 
+    const className = Tailwind.builder()
+        .add('bg-black placeholder-opacity-50 placeholder-light p-4 w-full transition-color duration-500 cursor-pointer')
+        .add('focus:outline-none focus:border-light focus:border-2')
+        .build();
+
     return (
-        <div className={`group relative w-96`}>
-            <Input value={query} placeholder={`Add show`} onChange={(e) => handleSearch(e.target.value)} className="z-50" />
-            <SearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
-        </div>
+        <form className={`group relative w-full`}>
+            <Input className={className} value={query} placeholder={`Add show`} onChange={(e) => handleSearch(e.target.value)} />
+            <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
+        </form>
     );
 }
 
-export default SearchItems;
+export default ListSearchItems;

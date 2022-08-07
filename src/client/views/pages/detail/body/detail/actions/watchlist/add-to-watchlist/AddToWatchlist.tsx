@@ -22,8 +22,8 @@ const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatc
         .addIf("hidden bg-opacity-0", !opened)
         .build();
 
-    const saveItem = (columnIdx: number) => {
-        WatchlistService.fromLocalStorage.item.save(columnIdx, props.item);
+    const saveItem = (listIdx: number) => {
+        WatchlistService.fromLocalStorage.item.save(listIdx, props.item);
         props.setExists(true);
     };
 
@@ -34,7 +34,7 @@ const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatc
                 <article className="bg-gradient-to-b from-secondary-dark to-black rounded-tl-xl rounded-bl-xl shadow-lg w-screen h-screen md:w-1/2 md:h-1/2 text-black p-4 space-y-8 overflow-y-auto">
                     <Headline className="text-5xl">Add to list</Headline>
                     <div className="flex flex-col space-y-8">
-                        {lists.map((column, idx) => <Action onClick={() => saveItem(idx)} className={ComponentHovereableColor.SECONDARY} label={column.title} />)}
+                        {lists.map((list, idx) => <Action onClick={() => saveItem(idx)} className={ComponentHovereableColor.SECONDARY} label={list.title} />)}
                     </div>
                 </article>
             </div>

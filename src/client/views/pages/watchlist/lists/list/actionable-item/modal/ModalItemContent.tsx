@@ -5,22 +5,29 @@ import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 import { ItemProps } from "../item/Item";
 
-interface ModalItemProps {
+export interface ModalItemContentProps {
     opened: boolean;
     toggle: () => void;
     item: ItemProps;
 }
 
-const ModalItem: FunctionComponent<ModalItemProps> = (props: ModalItemProps) => {
+const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: ModalItemContentProps) => {
     const modalClassName = Tailwind.builder()
         .add("fixed place-items-center w-screen h-screen top-0 left-0 bg-black bg-opacity-90 z-50 transition-colors duration-1000")
         .addIf("grid", props.opened)
         .addIf("hidden bg-opacity-0", !props.opened)
         .build();
 
+    const cardClassName = Tailwind.builder()
+        .add("bg-gradient-to-b from-secondary-dark to-secondary")
+        .add("w-screen h-screen md:w-1/2 md:h-96")
+        .add("text-black space-x-8")
+        .add("flex flex-col md:flex-row items-center md:items-start")
+        .build();
+
     return (
         <div className={modalClassName}>
-            <article className="bg-gradient-to-b from-secondary-dark to-secondary shadow-lg w-screen h-screen md:w-1/2 md:h-96 text-black space-x-8 flex">
+            <article className={cardClassName}>
                 <Action path={props.item.path} revert>
                     {props.item.poster && <Image className="w-80 h-96 rounded-tl-xl rounded-bl-xl" {...props.item.poster} />}
                 </Action>
@@ -40,6 +47,7 @@ const ModalItem: FunctionComponent<ModalItemProps> = (props: ModalItemProps) => 
                                 color={ComponentHovereableColor.DANGER} revert />
                         </div>
                         <p className="text-xl">{props.item.info}</p>
+                        <p>//aca se va a poder editar cuantas temporadas/caps viste</p>
                     </div>
                 </div>
             </article>
@@ -47,4 +55,4 @@ const ModalItem: FunctionComponent<ModalItemProps> = (props: ModalItemProps) => 
     );
 }
 
-export default ModalItem;
+export default ModalItemContent;
