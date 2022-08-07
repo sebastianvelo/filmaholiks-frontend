@@ -80,7 +80,6 @@ const useWatchlist = (apiLists: ListProps[]) => {
     };
 
     const swapItems = (listIdx: number, idxA: number, idxB: number) => {
-        console.log(listIdx, idxA, idxB);
         const itemA = lists[listIdx].items[idxA];
         const itemB = lists[listIdx].items[idxB];
         lists[listIdx].items[idxB] = itemA;

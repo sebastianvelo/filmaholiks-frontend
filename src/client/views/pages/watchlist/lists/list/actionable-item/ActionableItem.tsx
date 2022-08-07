@@ -21,9 +21,7 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
 
     const onDrop = (event: any) => {
         event.preventDefault();
-        console.log("init on drop")
         if (props.swapItems) {
-            console.log("if on drop")
             WatchlistService.fromEvent.item.handleSwap(event, props.swapItems);
         }
     };
