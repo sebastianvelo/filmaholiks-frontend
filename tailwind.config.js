@@ -22,9 +22,9 @@ module.exports = {
           dark: '#39edff',
         },
         secondary: {
-          light: "#064663",
-          DEFAULT: "#04293A",
-          dark: "#041C32",
+          light: "#0E5F76",
+          DEFAULT: "#083D56",
+          dark: "#0C2233",
         },
         success: {
           DEFAULT: colors.green[700],

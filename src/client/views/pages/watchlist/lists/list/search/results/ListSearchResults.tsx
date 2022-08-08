@@ -14,7 +14,7 @@ interface ListSearchResultsProps {
 
 const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
     const className = Tailwind.builder()
-        .addIf("w-96 bg-black flex items-center justify-center absolute bg-gradient-to-t from-light to-white", props.loading)
+        .addIf("w-96 bg-black flex items-center justify-center absolute", props.loading)
         .add("hidden group-hover:flex w-full absolute left-0 h-96")
         .build();
 
@@ -22,7 +22,7 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
         <div className={className}>
             <Loading loading={props.loading}>
                 {props.items && (
-                    <section className={`p-2 space-y-4 bg-gradient-to-t from-light to-white w-full h-full overflow-y-scroll z-50`} >
+                    <section className={`p-2 space-y-4 w-full h-full overflow-y-scroll z-50 bg-black`} >
                         {props.items?.map((item: ItemProps, idx: number) => {
                             const it = WatchlistService.fromLocalStorage.item.retrieveIdx(item.title);
                             const action = () => it ? props.deleteItem(it.listIdx, it.itemIdx) : props.addItem(item);

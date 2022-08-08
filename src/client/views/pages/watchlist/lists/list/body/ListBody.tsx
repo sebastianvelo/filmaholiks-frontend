@@ -25,7 +25,7 @@ const Items = (props: ListBodyProps) => (
     </>
 );
 
-const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-600">You haven't added a show yet!</p>
+const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
     <div className="space-y-4 overflow-y-auto h-full text-dark p-2">

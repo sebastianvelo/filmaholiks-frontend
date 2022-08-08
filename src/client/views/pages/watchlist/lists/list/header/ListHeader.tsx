@@ -11,7 +11,7 @@ export interface ListHeaderProps {
 }
 
 const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) => (
-    <div className="flex bg-secondary">
+    <div className="flex bg-secondary-dark justify-between">
         <ListTitle title={props.title} changeTitle={props.changeTitle} />
         <div draggable="true" onDragStart={props.onDragStart}>
             <Action className="h-full flex justify-center items-center cursor-move" color={ComponentHovereableColor.SECONDARY} >

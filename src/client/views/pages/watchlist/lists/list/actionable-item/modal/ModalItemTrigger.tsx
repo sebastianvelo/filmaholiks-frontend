@@ -11,7 +11,7 @@ export interface ModalItemTriggerProps {
 const ModalItemTrigger: FunctionComponent<ModalItemTriggerProps> = (props: ModalItemTriggerProps) => {
     if (props.listIdx === undefined) return <></>;
     return (
-        <Action className="flex justify-center items-center cursor-context-menu" onClick={props.toggle} color={ComponentHovereableColor.SUCCESS}>
+        <Action className="flex justify-center items-center cursor-context-menu" onClick={props.toggle} color={ComponentHovereableColor.WARNING}>
             <ExpandSvg />
         </Action>
     );

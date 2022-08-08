@@ -6,7 +6,7 @@ enum ComponentHovereableColor {
     DANGER = 'bg-danger text-light hover:bg-danger-dark',
     INFO = 'bg-info text-light hover:bg-info-dark',
     SUCCESS = 'bg-success hover:bg-success-dark text-white',
-    WARNING = 'bg-warning hover:bg-warning-dark',
+    WARNING = 'bg-warning hover:bg-warning-dark text-white',
     TRANSPARENT = ''
 }
 
