@@ -3,7 +3,7 @@ import FetcherPage from "client/common/components/fetcher/FetcherPage";
 import { IdParams } from "client/common/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
-import DetailPage, { DetailPageProps } from "../pages/detail/DetailPage";
+import DetailPage, { DetailPageProps } from "../DetailPage";
 
 export interface DetailWrapperPageProps {
     getPage: (id: string) => AxiosRequestConfig<DetailPageProps>;

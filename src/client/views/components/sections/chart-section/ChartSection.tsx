@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import Chart, { ChartProps } from "../chart/Chart";
-import Section from "../section/Section";
+import Chart, { ChartProps } from "../../chart/Chart";
+import Section from "../../section/Section";
 
 export interface ChartSectionProps {
     title?: string;

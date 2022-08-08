@@ -1,9 +1,9 @@
 import DetailPageRequest from "api/request/pages/DetailPageRequest";
 import Page from "client/common/page/Page";
 import PageRoute from "client/routes/PageRoute";
-import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/views/detail/DetailEpisodeWrapperPage";
-import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/views/detail/DetailSeasonWrapperPage";
-import DetailWrapperPage, { DetailWrapperPageProps } from "client/views/detail/DetailWrapperPage";
+import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/views/pages/detail/impl/DetailEpisodeWrapperPage";
+import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/views/pages/detail/impl/DetailSeasonWrapperPage";
+import DetailWrapperPage, { DetailWrapperPageProps } from "client/views/pages/detail/impl/DetailWrapperPage";
 
 export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.MOVIE_DETAIL,
@@ -20,7 +20,6 @@ export const ShowDetailPageBlueprint: Page<DetailWrapperPageProps> = {
         getPage: DetailPageRequest.showById
     }
 };
-
 
 export const PersonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.PERSON_DETAIL,

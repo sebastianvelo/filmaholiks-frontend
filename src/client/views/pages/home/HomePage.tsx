@@ -5,8 +5,8 @@ export interface HomePageProps {
 }
 
 const HomePage: FunctionComponent<HomePageProps> = () => (
-        <div>
-        </div>
-    )
+    <div>
+    </div>
+)
 
 export default HomePage;

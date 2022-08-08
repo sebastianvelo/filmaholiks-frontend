@@ -1,5 +1,5 @@
 import Tabs from "client/common/components/tabs/Tabs";
-import CardsSection, { CardsSectionProps } from "client/views/components/cards-section/CardsSection";
+import CardsSection, { CardsSectionProps } from "client/views/components/sections/cards-section/CardsSection";
 import { FunctionComponent } from "react";
 
 export interface DetailSectionsProps {

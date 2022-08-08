@@ -16,8 +16,8 @@ const useActionableItemMenu = (props: MenuItemProps) => {
     const [opened, setOpen] = useState(false);
 
     return ([
-        () => <MenuItemTrigger setOpen={setOpen} />,
-        () => <MenuItemContent {...props} opened={opened} />
+        () => <MenuItemTrigger toggle={() => setOpen(!opened)} />,
+        () => <MenuItemContent {...props} opened={opened} setOpen={setOpen} />
     ]);
 }
 

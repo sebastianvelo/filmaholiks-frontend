@@ -6,18 +6,19 @@ export interface MenuItemContentProps {
     opened: boolean;
     ModalTrigger: () => JSX.Element;
     action: (requiresConfirmation?: boolean) => void;
+    setOpen: (value: boolean) => void;
 }
 
 const MenuItemContent: FunctionComponent<MenuItemContentProps> = (props: MenuItemContentProps) => {
     const menuContentClassName = Tailwind.builder()
         .addIf("hidden", !props.opened)
-        .addIf("flex justify-between bg-secondary absolute bottom-4 right-8 z-50 rounded-sm", props.opened)
+        .addIf("flex flex-col justify-between bg-secondary absolute bottom-0 right-12 z-50 rounded-sm h-24", props.opened)
         .build();
 
     return (
-        <div className={menuContentClassName}>
-            <props.ModalTrigger />
+        <div className={menuContentClassName} onMouseLeave={() => props.setOpen(false)}>
             <ActionItem {...props} />
+            <props.ModalTrigger />
         </div>
     );
 }

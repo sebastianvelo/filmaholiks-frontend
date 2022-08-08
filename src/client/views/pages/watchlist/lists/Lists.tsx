@@ -19,10 +19,10 @@ const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
         changeListTitle: (title: string) => service.list.changeTitle(idx, title),
         swapLists: (targetListIdx: number) => service.list.swap(idx, targetListIdx),
         deleteList: () => service.list.delete(idx),
-        addItem: (item: ItemProps) => service.item.add(idx, item),
+        addItem: (item: ItemProps) => service.item.save(idx, item),
         moveItem: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,),
-        deleteItem: (itemIdx: number, requiresConfirmation?: boolean) => service.item.delete(!!requiresConfirmation, idx, itemIdx),
-        deleteItemOfOtherList: (listIdx: number, itemIdx: number) => service.item.delete(true, listIdx, itemIdx),
+        deleteItem: (itemIdx: number, requiresConfirmation?: boolean) => service.item.delete(idx, itemIdx, requiresConfirmation),
+        deleteItemOfOtherList: (listIdx: number, itemIdx: number) => service.item.delete(listIdx, itemIdx, true),
         swapItems: (itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx),
 
     });
@@ -31,6 +31,7 @@ const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
         <List {...listService(list, idx)}
         />
     ));
+
     return (
         <>
             <AddListButton addList={service.list.add} />

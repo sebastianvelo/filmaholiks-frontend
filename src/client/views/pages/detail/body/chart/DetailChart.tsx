@@ -1,5 +1,5 @@
 import Tabs from "client/common/components/tabs/Tabs";
-import ChartSection, { ChartSectionProps } from "client/views/components/chart-section/ChartSection";
+import ChartSection, { ChartSectionProps } from "client/views/components/sections/chart-section/ChartSection";
 import { FunctionComponent } from "react";
 
 export interface DetailChartProps {

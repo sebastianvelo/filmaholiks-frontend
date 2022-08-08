@@ -13,14 +13,9 @@ const requireConfirmation = (config: { title: string, cback: (result: SweetAlert
     }).then(config.cback);
 };
 
-const dummyList: any = (lists: ListProps[]) => ({
-    title: `List ${lists.length + 1}`,
-    items: []
-});
-
-const useWatchlist = (apiLists: ListProps[]) => {
+const useWatchlist = (apiLists?: ListProps[]) => {
     const listsFromLS = WatchlistService.fromLocalStorage.list.retrieve();
-    const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiLists);
+    const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiLists ?? []);
 
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
@@ -34,58 +29,52 @@ const useWatchlist = (apiLists: ListProps[]) => {
         updateLists([...lists]);
     };
 
+    const findList = (query: string) => WatchlistService.list.find(query, lists);
+
+    const swapLists = (idxA: number, idxB: number) => WatchlistService.list.swap(idxA, idxB, lists, updateLists);
+
+    const addList = () => WatchlistService.list.add(lists, updateLists);
+
     const deleteList = (listIdx: number) => {
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
-                if (!result.isConfirmed) updateLists(lists.filter((_, idx) => idx !== listIdx));
+                if (!result.isConfirmed)
+                    WatchlistService.list.delete(listIdx, lists, updateLists);
             }
         });
     };
 
-    const addList = () => {
-        updateLists([...lists, dummyList(lists)]);
-    };
+    const saveItem = (listIdx: number, item: ItemProps) => WatchlistService.item.save(listIdx, item, lists, updateLists);
 
-    const swapLists = (idxA: number, idxB: number) => {
-        const listA = lists[idxA];
-        const listB = lists[idxB];
-        lists[idxB] = listA;
-        lists[idxA] = listB;
-        updateLists([...lists]);
-    };
-
-    const addItem = (listIdx: number, item: ItemProps) =>
-        WatchlistService.item.save(lists, listIdx, item, updateLists);
-
-    const deleteItem = (requiresConfirmation: boolean, listIdx: number, itemIdx: number) => {
+    const deleteItem = (listIdx: number, itemIdx: number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
-            WatchlistService.item.delete(lists, listIdx, itemIdx, updateLists);
+            WatchlistService.item.delete(listIdx, itemIdx, lists, updateLists);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    WatchlistService.item.delete(lists, listIdx, itemIdx, updateLists);
+                    WatchlistService.item.delete(listIdx, itemIdx, lists, updateLists);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
         });
     };
 
-    const moveItem = (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => {
-        addItem(targetListIdx, item);
-        deleteItem(false, sourceListIdx, sourceItemIdx);
+    const deleteItemByName = (query: string) => {
+        WatchlistService.item.deleteByName(query, lists, updateLists);
     };
 
-    const swapItems = (listIdx: number, idxA: number, idxB: number) => {
-        const itemA = lists[listIdx].items[idxA];
-        const itemB = lists[listIdx].items[idxB];
-        lists[listIdx].items[idxB] = itemA;
-        lists[listIdx].items[idxA] = itemB;
-        updateLists([...lists]);
+    const moveItem = (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => {
+        saveItem(targetListIdx, item);
+        deleteItem(sourceListIdx, sourceItemIdx, false);
     };
+
+    const swapItems = (listIdx: number, idxA: number, idxB: number) => WatchlistService.item.swap(listIdx, idxA, idxB, lists, updateLists);
+
+    const findItem = (query?: string) => WatchlistService.item.find(query ?? "", lists);
 
     return {
         list: {
@@ -94,12 +83,16 @@ const useWatchlist = (apiLists: ListProps[]) => {
             swap: swapLists,
             add: addList,
             delete: deleteList,
+            find: findList,
+            retrieveAll: lists
         },
         item: {
             delete: deleteItem,
-            add: addItem,
+            deleteByName: deleteItemByName,
+            save: saveItem,
             swap: swapItems,
             move: moveItem,
+            find: findItem
         }
     };
 };
