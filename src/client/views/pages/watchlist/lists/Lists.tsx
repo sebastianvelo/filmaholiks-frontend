@@ -12,18 +12,23 @@ interface ListsProps {
 const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
     const service = useWatchlist(props.lists);
 
+    const listService = (list: ListProps, idx: number) => ({
+        ...list,
+        key: `list${idx}`,
+        listIdx: idx,
+        changeListTitle: (title: string) => service.list.changeTitle(idx, title),
+        swapLists: (targetListIdx: number) => service.list.swap(idx, targetListIdx),
+        deleteList: () => service.list.delete(idx),
+        addItem: (item: ItemProps) => service.item.add(idx, item),
+        moveItem: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,),
+        deleteItem: (itemIdx: number, requiresConfirmation?: boolean) => service.item.delete(!!requiresConfirmation, idx, itemIdx),
+        deleteItemOfOtherList: (listIdx: number, itemIdx: number) => service.item.delete(true, listIdx, itemIdx),
+        swapItems: (itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx),
+
+    });
+
     const lists = service.list.value?.map((list, idx: number) => (
-        <List {...list}
-            key={list.title}
-            listIdx={idx}
-            changeTitle={(title: string) => service.list.changeTitle(idx, title)}
-            swapLists={(targetListIdx: number) => service.list.swap(idx, targetListIdx)}
-            deleteList={() => service.list.delete(idx)}
-            moveItem={(item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,)}
-            addItem={(item: ItemProps) => service.item.add(idx, item)}
-            deleteItem={(cardIdx: number, requiresConfirmation?: boolean) => service.item.delete(!!requiresConfirmation, idx, cardIdx)}
-            deleteItemOfOtherList={(listIdx: number, cardIdx: number) => service.item.delete(true, listIdx, cardIdx)}
-            swapItems={(itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx)}
+        <List {...listService(list, idx)}
         />
     ));
     return (

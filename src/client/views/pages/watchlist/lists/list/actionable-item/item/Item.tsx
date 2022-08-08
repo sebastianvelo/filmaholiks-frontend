@@ -13,7 +13,7 @@ export interface ItemProps {
 }
 
 const Item: FunctionComponent<ItemProps> = (props: ItemProps) => (
-    <article className="bg-gradient-to-r from-light to-white text-black flex space-x-4 shadow-lg w-96 h-24">
+    <article className="bg-gradient-to-r from-light to-white text-black flex space-x-4 shadow-lg w-full h-24">
         <Action path={props.path} revert>
             {props.poster && <Image className="h-full cursor-pointer" {...props.poster} />}
         </Action>
@@ -22,7 +22,7 @@ const Item: FunctionComponent<ItemProps> = (props: ItemProps) => (
                 <Action className={`font-bold truncate text-left`} path={props.path} label={props.title} revert />
                 <p className="text-xs">{props.info}</p>
             </div>
-            <div className="flex">
+            <div className="hidden md:flex">
                 {props.category?.split(",").sort().slice(0, 2).map(cat => (
                     <Pill className="text-xs text-white" color={ComponentColor.SECONDARY} label={cat} />
                 ))}

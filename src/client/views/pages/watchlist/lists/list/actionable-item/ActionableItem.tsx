@@ -2,6 +2,7 @@ import WatchlistService from "client/service/WatchlistService";
 import { FunctionComponent } from "react";
 import Item, { ItemProps } from "./item/Item";
 import ActionItem, { ActionItemProps } from "./menu/content/action/ActionItem";
+import DragItem from "./menu/content/drag/DragItem";
 import useActionableItemMenu from "./menu/useMenuItem";
 import useModalItem from "./modal/useModalItem";
 
@@ -33,7 +34,10 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
                     <Item {...props.item} />
                     {props.listIdx !== undefined && (
                         <>
-                            <MenuTrigger />
+                            <div className="flex flex-col justify-between">
+                                <DragItem {...props} />
+                                <MenuTrigger />
+                            </div>
                             <MenuContent />
                         </>
                     )}

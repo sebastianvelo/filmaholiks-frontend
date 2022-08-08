@@ -3,6 +3,7 @@ import { FunctionComponent } from "react";
 interface ListTitleProps {
     title?: string;
     changeTitle: (title: string) => void;
+    size?: number;
 }
 
 const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
@@ -12,7 +13,8 @@ const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
         type="text"
         name={props.title}
         value={props.title}
-        onInput={(e: React.ChangeEvent<HTMLInputElement>) => props.changeTitle(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.changeTitle(e.target.value)}
     />
+
 
 export default ListTitle;

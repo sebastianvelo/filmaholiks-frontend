@@ -9,7 +9,7 @@ export interface TabProps {
 const Tab: FunctionComponent<TabProps> = (props: TabProps) => {
     const className = Tailwind.builder()
         .add('px-6 py-4 transition-border-color duration-300 border-b-8 w-28 md:w-auto text-sm md:text-2xl')
-        .addIf('border-primary-dark text-primary-dark', props.active)
+        .addIf('border-primary text-primary', props.active)
         .addIf('border-transparent', !props.active)
         .build();
     return (

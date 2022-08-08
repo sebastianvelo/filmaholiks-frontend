@@ -9,7 +9,7 @@ interface MenuItemTriggerProps {
 
 const MenuItemTrigger: FunctionComponent<MenuItemTriggerProps> = (props: MenuItemTriggerProps) => (
     <Action
-        className="flex justify-center items-center cursor-context-menu"
+        className="flex justify-center items-center cursor-context-menu h-full"
         color={ComponentHovereableColor.INFO}
         onClick={() => props.setOpen(true)}
         onMouseLeave={() => props.setOpen(false)}

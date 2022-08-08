@@ -11,7 +11,7 @@ const Headline: FunctionComponent<HeadlineProps> = (props: HeadlineProps) => {
     const className = Tailwind.builder()
         .add('font-bold')
         .add(props.className)
-        .addIf("text-primary-dark", !props.revert)
+        .addIf("text-primary", !props.revert)
         .addIf(`text-xl`, !props.className)
         .build();
     return (<h1 className={className}>{props.children}</h1>);

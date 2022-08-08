@@ -28,7 +28,7 @@ const Items = (props: ListBodyProps) => (
 const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-4 overflow-y-auto h-full text-dark p-2">
+    <div className="space-y-4 overflow-y-auto h-full text-dark md:p-2">
         <Items {...props} />
         {!props.items.length && <ItemsEmpty />}
     </div>

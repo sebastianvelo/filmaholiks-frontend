@@ -17,9 +17,9 @@ module.exports = {
         teal: colors.teal,
         orange: colors.orange,
         primary: {
-          light: '#EFFFFD',
-          DEFAULT: '#B8FFF9',
-          dark: '#39edff',
+          light: '#B8FFF9',
+          DEFAULT: '#39edff',
+          dark: '#00b6c8',
         },
         secondary: {
           light: "#0E5F76",

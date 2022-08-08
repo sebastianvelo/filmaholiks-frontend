@@ -7,8 +7,6 @@ import { ItemProps } from "../../../item/Item";
 
 export interface DragItemProps {
     item: ItemProps;
-    ModalTrigger: () => JSX.Element;
-    action: (requiresConfirmation?: boolean) => void;
     delete?: boolean;
     listIdx?: number;
     idx: number;
@@ -18,7 +16,7 @@ const DragItem: FunctionComponent<DragItemProps> = (props: DragItemProps) => {
     if (props.listIdx === undefined) return <></>;
 
     const getImage = () => {
-        const image = new Image(200, 100);
+        const image = new Image(50, 50);
         image.src = props.item.poster?.src ?? "";
         return image;
     }
@@ -31,7 +29,7 @@ const DragItem: FunctionComponent<DragItemProps> = (props: DragItemProps) => {
     };
 
     return (
-        <Action className="flex justify-center items-center cursor-move" color={ComponentHovereableColor.SECONDARY} >
+        <Action className="hidden md:flex justify-center items-center cursor-move h-full" color={ComponentHovereableColor.INFO} >
             <div draggable={true} onDragStart={onDragStart}>
                 <DragSvg />
             </div>

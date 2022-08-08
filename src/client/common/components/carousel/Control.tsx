@@ -9,7 +9,7 @@ const slide = (id: string, right: boolean) => {
     if (!carousel) return;
     const scroll = carousel.scrollLeft() ?? 0;
     const width = carousel.width() ?? 0;
-    const move = (width - 40) * (right ? 1 : -1);
+    const move = (width - (width / 2)) * (right ? 1 : -1);
     carousel.scrollLeft(scroll + move);
 }
 

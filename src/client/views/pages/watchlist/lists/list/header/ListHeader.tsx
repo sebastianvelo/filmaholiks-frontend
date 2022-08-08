@@ -1,23 +1,21 @@
-import Action from "client/common/components/action/Action";
-import { DragSvg } from "client/common/components/svg/Svg";
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
+import DragList from "./drag/DragList";
 import ListTitle from "./title/ListTitle";
 
 export interface ListHeaderProps {
     title?: string;
-    changeTitle: (title: string) => void;
-    onDragStart: React.DragEventHandler<HTMLDivElement>;
+    changeListTitle: (title: string) => void;
+    size?: number;
+    listIdx: number;
 }
 
 const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) => (
     <div className="flex bg-secondary-dark justify-between">
-        <ListTitle title={props.title} changeTitle={props.changeTitle} />
-        <div draggable="true" onDragStart={props.onDragStart}>
-            <Action className="h-full flex justify-center items-center cursor-move" color={ComponentHovereableColor.SECONDARY} >
-                <DragSvg />
-            </Action>
+        <div className="flex items-center">
+            <ListTitle size={props.size} title={props.title} changeTitle={props.changeListTitle} />
+            <p className="text-2xl pr-4 font-black">({props.size})</p>
         </div>
+        <DragList listIdx={props.listIdx} />
     </div>
 );
 

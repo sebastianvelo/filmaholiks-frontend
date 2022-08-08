@@ -24,7 +24,7 @@ const getClassName = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-teal-400 to-teal-600 text-dark`, props.rating >= 9 && props.rating < 9.5)
     .addIf(`from-teal-600 to-blue-400 text-dark`, props.rating >= 9.5 && props.rating < 10)
     .addIf(`from-blue-400 to-blue-600 text-dark`, props.rating === 10)
-    .addIf("border-primary-dark", props.isOpened)
+    .addIf("border-primary", props.isOpened)
     .addIf("border-dark", !props.isOpened)
     .add("p-2 w-full border group relative")
     .add("hover:border-primary box-border transition-all duration-300 cursor-pointer")
@@ -42,7 +42,7 @@ const getEpisodeNameClassName = (props: ChartBodyCellProps) => Tailwind.builder(
     .add("flex-col justify-between")
     .add("duration-500 transition-all")
     .add("absolute z-20")
-    .add("bg-gradient-to-tl from-secondary-dark to-black text-primary-dark")
+    .add("bg-gradient-to-tl from-secondary-dark to-black text-primary")
     .add("font-bold rounded-lg w-64")
     .build();
 
