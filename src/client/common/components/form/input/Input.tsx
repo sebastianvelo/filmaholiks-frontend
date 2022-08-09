@@ -6,13 +6,16 @@ interface InputProps {
     className?: string;
     value?: string;
     onChange?: (e: any) => void;
+    revert?: boolean;
 }
 
 const Input: FunctionComponent<InputProps> = (props: InputProps) => {
     const className = Tailwind.builder()
-        .add('bg-secondary placeholder-opacity-50 placeholder-light px-4 py-2 w-full transition-color duration-500 cursor-pointer')
-        .add('focus:bg-secondary focus:border-secondary focus:outline-none')
-        .add('hover:bg-secondary hover:border-secondary')
+        .add('px-4 py-2 transition-color duration-500 cursor-pointer')
+        .addIf('bg-primary placeholder-opacity-50 placeholder-dark', !props.revert)
+        .addIf('focus:bg-primary focus:border-primary focus:outline-none', !props.revert)
+        .addIf('hover:bg-primary hover:border-primary', !props.revert)
+        .addIf('text-black', !props.revert)
         .addIf(props.className, !!props.className)
         .build();
 

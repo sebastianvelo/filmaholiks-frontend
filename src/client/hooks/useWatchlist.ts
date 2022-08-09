@@ -13,7 +13,27 @@ const requireConfirmation = (config: { title: string, cback: (result: SweetAlert
     }).then(config.cback);
 };
 
-const useWatchlist = (apiLists?: ListProps[]) => {
+export interface UseWatchlist {
+    list: {
+        value: ListProps[];
+        changeTitle: (listIdx: number, title: string) => void;
+        swap: (idxA: number, idxB: number) => void;
+        add: () => void;
+        delete: (listIdx: number) => void;
+        find: (query: string) => ListProps | undefined;
+        retrieveAll: ListProps[];
+    };
+    item: {
+        delete: (listIdx: number, itemIdx: number, requiresConfirmation?: boolean) => void;
+        deleteByName: (query: string) => void;
+        save: (listIdx: number, item: ItemProps) => void;
+        swap: (listIdx: number, idxA: number, idxB: number) => void;
+        move: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => void;
+        find: (query?: string) => ItemProps | undefined;
+    }
+}
+
+const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
     const listsFromLS = WatchlistService.fromLocalStorage.list.retrieve();
     const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiLists ?? []);
 

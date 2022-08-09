@@ -8,13 +8,11 @@ export interface DetailHeaderProps extends DetailPostersProps, DetailBodyProps {
 }
 
 const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => (
-    <div className=" bg-gradient-to-l from-dark to-black  2xl:border-r 2xl:border-l border-b border-primary">
-        <div className={`flex flex-col md:flex-row w-full`}  >
-            <DetailPosters {...props} />
-            <div className={`flex flex-col w-full md:w-3/4 2xl:w-4/5`}>
-                <DetailActions {...props.actions} />
-                <DetailBody {...props} />
-            </div>
+    <div className={`flex flex-col lg:flex-row w-full border-b-2 md:border-b-0  2xl:border-l-2 2xl:border-t-4 2xl:border-r-2 border-primary`}>
+        <DetailPosters {...props} />
+        <div className={`flex flex-col w-full lg:w-3/4 2xl:w-4/5`}>
+            <DetailActions {...props.actions} />
+            <DetailBody {...props} />
         </div>
     </div>
 );

@@ -20,9 +20,10 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
     const { user }: UserParams = useParams();
     const page = useFetch<WatchlistPageProps>(props.getPage(user));
     const title = user === "my" ? "My watchlist" : `Watchlist of ${user}`;
+
     return (
         <Loading loading={page?.loading}>
-            <div className="2xl:px-28 py-8 space-y-8">
+            <div className="2xl:px-12 py-8 space-y-8">
                 <Headline className="text-primary text-5xl">{title}</Headline>
                 <Lists lists={page?.data?.lists!} />
             </div>

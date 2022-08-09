@@ -35,4 +35,8 @@
   .brand {
     font-family: 'Lobster', cursive;
   }
+
+  .swal2-confirm.swal2-styled {
+    background-color: #205675 !important;
+  }
 }

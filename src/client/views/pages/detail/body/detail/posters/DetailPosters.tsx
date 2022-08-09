@@ -8,8 +8,8 @@ export interface DetailPostersProps {
 
 const DetailPosters: FunctionComponent<DetailPostersProps> = (props: DetailPostersProps) => (
     <>
-        <Image {...props.poster!} className={`hidden md:block md:w-1/4 md:border-2-r border-primary`} />
-        <Image {...props.backdrop!} className={`md:hidden border-b-2 border-primary`} />
+        <Image {...props.poster!} className={`hidden lg:block lg:w-1/4 lg:border-2-r border-primary`} />
+        <Image {...props.backdrop!} className={`lg:hidden`} />
     </>
 )
 
