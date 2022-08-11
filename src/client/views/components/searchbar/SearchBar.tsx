@@ -17,7 +17,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => 
         history.push(path);
     }
     return (
-        <form onSubmit={handleSubmit} className={`flex items-center justify-center w-full md:pb-8`}>
+        <form onSubmit={handleSubmit} className={`flex items-center justify-center w-full md:pb-8 fixed md:relative bottom-0 z-50`}>
             <Input className="w-full xl:w-1/2" onChange={handleSearch} placeholder={props.placeholder}  />
         </form >
     );

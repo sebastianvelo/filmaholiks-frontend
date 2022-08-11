@@ -7,7 +7,7 @@ interface ContainerProps {
 }
 
 const Container: FunctionComponent<ContainerProps> = (props: ContainerProps) => (
-    <div className={`space-y-2 px-4 py-4 w-full ${props.className}`} style={props.style}>
+    <div className={`space-y-2 px-4 py-4 ${props.className}`} style={props.style}>
         {props.children}
     </div>
 )

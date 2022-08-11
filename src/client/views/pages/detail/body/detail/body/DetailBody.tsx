@@ -16,10 +16,10 @@ const DetailBody: FunctionComponent<DetailBodyProps> = (props: DetailBodyProps) 
         <div>
             {props.header && <DetailHeader {...props.header} />}
             {props.description && <DetailDescription {...props.description} />}
-        </div>
-        <div className={`grid lg:grid-cols-3 w-full`}>
-            {props.video && <DetailVideo {...props.video} />}
             {props.info && <DetailInfo {...props.info} />}
+            {props.video && <DetailVideo {...props.video} />}
+        </div>
+        <div className={`grid w-full`}>
         </div>
     </div>
 );

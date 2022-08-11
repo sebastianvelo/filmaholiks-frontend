@@ -27,8 +27,8 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
         .add("flex flex-col justify-start")
         .add("rounded-sm")
         .add("max-h-screen md:h-screen w-full md:w-96")
-        .add("border-secondary dark:border-primary-light border-2")
-        .add("bg-white dark:bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
+        .add("border-secondary dark:border-primary-light border-t-8 rounded-xl")
+        .add("bg-white dark:bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-90")
         .build();
 
     return (

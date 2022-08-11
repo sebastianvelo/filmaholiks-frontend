@@ -10,7 +10,7 @@ const DetailSections: FunctionComponent<DetailSectionsProps> = (props: DetailSec
     props.sections ?
         (
             <Tabs
-                tabsClassName="px-2 border-b-2 border-t-2 dark:border-primary border-secondary md:text-2xl bg-primary-dark dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10"
+                tabsClassName="px-2 border-b-2 dark:border-primary border-secondary md:text-2xl bg-primary dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50"
                 tabs={props.sections?.map(section => ({
                     content: <CardsSection cards={section.cards} key={section.title} id={section.title?.split(" ")[0]} />,
                     label: section.title ?? "error"

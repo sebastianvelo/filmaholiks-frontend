@@ -9,9 +9,9 @@ export interface DetailChartProps {
 const DetailChart: FunctionComponent<DetailChartProps> = (props: DetailChartProps) => (
     props.charts ?
         (
-            <div className=" overflow-y-auto">
+            <div className="overflow-y-auto">
                 <Tabs
-                    tabsClassName="px-2 border-b-2 border-t-2 dark:border-primary border-secondary md:text-2xl bg-primary-dark dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10"
+                    tabsClassName="px-2 border-b-2 dark:border-primary border-secondary md:text-2xl bg-primary dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50"
                     tabs={props.charts?.map(chart => ({
                         content: <ChartSection chart={chart.chart} key={chart.title} />,
                         label: chart.title ?? "error"

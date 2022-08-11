@@ -19,7 +19,10 @@ const Tabs: FunctionComponent<TabsProps> = (props: TabsProps) => {
         .add(props.className)
         .build();
 
-    const tabsClassName = Tailwind.builder().add("flex space-x-4 overflow-x-auto").add(props.tabsClassName).build();
+    const tabsClassName = Tailwind.builder()
+        .add("flex space-x-4 overflow-x-auto")
+        .add(props.tabsClassName)
+        .build();
 
     return (
         <div className={className}>

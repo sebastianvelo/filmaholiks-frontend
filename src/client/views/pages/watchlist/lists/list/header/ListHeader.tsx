@@ -10,7 +10,7 @@ export interface ListHeaderProps {
 }
 
 const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) => (
-    <div className="flex bg-primary-light text-black dark:bg-secondary dark:text-white justify-between">
+    <div className="flex bg-primary text-black dark:bg-secondary dark:text-white justify-between">
         <div className="flex items-center">
             <ListTitle size={props.size} title={props.title} changeTitle={props.changeListTitle} />
             <p className="text-2xl pr-4 font-black">({props.size})</p>

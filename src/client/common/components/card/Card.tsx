@@ -15,7 +15,7 @@ export interface CardProps {
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const className = Tailwind.builder()
         .add("flex-none flex flex-col space-y-2 justify-between")
-        .add("w-44 sm:w-48 shadow-lg")
+        .add("w-32 sm:w-44 lg:w-48 shadow-lg")
         .add("bg-gradient-to-t from-primary-light to-primary")
         .add("dark:from-secondary-dark dark:via-secondary dark:to-secondary-dark")
         .add("transform")
