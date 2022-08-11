@@ -24,18 +24,17 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
     };
 
     const className = Tailwind.builder()
-        .add("bg-gradient-to-b from-secondary to-secondary-dark")
         .add("flex flex-col justify-start")
         .add("rounded-sm")
         .add("max-h-screen md:h-screen w-full md:w-96")
+        .add("border-secondary dark:border-primary-light border-2")
+        .add("bg-white dark:bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
         .build();
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            <div className="space-y-2 bg-black">
-                <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />
-                <ListHeader {...props} size={props.items.length} />
-            </div>
+            <ListHeader {...props} size={props.items.length} />
+            <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />
             <ListBody {...props} />
             <ListFooter {...props} />
         </section >

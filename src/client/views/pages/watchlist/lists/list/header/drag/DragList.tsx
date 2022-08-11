@@ -17,7 +17,7 @@ const DragList: FunctionComponent<DragListProps> = (props: DragListProps) => {
 
     return (
         <div draggable="true" onDragStart={onDragStart}>
-            <Action className="h-full flex justify-center items-center cursor-move" color={ComponentHovereableColor.INFO} >
+            <Action className="h-full hidden sm:flex justify-center items-center cursor-move" color={ComponentHovereableColor.INFO} >
                 <DragSvg />
             </Action>
         </div>

@@ -10,7 +10,7 @@ export interface AppProps {
  }
 
 const App: FunctionComponent<AppProps> = (props: AppProps) => (
-    <div className={`font-sans max-w-screen overflow-x-hidden bg-gradient-to-bl from-secondary-dark to-black`}>
+    <div className={`font-sans max-w-screen overflow-x-hidden bg-gradient-to-tr from-primary-light to-primary-lighter dark:from-secondary-dark dark:to-black`}>
       <Navigation {...props.navigation()} />
       <Main {...props.main()} />
       <Footer {...props.footer()}/>

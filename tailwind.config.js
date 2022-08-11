@@ -17,6 +17,7 @@ module.exports = {
         teal: colors.teal,
         orange: colors.orange,
         primary: {
+          lighter: '#d2fffb',
           light: '#B8FFF9',
           DEFAULT: '#39edff',
           dark: '#00b6c8',
@@ -47,8 +48,8 @@ module.exports = {
           dark: colors.gray[300],
         },
         dark: {
-          DEFAULT: colors.gray[900],
-          light: colors.gray[800],
+          DEFAULT: colors.blueGray[900],
+          light: colors.blueGray[800],
         },
       },
       cursor: {

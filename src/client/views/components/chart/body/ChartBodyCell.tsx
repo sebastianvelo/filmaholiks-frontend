@@ -58,7 +58,7 @@ const getEpisodeNameClassName = (props: ChartBodyCellProps) => Tailwind.builder(
     .add("flex-col justify-between")
     .add("duration-500 transition-all")
     .add("absolute z-20")
-    .add("bg-gradient-to-tl from-secondary-dark to-black text-primary")
+    .add("bg-gradient-to-tl from-secondary-dark to-black text-secondary dark:text-primary")
     .add("font-bold rounded-lg w-64")
     .build();
 

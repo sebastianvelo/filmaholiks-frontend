@@ -11,8 +11,7 @@ const DetailChart: FunctionComponent<DetailChartProps> = (props: DetailChartProp
         (
             <div className=" overflow-y-auto">
                 <Tabs
-                    className="md:border border-primary divide-y-2 divide-primary-dark"
-                    tabsClassName="md:text-2xl bg-gradient-to-r from-black to-secondary-dark"
+                    tabsClassName="px-2 border-b-2 border-t-2 dark:border-primary border-secondary md:text-2xl bg-primary-dark dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10"
                     tabs={props.charts?.map(chart => ({
                         content: <ChartSection chart={chart.chart} key={chart.title} />,
                         label: chart.title ?? "error"

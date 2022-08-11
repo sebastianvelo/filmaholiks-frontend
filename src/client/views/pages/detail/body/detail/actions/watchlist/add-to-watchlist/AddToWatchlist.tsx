@@ -1,5 +1,4 @@
 import Action from "client/common/components/action/Action";
-import Headline from "client/common/components/headline/Headline";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
@@ -15,24 +14,23 @@ export interface AddToWatchlistProps {
 const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatchlistProps) => {
     const [opened, setOpen] = useState(false);
     const toggle = () => setOpen(!opened);
-    
+
     const modalClassName = Tailwind.builder()
-        .add("fixed place-items-center w-screen h-screen top-0 left-0 bg-black bg-opacity-70 z-50 transition-opacity duration-1000")
+        .add("absolute z-50 top-8 left-32 w-96")
         .addIf("grid", opened)
-        .addIf("hidden bg-opacity-0", !opened)
+        .addIf("hidden", !opened)
         .build();
 
     return (
-        <div>
+        <div className="relative">
             <Action label="+ Add" className="w-screen md:w-64" color={ComponentHovereableColor.SUCCESS} onClick={toggle} />
             <div className={modalClassName} onClick={toggle} >
-                <article className="bg-gradient-to-b from-secondary-dark to-black rounded-tl-xl rounded-bl-xl shadow-lg w-screen h-screen md:w-1/2 md:h-1/2 text-black p-4 space-y-8 overflow-y-auto">
-                    <Headline className="text-5xl">Add to list</Headline>
-                    <div className="flex flex-col space-y-8">
+                <article className="bg-primary-lighter dark:bg-black p-4 space-y-8 overflow-y-auto bg-opacity-60">
+                    <div className="flex flex-col space-y-4">
                         {props.lists.map((list, idx) => (
                             <Action
                                 onClick={() => props.save(idx, props.item)}
-                                className={ComponentHovereableColor.SECONDARY}
+                                className="rounded-xl dark:bg-secondary dark:hover:bg-secondary-dark dark:text-light bg-primary-dark hover:bg-primary text-dark"
                                 label={list.title}
                             />
                         ))}

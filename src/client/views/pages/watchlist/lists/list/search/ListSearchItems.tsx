@@ -1,5 +1,6 @@
 import WatchlistPageRequest from "api/request/pages/WatchlistPageRequest";
 import Input from "client/common/components/form/input/Input";
+import Tailwind from "client/common/tailwind/Tailwind";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent, useState } from "react";
 import { ItemProps } from "../actionable-item/item/Item";
@@ -32,9 +33,19 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
         props.deleteItemOfOtherList(listIdx, idx, requiresConfirmation);
     }
 
+    const inputClassName = Tailwind.builder()
+        .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
+        .add('dark:bg-secondary-dark bg-primary-lighter dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
+        .add('dark:focus:bg-secondary dark:focus:border-secondary dark:focus:outline-none')
+        .add('dark:hover:bg-secondary dark:hover:border-secondary')
+        .add('focus:bg-primary focus:border-primary focus:outline-none')
+        .add('hover:bg-primary hover:border-primary')
+        .add('dark:text-white text-black')
+        .build();
+
     return (
-        <form className={`group relative w-full`}>
-            <Input revert className="w-full bg-secondary-dark" placeholder={`Add show`} onChange={(e) => handleSearch(e.target.value)} />
+        <form className="group relative w-full">
+            <Input revert className={inputClassName} placeholder={"Add show"} onChange={(e) => handleSearch(e.target.value)} />
             <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </form>
     );
