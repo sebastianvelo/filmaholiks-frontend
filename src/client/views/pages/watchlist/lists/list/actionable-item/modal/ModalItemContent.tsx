@@ -13,15 +13,13 @@ export interface ModalItemContentProps {
 
 const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: ModalItemContentProps) => {
     const modalClassName = Tailwind.builder()
-        .add("fixed place-items-center w-screen h-screen top-0 left-0 bg-black bg-opacity-90 z-50 transition-colors duration-1000")
+        .add("rounded-xl absolute place-items-center w-screen h-96 top-12 left-0 z-50 bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
         .addIf("grid", props.opened)
         .addIf("hidden bg-opacity-0", !props.opened)
         .build();
 
     const cardClassName = Tailwind.builder()
-        .add("bg-gradient-to-b from-secondary-dark to-secondary")
-        .add("w-screen h-screen md:w-1/2 md:h-96")
-        .add("text-black space-x-8")
+        .add("text-black space-x-8 h-full w-full z-50")
         .add("flex flex-col md:flex-row items-center md:items-start")
         .build();
 
@@ -31,6 +29,11 @@ const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: Modal
                 <Action path={props.item.path} revert>
                     {props.item.poster && <Image className="w-80 h-96 rounded-tl-xl rounded-bl-xl" {...props.item.poster} />}
                 </Action>
+                <Action
+                    label="X"
+                    className="p-2 w-12 h-8 flex items-center justify-center font-black"
+                    onClick={props.toggle}
+                    color={ComponentHovereableColor.DANGER} revert />
                 <div className="flex justify-between items-start w-full text-light">
                     <div className="space-y-2 w-full">
                         <div className="flex justify-between w-full">
@@ -40,11 +43,6 @@ const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: Modal
                                 label={props.item.title}
                                 revert
                             />
-                            <Action
-                                label="X"
-                                className="w-8 h-8 flex items-center justify-center font-black"
-                                onClick={props.toggle}
-                                color={ComponentHovereableColor.DANGER} revert />
                         </div>
                         <p className="text-xl">{props.item.info}</p>
                         <p>//aca se va a poder editar cuantas temporadas/caps viste</p>

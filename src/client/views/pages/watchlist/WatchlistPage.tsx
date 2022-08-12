@@ -1,5 +1,4 @@
 import { AxiosRequestConfig } from "axios";
-import Headline from "client/common/components/headline/Headline";
 import Loading from "client/common/components/loading/Loading";
 import { UserParams } from "client/common/params/Params";
 import useFetch from "client/hooks/useFetch";
@@ -23,9 +22,8 @@ const WatchlistPage: FunctionComponent<WatchlistPageBlueprintProps> = (props: Wa
 
     return (
         <Loading loading={page?.loading}>
-            <div className="2xl:px-12 py-8 space-y-8">
-                <Headline className="text-5xl">{title}</Headline>
-                <Lists lists={page?.data?.lists!} />
+            <div className="2xl:px-24 space-y-8">
+                <Lists title={title} lists={page?.data?.lists!} />
             </div>
         </Loading>
     );

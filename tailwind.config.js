@@ -1,5 +1,36 @@
 const colors = require('tailwindcss/colors')
 
+const green = {
+  light: "#1ff286",
+  DEFAULT: "#0CCE6B",
+  dark: "#0aa556",
+};
+
+const yellow = {
+  lighter: '#fef5da',
+  light: '#ffe7a1',
+  DEFAULT: "#FCCA46",
+  dark: "#fbb807",
+}
+
+const lightblue = {
+  lighter: '#d2fffb',
+  light: '#B8FFF9',
+  DEFAULT: '#39edff',
+  dark: '#00b6c8',
+};
+
+const darkBlue = {
+  lighter: "#b6cfd5",
+  light: "#86afba",
+  DEFAULT: "#083D56",
+  dark: "#0C2233",
+  darker: "#072f3b"
+};
+
+const primary = yellow;
+const secondary = darkBlue;
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
@@ -16,17 +47,8 @@ module.exports = {
       colors: {
         teal: colors.teal,
         orange: colors.orange,
-        primary: {
-          lighter: '#d2fffb',
-          light: '#B8FFF9',
-          DEFAULT: '#39edff',
-          dark: '#00b6c8',
-        },
-        secondary: {
-          light: "#0E5F76",
-          DEFAULT: "#083D56",
-          dark: "#0C2233",
-        },
+        primary,
+        secondary,
         success: {
           DEFAULT: colors.green[700],
           dark: colors.green[800],

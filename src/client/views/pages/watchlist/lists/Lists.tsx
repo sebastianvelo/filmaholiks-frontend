@@ -1,11 +1,13 @@
 import Carousel from "client/common/components/carousel/Carousel";
 import useWatchlist from "client/hooks/useWatchlist";
+import Section from "client/views/components/section/Section";
 import { FunctionComponent } from "react";
 import AddListButton from "./add-list-button/AddListButton";
 import { ItemProps } from "./list/actionable-item/item/Item";
 import List, { ListProps } from "./list/List";
 
 interface ListsProps {
+    title: string;
     lists: ListProps[];
 }
 
@@ -32,17 +34,20 @@ const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
         />
     ));
 
+
     return (
         <>
-            <AddListButton addList={service.list.add} />
             <div className="hidden md:block">
-                <Carousel id="watchlist">
-                    {lists}
-                </Carousel>
+                <Section title={props.title}>
+                    <Carousel id="watchlist">
+                        {lists}
+                    </Carousel>
+                </Section>
             </div>
             <div className="md:hidden space-y-4">
                 {lists}
             </div>
+            <AddListButton addList={service.list.add} />
         </>
     );
 }

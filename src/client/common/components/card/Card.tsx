@@ -16,12 +16,14 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
     const className = Tailwind.builder()
         .add("flex-none flex flex-col space-y-2 justify-between")
         .add("w-32 sm:w-44 lg:w-48 shadow-lg")
-        .add("bg-gradient-to-t from-primary-light to-primary")
+        .add("bg-gradient-to-t from-secondary-lighter via-secondary-lighter to-secondary-lighter")
         .add("dark:from-secondary-dark dark:via-secondary dark:to-secondary-dark")
         .add("transform")
         .add("hover:scale-110")
         .add("transition-all ease-in duration-200")
-        .add("border border-primary-dark hover:border-primary rounded-sm text-center group shadow-lg")
+        .add("border border-secondary-light hover:border-secondary")
+        .add("dark:border-secondary-light dark:hover:border-primary")
+        .add("rounded-sm text-center group shadow-lg")
         .add("filter ")
         .build();
 

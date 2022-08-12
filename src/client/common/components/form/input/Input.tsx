@@ -12,7 +12,7 @@ interface InputProps {
 const Input: FunctionComponent<InputProps> = (props: InputProps) => {
     const className = Tailwind.builder()
         .add('px-4 py-4 transition-color duration-500 cursor-pointer')
-        .addIf('bg-secondary-dark dark:bg-primary-lighter placeholder-opacity-50 dark:placeholder-secondary-dark placeholder-primary-light', !props.revert)
+        .addIf('bg-secondary-dark dark:bg-primary placeholder-opacity-50 dark:placeholder-secondary-dark placeholder-primary-light', !props.revert)
         .addIf('focus:bg-secondary focus:border-secondary focus:outline-none', !props.revert)
         .addIf('hover:bg-secondary hover:border-secondary', !props.revert)
         .addIf('dark:focus:bg-primary dark:focus:border-primary dark:focus:outline-none', !props.revert)

@@ -11,10 +11,10 @@ export interface DetailPageProps {
 const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
     document.title = props.title;
     return (
-        <>
+        <div className="relative">
             <SearchBar {...props.searchbar} />
             <DetailPageBody {...props.body} />
-        </>
+        </div>
     );
 };
 

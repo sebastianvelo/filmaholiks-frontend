@@ -35,11 +35,9 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
 
     const inputClassName = Tailwind.builder()
         .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
-        .add('dark:bg-secondary-dark bg-primary-lighter dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
-        .add('dark:focus:bg-secondary dark:focus:border-secondary dark:focus:outline-none')
-        .add('dark:hover:bg-secondary dark:hover:border-secondary')
-        .add('focus:bg-primary focus:border-primary focus:outline-none')
-        .add('hover:bg-primary hover:border-primary')
+        .add('dark:bg-secondary-dark bg-secondary-light dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
+        .add('focus:outline-none')
+        .add("rounded-sm mb-4")
         .add('dark:text-white text-black')
         .build();
 

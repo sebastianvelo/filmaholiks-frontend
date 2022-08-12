@@ -30,16 +30,16 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
     return (
         <>
             <div className="flex flex-col w-full shadow-xl h-20" onDrop={onDrop}>
-                <div className="flex items-center justify-center relative h-full">
+                <div className="flex items-center justify-center h-full">
                     <Item {...props.item} />
                     {props.listIdx !== undefined && (
-                        <>
-                            <div className="flex flex-col justify-between h-full">
+                        <div className="relative">
+                            <div className="flex flex-col justify-between  h-full">
                                 <DragItem {...props} />
                                 <MenuTrigger />
                             </div>
                             <MenuContent />
-                        </>
+                        </div>
                     )}
                     {props.listIdx === undefined && (
                         <div className="flex flex-col h-full">
@@ -50,6 +50,7 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
             </div>
             <ModalContent />
         </>
+
     );
 }
 

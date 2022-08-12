@@ -27,14 +27,13 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
         .add("flex flex-col justify-start")
         .add("rounded-sm")
         .add("max-h-screen md:h-screen w-full md:w-96")
-        .add("border-secondary dark:border-primary-light border-t-8 rounded-xl")
-        .add("bg-white dark:bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-90")
+        .add("bg-secondary-lighter dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-90")
         .build();
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            <ListHeader {...props} size={props.items.length} />
             <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />
+            <ListHeader {...props} size={props.items.length} />
             <ListBody {...props} />
             <ListFooter {...props} />
         </section >

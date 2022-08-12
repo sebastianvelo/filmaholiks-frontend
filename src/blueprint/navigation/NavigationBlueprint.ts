@@ -1,13 +1,14 @@
+import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import PageRoute from "client/routes/PageRoute";
 import { NavigationProps } from "client/views/layout/navigation/Navigation";
 
 const navigationBlueprint = (): NavigationProps => ({
   header: "Filmaholiks",
   actions: [
-   /* {
-      label: "Home",
-      path: PageRoute.HOME
-    }, */
+    /* {
+       label: "Home",
+       path: PageRoute.HOME
+     }, */
     {
       label: "Movies",
       path: PageRoute.MOVIE_EXPLORE
@@ -24,12 +25,12 @@ const navigationBlueprint = (): NavigationProps => ({
       label: "Watch list",
       path: PageRoute.WATCH_LIST_BY_USER.replace(":user", "my")
     },
-   /* {
-      label: "Login",
-      path: PageRoute.LOGIN
-    }, */
+    /* {
+       label: "Login",
+       path: PageRoute.LOGIN
+     }, */
   ],
-    /* menu: {
+  menu: {
     options: [
       {
         path: PageRoute.HOME,
@@ -57,8 +58,8 @@ const navigationBlueprint = (): NavigationProps => ({
       src: 'https://picsum.photos/200',
     }
   },
-  */
- 
+
+
 });
 
 export default navigationBlueprint;

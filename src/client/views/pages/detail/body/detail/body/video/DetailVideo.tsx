@@ -10,7 +10,7 @@ export interface DetailVideoProps {
 }
 
 const DetailVideo: FunctionComponent<DetailVideoProps> = (props: DetailVideoProps) => (
-    <Container className="w-1/2">
+    <Container>
         <Headline>{props.title}</Headline>
         <div className={props.className}>
             <Video src={props.src ?? 'https://www.youtube.com/embed/dQw4w9WgXcQ'} />
