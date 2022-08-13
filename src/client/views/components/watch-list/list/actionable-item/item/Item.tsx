@@ -13,7 +13,7 @@ export interface ItemProps {
 }
 
 const Item: FunctionComponent<ItemProps> = (props: ItemProps) => (
-    <article className="bg-gradient-to-r dark:from-black dark:to-secondary-dark dark:text-white from-white to-primary-lighter text-black flex space-x-2 shadow-lg w-full h-full">
+    <article className="bg-gradient-to-r dark:from-black dark:to-dark dark:text-white from-white to-light text-black flex space-x-2 shadow-lg w-full h-full">
         <Action path={props.path} revert>
             {props.poster && <Image className="h-full w-16 cursor-pointer" {...props.poster} />}
         </Action>

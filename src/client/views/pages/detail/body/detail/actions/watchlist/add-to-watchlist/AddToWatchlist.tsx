@@ -1,9 +1,9 @@
 import Action from "client/common/components/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
-import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
-import { ListProps } from "client/views/pages/watchlist/lists/list/List";
 import { FunctionComponent, useState } from "react";
+import { ItemProps } from "../../../../../../../components/watch-list/list/actionable-item/item/Item";
+import { ListProps } from "../../../../../../../components/watch-list/list/List";
 
 export interface AddToWatchlistProps {
     item: ItemProps;

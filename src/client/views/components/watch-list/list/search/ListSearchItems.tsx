@@ -37,7 +37,7 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
         .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
         .add('dark:bg-secondary-dark bg-secondary-light dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
         .add('focus:outline-none')
-        .add("rounded-sm mb-4")
+        .add("rounded-sm")
         .add('dark:text-white text-black')
         .build();
 

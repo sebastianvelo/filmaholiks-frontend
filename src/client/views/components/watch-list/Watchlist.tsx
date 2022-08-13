@@ -6,12 +6,11 @@ import AddListButton from "./add-list-button/AddListButton";
 import { ItemProps } from "./list/actionable-item/item/Item";
 import List, { ListProps } from "./list/List";
 
-interface ListsProps {
-    title: string;
+export interface WatchlistProps {
     lists: ListProps[];
 }
 
-const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
+const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => {
     const service = useWatchlist(props.lists);
 
     const listService = (list: ListProps, idx: number) => ({
@@ -34,22 +33,19 @@ const Lists: FunctionComponent<ListsProps> = (props: ListsProps) => {
         />
     ));
 
-
     return (
         <>
-            <div className="hidden md:block">
-                <Section title={props.title}>
-                    <Carousel id="watchlist">
-                        {lists}
-                    </Carousel>
-                </Section>
-            </div>
+            <Section>
+                <AddListButton addList={service.list.add} />
+                <Carousel id="watchlist">
+                    {lists}
+                </Carousel>
+            </Section>
             <div className="md:hidden space-y-4">
                 {lists}
             </div>
-            <AddListButton addList={service.list.add} />
         </>
     );
 }
 
-export default Lists;
+export default Watchlist;

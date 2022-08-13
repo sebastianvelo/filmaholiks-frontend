@@ -1,4 +1,4 @@
-import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
+import { ItemProps } from "client/views/components/watch-list/list/actionable-item/item/Item";
 import { UseWatchlist } from "./useWatchlist";
 
 export interface UseList {

@@ -21,10 +21,6 @@ const navigationBlueprint = (): NavigationProps => ({
       label: "People",
       path: PageRoute.PERSON_EXPLORE
     },
-    {
-      label: "Watch list",
-      path: PageRoute.WATCH_LIST_BY_USER.replace(":user", "my")
-    },
     /* {
        label: "Login",
        path: PageRoute.LOGIN
@@ -33,7 +29,7 @@ const navigationBlueprint = (): NavigationProps => ({
   menu: {
     options: [
       {
-        path: PageRoute.HOME,
+        path: PageRoute.USER_DETAIL.replace(":id", "sebastianvel"),
         label: "Profile",
         color: ComponentHovereableColor.PRIMARY
       },

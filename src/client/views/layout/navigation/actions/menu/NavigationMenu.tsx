@@ -8,12 +8,12 @@ export interface MenuProps {
     options: ActionProps[];
 }
 
-const Menu: React.FC<MenuProps> = (props: MenuProps) => false ? (
-        <Dropdown trigger={<Image className={`h-8 w-8 rounded-full shadow-lg ring ring-secondary dark:ring-primary ring-offset-1 ring-offset-dark`} {...props.toggler} />}>
-            <div className={`flex flex-col absolute space-y-2 z-40 right-0 top-16 w-52 py-2 bg-dark rounded-md px-2`}>
+const NavigationMenu: React.FC<MenuProps> = (props: MenuProps) => true ? (
+        <Dropdown trigger={<Image className={`h-8 w-8 rounded-full shadow-lg ring ring-secondary dark:ring-primary ring-offset-1 ring-offset-dark mx-2`} {...props.toggler} />}>
+            <div className={`flex flex-col absolute space-y-2 z-40 right-0 top-12 w-52 py-2 bg-white bg-opacity-50 dark:bg-black backdrop-filter backdrop-blur-md dark:bg-opacity-50 rounded-md px-2`}>
                 {props.options.map((link, index) => <Action key={index} {...link}>{link.label}</Action>)}
             </div>
         </Dropdown>
     ) : <></>;
 
-export default Menu;
+export default NavigationMenu;

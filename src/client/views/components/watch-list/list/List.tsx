@@ -30,12 +30,14 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
         .add("bg-secondary-lighter dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-90")
         .build();
 
+    const dynamicItems = false;
+
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />
-            <ListHeader {...props} size={props.items.length} />
-            <ListBody {...props} />
-            <ListFooter {...props} />
+            {dynamicItems && <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />}
+            <ListHeader {...props} size={props.items.length} dynamicItems={dynamicItems} />
+            <ListBody {...props} dynamicItems={dynamicItems} />
+            {dynamicItems && <ListFooter {...props} />}
         </section >
     );
 }

@@ -1,6 +1,6 @@
 import useWatchlist from "client/hooks/useWatchlist";
-import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
 import { FunctionComponent } from "react";
+import { ItemProps } from "../../../../../../components/watch-list/list/actionable-item/item/Item";
 import AddToWatchlist from "./add-to-watchlist/AddToWatchlist";
 import DeleteToWatchlist from "./delete-to-watchlist/DeleteToWatchlist";
 

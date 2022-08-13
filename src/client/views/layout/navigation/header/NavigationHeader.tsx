@@ -7,9 +7,9 @@ export interface NavigationHeaderProps extends ActionsTogglerProps, BrandProps {
 }
 
 const NavigationHeader: FunctionComponent<NavigationHeaderProps> = (props: NavigationHeaderProps) => (
-    <div className={`flex justify-between items-center w-full pt-2 pb-2 lg:pb-0`}>
-      <Brand {...props} />
+    <div className={`flex justify-between items-center w-full sm:pt-2 sm:pb-2 lg:pb-0`}>
       <ActionsToggler {...props} />
+      <Brand {...props} />
     </div>
   );
 

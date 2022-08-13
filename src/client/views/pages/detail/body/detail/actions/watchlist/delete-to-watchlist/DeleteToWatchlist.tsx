@@ -1,7 +1,7 @@
 import Action from "client/common/components/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import { ListProps } from "client/views/pages/watchlist/lists/list/List";
 import { FunctionComponent } from "react";
+import { ListProps } from "../../../../../../../components/watch-list/list/List";
 
 export interface DeleteToWatchlistProps {
     title: string;

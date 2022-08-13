@@ -3,6 +3,7 @@ enum PageRoute {
   LOGIN = "/login",
   ERROR = "/*",
   ACCOUNT = "/account",
+  USER_DETAIL = "/user/:id",
   MOVIE_EXPLORE = "/movie",
   MOVIE_DETAIL = "/movie/:id",
   MOVIE_SEARCH = "/movie/search/:query",

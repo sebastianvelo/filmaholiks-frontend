@@ -3,6 +3,8 @@ import APIRequest from "../APIRequest";
 class DetailPageRequest extends APIRequest {
   protected collection: string = "/detail";
 
+  public userById = (id: string) => this.get(`/user/${id}`);
+
   public movieById = (id: string) => this.get(`/movie/${id}`);
 
   public personById = (id: string) =>

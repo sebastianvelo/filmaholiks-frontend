@@ -1,5 +1,5 @@
-import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
-import { ListProps } from "client/views/pages/watchlist/lists/list/List";
+import { ItemProps } from "client/views/components/watch-list/list/actionable-item/item/Item";
+import { ListProps } from "client/views/components/watch-list/list/List";
 
 class WatchlistService {
 

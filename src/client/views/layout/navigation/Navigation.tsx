@@ -9,8 +9,8 @@ const Navigation: FunctionComponent<NavigationProps> = (props: NavigationProps) 
   const [isOpen, setIsOpen] = useState(false);
 
   const className = Tailwind.builder()
-  .add("flex sm:flex-col xl:flex-row items-center fixed z-50 w-full")
-  .add("bg-secondary-lighter dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-70")
+  .add("sm:flex sm:flex-col xl:flex-row items-center fixed z-50 w-full")
+  .add("bg-secondary-lighter dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
   .build();
 
   return (

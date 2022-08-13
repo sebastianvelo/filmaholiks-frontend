@@ -7,6 +7,7 @@ export interface ListHeaderProps {
     changeListTitle: (title: string) => void;
     size?: number;
     listIdx: number;
+    dynamicItems: boolean;
 }
 
 const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) => (
@@ -15,7 +16,7 @@ const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) 
             <ListTitle size={props.size} title={props.title} changeTitle={props.changeListTitle} />
             <p className="text-2xl pr-4 font-black">({props.size})</p>
         </div>
-        <DragList listIdx={props.listIdx} />
+        {props.dynamicItems && <DragList listIdx={props.listIdx} />}
     </div>
 );
 

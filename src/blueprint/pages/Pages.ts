@@ -1,5 +1,5 @@
 import {
-  EpisodeDetailPageBlueprint, MovieDetailPageBlueprint, PersonDetailPageBlueprint, SeasonDetailPageBlueprint, ShowDetailPageBlueprint
+  EpisodeDetailPageBlueprint, MovieDetailPageBlueprint, PersonDetailPageBlueprint, SeasonDetailPageBlueprint, ShowDetailPageBlueprint, UserDetailPageBlueprint
 } from "./detail/DetailPageBlueprint";
 import { ErrorPageBlueprint } from "./error/ErrorPageBlueprint";
 import {
@@ -11,7 +11,6 @@ import { HomePageBlueprint } from "./home/HomePageBlueprint";
 import {
   MovieSearchResultPageBlueprint, PersonSearchResultPageBlueprint, ShowSearchResultPageBlueprint
 } from "./search-result/SearchResultPageBlueprint";
-import { WatchlistPageBlueprint } from "./watchlist/WatchlistPageBlueprint";
 
 const Pages = [
   HomePageBlueprint,
@@ -20,6 +19,7 @@ const Pages = [
   ShowExplorePageBlueprint,
   ActorExplorePageBlueprint,
 
+  UserDetailPageBlueprint,
   MovieDetailPageBlueprint,
   ShowDetailPageBlueprint,
   PersonDetailPageBlueprint,
@@ -29,9 +29,6 @@ const Pages = [
   MovieSearchResultPageBlueprint,
   ShowSearchResultPageBlueprint,
   PersonSearchResultPageBlueprint,
-
-
-  WatchlistPageBlueprint,
 
   ErrorPageBlueprint
 ];

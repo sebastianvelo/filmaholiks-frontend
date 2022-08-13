@@ -1,17 +1,19 @@
 import { FunctionComponent } from "react";
-import DetailChart, { DetailChartProps } from "./sections/DetailChart";
 import DetailHeader, { DetailHeaderProps } from "./detail/DetailHeader";
+import DetailChart, { DetailChartProps } from "./sections/DetailChart";
 import DetailSections, { DetailSectionsProps } from "./sections/DetailSections";
+import DetailWatchlist, { DetailWatchlistProps } from "./sections/DetailWatchlist";
 
-export interface DetailPageBodyProps extends DetailSectionsProps, DetailChartProps {
-    detail?: DetailHeaderProps,
+export interface DetailPageBodyProps extends DetailSectionsProps, DetailChartProps, DetailWatchlistProps {
+    detail?: DetailHeaderProps;
 }
 
 const DetailPageBody: FunctionComponent<DetailPageBodyProps> = (props: DetailPageBodyProps) => (
-    <section className="h-full w-full justify-center 2xl:px-24">
+    <section className="h-full w-full justify-center 2xl:px-32">
         <DetailHeader {...props.detail} />
         <DetailSections {...props} />
         <DetailChart {...props} />
+        <DetailWatchlist {...props} />
     </section>
 );
 

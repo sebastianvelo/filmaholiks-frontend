@@ -22,9 +22,9 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
         .add("hover:scale-110")
         .add("transition-all ease-in duration-200")
         .add("border border-secondary-light hover:border-secondary")
-        .add("dark:border-secondary-light dark:hover:border-primary")
+        .add("dark:border-primary dark:hover:border-primary-dark")
         .add("rounded-sm text-center group shadow-lg")
-        .add("filter ")
+        .add("filter")
         .build();
 
 return (
@@ -35,7 +35,7 @@ return (
                 </Action>
             }
             <div>
-                <Headline className={`truncate text-md px-2 dark:group-hover:text-primary group-hover:text-secondary-dark`}>
+                <Headline className={`truncate text-md px-2 dark:group-hover:text-primary-dark group-hover:text-secondary-dark`}>
                     <Action path={props.path} label={props.title} revert />
                 </Headline>
                 <Text className={`pb-1 text-secondary dark:text-white`}>{props.subtitle}</Text>

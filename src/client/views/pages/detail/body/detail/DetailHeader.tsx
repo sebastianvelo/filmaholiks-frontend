@@ -11,8 +11,8 @@ export interface DetailHeaderProps extends DetailPostersProps, DetailBodyProps {
 
 const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => {
     const className = Tailwind.builder()
-        .add("flex flex-col lg:flex-row w-full")
-        .add("2xl:border-t-8 2xl:border-b-2 dark:border-primary border-secondary")
+        .add("flex flex-col lg:flex-row w-full mt-4")
+        .add("2xl:border-t-4 2xl:border-b-2 dark:border-primary border-secondary")
         .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-70")
         .build();
 

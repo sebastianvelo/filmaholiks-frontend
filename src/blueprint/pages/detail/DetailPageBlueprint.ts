@@ -5,6 +5,14 @@ import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/
 import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/views/pages/detail/impl/DetailSeasonWrapperPage";
 import DetailWrapperPage, { DetailWrapperPageProps } from "client/views/pages/detail/impl/DetailWrapperPage";
 
+export const UserDetailPageBlueprint: Page<DetailWrapperPageProps> = {
+    route: PageRoute.USER_DETAIL,
+    component: DetailWrapperPage,
+    props: {
+        getPage: DetailPageRequest.userById,
+    }
+};
+
 export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.MOVIE_DETAIL,
     component: DetailWrapperPage,
@@ -13,19 +21,19 @@ export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     }
 };
 
-export const ShowDetailPageBlueprint: Page<DetailWrapperPageProps> = {
-    route: PageRoute.SHOW_DETAIL,
-    component: DetailWrapperPage,
-    props: {
-        getPage: DetailPageRequest.showById
-    }
-};
-
 export const PersonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.PERSON_DETAIL,
     component: DetailWrapperPage,
     props: {
         getPage: DetailPageRequest.personById
+    }
+};
+
+export const ShowDetailPageBlueprint: Page<DetailWrapperPageProps> = {
+    route: PageRoute.SHOW_DETAIL,
+    component: DetailWrapperPage,
+    props: {
+        getPage: DetailPageRequest.showById
     }
 };
 

@@ -8,9 +8,9 @@ export interface TabContentProps {
 
 const TabContent: FunctionComponent<TabContentProps> = (props: TabContentProps) => {
     const className = Tailwind.builder()
-        .addIf('hidden', !props.active)
+        .addIf("hidden", !props.active)
         .build();
-        
+
     return (
         <div className={className}>{props.children}</div>
     );

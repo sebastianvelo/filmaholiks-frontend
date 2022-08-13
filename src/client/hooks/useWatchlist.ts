@@ -1,8 +1,8 @@
-import { ItemProps } from "client/views/pages/watchlist/lists/list/actionable-item/item/Item";
-import { ListProps } from "client/views/pages/watchlist/lists/list/List";
 import { useState } from "react";
 import Swal, { SweetAlertResult } from 'sweetalert2';
 import WatchlistService from "client/service/WatchlistService";
+import { ItemProps } from "client/views/components/watch-list/list/actionable-item/item/Item";
+import { ListProps } from "client/views/components/watch-list/list/List";
 
 const requireConfirmation = (config: { title: string, cback: (result: SweetAlertResult<any>) => void }) => {
     Swal.fire({
