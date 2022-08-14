@@ -1,6 +1,6 @@
 import Loading from "client/common/components/loading/Loading";
 import Tailwind from "client/common/tailwind/Tailwind";
-import WatchlistService from "client/service/WatchlistService";
+import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
 import ActionableItem from "../../actionable-item/ActionableItem";
 import { ItemProps } from "../../actionable-item/item/Item";
@@ -13,7 +13,7 @@ interface ListSearchResultsProps {
 }
 
 const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
-    const className = Tailwind.builder()
+    const loadingClassName = Tailwind.builder()
         .addIf("bg-black", props.loading)
         .add("hidden group-hover:flex w-96 h-screen z-50 flex items-center justify-center absolute left-0")
         .build();
@@ -24,13 +24,14 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
         .add("text-center lg:text-left")
         .add("bg-primary-lighter dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 dark:bg-opacity-30")
         .build();
+        
     return (
-        <div className={className}>
+        <div className={loadingClassName}>
             <Loading loading={props.loading}>
                 {props.items && (
                     <section className={boxClassName} >
                         {props.items?.map((item: ItemProps, idx: number) => {
-                            const it = WatchlistService.fromLocalStorage.item.retrieveIdx(item.title);
+                            const it = WatchlistHelper.fromLocalStorage.item.retrieveIdx(item.title);
                             const action = () => it ? props.deleteItem(it.listIdx, it.itemIdx) : props.addItem(item);
                             return <ActionableItem
                                 key={item.title}

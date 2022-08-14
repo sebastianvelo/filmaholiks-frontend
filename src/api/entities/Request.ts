@@ -7,29 +7,31 @@ abstract class Request {
 
   protected abstract headers: Record<string, string>;
 
-  private req(method: Method, url: string, params?: object): AxiosRequestConfig {
-    return this.getOptions(method, url, params);
-  }
-
   private getOptions(
     method: Method,
     url: string,
-    params?: any
+    params?: any,
+    data?: any,
   ): AxiosRequestConfig {
     return {
       method,
       params,
+      data,
       headers: this.headers,
       url: this.getFullPath(url)
     };
   }
 
   protected get(url: string, params?: object): AxiosRequestConfig {
-    return this.req("GET", url, params);
+    return this.getOptions("GET", url, params);
   }
 
   protected post(url: string, params?: object): AxiosRequestConfig {
-    return this.req("POST", url, params);
+    return this.getOptions("POST", url, params);
+  }
+
+  protected put(url: string, data?: object, params?: object): AxiosRequestConfig {
+    return this.getOptions("PUT", url, params, data);
   }
 
   private getFullPath(url: string): string {

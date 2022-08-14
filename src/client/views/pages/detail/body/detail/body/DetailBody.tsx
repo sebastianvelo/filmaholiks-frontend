@@ -19,7 +19,7 @@ const DetailBody: FunctionComponent<DetailBodyProps> = (props: DetailBodyProps) 
         </div>
         <div className={`grid lg:grid-cols-3 w-full`}>
             {props.video && <DetailVideo {...props.video} />}
-            {props.info && <DetailInfo {...props.info} />}
+            {props.info && <DetailInfo {...props.info} theresVideo={!!props.video} />}
         </div>
     </div>
 );

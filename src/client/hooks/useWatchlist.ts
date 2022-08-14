@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Swal, { SweetAlertResult } from 'sweetalert2';
-import WatchlistService from "client/service/WatchlistService";
+import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ItemProps } from "client/views/components/watch-list/list/actionable-item/item/Item";
 import { ListProps } from "client/views/components/watch-list/list/List";
+import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 
 const requireConfirmation = (config: { title: string, cback: (result: SweetAlertResult<any>) => void }) => {
     Swal.fire({
@@ -34,12 +35,13 @@ export interface UseWatchlist {
 }
 
 const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
-    const listsFromLS = WatchlistService.fromLocalStorage.list.retrieve();
-    const [lists, setLists] = useState<ListProps[]>(listsFromLS.length ? listsFromLS : apiLists ?? []);
+    const listsFromLS = WatchlistHelper.fromLocalStorage.list.retrieve();
+    const [lists, setLists] = useState<ListProps[]>(apiLists?.length ? apiLists : [] ?? listsFromLS);
 
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
-        WatchlistService.fromLocalStorage.list.save([...newLists]);
+        WatchlistHelper.fromLocalStorage.list.save([...newLists]);
+        WatchlistRequest.shows.save("sebastianvelo", [...newLists]);
     };
 
     const changeListTitle = (listIdx: number, title: string) => {
@@ -49,34 +51,34 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         updateLists([...lists]);
     };
 
-    const findList = (query: string) => WatchlistService.list.find(query, lists);
+    const findList = (query: string) => WatchlistHelper.list.find(query, lists);
 
-    const swapLists = (idxA: number, idxB: number) => WatchlistService.list.swap(idxA, idxB, lists, updateLists);
+    const swapLists = (idxA: number, idxB: number) => WatchlistHelper.list.swap(idxA, idxB, lists, updateLists);
 
-    const addList = () => WatchlistService.list.add(lists, updateLists);
+    const addList = () => WatchlistHelper.list.add(lists, updateLists);
 
     const deleteList = (listIdx: number) => {
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed)
-                    WatchlistService.list.delete(listIdx, lists, updateLists);
+                    WatchlistHelper.list.delete(listIdx, lists, updateLists);
             }
         });
     };
 
-    const saveItem = (listIdx: number, item: ItemProps) => WatchlistService.item.save(listIdx, item, lists, updateLists);
+    const saveItem = (listIdx: number, item: ItemProps) => WatchlistHelper.item.save(listIdx, item, lists, updateLists);
 
     const deleteItem = (listIdx: number, itemIdx: number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
-            WatchlistService.item.delete(listIdx, itemIdx, lists, updateLists);
+            WatchlistHelper.item.delete(listIdx, itemIdx, lists, updateLists);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    WatchlistService.item.delete(listIdx, itemIdx, lists, updateLists);
+                    WatchlistHelper.item.delete(listIdx, itemIdx, lists, updateLists);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
@@ -84,7 +86,7 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
     };
 
     const deleteItemByName = (query: string) => {
-        WatchlistService.item.deleteByName(query, lists, updateLists);
+        WatchlistHelper.item.deleteByName(query, lists, updateLists);
     };
 
     const moveItem = (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => {
@@ -92,9 +94,9 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         deleteItem(sourceListIdx, sourceItemIdx, false);
     };
 
-    const swapItems = (listIdx: number, idxA: number, idxB: number) => WatchlistService.item.swap(listIdx, idxA, idxB, lists, updateLists);
+    const swapItems = (listIdx: number, idxA: number, idxB: number) => WatchlistHelper.item.swap(listIdx, idxA, idxB, lists, updateLists);
 
-    const findItem = (query?: string) => WatchlistService.item.find(query ?? "", lists);
+    const findItem = (query?: string) => WatchlistHelper.item.find(query ?? "", lists);
 
     return {
         list: {

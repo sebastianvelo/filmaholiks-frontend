@@ -1,15 +1,15 @@
 import { FunctionComponent } from "react";
-import Control from "./Control";
-import Items, { ItemsProps } from "./Items";
+import CarouselControl from "./CarouselControl";
+import CarouselItems, { CarouselItemsProps } from "./CarouselItems";
 
-export interface CarouselProps extends ItemsProps {}
+export interface CarouselProps extends CarouselItemsProps { }
 
 const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps) => (
-        <div className={`flex items-center`}>
-            <Control id={props.id} right={false} />
-            <Items {...props} />
-            <Control id={props.id} right={true} />
-        </div>
-    )
+    <div className="flex items-center">
+        <CarouselControl id={props.id} right={false} />
+        <CarouselItems {...props} />
+        <CarouselControl id={props.id} right={true} />
+    </div>
+);
 
 export default Carousel;

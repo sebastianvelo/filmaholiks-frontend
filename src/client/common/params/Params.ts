@@ -14,7 +14,9 @@ export interface UserParams {
 }
 
 export interface DetailSeasonPageParams extends IdParams, SeasonParams { }
+
 export interface DetailEpisodePageParams extends DetailSeasonPageParams, EpisodeParams { }
+
 export interface QueryParams {
   query: string;
 }

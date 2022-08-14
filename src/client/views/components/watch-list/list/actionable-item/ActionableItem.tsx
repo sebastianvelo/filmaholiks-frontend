@@ -1,4 +1,4 @@
-import WatchlistService from "client/service/WatchlistService";
+import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
 import Item, { ItemProps } from "./item/Item";
 import ActionItem, { ActionItemProps } from "./menu/content/action/ActionItem";
@@ -23,7 +23,7 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
     const onDrop = (event: any) => {
         event.preventDefault();
         if (props.swapItems) {
-            WatchlistService.fromEvent.item.handleSwap(event, props.swapItems);
+            WatchlistHelper.fromEvent.item.handleSwap(event, props.swapItems);
         }
     };
 

@@ -29,7 +29,7 @@ const navigationBlueprint = (): NavigationProps => ({
   menu: {
     options: [
       {
-        path: PageRoute.USER_DETAIL.replace(":id", "sebastianvel"),
+        path: PageRoute.USER_DETAIL.replace(":id", "sebastianvelo"),
         label: "Profile",
         color: ComponentHovereableColor.PRIMARY
       },

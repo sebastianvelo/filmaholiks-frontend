@@ -1,19 +1,16 @@
 import { FunctionComponent } from "react";
 import DragList from "./drag/DragList";
-import ListTitle from "./title/ListTitle";
+import ListTitle, { ListTitleProps } from "./title/ListTitle";
 
-export interface ListHeaderProps {
-    title?: string;
-    changeListTitle: (title: string) => void;
-    size?: number;
+export interface ListHeaderProps extends ListTitleProps {
     listIdx: number;
-    dynamicItems: boolean;
+    size?: number;
 }
 
 const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) => (
     <div className="flex bg-secondary text-white justify-between">
         <div className="flex items-center">
-            <ListTitle size={props.size} title={props.title} changeTitle={props.changeListTitle} />
+            <ListTitle  {...props} />
             <p className="text-2xl pr-4 font-black">({props.size})</p>
         </div>
         {props.dynamicItems && <DragList listIdx={props.listIdx} />}

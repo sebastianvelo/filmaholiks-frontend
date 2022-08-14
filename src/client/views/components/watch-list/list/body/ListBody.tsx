@@ -39,7 +39,7 @@ const StaticItems = (props: ListBodyProps) => (
 const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-3 overflow-y-auto h-full text-dark px-2 py-3">
+    <div className="space-y-2 overflow-y-auto h-full text-dark px-2 py-2">
         {props.dynamicItems ? <ActionableItems {...props} /> : <StaticItems {...props} />}
         {!props.items.length && <ItemsEmpty />}
     </div>
