@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import DetailHeader, { DetailHeaderProps } from "./detail/DetailHeader";
-import DetailChart, { DetailChartProps } from "./sections/DetailChart";
-import DetailSections, { DetailSectionsProps } from "./sections/DetailSections";
-import DetailWatchlist, { DetailWatchlistProps } from "./sections/DetailWatchlist";
+import DetailChart, { DetailChartProps } from "./tabs-wrapper/impl/DetailChart";
+import DetailSections, { DetailSectionsProps } from "./tabs-wrapper/impl/DetailSections";
+import DetailWatchlist, { DetailWatchlistProps } from "./tabs-wrapper/impl/DetailWatchlist";
 
 export interface DetailPageBodyProps extends DetailSectionsProps, DetailChartProps, DetailWatchlistProps {
     detail?: DetailHeaderProps;

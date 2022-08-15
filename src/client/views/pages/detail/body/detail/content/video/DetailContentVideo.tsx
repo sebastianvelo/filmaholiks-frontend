@@ -3,13 +3,13 @@ import Headline from "client/common/atom/headline/Headline";
 import Video from "client/common/atom/video/Video";
 import { FunctionComponent } from "react";
 
-export interface DetailVideoProps {
+export interface DetailContentVideoProps {
     title?: string;
     src?: string;
     className?: string;
 }
 
-const DetailVideo: FunctionComponent<DetailVideoProps> = (props: DetailVideoProps) => (
+const DetailContentVideo: FunctionComponent<DetailContentVideoProps> = (props: DetailContentVideoProps) => (
     <Container>
         <Headline>{props.title}</Headline>
         <div className={props.className}>
@@ -18,4 +18,4 @@ const DetailVideo: FunctionComponent<DetailVideoProps> = (props: DetailVideoProp
     </Container>
 )
 
-export default DetailVideo;
+export default DetailContentVideo;

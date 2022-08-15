@@ -1,7 +1,7 @@
 import Section from "client/views/components/section/Section";
 import Watchlist, { WatchlistProps } from "client/views/components/watch-list/Watchlist";
 import { FunctionComponent } from "react";
-import TabsWrapper from "./TabsWrapper";
+import TabsWrapper from "../TabsWrapper";
 
 export interface WatchlistTabProps extends WatchlistProps {
     title: string;

@@ -1,6 +1,6 @@
-import ChartSection, { ChartSectionProps } from "client/views/components/sections/chart-section/ChartSection";
+import ChartSection, { ChartSectionProps } from "client/views/components/section/impl/chart/ChartSection";
 import { FunctionComponent } from "react";
-import TabsWrapper from "./TabsWrapper";
+import TabsWrapper from "../TabsWrapper";
 
 export interface DetailChartProps {
     charts?: ChartSectionProps[];

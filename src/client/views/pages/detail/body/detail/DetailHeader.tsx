@@ -1,13 +1,12 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 import DetailActions, { DetailActionsProps } from "./actions/DetailActions";
-import DetailBody, { DetailBodyProps } from "./body/DetailBody";
+import DetailContent, { DetailContentProps } from "./content/DetailContent";
 import DetailPosters, { DetailPostersProps } from "./posters/DetailPosters";
 
-export interface DetailHeaderProps extends DetailPostersProps, DetailBodyProps {
+export interface DetailHeaderProps extends DetailPostersProps, DetailContentProps {
     actions?: DetailActionsProps;
 }
-
 
 const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => {
     const className = Tailwind.builder()
@@ -21,7 +20,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
             <DetailPosters {...props} />
             <div className={`flex flex-col w-full lg:w-3/4 2xl:w-4/5`}>
                 <DetailActions {...props.actions} />
-                <DetailBody {...props} />
+                <DetailContent {...props} />
             </div>
         </div>
     );

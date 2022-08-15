@@ -4,7 +4,7 @@ import Text from "client/common/atom/text/Text";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
-export interface DetailInfoProps {
+export interface DetailContentInfoProps {
     data: {
         title: string;
         description: string;
@@ -12,7 +12,7 @@ export interface DetailInfoProps {
     theresVideo?: boolean;
 }
 
-const DetailInfo: FunctionComponent<DetailInfoProps> = (props: DetailInfoProps) => {
+const DetailContentInfo: FunctionComponent<DetailContentInfoProps> = (props: DetailContentInfoProps) => {
     const className = Tailwind.builder()
         .add("grid grid-cols-2 sm:grid-cols-4")
         .add("w-full gap-y-4 place-content-between px-2")
@@ -32,4 +32,4 @@ const DetailInfo: FunctionComponent<DetailInfoProps> = (props: DetailInfoProps) 
     );
 }
 
-export default DetailInfo;
+export default DetailContentInfo;
