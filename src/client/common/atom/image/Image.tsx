@@ -1,8 +1,7 @@
+import ImageModel from "model/atom/ImageModel";
 import { FunctionComponent } from "react";
 
-export interface ImageProps {
-    src: string;
-    alt: string;
+export interface ImageProps extends ImageModel {
     className?: string;
 }
 

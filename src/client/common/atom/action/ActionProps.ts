@@ -1,11 +1,9 @@
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
+import ActionModel from "model/atom/ActionModel";
 import { MouseEventHandler } from "react";
 
-export default interface ActionProps {
-  path?: string;
-  label?: string;
+export default interface ActionProps extends ActionModel {
   className?: string;
-  exact?: boolean;
   color?: ComponentHovereableColor;
   revert?: boolean;
   onClick?: MouseEventHandler<any>;

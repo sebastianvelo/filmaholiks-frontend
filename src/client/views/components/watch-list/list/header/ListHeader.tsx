@@ -13,7 +13,7 @@ const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) 
             <ListTitle  {...props} />
             <p className="text-2xl pr-4 font-black">({props.size})</p>
         </div>
-        {props.dynamicItems && <DragList listIdx={props.listIdx} />}
+        {props.dynamic && <DragList listIdx={props.listIdx} />}
     </div>
 );
 

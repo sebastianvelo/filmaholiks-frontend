@@ -3,11 +3,11 @@ import { FunctionComponent } from "react";
 export interface ListTitleProps {
     title?: string;
     changeListTitle: (title: string) => void;
-    dynamicItems: boolean;
+    dynamic: boolean;
 }
 
 const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
-    props.dynamicItems ?
+    props.dynamic ?
         (
             <input
                 className="bg-transparent text-2xl font-black focus:outline-none cursor-text w-full p-4"

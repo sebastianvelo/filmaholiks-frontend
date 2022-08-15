@@ -1,16 +1,12 @@
 import Action from "client/common/atom/action/Action";
 import Headline from "client/common/atom/headline/Headline";
-import Image, { ImageProps } from "client/common/atom/image/Image";
+import Image from "client/common/atom/image/Image";
 import Text from "client/common/atom/text/Text";
 import Tailwind from "client/common/tailwind/Tailwind";
+import CardVerticalModel from "model/components/CardVerticalModel";
 import { FunctionComponent } from "react";
 
-export interface CardVerticalProps {
-    title?: string;
-    subtitle?: string;
-    image?: ImageProps;
-    path?: string;
-}
+export interface CardVerticalProps extends CardVerticalModel { }
 
 const CardVertical: FunctionComponent<CardVerticalProps> = (props: CardVerticalProps) => {
     const className = Tailwind.builder()
@@ -27,7 +23,7 @@ const CardVertical: FunctionComponent<CardVerticalProps> = (props: CardVerticalP
         .add("filter")
         .build();
 
-return (
+    return (
         <div className={className}>
             {props.image &&
                 <Action path={props.path} className={`flex justify-center`} revert>

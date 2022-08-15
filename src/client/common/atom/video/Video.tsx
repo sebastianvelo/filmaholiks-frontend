@@ -1,9 +1,7 @@
+import VideoModel from "model/atom/VideoModel";
 import { FunctionComponent } from "react";
 
-interface VideoProps {
-    title?: string;
-    src?: string;
-}
+interface VideoProps extends VideoModel { }
 
 const Video: FunctionComponent<VideoProps> = (props: VideoProps) => (
     <div className={'relative'} style={{ paddingTop: '56.25%' }}>

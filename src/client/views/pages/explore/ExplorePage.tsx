@@ -17,11 +17,14 @@ export interface ExplorePageProps {
 
 const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
     const page = useFetch<ExplorePageProps>(props.getPage());
+
+    document.title = page?.data?.title ?? "Loading...";
+
     const className = Tailwind.builder()
         .addIf(`h-screen flex justify-center items-center`, page?.loading)
         .add("space-y-8")
         .build();
-    document.title = page?.data?.title ?? "Loading...";
+        
     return (
         <div className={className}>
             <Loading loading={page?.loading}>

@@ -7,7 +7,7 @@ export interface ListBodyProps {
     listIdx: number;
     deleteItem: (idx: number, requiresConfirmation?: boolean) => void;
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
-    dynamicItems: boolean;
+    dynamic: boolean;
 }
 
 const ActionableItems = (props: ListBodyProps) => (
@@ -40,7 +40,7 @@ const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-50
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
     <div className="space-y-2 overflow-y-auto h-full text-dark px-2 py-2">
-        {props.dynamicItems ? <ActionableItems {...props} /> : <StaticItems {...props} />}
+        {props.dynamic ? <ActionableItems {...props} /> : <StaticItems {...props} />}
         {!props.items.length && <ItemsEmpty />}
     </div>
 );

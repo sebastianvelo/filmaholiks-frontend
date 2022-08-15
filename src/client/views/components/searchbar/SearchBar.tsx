@@ -19,14 +19,14 @@ const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => 
     }
 
     const className = Tailwind.builder()
-    .add("flex items-center justify-center w-full")
-    .add("fixed bottom-0 z-40")
-    .add("bg-secondary-lighter bg-opacity-50 dark:bg-secondary-dark backdrop-filter backdrop-blur-md dark:bg-opacity-50")
-    .build();
+        .add("flex items-center justify-center w-full")
+        .add("fixed bottom-0 z-40")
+        .add("bg-secondary-lighter bg-opacity-50 dark:bg-secondary-dark backdrop-filter backdrop-blur-md dark:bg-opacity-50")
+        .build();
 
     return (
         <form onSubmit={handleSubmit} className={className}>
-            <Input className="w-full xl:w-1/3" onChange={handleSearch} placeholder={props.placeholder}  />
+            <Input className="w-full xl:w-1/3" onChange={handleSearch} placeholder={props.placeholder} />
         </form >
     );
 }

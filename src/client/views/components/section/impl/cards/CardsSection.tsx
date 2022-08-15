@@ -1,14 +1,10 @@
-import CardVertical, { CardVerticalProps } from "client/common/components/card-vertical/CardVertical";
+import CardVertical from "client/common/components/card-vertical/CardVertical";
 import Carousel from "client/common/components/carousel/Carousel";
+import { CardsSectionModel } from "model/components/section/Section";
 import { FunctionComponent } from "react";
 import Section from "../../Section";
 
-export interface CardsSectionProps {
-    id?: string;
-    title?: string;
-    cards?: CardVerticalProps[];
-    isGrid?: boolean;
-}
+export interface CardsSectionProps extends CardsSectionModel { }
 
 const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionProps) => {
     const skeletonCards = Array(10).fill({ loading: true });

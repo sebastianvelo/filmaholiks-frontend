@@ -1,5 +1,6 @@
-import Image, { ImageProps } from "client/common/atom/image/Image";
+import Image from "client/common/atom/image/Image";
 import Tailwind from "client/common/tailwind/Tailwind";
+import { ChartBodyCellModel } from "model/components/ChartModel";
 import { FunctionComponent } from "react";
 
 const topC = (props: ChartBodyCellProps) => Tailwind.builder()
@@ -63,16 +64,9 @@ const getEpisodeNameClassName = (props: ChartBodyCellProps) => Tailwind.builder(
     .add("font-bold rounded-lg w-64")
     .build();
 
-export interface ChartBodyCellProps {
-    rating: number;
-    value: string;
-    href: string;
-    title: string;
-    image: ImageProps;
+export interface ChartBodyCellProps extends ChartBodyCellModel {
     isOpened: boolean;
     toggle: () => void;
-    isTopHalf?: boolean;
-    isLeftHalf?: boolean;
 }
 
 const ChartBodyCell: FunctionComponent<ChartBodyCellProps> = (props: ChartBodyCellProps) => {
