@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal, { SweetAlertResult } from 'sweetalert2';
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { ItemProps } from "client/views/components/watch-list/list/actionable-item/item/Item";
+import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
 import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 
@@ -27,10 +27,10 @@ export interface UseWatchlist {
     item: {
         delete: (listIdx: number, itemIdx: number, requiresConfirmation?: boolean) => void;
         deleteByName: (query: string) => void;
-        save: (listIdx: number, item: ItemProps) => void;
+        save: (listIdx: number, item: CardHorizontalProps) => void;
         swap: (listIdx: number, idxA: number, idxB: number) => void;
-        move: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => void;
-        find: (query?: string) => ItemProps | undefined;
+        move: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => void;
+        find: (query?: string) => CardHorizontalProps | undefined;
     }
 }
 
@@ -67,7 +67,7 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         });
     };
 
-    const saveItem = (listIdx: number, item: ItemProps) => WatchlistHelper.item.save(listIdx, item, lists, updateLists);
+    const saveItem = (listIdx: number, item: CardHorizontalProps) => WatchlistHelper.item.save(listIdx, item, lists, updateLists);
 
     const deleteItem = (listIdx: number, itemIdx: number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
@@ -89,7 +89,7 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         WatchlistHelper.item.deleteByName(query, lists, updateLists);
     };
 
-    const moveItem = (item: ItemProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => {
+    const moveItem = (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number, targetListIdx: number) => {
         saveItem(targetListIdx, item);
         deleteItem(sourceListIdx, sourceItemIdx, false);
     };

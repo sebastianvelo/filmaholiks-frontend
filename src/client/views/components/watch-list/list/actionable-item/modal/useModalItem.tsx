@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { ItemProps } from "../item/Item";
+import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 import ModalItemContent from "./ModalItemContent";
 import ModalItemTrigger from "./ModalItemTrigger";
 
 export interface ModalItemProps {
     delete?: boolean;
     listIdx?: number;
-    item: ItemProps;
+    item: CardHorizontalProps;
 }
 
 const useModalItem = (props: ModalItemProps) => {

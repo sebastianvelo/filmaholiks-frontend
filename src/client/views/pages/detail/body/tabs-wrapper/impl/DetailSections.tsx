@@ -1,6 +1,6 @@
 import CardsSection, { CardsSectionProps } from "client/views/components/section/impl/cards/CardsSection";
 import { FunctionComponent } from "react";
-import TabsWrapper from "./TabsWrapper";
+import TabsWrapper from "../TabsWrapper";
 
 export interface DetailSectionsProps {
     sections?: CardsSectionProps[],

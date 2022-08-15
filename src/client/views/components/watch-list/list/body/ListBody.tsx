@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
 import ActionableItem from "../actionable-item/ActionableItem";
-import Item, { ItemProps } from "../actionable-item/item/Item";
+import CardHorizontal, { CardHorizontalProps } from "../../../../../common/components/card-horizontal/CardHorizontal";
 
 export interface ListBodyProps {
-    items: ItemProps[];
+    items: CardHorizontalProps[];
     listIdx: number;
     deleteItem: (idx: number, requiresConfirmation?: boolean) => void;
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
@@ -12,7 +12,7 @@ export interface ListBodyProps {
 
 const ActionableItems = (props: ListBodyProps) => (
     <>
-        {props.items.map((item: ItemProps, idx: number) => (
+        {props.items.map((item: CardHorizontalProps, idx: number) => (
             <ActionableItem
                 listIdx={props.listIdx}
                 idx={idx}
@@ -28,9 +28,9 @@ const ActionableItems = (props: ListBodyProps) => (
 
 const StaticItems = (props: ListBodyProps) => (
     <>
-        {props.items.map((item: ItemProps, idx: number) => (
+        {props.items.map((item: CardHorizontalProps, idx: number) => (
             <div className="h-20">
-                <Item key={`${item.title}${idx}`} {...item} />
+                <CardHorizontal key={`${item.title}${idx}`} {...item} />
             </div>
         ))}
     </>

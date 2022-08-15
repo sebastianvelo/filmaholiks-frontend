@@ -5,14 +5,14 @@ import Text from "client/common/atom/text/Text";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
-export interface CardProps {
+export interface CardVerticalProps {
     title?: string;
     subtitle?: string;
     image?: ImageProps;
     path?: string;
 }
 
-const Card: FunctionComponent<CardProps> = (props: CardProps) => {
+const CardVertical: FunctionComponent<CardVerticalProps> = (props: CardVerticalProps) => {
     const className = Tailwind.builder()
         .add("flex-none flex flex-col space-y-2 justify-between")
         .add("w-32 sm:w-44 lg:w-48 shadow-lg")
@@ -44,4 +44,4 @@ return (
     );
 }
 
-export default Card;
+export default CardVertical;

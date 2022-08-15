@@ -1,4 +1,4 @@
-import { ItemProps } from "client/views/components/watch-list/list/actionable-item/item/Item";
+import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
 
 class WatchlistHelper {
@@ -21,13 +21,13 @@ class WatchlistHelper {
                 listIdx,
             };
         },
-        find: (query: string, lists: ListProps[]): ItemProps | undefined => {
+        find: (query: string, lists: ListProps[]): CardHorizontalProps | undefined => {
             const idxs = WatchlistHelper.item.retrieveIdx(query, lists);
             if (!idxs) return undefined;
             return lists[idxs.listIdx].items[idxs.itemIdx];
         },
         exists: (query: string, lists: ListProps[]): boolean => WatchlistHelper.item.retrieveIdx(query, lists) !== undefined,
-        save: (listIdx: number, item: ItemProps, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
+        save: (listIdx: number, item: CardHorizontalProps, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             lists[listIdx].items.push(item);
             updateLists([...lists]);
         },
@@ -76,20 +76,20 @@ class WatchlistHelper {
 
     public static fromEvent = {
         item: {
-            retrieve: (event: React.DragEvent<HTMLElement>): ItemProps | undefined =>
+            retrieve: (event: React.DragEvent<HTMLElement>): CardHorizontalProps | undefined =>
                 event.dataTransfer.getData(WatchlistHelper.ITEM_KEY) && JSON.parse(event.dataTransfer.getData(WatchlistHelper.ITEM_KEY)),
             retrieveIdx: (event: React.DragEvent<HTMLElement>): number =>
                 Number(event.dataTransfer.getData(WatchlistHelper.ITEM_IDX_KEY)),
-            save: (event: React.DragEvent<HTMLElement>, item: ItemProps, idx: number, listIdx?: number): void => {
+            save: (event: React.DragEvent<HTMLElement>, item: CardHorizontalProps, idx: number, listIdx?: number): void => {
                 event.dataTransfer.setData(WatchlistHelper.ITEM_KEY, JSON.stringify(item));
                 event.dataTransfer.setData(WatchlistHelper.ITEM_IDX_KEY, String(idx));
                 event.dataTransfer.setData(WatchlistHelper.LIST_IDX_KEY, String(listIdx));
             },
-            handleSave: (event: React.DragEvent<HTMLElement>, addItem: (item: ItemProps) => void) => {
+            handleSave: (event: React.DragEvent<HTMLElement>, addItem: (item: CardHorizontalProps) => void) => {
                 const item = WatchlistHelper.fromEvent.item.retrieve(event);
                 if (item) addItem(item);
             },
-            handleMove: (event: React.DragEvent<HTMLElement>, targetListIdx: number, moveItem: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => void) => {
+            handleMove: (event: React.DragEvent<HTMLElement>, targetListIdx: number, moveItem: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number) => void) => {
                 const item = WatchlistHelper.fromEvent.item.retrieve(event);
                 const itemIdx = WatchlistHelper.fromEvent.item.retrieveIdx(event);
                 const sourceListIdx = WatchlistHelper.fromEvent.list.retrieveIdx(event);
@@ -128,9 +128,9 @@ class WatchlistHelper {
         item: {
             retrieveIdx: (query?: string): { itemIdx: number, listIdx: number } | undefined =>
                 WatchlistHelper.item.retrieveIdx(query || "", WatchlistHelper.fromLocalStorage.list.retrieve()),
-            find: (query?: string): ItemProps | undefined =>
+            find: (query?: string): CardHorizontalProps | undefined =>
                 WatchlistHelper.item.find(query || "", WatchlistHelper.fromLocalStorage.list.retrieve()),
-            save: (listIdx: number, item: ItemProps) =>
+            save: (listIdx: number, item: CardHorizontalProps) =>
                 WatchlistHelper.item.save(
                     listIdx, item, WatchlistHelper.fromLocalStorage.list.retrieve(), WatchlistHelper.fromLocalStorage.list.save
                 ),

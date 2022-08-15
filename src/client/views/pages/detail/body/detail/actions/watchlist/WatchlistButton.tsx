@@ -1,10 +1,10 @@
 import useWatchlist from "client/hooks/useWatchlist";
 import { FunctionComponent } from "react";
-import { ItemProps } from "../../../../../../components/watch-list/list/actionable-item/item/Item";
+import { CardHorizontalProps } from "../../../../../../../common/components/card-horizontal/CardHorizontal";
 import AddToWatchlist from "./add-to-watchlist/AddToWatchlist";
 import DeleteToWatchlist from "./delete-to-watchlist/DeleteToWatchlist";
 
-export interface WatchlistButtonProps extends ItemProps { }
+export interface WatchlistButtonProps extends CardHorizontalProps { }
 
 const WatchlistButton: FunctionComponent<WatchlistButtonProps> = (props: WatchlistButtonProps) => {
     const service = useWatchlist();

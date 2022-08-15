@@ -2,7 +2,7 @@ import Carousel from "client/common/components/carousel/Carousel";
 import useWatchlist from "client/hooks/useWatchlist";
 import { FunctionComponent } from "react";
 import AddListButton from "./add-list-button/AddListButton";
-import { ItemProps } from "./list/actionable-item/item/Item";
+import { CardHorizontalProps } from "../../../common/components/card-horizontal/CardHorizontal";
 import List, { ListProps } from "./list/List";
 
 export interface WatchlistProps {
@@ -19,8 +19,8 @@ const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => 
         changeListTitle: (title: string) => service.list.changeTitle(idx, title),
         swapLists: (targetListIdx: number) => service.list.swap(idx, targetListIdx),
         deleteList: () => service.list.delete(idx),
-        addItem: (item: ItemProps) => service.item.save(idx, item),
-        moveItem: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,),
+        addItem: (item: CardHorizontalProps) => service.item.save(idx, item),
+        moveItem: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,),
         deleteItem: (itemIdx: number, requiresConfirmation?: boolean) => service.item.delete(idx, itemIdx, requiresConfirmation),
         deleteItemOfOtherList: (listIdx: number, itemIdx: number) => service.item.delete(listIdx, itemIdx, true),
         swapItems: (itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx),

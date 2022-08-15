@@ -1,4 +1,4 @@
-import Card, { CardProps } from "client/common/components/card/Card";
+import CardVertical, { CardVerticalProps } from "client/common/components/card-vertical/CardVertical";
 import Carousel from "client/common/components/carousel/Carousel";
 import { FunctionComponent } from "react";
 import Section from "../../Section";
@@ -6,7 +6,7 @@ import Section from "../../Section";
 export interface CardsSectionProps {
     id?: string;
     title?: string;
-    cards?: CardProps[];
+    cards?: CardVerticalProps[];
     isGrid?: boolean;
 }
 
@@ -14,7 +14,7 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
     const skeletonCards = Array(10).fill({ loading: true });
     if (props.cards && !props.cards.length) return <></>;
 
-    const cards = (props.cards ?? skeletonCards)?.map((card, i) => <Card {...card} key={`card${i}${card.title}`} />);
+    const cards = (props.cards ?? skeletonCards)?.map((card, i) => <CardVertical {...card} key={`card${i}${card.title}`} />);
     return (
         <Section title={props.title}>
             <div className={`${props.isGrid ? "block xl:hidden" : ""}`}>

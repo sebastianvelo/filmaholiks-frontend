@@ -1,7 +1,7 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import { ItemProps } from "./actionable-item/item/Item";
+import { CardHorizontalProps } from "../../../../common/components/card-horizontal/CardHorizontal";
 import ListBody, { ListBodyProps } from "./body/ListBody";
 import ListFooter, { ListFooterProps } from "./footer/ListFooter";
 import ListHeader, { ListHeaderProps } from "./header/ListHeader";
@@ -9,7 +9,7 @@ import ListSearchItems, { ListSearchItemsProps } from "./search/ListSearchItems"
 
 export interface ListProps extends ListHeaderProps, ListSearchItemsProps, ListBodyProps, ListFooterProps {
     swapLists: (target: number) => void;
-    moveItem: (item: ItemProps, sourceListIdx: number, sourceItemIdx: number) => void;
+    moveItem: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number) => void;
 }
 
 const List: FunctionComponent<ListProps> = (props: ListProps) => {

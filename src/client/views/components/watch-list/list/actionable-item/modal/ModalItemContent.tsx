@@ -3,12 +3,12 @@ import Image from "client/common/atom/image/Image";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
-import { ItemProps } from "../item/Item";
+import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 
 export interface ModalItemContentProps {
     opened: boolean;
     toggle: () => void;
-    item: ItemProps;
+    item: CardHorizontalProps;
 }
 
 const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: ModalItemContentProps) => {
@@ -27,7 +27,7 @@ const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: Modal
         <div className={modalClassName}>
             <article className={cardClassName}>
                 <Action path={props.item.path} revert>
-                    {props.item.poster && <Image className="w-80 h-96 rounded-tl-xl rounded-bl-xl" {...props.item.poster} />}
+                    {props.item.image && <Image className="w-80 h-96 rounded-tl-xl rounded-bl-xl" {...props.item.image} />}
                 </Action>
                 <Action
                     label="X"
@@ -44,7 +44,7 @@ const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: Modal
                                 revert
                             />
                         </div>
-                        <p className="text-xl">{props.item.info}</p>
+                        <p className="text-xl">{props.item.subtitle}</p>
                         <p>//aca se va a poder editar cuantas temporadas/caps viste</p>
                     </div>
                 </div>

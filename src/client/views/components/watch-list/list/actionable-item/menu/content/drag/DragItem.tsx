@@ -3,10 +3,10 @@ import { DragSvg } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import { ItemProps } from "../../../item/Item";
+import { CardHorizontalProps } from "../../../../../../../../common/components/card-horizontal/CardHorizontal";
 
 export interface DragItemProps {
-    item: ItemProps;
+    item: CardHorizontalProps;
     delete?: boolean;
     listIdx?: number;
     idx: number;
@@ -17,7 +17,7 @@ const DragItem: FunctionComponent<DragItemProps> = (props: DragItemProps) => {
 
     const getImage = () => {
         const image = new Image(50, 50);
-        image.src = props.item.poster?.src ?? "";
+        image.src = props.item.image?.src ?? "";
         return image;
     }
 

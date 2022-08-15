@@ -2,12 +2,12 @@ import Action from "client/common/atom/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent, useState } from "react";
-import { ItemProps } from "../../../../../../../components/watch-list/list/actionable-item/item/Item";
+import { CardHorizontalProps } from "../../../../../../../../common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "../../../../../../../components/watch-list/list/List";
 
 export interface AddToWatchlistProps {
-    item: ItemProps;
-    save: (listIdx: number, item: ItemProps) => void;
+    item: CardHorizontalProps;
+    save: (listIdx: number, item: CardHorizontalProps) => void;
     lists: ListProps[];
 }
 

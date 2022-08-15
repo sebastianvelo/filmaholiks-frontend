@@ -3,18 +3,18 @@ import Input from "client/common/components/form/input/Input";
 import Tailwind from "client/common/tailwind/Tailwind";
 import useFetch from "client/hooks/useFetch";
 import { FunctionComponent, useState } from "react";
-import { ItemProps } from "../actionable-item/item/Item";
+import { CardHorizontalProps } from "../../../../../common/components/card-horizontal/CardHorizontal";
 import ListSearchResults from "./results/ListSearchResults";
 
 export interface ListSearchItemsProps {
-    addItem: (item: ItemProps) => void
+    addItem: (item: CardHorizontalProps) => void
     deleteItemOfOtherList: (listIdx: number, idx: number, requiresConfirmation?: boolean) => void;
 }
 
 const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSearchItemsProps) => {
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(WatchlistRequest.shows.search(query));
-    const response = useFetch<ItemProps[]>(url);
+    const response = useFetch<CardHorizontalProps[]>(url);
 
     const handleSearch = (value: string) => {
         setQuery(value);
@@ -23,7 +23,7 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
         }
     };
 
-    const addItem = (item: ItemProps) => {
+    const addItem = (item: CardHorizontalProps) => {
         handleSearch('');
         props.addItem(item);
     };

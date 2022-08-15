@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { ItemProps } from "../item/Item";
+import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 import MenuItemContent from "./MenuItemContent";
 import MenuItemTrigger from "./MenuItemTrigger";
 
 export interface MenuItemProps {
-    item: ItemProps;
+    item: CardHorizontalProps;
     action: (requiresConfirmation?: boolean) => void;
     delete?: boolean;
     listIdx?: number;
