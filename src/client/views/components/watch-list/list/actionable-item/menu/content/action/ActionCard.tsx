@@ -8,7 +8,7 @@ export interface ActionItemProps {
     delete?: boolean;
 }
 
-const ActionItem: FunctionComponent<ActionItemProps> = (props: ActionItemProps) => {
+const ActionCard: FunctionComponent<ActionItemProps> = (props: ActionItemProps) => {
     const color = props.delete ? ComponentHovereableColor.DANGER : ComponentHovereableColor.SUCCESS;
     const action = props.delete ? () => props.action(true) : () => props.action(false);
     
@@ -19,4 +19,4 @@ const ActionItem: FunctionComponent<ActionItemProps> = (props: ActionItemProps) 
     );
 }
 
-export default ActionItem;
+export default ActionCard;

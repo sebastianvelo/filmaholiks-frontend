@@ -1,21 +1,21 @@
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
 import CardHorizontal, { CardHorizontalProps } from "../../../../../common/components/card-horizontal/CardHorizontal";
-import ActionItem, { ActionItemProps } from "./menu/content/action/ActionItem";
-import DragItem from "./menu/content/drag/DragItem";
-import useActionableItemMenu from "./menu/useMenuItem";
-import useModalItem from "./modal/useModalItem";
+import ActionCard, { ActionItemProps } from "./menu/content/action/ActionCard";
+import DragCard from "./menu/content/drag/DragCard";
+import useMenuCard from "./menu/useMenuCard";
+import useModalCard from "./modal/useModalCard";
 
-interface ActionableItemProps extends ActionItemProps {
+interface ActionableCardProps extends ActionItemProps {
     item: CardHorizontalProps;
     idx: number;
     listIdx?: number;
     swapItems?: (idxB: number) => void;
 }
 
-const ActionableItem: FunctionComponent<ActionableItemProps> = (props: ActionableItemProps) => {
-    const [ModalTrigger, ModalContent] = useModalItem(props);
-    const [MenuTrigger, MenuContent] = useActionableItemMenu({
+const ActionableCard: FunctionComponent<ActionableCardProps> = (props: ActionableCardProps) => {
+    const [ModalTrigger, ModalContent] = useModalCard(props);
+    const [MenuTrigger, MenuContent] = useMenuCard({
         ModalTrigger,
         ...props
     });
@@ -35,7 +35,7 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
                     {props.listIdx !== undefined && (
                         <div className="relative">
                             <div className="flex flex-col justify-between  h-full">
-                                <DragItem {...props} />
+                                <DragCard {...props} />
                                 <MenuTrigger />
                             </div>
                             <MenuContent />
@@ -43,7 +43,7 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
                     )}
                     {props.listIdx === undefined && (
                         <div className="flex flex-col h-full">
-                            <ActionItem {...props} />
+                            <ActionCard {...props} />
                         </div>
                     )}
                 </div>
@@ -54,4 +54,4 @@ const ActionableItem: FunctionComponent<ActionableItemProps> = (props: Actionabl
     );
 }
 
-export default ActionableItem;
+export default ActionableCard;

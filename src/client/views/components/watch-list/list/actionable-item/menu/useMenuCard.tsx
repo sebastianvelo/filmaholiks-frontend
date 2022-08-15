@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
-import MenuItemContent from "./MenuItemContent";
-import MenuItemTrigger from "./MenuItemTrigger";
+import MenuCardContent from "./MenuCardContent";
+import MenuCardTrigger from "./MenuCardTrigger";
 
-export interface MenuItemProps {
+export interface MenuCardProps {
     item: CardHorizontalProps;
     action: (requiresConfirmation?: boolean) => void;
     delete?: boolean;
@@ -12,13 +12,13 @@ export interface MenuItemProps {
     ModalTrigger: () => JSX.Element;
 }
 
-const useActionableItemMenu = (props: MenuItemProps) => {
+const useMenuCard = (props: MenuCardProps) => {
     const [opened, setOpen] = useState(false);
 
     return ([
-        () => <MenuItemTrigger toggle={() => setOpen(!opened)} />,
-        () => <MenuItemContent {...props} opened={opened} setOpen={setOpen} />
+        () => <MenuCardTrigger toggle={() => setOpen(!opened)} />,
+        () => <MenuCardContent {...props} opened={opened} setOpen={setOpen} />
     ]);
 }
 
-export default useActionableItemMenu;
+export default useMenuCard;

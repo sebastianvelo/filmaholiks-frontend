@@ -3,11 +3,11 @@ import { DotsHorizontal } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
-interface MenuItemTriggerProps {
+interface MenuCardTriggerProps {
     toggle: () => void;
 }
 
-const MenuItemTrigger: FunctionComponent<MenuItemTriggerProps> = (props: MenuItemTriggerProps) => (
+const MenuCardTrigger: FunctionComponent<MenuCardTriggerProps> = (props: MenuCardTriggerProps) => (
     <Action
         className="flex justify-center items-center cursor-context-menu h-full"
         color={ComponentHovereableColor.INFO}
@@ -17,4 +17,4 @@ const MenuItemTrigger: FunctionComponent<MenuItemTriggerProps> = (props: MenuIte
     </Action>
 )
 
-export default MenuItemTrigger;
+export default MenuCardTrigger;

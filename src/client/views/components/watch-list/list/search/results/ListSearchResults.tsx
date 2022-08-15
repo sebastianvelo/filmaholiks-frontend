@@ -2,7 +2,7 @@ import Loading from "client/common/components/loading/Loading";
 import Tailwind from "client/common/tailwind/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import ActionableItem from "../../actionable-item/ActionableItem";
+import ActionableCard from "../../actionable-item/ActionableCard";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 
 interface ListSearchResultsProps {
@@ -33,7 +33,7 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
                         {props.items?.map((item: CardHorizontalProps, idx: number) => {
                             const it = WatchlistHelper.fromLocalStorage.item.retrieveIdx(item.title);
                             const action = () => it ? props.deleteItem(it.listIdx, it.itemIdx) : props.addItem(item);
-                            return <ActionableItem
+                            return <ActionableCard
                                 key={item.title}
                                 idx={idx}
                                 item={item}

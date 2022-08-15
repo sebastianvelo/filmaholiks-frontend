@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import ActionableItem from "../actionable-item/ActionableItem";
+import ActionableCard from "../actionable-item/ActionableCard";
 import CardHorizontal, { CardHorizontalProps } from "../../../../../common/components/card-horizontal/CardHorizontal";
 
 export interface ListBodyProps {
@@ -13,7 +13,7 @@ export interface ListBodyProps {
 const ActionableItems = (props: ListBodyProps) => (
     <>
         {props.items.map((item: CardHorizontalProps, idx: number) => (
-            <ActionableItem
+            <ActionableCard
                 listIdx={props.listIdx}
                 idx={idx}
                 swapItems={(idxB: number) => { if (props.swapItems) props.swapItems(idx, idxB) }}

@@ -1,15 +1,15 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
-import ActionItem from "./content/action/ActionItem";
+import ActionCard from "./content/action/ActionCard";
 
-export interface MenuItemContentProps {
+export interface MenuCardContentProps {
     opened: boolean;
     ModalTrigger: () => JSX.Element;
     action: (requiresConfirmation?: boolean) => void;
     setOpen: (value: boolean) => void;
 }
 
-const MenuItemContent: FunctionComponent<MenuItemContentProps> = (props: MenuItemContentProps) => {
+const MenuCardContent: FunctionComponent<MenuCardContentProps> = (props: MenuCardContentProps) => {
     const menuContentClassName = Tailwind.builder()
         .addIf("hidden", !props.opened)
         .addIf("flex justify-between bg-secondary absolute bottom-0 right-12 z-40 rounded-sm h-10", props.opened)
@@ -17,10 +17,10 @@ const MenuItemContent: FunctionComponent<MenuItemContentProps> = (props: MenuIte
 
     return (
         <div className={menuContentClassName} onMouseLeave={() => props.setOpen(false)}>
-            <ActionItem {...props} />
+            <ActionCard {...props} />
             <props.ModalTrigger />
         </div>
     );
 }
 
-export default MenuItemContent;
+export default MenuCardContent;

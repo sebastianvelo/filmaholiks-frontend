@@ -5,14 +5,14 @@ import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../../../common/components/card-horizontal/CardHorizontal";
 
-export interface DragItemProps {
+export interface DragCardProps {
     item: CardHorizontalProps;
     delete?: boolean;
     listIdx?: number;
     idx: number;
 }
 
-const DragItem: FunctionComponent<DragItemProps> = (props: DragItemProps) => {
+const DragCard: FunctionComponent<DragCardProps> = (props: DragCardProps) => {
     if (props.listIdx === undefined) return <></>;
 
     const getImage = () => {
@@ -37,4 +37,4 @@ const DragItem: FunctionComponent<DragItemProps> = (props: DragItemProps) => {
     );
 }
 
-export default DragItem;
+export default DragCard;

@@ -5,13 +5,13 @@ import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 
-export interface ModalItemContentProps {
+export interface ModalCardContentProps {
     opened: boolean;
     toggle: () => void;
     item: CardHorizontalProps;
 }
 
-const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: ModalItemContentProps) => {
+const ModalCardContent: FunctionComponent<ModalCardContentProps> = (props: ModalCardContentProps) => {
     const modalClassName = Tailwind.builder()
         .add("rounded-xl absolute place-items-center w-screen h-96 top-12 left-0 z-50 bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
         .addIf("grid", props.opened)
@@ -53,4 +53,4 @@ const ModalItemContent: FunctionComponent<ModalItemContentProps> = (props: Modal
     );
 }
 
-export default ModalItemContent;
+export default ModalCardContent;
