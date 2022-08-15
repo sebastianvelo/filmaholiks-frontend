@@ -1,6 +1,6 @@
 import Container from "client/common/components/container/Container";
-import Headline from "client/common/components/headline/Headline";
-import Video from "client/common/components/video/Video";
+import Headline from "client/common/atom/headline/Headline";
+import Video from "client/common/atom/video/Video";
 import { FunctionComponent } from "react";
 
 export interface DetailVideoProps {

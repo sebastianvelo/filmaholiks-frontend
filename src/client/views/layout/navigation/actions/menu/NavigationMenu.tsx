@@ -1,7 +1,7 @@
-import Action from "client/common/components/action/Action";
-import ActionProps from "client/common/components/action/ActionProps";
+import Action from "client/common/atom/action/Action";
+import ActionProps from "client/common/atom/action/ActionProps";
 import Dropdown from "client/common/components/dropdown/Dropdown";
-import Image, { ImageProps } from "client/common/components/image/Image";
+import Image, { ImageProps } from "client/common/atom/image/Image";
 
 export interface MenuProps {
     toggler: ImageProps;

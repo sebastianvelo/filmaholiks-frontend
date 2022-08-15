@@ -1,4 +1,4 @@
-import Action from "client/common/components/action/Action";
+import Action from "client/common/atom/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent, useState } from "react";

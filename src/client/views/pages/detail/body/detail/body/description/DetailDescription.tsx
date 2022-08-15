@@ -1,6 +1,6 @@
 import Container from "client/common/components/container/Container";
-import Headline from "client/common/components/headline/Headline";
-import Text from "client/common/components/text/Text";
+import Headline from "client/common/atom/headline/Headline";
+import Text from "client/common/atom/text/Text";
 import { FunctionComponent } from "react";
 
 export interface DetailDescriptionProps {

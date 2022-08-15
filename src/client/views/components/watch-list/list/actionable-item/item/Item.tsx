@@ -1,5 +1,5 @@
-import Action from "client/common/components/action/Action";
-import Image, { ImageProps } from "client/common/components/image/Image";
+import Action from "client/common/atom/action/Action";
+import Image, { ImageProps } from "client/common/atom/image/Image";
 import Pill from "client/common/components/pill/Pill";
 import ComponentColor from "client/common/tailwind/constants/ComponentColor";
 import { FunctionComponent } from "react";

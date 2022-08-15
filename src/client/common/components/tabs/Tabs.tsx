@@ -1,4 +1,4 @@
-import Button from "client/common/components/action/button/Button";
+import Button from "client/common/atom/action/button/Button";
 import { FunctionComponent, useState } from "react";
 import Tailwind from "client/common/tailwind/Tailwind";
 import TabContent from "./tab-content/TabContent";

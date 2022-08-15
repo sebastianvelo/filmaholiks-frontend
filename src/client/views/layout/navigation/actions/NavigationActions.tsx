@@ -1,5 +1,5 @@
-import Action from "client/common/components/action/Action";
-import ActionProps from "client/common/components/action/ActionProps";
+import Action from "client/common/atom/action/Action";
+import ActionProps from "client/common/atom/action/ActionProps";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 import NavigationMenu, { MenuProps } from "./menu/NavigationMenu";

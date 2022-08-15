@@ -1,4 +1,4 @@
-import Action from "client/common/components/action/Action";
+import Action from "client/common/atom/action/Action";
 import { DragSvg } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import WatchlistHelper from "client/helper/WatchlistHelper";

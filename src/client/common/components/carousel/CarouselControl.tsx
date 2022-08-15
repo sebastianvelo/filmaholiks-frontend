@@ -1,7 +1,7 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import $ from "jquery";
 import { FunctionComponent } from "react";
-import Action from "../action/Action";
+import Action from "../../atom/action/Action";
 import { ArrowLeftSvg, ArrowRightSvg } from "../svg/Svg";
 
 const slide = (id: string, right: boolean) => {

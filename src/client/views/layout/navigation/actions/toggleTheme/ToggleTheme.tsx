@@ -1,4 +1,4 @@
-import Action from "client/common/components/action/Action";
+import Action from "client/common/atom/action/Action";
 import { SunSvg, MoonSvg } from "client/common/components/svg/Svg";
 import useToggleDark from "client/hooks/useToggleDark";
 import { FunctionComponent } from "react";

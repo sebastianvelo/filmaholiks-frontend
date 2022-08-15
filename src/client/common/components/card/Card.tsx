@@ -1,7 +1,7 @@
-import Action from "client/common/components/action/Action";
-import Headline from "client/common/components/headline/Headline";
-import Image, { ImageProps } from "client/common/components/image/Image";
-import Text from "client/common/components/text/Text";
+import Action from "client/common/atom/action/Action";
+import Headline from "client/common/atom/headline/Headline";
+import Image, { ImageProps } from "client/common/atom/image/Image";
+import Text from "client/common/atom/text/Text";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 

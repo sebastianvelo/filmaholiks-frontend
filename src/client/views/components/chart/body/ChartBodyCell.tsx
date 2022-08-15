@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "client/common/components/image/Image";
+import Image, { ImageProps } from "client/common/atom/image/Image";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 

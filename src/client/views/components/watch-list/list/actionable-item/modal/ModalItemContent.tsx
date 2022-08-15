@@ -1,5 +1,5 @@
-import Action from "client/common/components/action/Action";
-import Image from "client/common/components/image/Image";
+import Action from "client/common/atom/action/Action";
+import Image from "client/common/atom/image/Image";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
