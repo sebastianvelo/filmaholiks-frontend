@@ -1,7 +1,7 @@
 import Card, { CardProps } from "client/common/components/card/Card";
 import Carousel from "client/common/components/carousel/Carousel";
 import { FunctionComponent } from "react";
-import Section from "../../section/Section";
+import Section from "../../Section";
 
 export interface CardsSectionProps {
     id?: string;
