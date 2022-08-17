@@ -54,8 +54,6 @@ const navigationBlueprint = (): NavigationProps => ({
       src: 'https://picsum.photos/200',
     }
   },
-
-
 });
 
 export default navigationBlueprint;

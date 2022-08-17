@@ -1,7 +1,6 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import { CardHorizontalProps } from "../../../../common/components/card-horizontal/CardHorizontal";
 import ListBody, { ListBodyProps } from "./body/ListBody";
 import ListFooter, { ListFooterProps } from "./footer/ListFooter";
 import ListHeader, { ListHeaderProps } from "./header/ListHeader";
@@ -9,7 +8,7 @@ import ListSearchItems, { ListSearchItemsProps } from "./search/ListSearchItems"
 
 export interface ListProps extends ListHeaderProps, ListSearchItemsProps, ListBodyProps, ListFooterProps {
     swapLists: (target: number) => void;
-    moveItem: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number) => void;
+    moveItem: (itemIdx: number, sourceListIdx: number, targetListIdx: number) => void;
 }
 
 const List: FunctionComponent<ListProps> = (props: ListProps) => {
@@ -30,14 +29,12 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
         .add("bg-secondary-lighter dark:bg-secondary-dark bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-90")
         .build();
 
-    const dynamic = false;
-
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            {dynamic && <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />}
-            <ListHeader {...props} size={props.items.length} dynamic={dynamic} />
-            <ListBody {...props} dynamic={dynamic} />
-            {dynamic && <ListFooter {...props} />}
+            {props.dynamic && <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />}
+            <ListHeader {...props} size={props.items.length} />
+            <ListBody {...props} />
+            {props.dynamic && <ListFooter {...props} />}
         </section >
     );
 }

@@ -5,7 +5,7 @@ import CardHorizontal, { CardHorizontalProps } from "../../../../../common/compo
 export interface ListBodyProps {
     items: CardHorizontalProps[];
     listIdx: number;
-    deleteItem: (idx: number, requiresConfirmation?: boolean) => void;
+    deleteItem: (idx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
     dynamic: boolean;
 }
@@ -19,7 +19,7 @@ const ActionableItems = (props: ListBodyProps) => (
                 swapItems={(idxB: number) => { if (props.swapItems) props.swapItems(idx, idxB) }}
                 key={`${item.title}${idx}`}
                 item={item}
-                action={(requiresConfirmation?: boolean) => props.deleteItem(idx, requiresConfirmation)}
+                action={(requiresConfirmation?: boolean) => props.deleteItem(idx, item.id, requiresConfirmation)}
                 delete
             />
         ))}
@@ -39,7 +39,7 @@ const StaticItems = (props: ListBodyProps) => (
 const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-2 overflow-y-auto h-full text-dark px-2 py-2">
+    <div className="space-y-2 overflow-y-auto h-full text-dark py-4">
         {props.dynamic ? <ActionableItems {...props} /> : <StaticItems {...props} />}
         {!props.items.length && <ItemsEmpty />}
     </div>

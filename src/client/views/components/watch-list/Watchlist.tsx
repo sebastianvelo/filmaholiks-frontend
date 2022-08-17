@@ -9,20 +9,24 @@ export interface WatchlistProps {
     lists: ListProps[];
 }
 
+const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a list yet!</p>
+
 const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => {
     const service = useWatchlist(props.lists);
+    const dynamic = true;
 
     const listService = (list: ListProps, idx: number) => ({
         ...list,
         key: `list${idx}`,
         listIdx: idx,
+        dynamic,
         changeListTitle: (title: string) => service.list.changeTitle(idx, title),
         swapLists: (targetListIdx: number) => service.list.swap(idx, targetListIdx),
         deleteList: () => service.list.delete(idx),
         addItem: (item: CardHorizontalProps) => service.item.save(idx, item),
-        moveItem: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number) => service.item.move(item, sourceListIdx, sourceItemIdx, idx,),
-        deleteItem: (itemIdx: number, requiresConfirmation?: boolean) => service.item.delete(idx, itemIdx, requiresConfirmation),
-        deleteItemOfOtherList: (listIdx: number, itemIdx: number) => service.item.delete(listIdx, itemIdx, true),
+        moveItem: service.item.move,
+        deleteItem: (itemIdx: number, itemId: string | number, requiresConfirmation?: boolean) => service.item.delete(idx, itemIdx, itemId, requiresConfirmation),
+        deleteItemOfOtherList: (listIdx: number, itemIdx: number, itemId: string | number) => service.item.delete(listIdx, itemIdx, itemId, true),
         swapItems: (itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx),
 
     });
@@ -34,11 +38,12 @@ const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => 
 
     return (
         <>
-            <div className="hidden md:block">
+            <div className="hidden md:block space-y-4">
+                {dynamic && <AddListButton addList={service.list.add} />}
+                {service.list.value?.length === 0 && <WatchListEmpty />}
                 <Carousel id="watchlist">
                     {lists}
                 </Carousel>
-                <AddListButton addList={service.list.add} />
             </div>
             <div className="md:hidden space-y-4">
                 {lists}

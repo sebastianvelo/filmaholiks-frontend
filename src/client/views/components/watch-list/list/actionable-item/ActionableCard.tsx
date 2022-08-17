@@ -23,7 +23,7 @@ const ActionableCard: FunctionComponent<ActionableCardProps> = (props: Actionabl
     const onDrop = (event: any) => {
         event.preventDefault();
         if (props.swapItems) {
-            WatchlistHelper.fromEvent.item.handleSwap(event, props.swapItems);
+            WatchlistHelper.fromEvent.item.handleSwap(event, props.listIdx, props.swapItems);
         }
     };
 

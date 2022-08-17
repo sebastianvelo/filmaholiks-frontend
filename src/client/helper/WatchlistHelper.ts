@@ -31,6 +31,12 @@ class WatchlistHelper {
             lists[listIdx].items.push(item);
             updateLists([...lists]);
         },
+        move: (sourceListIdx: number, targetListIdx: number, itemIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
+            const item = lists[sourceListIdx].items[itemIdx];
+            lists[targetListIdx].items.push(item);
+            lists[sourceListIdx].items.splice(itemIdx, 1);
+            updateLists([...lists]);
+        },
         delete: (listIdx: number, itemIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             lists[listIdx].items = lists[listIdx].items.filter((_, idx) => idx !== itemIdx);
             updateLists([...lists]);
@@ -89,15 +95,17 @@ class WatchlistHelper {
                 const item = WatchlistHelper.fromEvent.item.retrieve(event);
                 if (item) addItem(item);
             },
-            handleMove: (event: React.DragEvent<HTMLElement>, targetListIdx: number, moveItem: (item: CardHorizontalProps, sourceListIdx: number, sourceItemIdx: number) => void) => {
+            handleMove: (event: React.DragEvent<HTMLElement>, targetListIdx: number, moveItem: (itemIdx: number, sourceListIdx: number, targetListIdx: number) => void) => {
                 const item = WatchlistHelper.fromEvent.item.retrieve(event);
                 const itemIdx = WatchlistHelper.fromEvent.item.retrieveIdx(event);
                 const sourceListIdx = WatchlistHelper.fromEvent.list.retrieveIdx(event);
-                if (item && targetListIdx !== sourceListIdx) moveItem(item, sourceListIdx, itemIdx);
+                if (item && targetListIdx !== sourceListIdx) moveItem(itemIdx, sourceListIdx, targetListIdx);
             },
-            handleSwap: (event: React.DragEvent<HTMLElement>, swapItem: (targetItemIdx: number) => void) => {
+            handleSwap: (event: React.DragEvent<HTMLElement>, targetListIdx: number | undefined, swapItem: (targetItemIdx: number) => void) => {
                 const targetItemIdx = WatchlistHelper.fromEvent.item.retrieveIdx(event);
-                swapItem(targetItemIdx);
+                const sourceListIdx = WatchlistHelper.fromEvent.list.retrieveIdx(event);
+                if (sourceListIdx === targetListIdx)
+                    swapItem(targetItemIdx);
             },
         },
         list: {

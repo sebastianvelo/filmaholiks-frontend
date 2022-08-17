@@ -9,7 +9,7 @@ interface ListSearchResultsProps {
     items?: CardHorizontalProps[] | null;
     loading?: boolean;
     addItem: (item: CardHorizontalProps) => void;
-    deleteItem: (listIdx: number, idx: number, requiresConfirmation?: boolean) => void;
+    deleteItem: (listIdx: number, idx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
 }
 
 const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
@@ -24,7 +24,7 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
         .add("text-center lg:text-left")
         .add("bg-primary-lighter dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 dark:bg-opacity-30")
         .build();
-        
+
     return (
         <div className={loadingClassName}>
             <Loading loading={props.loading}>
@@ -32,7 +32,7 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
                     <section className={boxClassName} >
                         {props.items?.map((item: CardHorizontalProps, idx: number) => {
                             const it = WatchlistHelper.fromLocalStorage.item.retrieveIdx(item.title);
-                            const action = () => it ? props.deleteItem(it.listIdx, it.itemIdx) : props.addItem(item);
+                            const action = () => it ? props.deleteItem(it.listIdx, it.itemIdx, item.id) : props.addItem(item);
                             return <ActionableCard
                                 key={item.title}
                                 idx={idx}

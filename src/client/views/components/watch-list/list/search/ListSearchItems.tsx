@@ -8,7 +8,7 @@ import ListSearchResults from "./results/ListSearchResults";
 
 export interface ListSearchItemsProps {
     addItem: (item: CardHorizontalProps) => void
-    deleteItemOfOtherList: (listIdx: number, idx: number, requiresConfirmation?: boolean) => void;
+    deleteItemOfOtherList: (listIdx: number, idx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
 }
 
 const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSearchItemsProps) => {
@@ -28,14 +28,14 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
         props.addItem(item);
     };
 
-    const deleteItem = (listIdx: number, idx: number, requiresConfirmation?: boolean) => {
+    const deleteItem = (listIdx: number, idx: number, itemId: string | number, requiresConfirmation?: boolean) => {
         handleSearch('');
-        props.deleteItemOfOtherList(listIdx, idx, requiresConfirmation);
+        props.deleteItemOfOtherList(listIdx, idx, itemId, requiresConfirmation);
     }
 
     const inputClassName = Tailwind.builder()
         .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
-        .add('dark:bg-secondary-dark bg-secondary-light dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
+        .add('dark:bg-secondary-dark bg-secondary-lighter dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
         .add('focus:outline-none')
         .add("rounded-sm")
         .add('dark:text-white text-black')

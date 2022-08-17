@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 export interface CarouselItemsProps {
     id: string;
-    children: React.ReactNode | React.ReactNode[];
+    children: React.ReactNode[];
 }
 
 const CarouselItems: FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps) => (

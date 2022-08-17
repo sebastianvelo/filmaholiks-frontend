@@ -16,6 +16,7 @@ const slide = (id: string, right: boolean) => {
 export interface CarouselControlProps {
     id: string;
     right: boolean;
+    show: boolean;
 }
 
 const CarouselControl: FunctionComponent<CarouselControlProps> = (props: CarouselControlProps) => {
@@ -27,6 +28,7 @@ const CarouselControl: FunctionComponent<CarouselControlProps> = (props: Carouse
         .addIf("-left-8", !props.right)
         .build();
 
+    if (!props.show) return <></>;
     return (
         <Action onClick={() => slide(props.id, props.right)} className={className}>
             {props.right ? <ArrowRightSvg /> : <ArrowLeftSvg />}

@@ -26,12 +26,16 @@ abstract class Request {
     return this.getOptions("GET", url, params);
   }
 
-  protected post(url: string, params?: object): AxiosRequestConfig {
-    return this.getOptions("POST", url, params);
+  protected post(url: string, data?: object, params?: object): AxiosRequestConfig {
+    return this.getOptions("POST", url, params, data);
   }
 
   protected put(url: string, data?: object, params?: object): AxiosRequestConfig {
     return this.getOptions("PUT", url, params, data);
+  }
+
+  protected delete(url: string, data?: object, params?: object): AxiosRequestConfig {
+    return this.getOptions("DELETE", url, params, data);
   }
 
   private getFullPath(url: string): string {
