@@ -31,7 +31,7 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            {props.dynamic && <ListSearchItems addItem={props.addItem} deleteItemOfOtherList={props.deleteItemOfOtherList} />}
+            {props.dynamic && <ListSearchItems {...props} />}
             <ListHeader {...props} size={props.items.length} />
             <ListBody {...props} />
             {props.dynamic && <ListFooter {...props} />}

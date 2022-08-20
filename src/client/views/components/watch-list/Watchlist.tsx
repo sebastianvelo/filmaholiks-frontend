@@ -1,18 +1,20 @@
 import Carousel from "client/common/components/carousel/Carousel";
 import useWatchlist from "client/hooks/useWatchlist";
+import MediaType from "model/common/MediaType";
 import { FunctionComponent } from "react";
-import AddListButton from "./add-list-button/AddListButton";
 import { CardHorizontalProps } from "../../../common/components/card-horizontal/CardHorizontal";
+import AddListButton from "./add-list-button/AddListButton";
 import List, { ListProps } from "./list/List";
 
 export interface WatchlistProps {
+    mediaType: MediaType;
     lists: ListProps[];
 }
 
 const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a list yet!</p>
 
 const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => {
-    const service = useWatchlist(props.lists);
+    const service = useWatchlist(props.mediaType, props.lists);
     const dynamic = true;
 
     const listService = (list: ListProps, idx: number) => ({
@@ -28,7 +30,7 @@ const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => 
         deleteItem: (itemId: string | number, requiresConfirmation?: boolean) => service.item.delete(idx, itemId, requiresConfirmation),
         deleteItemOfOtherList: (listIdx: number, itemId: string | number) => service.item.delete(listIdx, itemId, true),
         swapItems: (itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx),
-
+        searchItems: service.item.search,
     });
 
     const lists = service.list.value?.map((list, idx: number) => (

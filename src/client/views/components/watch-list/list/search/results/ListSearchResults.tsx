@@ -1,12 +1,11 @@
 import Loading from "client/common/components/loading/Loading";
 import Tailwind from "client/common/tailwind/Tailwind";
-import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import ActionableCard from "../../actionable-item/ActionableCard";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
+import ActionableCard, { ActionableCardProps } from "../../actionable-item/ActionableCard";
 
 interface ListSearchResultsProps {
-    items?: CardHorizontalProps[] | null;
+    items?: ActionableCardProps[] | null;
     loading?: boolean;
     addItem: (item: CardHorizontalProps) => void;
     deleteItem: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
@@ -30,14 +29,11 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
             <Loading loading={props.loading}>
                 {props.items && (
                     <section className={boxClassName} >
-                        {props.items?.map((item: CardHorizontalProps, idx: number) => {
-                            const it = WatchlistHelper.fromLocalStorage.item.retrieveIdx(item.title);
-                            const action = () => it ? props.deleteItem(it.listIdx, item.id) : props.addItem(item);
+                        {props.items?.map((actionableItem: ActionableCardProps, idx: number) => {
+                            const action = () => actionableItem.delete ? props.deleteItem(idx, actionableItem.item.id) : props.addItem(actionableItem.item);
                             return <ActionableCard
-                                key={item.title}
-                                idx={idx}
-                                item={item}
-                                delete={!!it}
+                                {...actionableItem}
+                                key={actionableItem.item.title}
                                 action={action}
                             />;
                         })}

@@ -6,7 +6,7 @@ import DragCard from "./menu/content/drag/DragCard";
 import useMenuCard from "./menu/useMenuCard";
 import useModalCard from "./modal/useModalCard";
 
-interface ActionableCardProps extends ActionItemProps {
+export interface ActionableCardProps extends ActionItemProps {
     item: CardHorizontalProps;
     idx: number;
     listIdx?: number;

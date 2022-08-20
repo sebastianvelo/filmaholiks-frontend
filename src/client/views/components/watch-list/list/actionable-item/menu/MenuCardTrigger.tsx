@@ -1,5 +1,6 @@
 import Action from "client/common/atom/action/Action";
 import { DotsHorizontal } from "client/common/components/svg/Svg";
+import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
 interface MenuCardTriggerProps {
@@ -8,7 +9,8 @@ interface MenuCardTriggerProps {
 
 const MenuCardTrigger: FunctionComponent<MenuCardTriggerProps> = (props: MenuCardTriggerProps) => (
     <Action
-        className="flex justify-center items-center cursor-context-menu h-full bg-light dark:bg-dark dark:text-white"
+        className="flex justify-center items-center cursor-context-menu h-full"
+        color={ComponentHovereableColor.NORMAL}
         onClick={props.toggle}
     >
         <DotsHorizontal />

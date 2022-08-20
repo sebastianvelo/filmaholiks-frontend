@@ -1,6 +1,8 @@
+import { AxiosRequestConfig } from "axios";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ListProps } from "client/views/components/watch-list/list/List";
+import MediaType from "model/common/MediaType";
 import { useState } from "react";
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
@@ -30,16 +32,15 @@ export interface UseWatchlist {
         swap: (listIdx: number, idxA: number, idxB: number) => void;
         move: (itemIdx: number, sourceListIdx: number, targetListIdx: number) => void;
         find: (query?: string) => CardHorizontalProps | undefined;
+        search: (query: string) => AxiosRequestConfig<any>;
     }
 }
 
-const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
-    const listsFromLS = WatchlistHelper.fromLocalStorage.list.retrieve();
-    const [lists, setLists] = useState<ListProps[]>(apiLists ?? listsFromLS);
+const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlist => {
+    const [lists, setLists] = useState<ListProps[]>(apiLists ?? []);
 
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
-        WatchlistHelper.fromLocalStorage.list.save([...newLists]);
     };
 
     const changeListTitle = (listIdx: number, title: string) => {
@@ -53,34 +54,34 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         WatchlistHelper.list.find(query, lists);
 
     const swapLists = (idxA: number, idxB: number) =>
-        WatchlistHelper.list.swap(idxA, idxB, lists, updateLists);
+        WatchlistHelper.list.swap(mediaType, idxA, idxB, lists, updateLists);
 
     const addList = () =>
-        WatchlistHelper.list.add(lists, updateLists);
+        WatchlistHelper.list.add(mediaType, lists, updateLists);
 
     const deleteList = (listIdx: number) => {
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed)
-                    WatchlistHelper.list.delete(listIdx, lists, updateLists);
+                    WatchlistHelper.list.delete(mediaType, listIdx, lists, updateLists);
             }
         });
     };
 
     const saveItem = (listIdx: number, item: CardHorizontalProps) =>
-        WatchlistHelper.item.save(listIdx, item, lists, updateLists);
+        WatchlistHelper.item.save(mediaType, listIdx, item, lists, updateLists);
 
     const deleteItem = (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
-            WatchlistHelper.item.delete(listIdx, itemId, lists, updateLists);
+            WatchlistHelper.item.delete(mediaType, listIdx, itemId, lists, updateLists);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    WatchlistHelper.item.delete(listIdx, itemId, lists, updateLists);
+                    WatchlistHelper.item.delete(mediaType, listIdx, itemId, lists, updateLists);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
@@ -88,16 +89,19 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
     };
 
     const deleteItemByName = (query: string) =>
-        WatchlistHelper.item.deleteByName(query, lists, updateLists);
+        WatchlistHelper.item.deleteByName(mediaType, query, lists, updateLists);
 
     const moveItem = (itemIdx: number, sourceListIdx: number, targetListIdx: number) =>
-        WatchlistHelper.item.move(sourceListIdx, targetListIdx, itemIdx, lists, updateLists);
+        WatchlistHelper.item.move(mediaType, sourceListIdx, targetListIdx, itemIdx, lists, updateLists);
 
     const swapItems = (listIdx: number, idxA: number, idxB: number) =>
-        WatchlistHelper.item.swap(listIdx, idxA, idxB, lists, updateLists);
+        WatchlistHelper.item.swap(mediaType, listIdx, idxA, idxB, lists, updateLists);
 
     const findItem = (query?: string) =>
         WatchlistHelper.item.find(query ?? "", lists);
+
+    const searchItems = (query: string) =>
+        WatchlistHelper.item.search(mediaType, query);
 
     return {
         list: {
@@ -115,7 +119,8 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
             save: saveItem,
             swap: swapItems,
             move: moveItem,
-            find: findItem
+            find: findItem,
+            search: searchItems,
         }
     };
 };

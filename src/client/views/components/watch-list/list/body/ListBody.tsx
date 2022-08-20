@@ -16,9 +16,9 @@ const ActionableItems = (props: ListBodyProps) => (
             <ActionableCard
                 listIdx={props.listIdx}
                 idx={idx}
-                swapItems={(idxB: number) => { if (props.swapItems) props.swapItems(idx, idxB) }}
                 key={`${item.title}${idx}`}
                 item={item}
+                swapItems={(idxB: number) => { if (props.swapItems) props.swapItems(idx, idxB) }}
                 action={(requiresConfirmation?: boolean) => props.deleteItem(item.id, requiresConfirmation)}
                 delete
             />

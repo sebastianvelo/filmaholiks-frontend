@@ -11,34 +11,31 @@ const useFetch = <T extends Object>(req: AxiosRequestConfig, ignoreFirst?: boole
   });
 
   useEffect(() => {
-    if (!ignoreFirst || !firstUpdate.current) {
-      setResponse({
-        data: null,
-        error: null,
-        loading: true
-      });
-
-      if (!req.url) return;
-
-      axios
-        .request(req)
-        .then((axiosResponse: AxiosResponse<T>) => {
-          setResponse({ data: axiosResponse.data, loading: false });
-        })
-        .catch((error: any) => {
-          setResponse({ error, loading: false });
-        });
-    }
-    if (firstUpdate.current) {
+    if (ignoreFirst && firstUpdate.current) {
       firstUpdate.current = false;
       setResponse({
         data: null,
         error: null,
         loading: false
       });
-
+      return;
     }
+    setResponse({
+      data: null,
+      error: null,
+      loading: true
+    });
 
+    if (!req.url) return;
+
+    axios
+      .request(req)
+      .then((axiosResponse: AxiosResponse<T>) => {
+        setResponse({ data: axiosResponse.data, loading: false });
+      })
+      .catch((error: any) => {
+        setResponse({ error, loading: false });
+      });
 
   }, [req.url]);
 
