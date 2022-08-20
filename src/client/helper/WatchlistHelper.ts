@@ -1,3 +1,4 @@
+import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
 
@@ -12,11 +13,12 @@ class WatchlistHelper {
     public static LIST_IDX_KEY = "list_idx";
 
     public static item = {
-        retrieveIdx: (query: string, lists: ListProps[]): { itemIdx: number, listIdx: number } | undefined => {
+        retrieveIdx: (query: string, lists: ListProps[]): { itemId: string | number, itemIdx: number, listIdx: number } | undefined => {
             const listIdx = lists.findIndex(list => list.items.some(item => item.title === query));
             if (listIdx === -1) return undefined;
             const itemIdx = lists[listIdx].items.findIndex(item => item.title === query);
             return {
+                itemId: lists[listIdx].items[itemIdx].id,
                 itemIdx,
                 listIdx,
             };
@@ -30,21 +32,24 @@ class WatchlistHelper {
         save: (listIdx: number, item: CardHorizontalProps, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             lists[listIdx].items.push(item);
             updateLists([...lists]);
+            WatchlistRequest.shows.item.save("sebastianvelo", listIdx, item.id ?? "");
         },
         move: (sourceListIdx: number, targetListIdx: number, itemIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             const item = lists[sourceListIdx].items[itemIdx];
             lists[targetListIdx].items.push(item);
             lists[sourceListIdx].items.splice(itemIdx, 1);
             updateLists([...lists]);
+            WatchlistRequest.shows.item.move("sebastianvelo", itemIdx, sourceListIdx, targetListIdx);
         },
-        delete: (listIdx: number, itemIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            lists[listIdx].items = lists[listIdx].items.filter((_, idx) => idx !== itemIdx);
+        delete: (listIdx: number, itemId: string | number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
+            lists[listIdx].items = lists[listIdx].items.filter((it) => it.id !== itemId);
             updateLists([...lists]);
+            WatchlistRequest.shows.item.delete("sebastianvelo", listIdx, itemId);
         },
         deleteByName: (query: string, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             const item = WatchlistHelper.item.retrieveIdx(query, lists);
             if (!item) return;
-            WatchlistHelper.item.delete(item.listIdx, item.itemIdx, lists, updateLists);
+            WatchlistHelper.item.delete(item.listIdx, item.itemId, lists, updateLists);
         },
         swap: (listIdx: number, idxA: number, idxB: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             const itemA = lists[listIdx].items[idxA];
@@ -52,6 +57,7 @@ class WatchlistHelper {
             lists[listIdx].items[idxB] = itemA;
             lists[listIdx].items[idxA] = itemB;
             updateLists([...lists]);
+            WatchlistRequest.shows.item.swap("sebastianvelo", listIdx, idxA, idxB);
         },
     };
 
@@ -67,9 +73,11 @@ class WatchlistHelper {
         },
         add: (lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             updateLists([...lists, WatchlistHelper.list.dummy(lists)]);
+            WatchlistRequest.shows.list.add("sebastianvelo", "New List");
         },
         delete: (listIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             updateLists([...lists.filter((_, idx) => idx !== listIdx)]);
+            WatchlistRequest.shows.list.delete("sebastianvelo", listIdx);
         },
         swap: (idxA: number, idxB: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
             const listA = lists[idxA];
@@ -77,6 +85,7 @@ class WatchlistHelper {
             lists[idxB] = listA;
             lists[idxA] = listB;
             updateLists([...lists]);
+            WatchlistRequest.shows.list.swap("sebastianvelo", idxA, idxB);
         },
     }
 
@@ -101,11 +110,11 @@ class WatchlistHelper {
                 const sourceListIdx = WatchlistHelper.fromEvent.list.retrieveIdx(event);
                 if (item && targetListIdx !== sourceListIdx) moveItem(itemIdx, sourceListIdx, targetListIdx);
             },
-            handleSwap: (event: React.DragEvent<HTMLElement>, targetListIdx: number | undefined, swapItem: (targetItemIdx: number) => void) => {
+            handleSwap: (event: React.DragEvent<HTMLElement>, targetListIdx: number | undefined, swapItems: (targetItemIdx: number) => void) => {
                 const targetItemIdx = WatchlistHelper.fromEvent.item.retrieveIdx(event);
                 const sourceListIdx = WatchlistHelper.fromEvent.list.retrieveIdx(event);
                 if (sourceListIdx === targetListIdx)
-                    swapItem(targetItemIdx);
+                    swapItems(targetItemIdx);
             },
         },
         list: {

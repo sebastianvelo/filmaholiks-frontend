@@ -37,7 +37,7 @@ const navigationBlueprint = (): NavigationProps => ({
         path: PageRoute.ACCOUNT,
         label: "Account",
         color: ComponentHovereableColor.PRIMARY
-      },
+      },/*
       {
         path: PageRoute.HOME,
         label: "Settings",
@@ -47,11 +47,11 @@ const navigationBlueprint = (): NavigationProps => ({
         path: PageRoute.HOME,
         label: "Logout",
         color: ComponentHovereableColor.DANGER
-      },
+      }, */
     ],
     toggler: {
-      alt: 'https://picsum.photos/200',
-      src: 'https://picsum.photos/200',
+      alt: 'Sebastian Velo',
+      src: 'https://avatars.dicebear.com/api/personas/sebastianvelos.svg',
     }
   },
 });

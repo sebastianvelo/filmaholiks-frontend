@@ -8,18 +8,20 @@ import ListSearchResults from "./results/ListSearchResults";
 
 export interface ListSearchItemsProps {
     addItem: (item: CardHorizontalProps) => void
-    deleteItemOfOtherList: (listIdx: number, idx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
+    deleteItemOfOtherList: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
 }
 
 const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSearchItemsProps) => {
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(WatchlistRequest.shows.search(query));
-    const response = useFetch<CardHorizontalProps[]>(url);
+    const response = useFetch<CardHorizontalProps[]>(url, true);
 
     const handleSearch = (value: string) => {
         setQuery(value);
         if (value.length > 3) {
             setUrl(WatchlistRequest.shows.search(value));
+        } else {
+            response!.data = null;
         }
     };
 
@@ -28,9 +30,9 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
         props.addItem(item);
     };
 
-    const deleteItem = (listIdx: number, idx: number, itemId: string | number, requiresConfirmation?: boolean) => {
+    const deleteItem = (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
         handleSearch('');
-        props.deleteItemOfOtherList(listIdx, idx, itemId, requiresConfirmation);
+        props.deleteItemOfOtherList(listIdx, itemId, requiresConfirmation);
     }
 
     const inputClassName = Tailwind.builder()

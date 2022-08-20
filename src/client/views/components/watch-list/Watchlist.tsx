@@ -25,8 +25,8 @@ const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => 
         deleteList: () => service.list.delete(idx),
         addItem: (item: CardHorizontalProps) => service.item.save(idx, item),
         moveItem: service.item.move,
-        deleteItem: (itemIdx: number, itemId: string | number, requiresConfirmation?: boolean) => service.item.delete(idx, itemIdx, itemId, requiresConfirmation),
-        deleteItemOfOtherList: (listIdx: number, itemIdx: number, itemId: string | number) => service.item.delete(listIdx, itemIdx, itemId, true),
+        deleteItem: (itemId: string | number, requiresConfirmation?: boolean) => service.item.delete(idx, itemId, requiresConfirmation),
+        deleteItemOfOtherList: (listIdx: number, itemId: string | number) => service.item.delete(listIdx, itemId, true),
         swapItems: (itemAIdx: number, itemBIdx: number) => service.item.swap(idx, itemAIdx, itemBIdx),
 
     });

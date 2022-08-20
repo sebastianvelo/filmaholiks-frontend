@@ -1,4 +1,3 @@
-import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ListProps } from "client/views/components/watch-list/list/List";
@@ -25,7 +24,7 @@ export interface UseWatchlist {
         retrieveAll: ListProps[];
     };
     item: {
-        delete: (listIdx: number, itemIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
+        delete: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
         deleteByName: (query: string) => void;
         save: (listIdx: number, item: CardHorizontalProps) => void;
         swap: (listIdx: number, idxA: number, idxB: number) => void;
@@ -36,7 +35,7 @@ export interface UseWatchlist {
 
 const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
     const listsFromLS = WatchlistHelper.fromLocalStorage.list.retrieve();
-    const [lists, setLists] = useState<ListProps[]>(apiLists?.length ? apiLists : [] ?? listsFromLS);
+    const [lists, setLists] = useState<ListProps[]>(apiLists ?? listsFromLS);
 
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
@@ -50,11 +49,14 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         updateLists([...lists]);
     };
 
-    const findList = (query: string) => WatchlistHelper.list.find(query, lists);
+    const findList = (query: string) =>
+        WatchlistHelper.list.find(query, lists);
 
-    const swapLists = (idxA: number, idxB: number) => WatchlistHelper.list.swap(idxA, idxB, lists, updateLists);
+    const swapLists = (idxA: number, idxB: number) =>
+        WatchlistHelper.list.swap(idxA, idxB, lists, updateLists);
 
-    const addList = () => WatchlistHelper.list.add(lists, updateLists);
+    const addList = () =>
+        WatchlistHelper.list.add(lists, updateLists);
 
     const deleteList = (listIdx: number) => {
         requireConfirmation({
@@ -66,46 +68,36 @@ const useWatchlist = (apiLists?: ListProps[]): UseWatchlist => {
         });
     };
 
-    const saveItem = (listIdx: number, item: CardHorizontalProps) => {
+    const saveItem = (listIdx: number, item: CardHorizontalProps) =>
         WatchlistHelper.item.save(listIdx, item, lists, updateLists);
-        WatchlistRequest.shows.saveItem("sebastianvelo", listIdx, item.id ?? "");
-    }
 
-    const deleteItem = (listIdx: number, itemIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
+    const deleteItem = (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
-            WatchlistHelper.item.delete(listIdx, itemIdx, lists, updateLists);
-            WatchlistRequest.shows.deleteItem("sebastianvelo", listIdx, itemId);
+            WatchlistHelper.item.delete(listIdx, itemId, lists, updateLists);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    WatchlistHelper.item.delete(listIdx, itemIdx, lists, updateLists);
-                    WatchlistRequest.shows.deleteItem("sebastianvelo", listIdx, itemId);
+                    WatchlistHelper.item.delete(listIdx, itemId, lists, updateLists);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
         });
     };
 
-    const deleteItemByName = (query: string) => {
+    const deleteItemByName = (query: string) =>
         WatchlistHelper.item.deleteByName(query, lists, updateLists);
-    };
 
-    const moveItem = (itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
+    const moveItem = (itemIdx: number, sourceListIdx: number, targetListIdx: number) =>
         WatchlistHelper.item.move(sourceListIdx, targetListIdx, itemIdx, lists, updateLists);
-        WatchlistRequest.shows.moveItem("sebastianvelo", itemIdx, sourceListIdx, targetListIdx);
-    };
 
-    const swapItems = (listIdx: number, idxA: number, idxB: number) => {
-        WatchlistHelper.item.swap(listIdx, idxA, idxB, lists, (newLists: ListProps[]) => {
-            updateLists(newLists);
-            WatchlistRequest.shows.swapItems("sebastianvelo", listIdx, idxA, idxB);
-        });
-    }
+    const swapItems = (listIdx: number, idxA: number, idxB: number) =>
+        WatchlistHelper.item.swap(listIdx, idxA, idxB, lists, updateLists);
 
-    const findItem = (query?: string) => WatchlistHelper.item.find(query ?? "", lists);
+    const findItem = (query?: string) =>
+        WatchlistHelper.item.find(query ?? "", lists);
 
     return {
         list: {

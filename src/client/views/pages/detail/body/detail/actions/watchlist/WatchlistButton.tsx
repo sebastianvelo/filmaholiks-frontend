@@ -15,7 +15,7 @@ const WatchlistButton: FunctionComponent<WatchlistButtonProps> = (props: Watchli
     return (
         <div>
             {!list && <AddToWatchlist item={props} lists={lists} save={service.item.save} />}
-            {list && <DeleteToWatchlist title={props.title ?? ""} list={list} delete={service.item.deleteByName} />}
+            {list && <DeleteToWatchlist list={list} delete={() => service.item.deleteByName(props.title ?? "")} />}
         </div>
     );
 }

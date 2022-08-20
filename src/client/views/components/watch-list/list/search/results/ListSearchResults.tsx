@@ -9,7 +9,7 @@ interface ListSearchResultsProps {
     items?: CardHorizontalProps[] | null;
     loading?: boolean;
     addItem: (item: CardHorizontalProps) => void;
-    deleteItem: (listIdx: number, idx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
+    deleteItem: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
 }
 
 const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
@@ -32,7 +32,7 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
                     <section className={boxClassName} >
                         {props.items?.map((item: CardHorizontalProps, idx: number) => {
                             const it = WatchlistHelper.fromLocalStorage.item.retrieveIdx(item.title);
-                            const action = () => it ? props.deleteItem(it.listIdx, it.itemIdx, item.id) : props.addItem(item);
+                            const action = () => it ? props.deleteItem(it.listIdx, item.id) : props.addItem(item);
                             return <ActionableCard
                                 key={item.title}
                                 idx={idx}

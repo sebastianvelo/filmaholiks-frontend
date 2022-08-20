@@ -11,21 +11,37 @@ class WatchlistRequest extends APIRequest {
             const config = this.put(`/user/${userName}/show`, lists);
             axios.request(config);
         },
-        saveItem: (userName: string, listIdx: number, itemId: number | string) => {
-            const config = this.post(`/user/${userName}/show/${listIdx}`, { itemId });
-            axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+        item: {
+            save: (userName: string, listIdx: number, itemId: number | string) => {
+                const config = this.post(`/user/${userName}/show/${listIdx}/item`, { itemId });
+                axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+            },
+            delete: (userName: string, listIdx: number, itemId: number | string) => {
+                const config = this.delete(`/user/${userName}/show/${listIdx}/item`, { itemId });
+                axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+            },
+            swap: (userName: string, listIdx: number, itemIdx1: number, itemIdx2: number) => {
+                const config = this.put(`/user/${userName}/show/swap/item`, { listIdx, itemIdx1, itemIdx2 });
+                axios.request(config);
+            },
+            move: (userName: string, itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
+                const config = this.put(`/user/${userName}/show/move/item`, { itemIdx, sourceListIdx, targetListIdx });
+                axios.request(config);
+            },
         },
-        deleteItem: (userName: string, listIdx: number, itemId: number | string) => {
-            const config = this.delete(`/user/${userName}/show/${listIdx}`, { itemId });
-            axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
-        },
-        swapItems: (userName: string, listIdx: number, itemAIdx: number, itemBIdx: number) => {
-            const config = this.put(`/user/${userName}/show/swap/item`, { listIdx, itemAIdx, itemBIdx });
-            axios.request(config);
-        },
-        moveItem: (userName: string, itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
-            const config = this.put(`/user/${userName}/show/move/item`, { itemIdx, sourceListIdx, targetListIdx });
-            axios.request(config);
+        list: {
+            add: (userName: string, title: string) => {
+                const config = this.post(`/user/${userName}/show/list`, { title });
+                axios.request(config);
+            },
+            delete: (userName: string, listIdx: number) => {
+                const config = this.delete(`/user/${userName}/show/${listIdx}/list`);
+                axios.request(config);
+            },
+            swap: (userName: string, listIdx1: number, listIdx2: number) => {
+                const config = this.put(`/user/${userName}/show/swap/list`, { listIdx1, listIdx2 });
+                axios.request(config);
+            },
         },
     };
 
@@ -35,21 +51,23 @@ class WatchlistRequest extends APIRequest {
             const config = this.put(`/user/${userName}/movie`, lists);
             axios.request(config);
         },
-        saveItem: (userName: string, listIdx: number, itemId: number | string) => {
-            const config = this.post(`/user/${userName}/movie/${listIdx}`, { itemId });
-            axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
-        },
-        deleteItem: (userName: string, listIdx: number, itemId: number | string) => {
-            const config = this.delete(`/user/${userName}/movie/${listIdx}`, { itemId });
-            axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
-        },
-        swapItems: (userName: string, listIdx: number, itemAIdx: number, itemBIdx: number) => {
-            const config = this.put(`/user/${userName}/movie/swap/item`, { listIdx, itemAIdx, itemBIdx });
-            axios.request(config);
-        },
-        moveItem: (userName: string, itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
-            const config = this.put(`/user/${userName}/movie/move/item`, { itemIdx, sourceListIdx, targetListIdx });
-            axios.request(config);
+        item: {
+            save: (userName: string, listIdx: number, itemId: number | string) => {
+                const config = this.post(`/user/${userName}/movie/${listIdx}/item`, { itemId });
+                axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+            },
+            delete: (userName: string, listIdx: number, itemId: number | string) => {
+                const config = this.delete(`/user/${userName}/movie/${listIdx}/item`, { itemId });
+                axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+            },
+            swap: (userName: string, listIdx: number, itemIdx1: number, itemIdx2: number) => {
+                const config = this.put(`/user/${userName}/movie/swap/item`, { listIdx, itemIdx1, itemIdx2 });
+                axios.request(config);
+            },
+            move: (userName: string, itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
+                const config = this.put(`/user/${userName}/movie/move/item`, { itemIdx, sourceListIdx, targetListIdx });
+                axios.request(config);
+            },
         },
     }
 }
