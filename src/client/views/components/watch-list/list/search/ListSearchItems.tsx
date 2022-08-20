@@ -39,7 +39,7 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
 
     const inputClassName = Tailwind.builder()
         .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
-        .add('dark:bg-secondary-dark bg-secondary-lighter dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
+        .add('dark:bg-secondary-dark bg-secondary-light dark:placeholder-opacity-50 placeholder-secondary-dark dark:placeholder-primary-light')
         .add('focus:outline-none')
         .add("rounded-sm")
         .add('dark:text-white text-black')

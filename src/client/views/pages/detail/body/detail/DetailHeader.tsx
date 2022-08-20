@@ -19,7 +19,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
         <div className={className}>
             <DetailPosters {...props} />
             <div className={`flex flex-col w-full lg:w-3/4 2xl:w-4/5`}>
-                <DetailActions {...props.actions} />
+                {false && <DetailActions {...props.actions} />}
                 <DetailContent {...props} />
             </div>
         </div>

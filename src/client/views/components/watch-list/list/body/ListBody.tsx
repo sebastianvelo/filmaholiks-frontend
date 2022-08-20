@@ -29,7 +29,7 @@ const ActionableItems = (props: ListBodyProps) => (
 const StaticItems = (props: ListBodyProps) => (
     <>
         {props.items.map((item: CardHorizontalProps, idx: number) => (
-            <div className="h-20">
+            <div className="h-28">
                 <CardHorizontal key={`${item.title}${idx}`} {...item} />
             </div>
         ))}
@@ -39,7 +39,7 @@ const StaticItems = (props: ListBodyProps) => (
 const ItemsEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a show yet!</p>
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-3 overflow-y-auto h-full text-dark py-2">
+    <div className="space-y-3 overflow-y-auto h-full text-dark py-2 px-2">
         {props.dynamic ? <ActionableItems {...props} /> : <StaticItems {...props} />}
         {!props.items.length && <ItemsEmpty />}
     </div>

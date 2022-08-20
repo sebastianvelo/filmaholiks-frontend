@@ -29,7 +29,7 @@ const ActionableCard: FunctionComponent<ActionableCardProps> = (props: Actionabl
 
     return (
         <>
-            <div className="flex flex-col w-full shadow-xl h-20" onDrop={onDrop}>
+            <div className="flex flex-col w-full shadow-xl h-28" onDrop={onDrop}>
                 <div className="flex items-center justify-center h-full">
                     <CardHorizontal {...props.item} />
                     {props.listIdx !== undefined && (
