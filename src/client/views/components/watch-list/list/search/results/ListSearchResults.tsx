@@ -15,11 +15,11 @@ interface ListSearchResultsProps {
 const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
     const loadingClassName = Tailwind.builder()
         .addIf("bg-black", props.loading)
-        .add("hidden group-hover:flex w-96 h-screen z-50 flex items-center justify-center absolute left-0")
+        .add("hidden group-hover:flex w-96 h-screen z-40 flex items-center justify-center absolute left-0")
         .build();
 
     const boxClassName = Tailwind.builder()
-        .add("z-50 overflow-y-scroll h-2/3 top-0 absolute")
+        .add("z-40 overflow-y-scroll h-2/3 top-0 absolute")
         .add("space-y-4")
         .add("text-center lg:text-left")
         .add("bg-primary-lighter dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 dark:bg-opacity-30")

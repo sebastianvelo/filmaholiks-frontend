@@ -39,11 +39,11 @@ const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => 
     return (
         <>
             <div className="hidden md:block space-y-4">
-                {dynamic && <AddListButton addList={service.list.add} />}
                 {service.list.value?.length === 0 && <WatchListEmpty />}
                 <Carousel id="watchlist">
                     {lists}
                 </Carousel>
+                {dynamic && <AddListButton addList={service.list.add} />}
             </div>
             <div className="md:hidden space-y-4">
                 {lists}

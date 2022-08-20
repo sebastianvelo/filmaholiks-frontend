@@ -34,7 +34,7 @@ const ActionableCard: FunctionComponent<ActionableCardProps> = (props: Actionabl
                     <CardHorizontal {...props.item} />
                     {props.listIdx !== undefined && (
                         <div className="relative">
-                            <div className="flex flex-col justify-between  h-full">
+                            <div className="flex flex-col justify-between h-full">
                                 <DragCard {...props} />
                                 <MenuTrigger />
                             </div>
