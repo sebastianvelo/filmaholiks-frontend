@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ListProps } from "client/views/components/watch-list/list/List";
-import MediaType from "model/common/MediaType";
+import MediaType from "shared/types/MediaType";
 import { useState } from "react";
 import Swal, { SweetAlertResult } from 'sweetalert2';
 

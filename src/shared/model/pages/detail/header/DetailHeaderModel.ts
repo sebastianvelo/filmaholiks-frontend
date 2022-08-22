@@ -1,5 +1,5 @@
-import ImageModel from "model/atom/ImageModel";
-import CardHorizontalModel from "model/components/CardHorizontalModel";
+import ImageModel from "shared/model/atom/ImageModel";
+import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
 import { DetailContentModel } from "./DetailContentModel";
 
 export interface WatchlistButtonModel extends CardHorizontalModel { }

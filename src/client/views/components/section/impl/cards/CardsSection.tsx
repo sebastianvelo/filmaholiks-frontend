@@ -1,6 +1,6 @@
 import CardVertical from "client/common/components/card-vertical/CardVertical";
 import Carousel from "client/common/components/carousel/Carousel";
-import { CardsSectionModel } from "model/components/section/Section";
+import { CardsSectionModel } from "shared/model/components/section/Section";
 import { FunctionComponent } from "react";
 import Section from "../../Section";
 

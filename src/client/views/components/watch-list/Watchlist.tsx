@@ -1,6 +1,6 @@
 import Carousel from "client/common/components/carousel/Carousel";
 import useWatchlist from "client/hooks/useWatchlist";
-import MediaType from "model/common/MediaType";
+import MediaType from "shared/types/MediaType";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../common/components/card-horizontal/CardHorizontal";
 import AddListButton from "./add-list-button/AddListButton";

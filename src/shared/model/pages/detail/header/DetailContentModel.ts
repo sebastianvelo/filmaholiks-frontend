@@ -1,4 +1,4 @@
-import VideoModel from "model/atom/VideoModel";
+import VideoModel from "shared/model/atom/VideoModel";
 
 export interface DetailContentHeaderModel {
     title: string;

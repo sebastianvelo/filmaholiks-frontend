@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ListProps } from "client/views/components/watch-list/list/List";
-import MediaType from "model/common/MediaType";
+import MediaType from "shared/types/MediaType";
 import APIRequest from "../APIRequest";
 
 class WatchlistRequest extends APIRequest {

@@ -1,5 +1,5 @@
-import SearchBarModel from "model/components/SearchBarModel";
-import { CardsSectionModel } from "model/components/section/Section";
+import SearchBarModel from "shared/model/components/SearchBarModel";
+import { CardsSectionModel } from "shared/model/components/section/Section";
 
 export interface SearchResultPageBodyModel {
     results?: CardsSectionModel;

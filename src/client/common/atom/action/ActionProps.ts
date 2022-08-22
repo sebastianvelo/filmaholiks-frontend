@@ -1,5 +1,5 @@
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import ActionModel from "model/atom/ActionModel";
+import ActionModel from "shared/model/atom/ActionModel";
 import { MouseEventHandler } from "react";
 
 export default interface ActionProps extends ActionModel {

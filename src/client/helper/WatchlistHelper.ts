@@ -1,7 +1,7 @@
 import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
-import MediaType from "model/common/MediaType";
+import MediaType from "shared/types/MediaType";
 
 const userName = "sebastianvelo";
 

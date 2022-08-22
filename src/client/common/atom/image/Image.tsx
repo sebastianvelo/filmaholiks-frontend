@@ -1,4 +1,4 @@
-import ImageModel from "model/atom/ImageModel";
+import ImageModel from "shared/model/atom/ImageModel";
 import { FunctionComponent } from "react";
 
 export interface ImageProps extends ImageModel {

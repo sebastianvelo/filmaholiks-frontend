@@ -3,7 +3,7 @@ import Headline from "client/common/atom/headline/Headline";
 import Image from "client/common/atom/image/Image";
 import Text from "client/common/atom/text/Text";
 import Tailwind from "client/common/tailwind/Tailwind";
-import CardVerticalModel from "model/components/CardVerticalModel";
+import CardVerticalModel from "shared/model/components/CardVerticalModel";
 import { FunctionComponent } from "react";
 
 export interface CardVerticalProps extends CardVerticalModel { }

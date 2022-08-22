@@ -1,6 +1,6 @@
 import useWatchlist from "client/hooks/useWatchlist";
 import { ListProps } from "client/views/components/watch-list/list/List";
-import MediaType from "model/common/MediaType";
+import MediaType from "shared/types/MediaType";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../../common/components/card-horizontal/CardHorizontal";
 import AddToWatchlist from "./add-to-watchlist/AddToWatchlist";

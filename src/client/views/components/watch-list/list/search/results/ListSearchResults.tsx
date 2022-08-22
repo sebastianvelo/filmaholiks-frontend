@@ -12,6 +12,7 @@ interface ListSearchResultsProps {
 }
 
 const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
+    
     const loadingClassName = Tailwind.builder()
         .addIf("bg-black", props.loading)
         .add("hidden group-hover:flex w-96 h-screen z-40 flex items-center justify-center absolute left-0")

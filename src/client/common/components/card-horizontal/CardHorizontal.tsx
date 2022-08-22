@@ -2,7 +2,7 @@ import Action from "client/common/atom/action/Action";
 import Image from "client/common/atom/image/Image";
 import Pill from "client/common/components/pill/Pill";
 import ComponentColor from "client/common/tailwind/constants/ComponentColor";
-import CardHorizontalModel from "model/components/CardHorizontalModel";
+import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
 import { FunctionComponent } from "react";
 
 export interface CardHorizontalProps extends CardHorizontalModel { }

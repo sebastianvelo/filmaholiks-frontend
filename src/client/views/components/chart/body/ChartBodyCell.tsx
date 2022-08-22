@@ -1,6 +1,6 @@
 import Image from "client/common/atom/image/Image";
 import Tailwind from "client/common/tailwind/Tailwind";
-import { ChartBodyCellModel } from "model/components/ChartModel";
+import { ChartBodyCellModel } from "shared/model/components/ChartModel";
 import { FunctionComponent } from "react";
 
 const topC = (props: ChartBodyCellProps) => Tailwind.builder()
