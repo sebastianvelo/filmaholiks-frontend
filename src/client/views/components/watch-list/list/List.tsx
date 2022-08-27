@@ -1,14 +1,19 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
+import { UseList } from "client/hooks/useList";
 import { FunctionComponent } from "react";
-import ListBody, { ListBodyProps } from "./body/ListBody";
-import ListFooter, { ListFooterProps } from "./footer/ListFooter";
-import ListHeader, { ListHeaderProps } from "./header/ListHeader";
-import ListSearchItems, { ListSearchItemsProps } from "./search/ListSearchItems";
+import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
+import ListBody from "./body/ListBody";
+import ListFooter from "./footer/ListFooter";
+import ListHeader from "./header/ListHeader";
+import ListSearchItems from "./search/ListSearchItems";
 
-export interface ListProps extends ListHeaderProps, ListSearchItemsProps, ListBodyProps, ListFooterProps {
-    swapLists: (target: number) => void;
-    moveItem: (itemIdx: number, sourceListIdx: number, targetListIdx: number) => void;
+export interface ListProps {
+    title?: string;
+    dynamic?: boolean;
+    items: CardHorizontalModel[];
+    listIdx: number;
+    service: UseList;
 }
 
 const List: FunctionComponent<ListProps> = (props: ListProps) => {
@@ -18,8 +23,8 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
 
     const onDrop: React.DragEventHandler<HTMLElement> = (event) => {
         event.preventDefault();
-        WatchlistHelper.fromEvent.item.handleMove(event, props.listIdx, props.moveItem);
-        WatchlistHelper.fromEvent.list.swap(event, props.swapLists);
+        WatchlistHelper.fromEvent.item.handleMove(event, props.listIdx, props.service.moveItem);
+        WatchlistHelper.fromEvent.list.swap(event, props.service.swapLists);
     };
 
     const className = Tailwind.builder()
@@ -31,10 +36,10 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            <ListHeader {...props} size={props.items.length} />
-            {props.dynamic && <ListSearchItems {...props} />}
-            <ListBody {...props} />
-            {props.dynamic && <ListFooter {...props} />}
+            <ListHeader {...props.service} {...props} size={props.items.length} />
+            {props.dynamic && <ListSearchItems {...props.service} />}
+            <ListBody {...props.service} {...props} />
+            {props.dynamic && <ListFooter {...props.service} />}
         </section >
     );
 }

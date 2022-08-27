@@ -29,7 +29,7 @@ const DragCard: FunctionComponent<DragCardProps> = (props: DragCardProps) => {
     };
 
     return (
-        <Action className="hidden md:flex justify-center items-center cursor-move h-14" color={ComponentHovereableColor.NORMAL} >
+        <Action className="hidden md:flex justify-center items-center cursor-move h-10" color={ComponentHovereableColor.NORMAL} >
             <div draggable={true} onDragStart={onDragStart}>
                 <DragSvg />
             </div>

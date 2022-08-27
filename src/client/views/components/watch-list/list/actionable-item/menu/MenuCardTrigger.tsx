@@ -9,7 +9,7 @@ interface MenuCardTriggerProps {
 
 const MenuCardTrigger: FunctionComponent<MenuCardTriggerProps> = (props: MenuCardTriggerProps) => (
     <Action
-        className="flex justify-center items-center cursor-context-menu h-14"
+        className="flex justify-center items-center cursor-context-menu h-10"
         color={ComponentHovereableColor.NORMAL}
         onClick={props.toggle}
     >

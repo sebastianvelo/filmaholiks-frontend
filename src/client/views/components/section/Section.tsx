@@ -12,7 +12,7 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
         .add("px-4 py-4 space-y-4 w-full")
         .add("text-center lg:text-left")
         .add("border-secondary dark:border-primary border-t-8 border-b-2")
-        .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-70")
+        .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 dark:bg-opacity-50")
         .build();
 
     return (

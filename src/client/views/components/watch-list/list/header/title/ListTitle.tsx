@@ -3,7 +3,7 @@ import { FunctionComponent } from "react";
 export interface ListTitleProps {
     title?: string;
     changeListTitle: (title: string) => void;
-    dynamic: boolean;
+    dynamic?: boolean;
 }
 
 const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>

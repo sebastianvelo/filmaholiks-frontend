@@ -1,6 +1,6 @@
 import Input from "client/common/components/form/input/Input";
 import Tailwind from "client/common/tailwind/Tailwind";
-import PageRoute from "client/routes/PageRoute";
+import PageRoute from "shared/routes/PageRoute";
 import { FunctionComponent, useState } from "react";
 import { useHistory } from "react-router";
 

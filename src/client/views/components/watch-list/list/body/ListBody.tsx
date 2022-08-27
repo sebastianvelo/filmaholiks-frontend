@@ -9,11 +9,11 @@ export interface ListBodyProps {
     listIdx: number;
     deleteItem: (itemId: string | number, requiresConfirmation?: boolean) => void;
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
-    dynamic: boolean;
+    dynamic?: boolean;
 }
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-3 overflow-y-auto h-full text-dark">
+    <div className="space-y-3 overflow-y-auto h-full text-dark p-2">
         {props.dynamic ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
         {!props.items.length && <EmptyCards />}
     </div>

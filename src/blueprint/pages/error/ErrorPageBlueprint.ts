@@ -1,4 +1,4 @@
-import PageRoute from "client/routes/PageRoute";
+import PageRoute from "shared/routes/PageRoute";
 import Page from "client/common/page/Page";
 import ErrorPage, { ErrorPageProps } from "client/views/pages/error/ErrorPage";
 

@@ -22,7 +22,6 @@ const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: Explor
 
     const className = Tailwind.builder()
         .addIf(`h-screen flex justify-center items-center`, page?.loading)
-        .add("space-y-8")
         .build();
         
     return (

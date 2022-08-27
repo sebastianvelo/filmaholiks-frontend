@@ -1,5 +1,5 @@
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import PageRoute from "client/routes/PageRoute";
+import PageRoute, { PageRouteBuilder } from "shared/routes/PageRoute";
 import { NavigationProps } from "client/views/layout/navigation/Navigation";
 
 const navigationBlueprint = (): NavigationProps => ({
@@ -29,7 +29,7 @@ const navigationBlueprint = (): NavigationProps => ({
   menu: {
     options: [
       {
-        path: PageRoute.USER_DETAIL.replace(":id", "sebastianvelo"),
+        path: PageRouteBuilder.USER_DETAIL("sebastianvelo"),
         label: "Profile",
         color: ComponentHovereableColor.PRIMARY
       },

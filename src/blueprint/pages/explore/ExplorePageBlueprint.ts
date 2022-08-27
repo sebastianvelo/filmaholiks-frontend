@@ -1,5 +1,5 @@
 import ExplorePageRequest from "api/request/pages/ExplorePageRequest";
-import PageRoute from "client/routes/PageRoute";
+import PageRoute from "shared/routes/PageRoute";
 import Page from "client/common/page/Page";
 import ExplorePage, { ExplorePageBlueprintProps } from "client/views/pages/explore/ExplorePage";
 

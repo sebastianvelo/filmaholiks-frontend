@@ -12,7 +12,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
     const className = Tailwind.builder()
         .add("flex flex-col lg:flex-row w-full mt-4")
         .add("2xl:border-t-4 2xl:border-b-2 dark:border-primary border-secondary")
-        .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-70")
+        .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 dark:bg-opacity-50")
         .build();
 
     return (

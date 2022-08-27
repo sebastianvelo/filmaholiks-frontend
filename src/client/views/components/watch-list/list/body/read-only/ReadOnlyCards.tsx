@@ -8,7 +8,7 @@ interface ReadOnlyCardsProps {
 const ReadOnlyCards: FunctionComponent<ReadOnlyCardsProps> = (props: ReadOnlyCardsProps) =>
     <>
         {props.items.map((item: CardHorizontalProps, idx: number) => (
-            <div className="h-28">
+            <div className="h-20">
                 <CardHorizontal key={`${item.title}${idx}`} {...item} />
             </div>
         ))}
