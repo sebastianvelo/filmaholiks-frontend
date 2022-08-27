@@ -16,7 +16,7 @@ https://filmaholiks.web.app/#/show
 _Clone the repository:_
 
 ```
-git clone https://github.com/SebastianVelo/ifdb-front-end.git
+git clone https://github.com/SebastianVelo/filmaholiks-frontend.git
 ```
 
 ## 🚀

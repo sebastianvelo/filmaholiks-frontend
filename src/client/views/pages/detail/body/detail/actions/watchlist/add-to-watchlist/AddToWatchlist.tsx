@@ -2,12 +2,10 @@ import Action from "client/common/atom/action/Action";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent, useState } from "react";
-import { CardHorizontalProps } from "../../../../../../../../common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "../../../../../../../components/watch-list/list/List";
 
 export interface AddToWatchlistProps {
-    item: CardHorizontalProps;
-    save: (listIdx: number, item: CardHorizontalProps) => void;
+    save: (listIdx: number) => void;
     lists: ListProps[];
 }
 
@@ -29,7 +27,7 @@ const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatc
                     <div className="flex flex-col space-y-4">
                         {props.lists.map((list, idx) => (
                             <Action
-                                onClick={() => props.save(idx, props.item)}
+                                onClick={() => props.save(idx)}
                                 className="rounded-xl dark:bg-secondary dark:hover:bg-secondary-dark dark:text-light bg-primary-dark hover:bg-primary text-dark"
                                 label={list.title}
                             />

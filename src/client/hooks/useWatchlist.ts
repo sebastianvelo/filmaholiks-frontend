@@ -38,7 +38,7 @@ export interface UseWatchlist {
 
 const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlist => {
     const [lists, setLists] = useState<ListProps[]>(apiLists ?? []);
-
+    console.log(lists);
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
     };

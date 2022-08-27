@@ -13,6 +13,7 @@ export interface ListProps {
     dynamic?: boolean;
     items: CardHorizontalModel[];
     listIdx: number;
+    order: number;
     service: UseList;
 }
 

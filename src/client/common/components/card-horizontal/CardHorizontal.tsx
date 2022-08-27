@@ -7,6 +7,11 @@ import { FunctionComponent } from "react";
 
 export interface CardHorizontalProps extends CardHorizontalModel { }
 
+const pillColor = {
+    Comedy: ComponentColor.PRIMARY,
+    Drama: ComponentColor.SECONDARY,
+};
+
 const CardHorizontal: FunctionComponent<CardHorizontalProps> = (props: CardHorizontalProps) => (
     <article className="bg-gradient-to-r dark:from-black dark:to-dark dark:text-white from-white to-light text-black flex space-x-2 shadow-lg w-full h-full">
         <Action path={props.path} revert>
@@ -16,9 +21,7 @@ const CardHorizontal: FunctionComponent<CardHorizontalProps> = (props: CardHoriz
             <Action className={`font-bold truncate text-left`} path={props.path} label={props.title} revert />
             <div className="flex space-x-2 items-end">
                 <div className="hidden md:flex">
-                    {props.tags?.includes("Comedy") ?
-                        <Pill className="text-xs text-white" color={ComponentColor.PRIMARY} label="Comedy" /> :
-                        <Pill className="text-xs text-white" color={ComponentColor.INFO} label="Drama" />}
+                    <Pill className="text-xs text-white" color={pillColor[`${props.tags}` as keyof typeof pillColor] as ComponentColor} label={props.tags} />
                 </div>
                 {false && <p className="text-xs">{props.subtitle}</p>}
             </div>
