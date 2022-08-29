@@ -13,19 +13,19 @@ export const UserDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     }
 };
 
-export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
-    route: PageRoute.MOVIE_DETAIL,
-    component: DetailWrapperPage,
-    props: {
-        getPage: DetailPageRequest.movieById,
-    }
-};
-
 export const PersonDetailPageBlueprint: Page<DetailWrapperPageProps> = {
     route: PageRoute.PERSON_DETAIL,
     component: DetailWrapperPage,
     props: {
         getPage: DetailPageRequest.personById
+    }
+};
+
+export const MovieDetailPageBlueprint: Page<DetailWrapperPageProps> = {
+    route: PageRoute.MOVIE_DETAIL,
+    component: DetailWrapperPage,
+    props: {
+        getPage: DetailPageRequest.movieById,
     }
 };
 

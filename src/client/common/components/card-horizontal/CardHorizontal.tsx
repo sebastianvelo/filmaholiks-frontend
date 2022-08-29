@@ -1,15 +1,17 @@
 import Action from "client/common/atom/action/Action";
 import Image from "client/common/atom/image/Image";
 import Pill from "client/common/components/pill/Pill";
-import ComponentColor from "client/common/tailwind/constants/ComponentColor";
-import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
 import { FunctionComponent } from "react";
+import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
 
 export interface CardHorizontalProps extends CardHorizontalModel { }
 
 const pillColor = {
-    Comedy: ComponentColor.PRIMARY,
-    Drama: ComponentColor.SECONDARY,
+    Comedy: "bg-primary text-black",
+    Animation: "bg-orange-700 text-white",
+    Drama: "bg-blue-600 text-white",
+    Mystery: "bg-blue-400 text-black",
+    Crime: "bg-orange-600"
 };
 
 const CardHorizontal: FunctionComponent<CardHorizontalProps> = (props: CardHorizontalProps) => (
@@ -20,8 +22,10 @@ const CardHorizontal: FunctionComponent<CardHorizontalProps> = (props: CardHoriz
         <div className="space-y-2 flex flex-col justify-between py-2 w-72 overflow-hidden">
             <Action className={`font-bold truncate text-left`} path={props.path} label={props.title} revert />
             <div className="flex space-x-2 items-end">
-                <div className="hidden md:flex">
-                    <Pill className="text-xs text-white" color={pillColor[`${props.tags}` as keyof typeof pillColor] as ComponentColor} label={props.tags} />
+                <div className="flex">
+                    {props.tags?.map(tag => (
+                        <Pill className={`text-xs ${pillColor[tag as keyof typeof pillColor]}`} label={tag} />
+                    ))}
                 </div>
                 {false && <p className="text-xs">{props.subtitle}</p>}
             </div>

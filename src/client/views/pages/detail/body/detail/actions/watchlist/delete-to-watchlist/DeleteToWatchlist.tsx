@@ -12,7 +12,7 @@ const DeleteToWatchlist: FunctionComponent<DeleteToWatchlistProps> = (props: Del
     <Action
         onClick={props.delete}
         label={`Delete from "${props.list.title}"`}
-        className="w-screen md:w-64"
+        className="w-screen md:w-96"
         color={ComponentHovereableColor.DANGER}
     />
 );

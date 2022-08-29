@@ -8,12 +8,14 @@ import {
   ShowExplorePageBlueprint
 } from "./explore/ExplorePageBlueprint";
 import { HomePageBlueprint } from "./home/HomePageBlueprint";
+import { AuthPageBlueprint } from "./auth/AuthPageBlueprint";
 import {
   MovieSearchResultPageBlueprint, PersonSearchResultPageBlueprint, ShowSearchResultPageBlueprint
 } from "./search-result/SearchResultPageBlueprint";
 
 const Pages = [
   HomePageBlueprint,
+  AuthPageBlueprint,
 
   MovieExplorePageBlueprint,
   ShowExplorePageBlueprint,
@@ -30,7 +32,7 @@ const Pages = [
   ShowSearchResultPageBlueprint,
   PersonSearchResultPageBlueprint,
 
-  ErrorPageBlueprint
+  ErrorPageBlueprint,
 ];
 
 export default Pages;

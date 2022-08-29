@@ -19,7 +19,7 @@ const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
             />
         ) :
         (
-            <p className="bg-transparent text-2xl font-black focus:outline-none cursor-text w-full truncate p-4">
+            <p className="bg-transparent text-2xl font-black focus:outline-none cursor-text w-64 truncate p-4">
                 {props.title}
             </p>
         )
