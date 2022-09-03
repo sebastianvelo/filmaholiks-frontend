@@ -1,9 +1,11 @@
+import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { AxiosRequestConfig } from "axios";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ListProps } from "client/views/components/watch-list/list/List";
-import MediaType from "shared/types/MediaType";
 import { useState } from "react";
+import { useUser } from "reactfire";
+import MediaType from "shared/types/MediaType";
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
 const requireConfirmation = (config: { title: string, cback: (result: SweetAlertResult<any>) => void }) => {
@@ -38,6 +40,8 @@ export interface UseWatchlist {
 
 const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlist => {
     const [lists, setLists] = useState<ListProps[]>(apiLists ?? []);
+    const user = useUser();
+    const userName = user.data?.displayName ?? "";
 
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
@@ -50,58 +54,97 @@ const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlis
         updateLists([...lists]);
     };
 
-    const findList = (query: string) =>
-        WatchlistHelper.list.find(query, lists);
+    const findList = (query: string) => {
+        const idxs = WatchlistHelper.item.retrieveIdx(query, lists);
+        if (!idxs) return undefined;
+        return lists[idxs.listIdx];
+    };
 
-    const swapLists = (idxA: number, idxB: number) =>
-        WatchlistHelper.list.swap(mediaType, idxA, idxB, lists, updateLists);
+    const swapLists = (idxA: number, idxB: number) => {
+        const listA = lists[idxA];
+        const listB = lists[idxB];
+        lists[idxB] = listA;
+        lists[idxA] = listB;
+        updateLists([...lists]);
+        WatchlistRequest[mediaType].list.swap(userName, idxA, idxB);
+    };
 
-    const addList = () =>
-        WatchlistHelper.list.add(mediaType, lists, updateLists);
+    const addList = () => {
+        updateLists([...lists, WatchlistHelper.list.dummy(lists)]);
+        WatchlistRequest[mediaType].list.add(userName, WatchlistHelper.list.dummy(lists).title as string);
+    };
 
     const deleteList = (listIdx: number) => {
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
-                if (!result.isConfirmed)
-                    WatchlistHelper.list.delete(mediaType, listIdx, lists, updateLists);
+                if (!result.isConfirmed) {
+                    updateLists([...lists.filter((_, idx) => idx !== listIdx)]);
+                    WatchlistRequest[mediaType].list.delete(userName, listIdx);
+                }
             }
         });
     };
 
-    const saveItem = (listIdx: number, item: CardHorizontalProps) =>
-        WatchlistHelper.item.save(mediaType, listIdx, item, lists, updateLists);
+    const saveItem = (listIdx: number, item: CardHorizontalProps) => {
+        lists[listIdx].items.push(item);
+        updateLists([...lists]);
+        WatchlistRequest[mediaType].item.save(userName, listIdx, item.id ?? "");
+    };
 
     const deleteItem = (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
-            WatchlistHelper.item.delete(mediaType, listIdx, itemId, lists, updateLists);
+            lists[listIdx].items = lists[listIdx].items.filter((it) => it.id !== itemId);
+            updateLists([...lists]);
+            WatchlistRequest[mediaType].item.delete(userName, listIdx, itemId);
             return;
         }
         requireConfirmation({
             title: 'Are you sure?',
             cback: (result) => {
                 if (!result.isConfirmed) {
-                    WatchlistHelper.item.delete(mediaType, listIdx, itemId, lists, updateLists);
+                    lists[listIdx].items = lists[listIdx].items.filter((it) => it.id !== itemId);
+                    updateLists([...lists]);
+                    WatchlistRequest[mediaType].item.delete(userName, listIdx, itemId);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
         });
     };
 
-    const deleteItemByName = (query: string) =>
-        WatchlistHelper.item.deleteByName(mediaType, query, lists, updateLists);
+    const deleteItemByName = (query: string) => {
+        const item = WatchlistHelper.item.retrieveIdx(query, lists);
+        if (!item) return;
+        lists[item.listIdx].items = lists[item.listIdx].items.filter((it) => it.id !== item.itemId);
+        updateLists([...lists]);
+        WatchlistRequest[mediaType].item.delete(userName, item.listIdx, item.itemId);
+    };
 
-    const moveItem = (itemIdx: number, sourceListIdx: number, targetListIdx: number) =>
-        WatchlistHelper.item.move(mediaType, sourceListIdx, targetListIdx, itemIdx, lists, updateLists);
+    const moveItem = (itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
+        const item = lists[sourceListIdx].items[itemIdx];
+        lists[targetListIdx].items.push(item);
+        lists[sourceListIdx].items.splice(itemIdx, 1);
+        updateLists([...lists]);
+        WatchlistRequest[mediaType].item.move(userName, itemIdx, sourceListIdx, targetListIdx);
+    };
 
-    const swapItems = (listIdx: number, idxA: number, idxB: number) =>
-        WatchlistHelper.item.swap(mediaType, listIdx, idxA, idxB, lists, updateLists);
+    const swapItems = (listIdx: number, idxA: number, idxB: number) => {
+        const itemA = lists[listIdx].items[idxA];
+        const itemB = lists[listIdx].items[idxB];
+        lists[listIdx].items[idxB] = itemA;
+        lists[listIdx].items[idxA] = itemB;
+        updateLists([...lists]);
+        WatchlistRequest[mediaType].item.swap(userName, listIdx, idxA, idxB);
+    };
 
-    const findItem = (query?: string) =>
-        WatchlistHelper.item.find(query ?? "", lists);
+    const findItem = (query?: string) => {
+        const idxs = WatchlistHelper.item.retrieveIdx(query ?? "", lists);
+        if (!idxs) return undefined;
+        return lists[idxs.listIdx].items[idxs.itemIdx];
+    };
 
     const searchItems = (query: string) =>
-        WatchlistHelper.item.search(mediaType, query);
+        WatchlistRequest[mediaType].search(userName, query);
 
     return {
         list: {

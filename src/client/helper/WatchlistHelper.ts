@@ -1,9 +1,5 @@
-import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
-import MediaType from "shared/types/MediaType";
-
-const userName = "sebastianvelo";
 
 class WatchlistHelper {
 
@@ -26,44 +22,6 @@ class WatchlistHelper {
                 listIdx,
             };
         },
-        find: (query: string, lists: ListProps[]): CardHorizontalProps | undefined => {
-            const idxs = WatchlistHelper.item.retrieveIdx(query, lists);
-            if (!idxs) return undefined;
-            return lists[idxs.listIdx].items[idxs.itemIdx];
-        },
-        exists: (query: string, lists: ListProps[]): boolean => WatchlistHelper.item.retrieveIdx(query, lists) !== undefined,
-        save: (mediaType: MediaType, listIdx: number, item: CardHorizontalProps, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            lists[listIdx].items.push(item);
-            updateLists([...lists]);
-            WatchlistRequest[mediaType].item.save(userName, listIdx, item.id ?? "");
-        },
-        move: (mediaType: MediaType, sourceListIdx: number, targetListIdx: number, itemIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            const item = lists[sourceListIdx].items[itemIdx];
-            lists[targetListIdx].items.push(item);
-            lists[sourceListIdx].items.splice(itemIdx, 1);
-            updateLists([...lists]);
-            WatchlistRequest[mediaType].item.move(userName, itemIdx, sourceListIdx, targetListIdx);
-        },
-        delete: (mediaType: MediaType, listIdx: number, itemId: string | number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            lists[listIdx].items = lists[listIdx].items.filter((it) => it.id !== itemId);
-            updateLists([...lists]);
-            WatchlistRequest[mediaType].item.delete(userName, listIdx, itemId);
-        },
-        deleteByName: (mediaType: MediaType, query: string, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            const item = WatchlistHelper.item.retrieveIdx(query, lists);
-            if (!item) return;
-            WatchlistHelper.item.delete(mediaType, item.listIdx, item.itemId, lists, updateLists);
-        },
-        swap: (mediaType: MediaType, listIdx: number, idxA: number, idxB: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            const itemA = lists[listIdx].items[idxA];
-            const itemB = lists[listIdx].items[idxB];
-            lists[listIdx].items[idxB] = itemA;
-            lists[listIdx].items[idxA] = itemB;
-            updateLists([...lists]);
-            WatchlistRequest[mediaType].item.swap(userName, listIdx, idxA, idxB);
-        },
-        search: (mediaType: MediaType, query: string) =>
-            WatchlistRequest[mediaType].search(userName, query),
     };
 
     public static list = {
@@ -71,27 +29,6 @@ class WatchlistHelper {
             title: `List ${lists.length + 1}`,
             items: []
         }) as unknown as ListProps,
-        find: (query: string, lists: ListProps[]): ListProps | undefined => {
-            const idxs = WatchlistHelper.item.retrieveIdx(query, lists);
-            if (!idxs) return undefined;
-            return lists[idxs.listIdx];
-        },
-        add: (mediaType: MediaType, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            updateLists([...lists, WatchlistHelper.list.dummy(lists)]);
-            WatchlistRequest[mediaType].list.add(userName, WatchlistHelper.list.dummy(lists).title as string);
-        },
-        delete: (mediaType: MediaType, listIdx: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            updateLists([...lists.filter((_, idx) => idx !== listIdx)]);
-            WatchlistRequest[mediaType].list.delete(userName, listIdx);
-        },
-        swap: (mediaType: MediaType, idxA: number, idxB: number, lists: ListProps[], updateLists: (newLists: ListProps[]) => void) => {
-            const listA = lists[idxA];
-            const listB = lists[idxB];
-            lists[idxB] = listA;
-            lists[idxA] = listB;
-            updateLists([...lists]);
-            WatchlistRequest[mediaType].list.swap(userName, idxA, idxB);
-        },
     }
 
     public static fromEvent = {

@@ -46,7 +46,7 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
         .build();
 
     return (
-        <form className="group relative w-full">
+        <form className="group relative w-full p-2">
             <Input revert className={inputClassName} placeholder={"Add show"} onChange={(e) => handleSearch(e.target.value)} />
             <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </form>

@@ -4,29 +4,42 @@ import ComponentHovereableColor from "client/common/tailwind/constants/Component
 import { auth } from "client/firebase/firebase";
 import Section from "client/views/components/section/Section";
 import { FunctionComponent, useState } from "react";
+import { useUser } from "reactfire";
 
 export interface AuthPageProps {
 
 }
 
 const AuthPage: FunctionComponent<AuthPageProps> = () => {
+    const user = useUser();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const login = async () => {
-        await auth.createUserWithEmailAndPassword(email, password);
+    const signIn = async () => {
+        await auth.signInWithEmailAndPassword(email, password);
     };
+
+    const signOut = async () => {
+        await auth.signOut();
+    }
 
     return (
         <div className="grid place-items-center w-screen">
-
-            <form className="w-1/3">
-                <Section title="Login">
-                    <Input onChange={(e) => setEmail(e.target.value)} placeholder="E-Mail" />
-                    <Input onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
-                    <Action onClick={login} color={ComponentHovereableColor.SUCCESS}>Login</Action>
-                </Section>
-            </form>
+            {!user || !user.data && (
+                <form className="w-1/3">
+                    <Section title="Login">
+                        <Input onChange={(e) => setEmail(e.target.value)} placeholder="E-Mail" />
+                        <Input onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
+                        <Action onClick={signIn} color={ComponentHovereableColor.SUCCESS}>Login</Action>
+                    </Section>
+                </form>
+            )}
+            {user && user.data && (
+                <>
+                    <p>{user.data.displayName}</p>
+                    <Action onClick={signOut} color={ComponentHovereableColor.DANGER}>Logout</Action>
+                </>
+            )}
         </div>
     );
 };

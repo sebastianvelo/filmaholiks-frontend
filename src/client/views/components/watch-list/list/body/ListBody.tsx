@@ -13,7 +13,7 @@ export interface ListBodyProps {
 }
 
 const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
-    <div className="space-y-3 overflow-y-auto h-full text-dark p-2">
+    <div className="space-y-2 overflow-y-auto h-full text-dark px-2">
         {props.dynamic ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
         {!props.items.length && <EmptyCards />}
     </div>
