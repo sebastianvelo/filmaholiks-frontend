@@ -11,7 +11,7 @@ export interface WatchlistProps {
     dynamic?: boolean;
 }
 
-const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">You haven't added a list yet!</p>
+const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">Empty!</p>
 
 const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => {
     const [service, listService] = useList(props.mediaType, props.lists);

@@ -41,7 +41,7 @@ const loggedInActions = () => [
 const loggedInMenu = (user: any) => ({
   options: [
     {
-      path: PageRouteBuilder.USER_DETAIL("sebastianvelo"),
+      path: PageRouteBuilder.USER_DETAIL(user.displayName),
       label: "Profile",
       color: ComponentHovereableColor.PRIMARY
     },
