@@ -18,7 +18,7 @@ const AuthPage: FunctionComponent<AuthPageProps> = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const signIn = async () => {
+    const signInWithEmail = async () => {
         const credentials = await user.signIn(email, password)
 
         if (!credentials.user?.displayName) {
@@ -28,30 +28,48 @@ const AuthPage: FunctionComponent<AuthPageProps> = () => {
         }
     };
 
+    const signInWithGoogle = async () => {
+        try {
+            const credentials = await user.signInWithGoogle();
+            if (credentials.user?.email) {
+                const dbUser = await UserRequest.getByEmail(credentials.user?.email);
+                if (!dbUser)
+                    await UserRequest.save(credentials.user.email);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     const createUser = async () => {
-        const u = await UserRequest.save(email);
+        const savedUser = await UserRequest.save(email);
         const credentials = await user.createUser(email, password)
         await credentials.user!.updateProfile({
-            displayName: u.userName,
-            photoURL: u.avatar
-        })
+            displayName: savedUser.userName,
+            photoURL: savedUser.avatar
+        });
     }
 
     if (user.data)
-        return <Redirect to={PageRouteBuilder.USER_DETAIL(user.data.displayName!)} />;
+        return <Redirect to={PageRouteBuilder.USER_DETAIL(user.data.userName)} />;
 
 
     return (
-        <div className="grid place-items-center w-screen">
+        <div className="">
             {!user || !user.data && (
-                <form className="w-1/3">
-                    <Section title="Login">
-                        <Input onChange={(e) => setEmail(e.target.value)} placeholder="E-Mail" />
-                        <Input onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
-                        <Action onClick={signIn} color={ComponentHovereableColor.SUCCESS}>Login</Action>
-                        <Action onClick={createUser} color={ComponentHovereableColor.SUCCESS}>Create user</Action>
-                    </Section>
-                </form>
+                <div className="grid place-items-center w-screen space-y-8">
+                    <Action onClick={signInWithGoogle} color={ComponentHovereableColor.INFO}>Sign-in with Google</Action>
+                    <form className="w-1/3">
+                        <Section title="Login">
+                            <Input onChange={(e) => setEmail(e.target.value)} placeholder="E-Mail" />
+                            <Input onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
+                            <div className="flex justify-between">
+                                <Action onClick={signInWithEmail} color={ComponentHovereableColor.PRIMARY}>Login</Action>
+                                <Action onClick={createUser} color={ComponentHovereableColor.SUCCESS}>Create user</Action>
+                            </div>
+                        </Section>
+                    </form>
+                </div>
             )}
             <LogoutButton />
         </div>

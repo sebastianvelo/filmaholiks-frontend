@@ -1,10 +1,9 @@
-import appBlueprint from 'blueprint/AppBlueprint';
 import firebaseConfig from 'client/firebase/firebaseConfig';
 import { getAuth } from 'firebase/auth'; // Firebase v9+
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
-import { FirebaseAppProvider, AuthProvider, useFirebaseApp } from "reactfire";
+import { AuthProvider, FirebaseAppProvider, useFirebaseApp } from "reactfire";
 import App from './client/App';
 import './client/style/index.css';
 import reportWebVitals from './reportWebVitals';
@@ -17,7 +16,7 @@ const Index = () => {
   return (
     <AuthProvider sdk={auth}>
       <Suspense fallback={"Loading..."}>
-        <App {...appBlueprint} />
+        <App />
       </Suspense>
     </AuthProvider>
   );

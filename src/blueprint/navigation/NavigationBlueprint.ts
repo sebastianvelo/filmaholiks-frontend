@@ -1,6 +1,7 @@
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import PageRoute, { PageRouteBuilder } from "shared/routes/PageRoute";
 import { NavigationProps } from "client/views/layout/navigation/Navigation";
+import UserEntity from "shared/entity/user/UserEntity";
 
 const loggedOutActions = () => [
   {
@@ -38,10 +39,10 @@ const loggedInActions = () => [
   },
 ];
 
-const loggedInMenu = (user: any) => ({
+const loggedInMenu = (user: UserEntity) => ({
   options: [
     {
-      path: PageRouteBuilder.USER_DETAIL(user.displayName),
+      path: PageRouteBuilder.USER_DETAIL(user.userName),
       label: "Profile",
       color: ComponentHovereableColor.PRIMARY
     },
@@ -63,11 +64,11 @@ const loggedInMenu = (user: any) => ({
   ],
   toggler: {
     alt: user.email,
-    src: user.photoURL,
+    src: user.avatar,
   }
 });
 
-const navigationBlueprint = (user: any): NavigationProps => ({
+const navigationBlueprint = (user?: UserEntity | null): NavigationProps => ({
   header: "Filmaholiks",
   actions: user ? loggedInActions() : loggedOutActions(),
   menu: user ? loggedInMenu(user) : undefined

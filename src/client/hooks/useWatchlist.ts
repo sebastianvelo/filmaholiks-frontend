@@ -1,10 +1,10 @@
 import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { AxiosRequestConfig } from "axios";
 import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import SessionUserHelper from "client/helper/SessionUserHelper";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ListProps } from "client/views/components/watch-list/list/List";
 import { useState } from "react";
-import { useUser } from "reactfire";
 import MediaType from "shared/types/MediaType";
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
@@ -40,8 +40,7 @@ export interface UseWatchlist {
 
 const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlist => {
     const [lists, setLists] = useState<ListProps[]>(apiLists ?? []);
-    const user = useUser();
-    const userName = user.data?.displayName ?? "";
+    const userName = SessionUserHelper.getUser()?.userName ?? "";
 
     const updateLists = (newLists: ListProps[]) => {
         setLists([...newLists]);
