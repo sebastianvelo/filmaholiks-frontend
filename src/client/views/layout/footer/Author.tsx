@@ -7,7 +7,7 @@ export interface AuthorProps {
  
 const Author: FunctionComponent<AuthorProps> = (props: AuthorProps) => (
         <div className={`hidden sm:flex absolute bottom-0 p-3 font-black w-full z-50`}>
-            Developed with ❤️ by <a href={props.linkedin} target="_blank" rel="noreferrer">{props.name}</a>
+            Developed with ❤️ by&nbsp;&nbsp;<a href={props.linkedin} target="_blank" rel="noreferrer">{props.name}</a>
         </div>
     )
  
