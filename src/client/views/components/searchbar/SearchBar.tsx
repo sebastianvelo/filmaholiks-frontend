@@ -7,9 +7,11 @@ import { useHistory } from "react-router";
 export interface SearchBarProps {
     placeholder?: string;
     path?: PageRoute;
+    hide?: boolean;
 }
 
 const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => {
+    if (props.hide) return null;
     const [query, setQuery] = useState<string>('');
     const history = useHistory();
     const handleSearch = (e: any) => { setQuery(e.target.value); };
