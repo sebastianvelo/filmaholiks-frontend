@@ -51,6 +51,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlis
         list.title = title;
         lists[listIdx] = list;
         updateLists([...lists]);
+        WatchlistRequest[mediaType].list.change(userName, listIdx, title);
     };
 
     const findList = (query: string) => {

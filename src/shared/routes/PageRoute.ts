@@ -21,7 +21,7 @@ enum PageRoute {
 }
 
 export const PageRouteBuilder = {
-  HOME: () => `/home`,
+  HOME: () => `/`,
   LOGIN: () => `/login`,
   ERROR: () => `/*`,
   ACCOUNT: () => `/account`,

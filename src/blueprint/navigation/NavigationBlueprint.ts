@@ -16,11 +16,11 @@ const loggedOutActions = () => [
   {
     label: "People",
     path: PageRoute.PERSON_EXPLORE
-  },
+  }, /*
   {
     label: "Sign up",
     path: PageRoute.AUTH
-  },
+  }, */
 ];
 
 const loggedInActions = () => [

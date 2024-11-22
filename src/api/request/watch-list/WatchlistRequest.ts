@@ -43,6 +43,10 @@ class WatchlistRequest extends APIRequest {
                 const config = this.put(`/user/${userName}/${mediaType}/swap/list`, { listIdx1, listIdx2 });
                 axios.request(config);
             },
+            change: (userName: string, listIdx: number, title: string) => {
+                const config = this.put(`/user/${userName}/${mediaType}/change/list`, { listIdx, title });
+                axios.request(config);
+            },
         },
     });
 
