@@ -1,46 +1,35 @@
 {
   "extends": "./tsconfig.paths.json",
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "es5",
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "sourceMap": true,
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
-  },
+  "include": [
+    "./src/**/*"
+  ],
   "exclude": [
     "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
+    "dist"
   ],
-  "types": [
-    "typePatches"
-  ],
-  "include": [
-    "src"
-  ]
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2015",
+      "es2018"
+    ],
+    "jsx": "react-jsx",
+    "target": "ES5",
+    "types": [
+      "react",
+      "react-dom"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true
+  }
 }
