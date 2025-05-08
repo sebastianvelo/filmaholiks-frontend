@@ -11,6 +11,7 @@ export interface DetailEpisodeWrapperPageProps {
 
 const DetailEpisodeWrapperPage: FunctionComponent<DetailEpisodeWrapperPageProps> = (props: DetailEpisodeWrapperPageProps) => {
     const { id, season, episode }: DetailEpisodePageParams = useParams();
+    
     return (
         <FetcherPage getPage={props.getPage(id, season, episode)} Component={DetailPage} />
     );

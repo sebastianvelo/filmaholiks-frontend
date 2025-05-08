@@ -9,17 +9,19 @@ interface SectionProps {
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
     const className = Tailwind.builder()
-        .add("px-4 py-4 space-y-8 w-full")
+        .add("px-4 space-y-8 w-full")
         .add("text-center lg:text-left")
-        .add("border-secondary dark:border-primary border-t-8 border-b-2")
-        .add("bg-white/50 dark:bg-black/50 bg-clip-padding backdrop-filter backdrop-blur-xl")
+        //.add("border-secondary dark:border-primary border-t-8 border-b-2")
+        .add("bg-white/50 dark:bg-black/50 backdrop-blur-xl rounded-md")
         .build();
 
     return (
-        <section className={className}>
-            {props.title && <Headline className={`text-3xl md:text-5xl`}>{props.title}</Headline>}
-            {props.children}
-        </section>
+        <>
+            {props.title && <Headline className={`text-3xl md:text-4xl`}>{props.title}</Headline>}
+            <section className={className}>
+                {props.children}
+            </section>
+        </>
     );
 }
 

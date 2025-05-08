@@ -8,36 +8,39 @@ import { FunctionComponent } from "react";
 
 export interface CardVerticalProps extends CardVerticalModel { }
 
-const CardVertical: FunctionComponent<CardVerticalProps> = (props: CardVerticalProps) => {
+const CardVertical: FunctionComponent<CardVerticalProps> = ({ image, path, title, subtitle }) => {
     const className = Tailwind.builder()
-        .add("flex-none flex flex-col space-y-2 justify-between")
-        .add("w-32 sm:w-44 lg:w-48 shadow-lg")
-        .add("bg-gradient-to-t from-secondary-lighter via-secondary-lighter to-secondary-lighter")
-        .add("dark:from-secondary-dark dark:via-secondary dark:to-secondary-dark")
-        .add("transform")
-        .add("hover:scale-110")
-        .add("transition-all ease-in duration-200")
-        .add("border border-secondary-light hover:border-secondary")
-        .add("dark:border-primary dark:hover:border-primary-dark")
-        .add("rounded-sm text-center group shadow-lg")
-        .add("filter")
+        .add("flex flex-col justify-between space-y-3")
+        .add("w-40 sm:w-48 lg:w-52 p-4")
+        .add("bg-white/20 dark:bg-black/20 backdrop-blur-md")
+        .add("border border-secondary/30 dark:border-white/10")
+        .add("rounded-lg")
+        .add("shadow-lg shadow-black/20 dark:shadow-sm dark:shadow-white/10 hover:shadow-xl")
+        .add("transition-transform transform hover:scale-105")
         .build();
 
     return (
         <div className={className}>
-            {props.image &&
-                <Action path={props.path} className={`flex justify-center`} revert>
-                    <Image className="rounded-tl-sm rounded-tr-sm" {...props.image} />
+            {image && (
+                <Action path={path} className="w-full overflow-hidden rounded-xl" revert>
+                    <div className="w-full h-32 sm:h-40 lg:h-52 aspect-square">
+                        <Image
+                            className="w-full h-full object-cover"
+                            {...image}
+                        />
+                    </div>
                 </Action>
-            }
-            <div>
-                <Headline className={`truncate text-md px-2 dark:group-hover:text-primary-dark group-hover:text-secondary-dark`}>
-                    <Action path={props.path} label={props.title} revert />
+            )}
+            <div className="text-center">
+                <Headline className="truncate text-lg font-semibold group-hover:text-secondary-dark dark:group-hover:text-primary-light">
+                    <Action path={path} label={title} revert />
                 </Headline>
-                <Text className={`pb-1 text-secondary dark:text-white`}>{props.subtitle}</Text>
+                <Text className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                    {subtitle}
+                </Text>
             </div>
         </div>
     );
-}
+};
 
 export default CardVertical;

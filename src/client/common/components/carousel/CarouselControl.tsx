@@ -24,6 +24,7 @@ const CarouselControl: FunctionComponent<CarouselControlProps> = (props: Carouse
         .add("z-20 absolute hidden md:block")
         .add("bg-secondary hover:bg-secondary-dark text-light")
         .add("dark:bg-primary dark:hover:bg-primary-dark dark:text-dark")
+        .add("rounded-full")
         .addIf("-right-8", props.right)
         .addIf("-left-8", !props.right)
         .build();

@@ -28,7 +28,7 @@ const darkBlue = {
   darker: "#072f3b"
 };
 
-const primary = yellow;
+const primary = green;
 const secondary = darkBlue;
 
 module.exports = {
@@ -49,6 +49,7 @@ module.exports = {
         orange: colors.orange,
         primary,
         secondary,
+        tertiary: colors.slate,
         success: {
           DEFAULT: colors.green[700],
           dark: colors.green[800],

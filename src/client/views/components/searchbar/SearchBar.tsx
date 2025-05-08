@@ -10,27 +10,32 @@ export interface SearchBarProps {
     hide?: boolean;
 }
 
-const SearchBar: FunctionComponent<SearchBarProps> = (props: SearchBarProps) => {
-    if (props.hide) return null;
-    const [query, setQuery] = useState<string>('');
+const SearchBar: FunctionComponent<SearchBarProps> = ({ placeholder, path, hide }) => {
+    const [query, setQuery] = useState<string>("");
     const history = useHistory();
-    const handleSearch = (e: any) => { setQuery(e.target.value); };
-    const handleSubmit = () => {
-        const path = `${props.path}`.replace(`:query`, query);
-        history.push(path);
-    }
+
+    if (hide) return null;
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
+    
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!path) return;
+        const target = `${path}`.replace(':query', query);
+        history.push(target);
+    };
 
     const className = Tailwind.builder()
         .add("flex items-center justify-center w-full")
         .add("fixed bottom-0 z-40")
-        .add("bg-secondary-lighter bg-opacity-50 dark:bg-secondary-dark backdrop-filter backdrop-blur-md dark:bg-opacity-50")
+        .add("bg-white/50 dark:bg-black/50 backdrop-blur-md")
         .build();
 
     return (
         <form onSubmit={handleSubmit} className={className}>
-            <Input className="w-full xl:w-1/3" onChange={handleSearch} placeholder={props.placeholder} />
-        </form >
+            <Input className="w-full" onChange={handleSearch} placeholder={placeholder} />
+        </form>
     );
-}
+};
 
 export default SearchBar;

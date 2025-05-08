@@ -14,6 +14,7 @@ const Headline: FunctionComponent<HeadlineProps> = (props: HeadlineProps) => {
         .addIf("text-secondary dark:text-primary", !props.revert)
         .addIf(`text-xl`, !props.className)
         .build();
+        
     return (<h1 className={className}>{props.children}</h1>);
 }
 

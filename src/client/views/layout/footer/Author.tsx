@@ -4,11 +4,11 @@ export interface AuthorProps {
     name: string;
     linkedin: string;
 }
- 
+
 const Author: FunctionComponent<AuthorProps> = (props: AuthorProps) => (
-        <div className={`hidden sm:flex absolute bottom-0 p-3 font-black w-full z-50`}>
-            Developed with ❤️ by&nbsp;&nbsp;<a href={props.linkedin} target="_blank" rel="noreferrer">{props.name}</a>
-        </div>
-    )
- 
+    <p className="text-primary-900 dark:text-primary-100 font-bold mb-4 md:mb-0">
+        Made with ❤️ and ☕️ by <a href={props.linkedin} target="_blank" rel="noreferrer">{props.name}</a>
+    </p>
+)
+
 export default Author;
