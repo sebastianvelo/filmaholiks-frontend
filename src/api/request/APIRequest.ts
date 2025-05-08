@@ -1,5 +1,5 @@
 import Request from "../entities/Request";
-import config from "../api.env.config";
+import config from "../../config/api.env.config";
 
 abstract class APIRequest extends Request {
   protected baseUrl: string = config.baseUrl;

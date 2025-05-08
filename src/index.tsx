@@ -1,4 +1,4 @@
-import firebaseConfig from 'client/firebase/firebaseConfig';
+import firebaseConfig from 'config/firebase/firebaseConfig';
 import { getAuth } from 'firebase/auth';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
