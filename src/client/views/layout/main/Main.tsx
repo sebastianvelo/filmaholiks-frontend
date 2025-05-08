@@ -4,6 +4,7 @@ import { FunctionComponent } from "react";
 import { Route, Switch } from "react-router-dom";
 
 const getJSX = (Component: React.FC<any>, props: any) => <Component {...props} />;
+
 export interface MainProps {
     pages: Page<any>[];
 }

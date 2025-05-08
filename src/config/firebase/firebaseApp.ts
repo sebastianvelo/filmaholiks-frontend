@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import firebaseConfig from './firebaseConfig';
+import firebaseConfig from './firebase.config';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 

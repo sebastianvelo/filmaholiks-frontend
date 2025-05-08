@@ -7,12 +7,7 @@ abstract class Request {
 
   protected abstract headers: Record<string, string>;
 
-  private getOptions(
-    method: Method,
-    url: string,
-    params?: any,
-    data?: any,
-  ): AxiosRequestConfig {
+  private getOptions(method: Method, url: string, params?: any, data?: any): AxiosRequestConfig {
     return {
       method,
       params,

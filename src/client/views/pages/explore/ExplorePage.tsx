@@ -9,6 +9,7 @@ import ExplorePageBody, { ExplorePageBodyProps } from "./body/ExplorePageBody";
 export interface ExplorePageBlueprintProps {
     getPage: () => AxiosRequestConfig<ExplorePageProps>;
 }
+
 export interface ExplorePageProps {
     title: string;
     searchbar: SearchBarProps;

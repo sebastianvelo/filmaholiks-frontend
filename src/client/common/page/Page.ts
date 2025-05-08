@@ -5,4 +5,5 @@ type Page<Props> = {
     component: React.FC<any>;
     props?: Props;
 }
+
 export default Page;

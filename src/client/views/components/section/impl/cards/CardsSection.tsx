@@ -10,13 +10,18 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
     const skeletonCards = Array(10).fill({ loading: true });
     if (props.cards && !props.cards.length) return <></>;
 
-    const cards = (props.cards ?? skeletonCards)?.map((card, i) => <CardVertical {...card} key={`card${i}${card.title}`} />);
+    const cards = (props.cards ?? skeletonCards).map((card, i) => <CardVertical {...card} key={`card${i}${card.title}`} />);
+
     return (
         <Section title={props.title}>
             <div className={`${props.isGrid ? "block xl:hidden" : ""}`}>
                 <Carousel id={props.id!}>{cards}</Carousel>
             </div>
-            {props.isGrid && <div className="hidden xl:grid grid-cols-5 2xl:grid-cols-7 gap-y-8 overflow-y-auto">{cards}</div>}
+            {props.isGrid && (
+                <div className="hidden xl:grid grid-cols-5 2xl:grid-cols-7 gap-y-8 overflow-y-auto">
+                    {cards}
+                </div>
+            )}
         </Section>
     );
 }

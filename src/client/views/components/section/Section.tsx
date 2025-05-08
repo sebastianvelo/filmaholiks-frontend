@@ -12,11 +12,11 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
         .add("px-4 py-4 space-y-8 w-full")
         .add("text-center lg:text-left")
         .add("border-secondary dark:border-primary border-t-8 border-b-2")
-        .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 dark:bg-opacity-50")
+        .add("bg-white/50 dark:bg-black/50 bg-clip-padding backdrop-filter backdrop-blur-xl")
         .build();
 
     return (
-        <section className={className} style={{ backdropFilter: "blur(20px)" }}>
+        <section className={className}>
             {props.title && <Headline className={`text-3xl md:text-5xl`}>{props.title}</Headline>}
             {props.children}
         </section>

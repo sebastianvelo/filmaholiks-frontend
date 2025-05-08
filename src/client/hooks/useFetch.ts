@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { useState, useEffect, useRef } from "react";
-import Response from "api/entities/Response";
+import Response from "api/common/Response";
 
 const useFetch = <T extends Object>(req: AxiosRequestConfig, ignoreFirst?: boolean): Response<T> | undefined => {
   const firstUpdate = useRef(true);
