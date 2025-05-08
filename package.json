@@ -1,14 +1,10 @@
 {
-  "name": "tailwind-template",
-  "version": "0.1.0",
+  "name": "filmaholiks-frontend",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "@tailwindcss/postcss7-compat": "^2.2.14",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
     "@types/node": "^12.20.27",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
@@ -31,11 +27,11 @@
   },
   "scripts": {
     "build:style": "npx tailwindcss-cli@latest build ./src/client/style/index.css -o ../dist/tailwind.css",
-    "start": "npm run build:style && craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && npm run build:style && craco start",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && craco build",
+    "test": "SET NODE_OPTIONS=--openssl-legacy-provider && craco test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy",
+    "deploy": "SET NODE_OPTIONS=--openssl-legacy-provider && npm run build && firebase deploy",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },
