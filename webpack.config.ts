@@ -3,6 +3,7 @@ import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import Dotenv from "dotenv-webpack";
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration;
@@ -41,6 +42,7 @@ const config: Configuration = {
             template: './public/index.html',
             filename: 'index.html',
         }),
+        new Dotenv(),
     ],
     devServer: {
         static: { directory: path.join(__dirname, 'public') },

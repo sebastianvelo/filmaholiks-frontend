@@ -1,4 +1,4 @@
-import { auth } from "config/firebase/firebase";
+import { auth } from "config/firebase/firebaseApp";
 import SessionUserHelper from "client/helper/SessionUserHelper";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import UserEntity from "shared/entity/user/UserEntity";

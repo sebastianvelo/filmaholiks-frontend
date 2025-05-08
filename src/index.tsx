@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 import { AuthProvider, FirebaseAppProvider, useFirebaseApp } from "reactfire";
 import App from './client/App';
-import './client/style/index.css';
+import './client/style/output.css';
 
 const Index = () => {
   const app = useFirebaseApp(); // a parent component contains a `FirebaseAppProvider`

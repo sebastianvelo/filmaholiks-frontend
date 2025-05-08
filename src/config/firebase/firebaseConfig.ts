@@ -1,11 +1,11 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCSrm8mvach9V8m4f2nDjb05U8DZygxZ4E",
-    authDomain: "filmaholiks.firebaseapp.com",
-    projectId: "filmaholiks",
-    storageBucket: "filmaholiks.appspot.com",
-    messagingSenderId: "46981723350",
-    appId: "1:46981723350:web:4453ccf6c4606b8ee48577",
-    measurementId: "G-NGD1PVR7N2"
+    apiKey: process.env.FIREBASE_API_KEY!,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN!,
+    projectId: process.env.FIREBASE_PROJECT_ID!,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET!,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID!,
+    appId: process.env.FIREBASE_APP_ID!,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID!,
 };
 
 export default firebaseConfig;
