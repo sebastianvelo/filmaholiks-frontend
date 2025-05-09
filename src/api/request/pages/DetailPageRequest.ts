@@ -1,7 +1,8 @@
-import APIRequest from "../APIRequest";
+import Collection from "api/common/Collection";
+import BackendRequest from "../BackendRequest";
 
-class DetailPageRequest extends APIRequest {
-  protected collection: string = "/detail";
+class DetailPageRequest extends BackendRequest {
+  protected collection: string = Collection.DETAIL;
 
   public userById = (id: string, userLoggedIn?: string | null) =>
     this.get(`/user/${id}`, { userLoggedIn });

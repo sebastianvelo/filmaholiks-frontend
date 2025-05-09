@@ -1,9 +1,10 @@
-import axios from "axios";
 import UserEntity from "@entity/user/UserEntity";
-import APIRequest from "../APIRequest";
+import Collection from "api/common/Collection";
+import axios from "axios";
+import BackendRequest from "../BackendRequest";
 
-class UserRequest extends APIRequest {
-    protected collection: string = "/user";
+class UserRequest extends BackendRequest {
+    protected collection: string = Collection.USER;
 
     public save = async (email: string) => {
         const config = this.post(`/`, { email });

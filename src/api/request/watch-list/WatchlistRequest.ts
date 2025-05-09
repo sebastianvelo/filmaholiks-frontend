@@ -1,10 +1,11 @@
+import Collection from "api/common/Collection";
 import axios from "axios";
 import { ListProps } from "client/views/components/watch-list/list/List";
 import MediaType from "shared/types/MediaType";
-import APIRequest from "../APIRequest";
+import BackendRequest from "../BackendRequest";
 
-class WatchlistRequest extends APIRequest {
-    protected collection: string = "/watch-list";
+class WatchlistRequest extends BackendRequest {
+    protected collection: string = Collection.WATCHLIST;
 
     public presenter = (mediaType: MediaType) => ({
         search: (userName: string, query: string) => this.get(`/user/${userName}/${mediaType}/search/${query}`),

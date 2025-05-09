@@ -1,7 +1,8 @@
-import APIRequest from "../APIRequest";
+import Collection from "api/common/Collection";
+import BackendRequest from "../BackendRequest";
 
-class ExplorePageRequest extends APIRequest {
-  protected collection: string = "/explore";
+class ExplorePageRequest extends BackendRequest {
+  protected collection: string = Collection.EXPLORE;
 
   public movie = () => this.get(`/movie`);
 
