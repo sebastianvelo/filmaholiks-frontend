@@ -829,6 +829,10 @@ video {
   display: inline;
 }
 
+.\!inline {
+  display: inline !important;
+}
+
 .flex {
   display: flex;
 }
@@ -2818,6 +2822,14 @@ video {
 
 .dark\:bg-secondary-900\/50:is(.dark *) {
   background-color: rgb(30 58 138 / 0.5);
+}
+
+.dark\:bg-primary-900\/10:is(.dark *) {
+  background-color: rgb(49 46 129 / 0.1);
+}
+
+.dark\:bg-primary-900\/20:is(.dark *) {
+  background-color: rgb(49 46 129 / 0.2);
 }
 
 .dark\:bg-opacity-30:is(.dark *) {
