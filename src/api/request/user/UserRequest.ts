@@ -1,5 +1,5 @@
 import axios from "axios";
-import UserEntity from "shared/entity/user/UserEntity";
+import UserEntity from "@entity/user/UserEntity";
 import APIRequest from "../APIRequest";
 
 class UserRequest extends APIRequest {

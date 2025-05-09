@@ -2,7 +2,7 @@ import Tailwind from "@tailwind-helper/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { UseList } from "@hooks/useList";
 import { FunctionComponent } from "react";
-import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
+import CardHorizontalModel from "@model/components/CardHorizontalModel";
 import ListBody from "./body/ListBody";
 import ListFooter from "./footer/ListFooter";
 import ListHeader from "./header/ListHeader";

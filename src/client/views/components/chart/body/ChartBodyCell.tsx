@@ -1,6 +1,6 @@
 import Image from "@atom/image/Image";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { ChartBodyCellModel } from "shared/model/components/ChartModel";
+import { ChartBodyCellModel } from "@model/components/ChartModel";
 import { FunctionComponent } from "react";
 
 // Gradientes para calificaciones C (Los más bajos)

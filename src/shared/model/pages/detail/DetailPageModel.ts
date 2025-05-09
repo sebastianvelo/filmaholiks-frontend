@@ -1,5 +1,5 @@
-import SearchBarModel from "shared/model/components/SearchBarModel";
-import { CardsSectionModel, ChartSectionModel, WatchlistTabModel } from "shared/model/components/section/Section";
+import SearchBarModel from "@model/components/SearchBarModel";
+import { CardsSectionModel, ChartSectionModel, WatchlistTabModel } from "@model/components/section/Section";
 import { DetailHeaderModel } from "./header/DetailHeaderModel";
 
 export interface DetailWatchlistModel {

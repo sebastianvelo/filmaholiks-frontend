@@ -1,4 +1,4 @@
-import { ChartBodyModel } from "shared/model/components/ChartModel";
+import { ChartBodyModel } from "@model/components/ChartModel";
 import { FunctionComponent, useState } from "react";
 import ChartHeaderCell from "../header/ChartHeaderCell";
 import ChartBodyCell from "./ChartBodyCell";

@@ -1,5 +1,5 @@
 import { AppProps } from "client/App";
-import UserEntity from "shared/entity/user/UserEntity";
+import UserEntity from "@entity/user/UserEntity";
 import footerBlueprint from "./footer/FooterBlueprint";
 import mainBlueprint from "./main/MainBlueprint";
 import navigationBlueprint from "./navigation/NavigationBlueprint";

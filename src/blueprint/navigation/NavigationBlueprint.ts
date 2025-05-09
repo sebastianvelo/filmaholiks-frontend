@@ -1,7 +1,7 @@
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import PageRoute, { PageRouteBuilder } from "shared/routes/PageRoute";
 import { NavigationProps } from "client/views/layout/navigation/Navigation";
-import UserEntity from "shared/entity/user/UserEntity";
+import UserEntity from "@entity/user/UserEntity";
 
 const loggedOutActions = () => [
   {

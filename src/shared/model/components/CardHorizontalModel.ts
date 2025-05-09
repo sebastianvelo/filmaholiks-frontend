@@ -1,4 +1,4 @@
-import ImageModel from "shared/model/atom/ImageModel";
+import ImageModel from "@model/atom/ImageModel";
 
 interface CardHorizontalModel {
     id: string | number;

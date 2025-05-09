@@ -2,7 +2,7 @@ import UserRequest from "api/request/user/UserRequest";
 import SessionUserHelper from "client/helper/SessionUserHelper";
 import { useEffect, useState } from "react";
 import { useUser } from "reactfire";
-import UserEntity from "shared/entity/user/UserEntity";
+import UserEntity from "@entity/user/UserEntity";
 
 export interface UseUserEntity {
   user: UserEntity | null;

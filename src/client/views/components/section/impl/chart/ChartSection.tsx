@@ -1,5 +1,5 @@
 import Chart from "client/views/components/chart/Chart";
-import { ChartSectionModel } from "shared/model/components/section/Section";
+import { ChartSectionModel } from "@model/components/section/Section";
 import { FunctionComponent } from "react";
 import Section from "../../Section";
 

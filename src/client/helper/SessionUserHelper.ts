@@ -1,4 +1,4 @@
-import UserEntity from "shared/entity/user/UserEntity";
+import UserEntity from "@entity/user/UserEntity";
 
 class SessionUserHelper {
     private static KEY = "user";

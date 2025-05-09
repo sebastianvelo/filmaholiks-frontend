@@ -17,6 +17,12 @@
       "@atom/*": [
         "client/common/atom/*"
       ],
+      "@model/*": [
+        "shared/model/*"
+      ],
+      "@entity/*": [
+        "shared/entity/*"
+      ],
     }
   }
 }
