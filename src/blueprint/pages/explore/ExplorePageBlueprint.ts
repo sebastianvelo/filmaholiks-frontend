@@ -1,6 +1,6 @@
 import ExplorePageRequest from "api/request/pages/ExplorePageRequest";
 import PageRoute from "shared/routes/PageRoute";
-import Page from "client/common/page/Page";
+import Page from "blueprint/types/Page";
 import ExplorePage, { ExplorePageBlueprintProps } from "client/views/pages/explore/ExplorePage";
 
 export const MovieExplorePageBlueprint: Page<ExplorePageBlueprintProps> = {

@@ -1,4 +1,4 @@
-import Page from "client/common/page/Page";
+import Page from "blueprint/types/Page";
 import { ExplorePageBlueprintProps } from "client/views/pages/explore/ExplorePage";
 import PageRoute from "shared/routes/PageRoute";
 import { MovieExplorePageBlueprint } from "../explore/ExplorePageBlueprint";

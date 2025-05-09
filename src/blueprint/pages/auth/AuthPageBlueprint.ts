@@ -1,4 +1,4 @@
-import Page from "client/common/page/Page";
+import Page from "blueprint/types/Page";
 import AuthPage, { AuthPageProps } from "client/views/pages/auth/AuthPage";
 import PageRoute from "shared/routes/PageRoute";
 

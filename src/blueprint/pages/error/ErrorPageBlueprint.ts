@@ -1,5 +1,5 @@
 import PageRoute from "shared/routes/PageRoute";
-import Page from "client/common/page/Page";
+import Page from "blueprint/types/Page";
 import ErrorPage, { ErrorPageProps } from "client/views/pages/error/ErrorPage";
 
 export const ErrorPageBlueprint: Page<ErrorPageProps> = {

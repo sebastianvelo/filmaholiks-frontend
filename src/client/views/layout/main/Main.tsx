@@ -1,4 +1,4 @@
-import Page from "client/common/page/Page";
+import Page from "blueprint/types/Page";
 import useScrollTop from "@hooks/useScrollTop";
 import { FunctionComponent } from "react";
 import { Route, Switch } from "react-router-dom";

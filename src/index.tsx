@@ -1,7 +1,8 @@
 import firebaseConfig from 'config/firebase/firebase.config';
-import { getAuth } from 'firebase/auth';
-import ReactDOM from "react-dom/client";
+import { FirebaseApp } from 'firebase/app';
+import { Auth, getAuth } from 'firebase/auth';
 import React, { Suspense } from 'react';
+import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import { AuthProvider, FirebaseAppProvider, useFirebaseApp } from "reactfire";
 import App from './client/App';
@@ -11,8 +12,8 @@ const rootElement = document.getElementById("app")!;
 const root = ReactDOM.createRoot(rootElement);
 
 const Index = () => {
-  const app = useFirebaseApp(); // a parent component contains a `FirebaseAppProvider`
-  const auth = getAuth(app);
+  const app: FirebaseApp = useFirebaseApp();
+  const auth: Auth = getAuth(app);
 
   return (
     <AuthProvider sdk={auth}>

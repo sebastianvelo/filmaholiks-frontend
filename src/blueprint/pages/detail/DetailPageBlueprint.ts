@@ -1,5 +1,5 @@
 import DetailPageRequest from "api/request/pages/DetailPageRequest";
-import Page from "client/common/page/Page";
+import Page from "blueprint/types/Page";
 import PageRoute from "shared/routes/PageRoute";
 import DetailEpisodeWrapperPage, { DetailEpisodeWrapperPageProps } from "client/views/pages/detail/impl/DetailEpisodeWrapperPage";
 import DetailSeasonWrapperPage, { DetailSeasonWrapperPageProps } from "client/views/pages/detail/impl/DetailSeasonWrapperPage";
