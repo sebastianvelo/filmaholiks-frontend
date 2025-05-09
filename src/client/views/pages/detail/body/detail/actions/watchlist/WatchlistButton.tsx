@@ -1,4 +1,4 @@
-import useWatchlist from "client/hooks/useWatchlist";
+import useWatchlist from "@hooks/useWatchlist";
 import { ListProps } from "client/views/components/watch-list/list/List";
 import MediaType from "shared/types/MediaType";
 import { FunctionComponent, useState } from "react";

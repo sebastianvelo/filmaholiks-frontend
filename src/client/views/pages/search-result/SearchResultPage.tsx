@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import { QueryParams } from "client/common/params/Params";
-import useFetch from "client/hooks/useFetch";
+import useFetch from "@hooks/useFetch";
 import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";

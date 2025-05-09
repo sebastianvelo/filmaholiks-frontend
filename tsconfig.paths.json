@@ -4,6 +4,9 @@
     "paths": {
       "client/*": [
         "client/*"
+      ],
+      "@hooks/*": [
+        "client/hooks/*"
       ]
     }
   }

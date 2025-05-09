@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import useAppBlueprint from "./hooks/useAppBlueprint";
+import useAppBlueprint from "@hooks/useAppBlueprint";
 import Footer, { FooterProps } from "./views/layout/footer/Footer";
 import Main, { MainProps } from "./views/layout/main/Main";
 import Navigation, { NavigationProps } from "./views/layout/navigation/Navigation";
@@ -12,7 +12,7 @@ export interface AppProps {
 
 const App: FunctionComponent = () => {
   const blueprint = useAppBlueprint();
-  
+
   return (
     <div className={`font-sans max-w-screen overflow-x-hidden bg-gradient-to-b from-secondary-100 via-white to-slate-100 dark:from-primary-950 dark:via-black dark:to-slate-950`}>
       <Navigation {...blueprint.navigation} />

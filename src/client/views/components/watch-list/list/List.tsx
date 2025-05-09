@@ -1,6 +1,6 @@
 import Tailwind from "client/common/tailwind/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { UseList } from "client/hooks/useList";
+import { UseList } from "@hooks/useList";
 import { FunctionComponent } from "react";
 import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
 import ListBody from "./body/ListBody";

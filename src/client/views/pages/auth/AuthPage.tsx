@@ -2,7 +2,7 @@ import UserRequest from "api/request/user/UserRequest";
 import Action from "client/common/atom/action/Action";
 import Input from "client/common/components/form/input/Input";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import useFirebaseUser from "client/hooks/useFirebaseUser";
+import useFirebaseUser from "@hooks/useFirebaseUser";
 import Section from "client/views/components/section/Section";
 import { FunctionComponent, useState } from "react";
 import { Redirect } from "react-router";

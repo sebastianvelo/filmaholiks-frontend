@@ -1,6 +1,6 @@
 import Action from "client/common/atom/action/Action";
 import { IconLogout } from "client/common/components/svg/Svg";
-import useFirebaseUser from "client/hooks/useFirebaseUser";
+import useFirebaseUser from "@hooks/useFirebaseUser";
 import { FunctionComponent } from "react";
 
 interface LogoutButtonProps {

@@ -1,5 +1,5 @@
 import Page from "client/common/page/Page";
-import useScrollTop from "client/hooks/useScrollTop";
+import useScrollTop from "@hooks/useScrollTop";
 import { FunctionComponent } from "react";
 import { Route, Switch } from "react-router-dom";
 

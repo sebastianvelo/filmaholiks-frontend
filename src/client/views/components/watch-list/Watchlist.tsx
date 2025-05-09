@@ -1,5 +1,5 @@
 import Carousel from "client/common/components/carousel/Carousel";
-import useList from "client/hooks/useList";
+import useList from "@hooks/useList";
 import { FunctionComponent } from "react";
 import MediaType from "shared/types/MediaType";
 import AddListButton from "./add-list-button/AddListButton";
