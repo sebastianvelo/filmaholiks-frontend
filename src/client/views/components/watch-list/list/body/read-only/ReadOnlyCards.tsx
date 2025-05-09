@@ -1,4 +1,4 @@
-import CardHorizontal, { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import CardHorizontal, { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { FunctionComponent } from "react";
 
 interface ReadOnlyCardsProps {

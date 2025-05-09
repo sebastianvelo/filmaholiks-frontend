@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import ActionableCards from "./actionable/ActionableCards";
 import EmptyCards from "./empty/EmptyCards";
 import ReadOnlyCards from "./read-only/ReadOnlyCards";

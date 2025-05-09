@@ -1,4 +1,4 @@
-import { IconHamburger } from "client/common/components/svg/Svg";
+import { IconHamburger } from "@components/svg/Svg";
 import { FunctionComponent } from "react";
 
 export interface ActionsTogglerProps {

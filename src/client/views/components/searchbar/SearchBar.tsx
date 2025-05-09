@@ -1,4 +1,4 @@
-import { Search } from "client/common/components/svg/Svg";
+import { Search } from "@components/svg/Svg";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent, useRef, useState } from "react";
 import { useHistory } from "react-router";

@@ -1,4 +1,4 @@
-import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
 
 class WatchlistHelper {

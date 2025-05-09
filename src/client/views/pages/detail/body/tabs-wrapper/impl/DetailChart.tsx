@@ -1,4 +1,4 @@
-import TabsContainer from "client/common/components/modern-tabs/TabsContainer";
+import TabsContainer from "@components/modern-tabs/TabsContainer";
 import ChartSection, { ChartSectionProps } from "client/views/components/section/impl/chart/ChartSection";
 import { FunctionComponent } from "react";
 import TabsWrapper from "../TabsWrapper";

@@ -1,6 +1,6 @@
 import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { AxiosRequestConfig } from "axios";
-import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import SessionUserHelper from "client/helper/SessionUserHelper";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { ListProps } from "client/views/components/watch-list/list/List";

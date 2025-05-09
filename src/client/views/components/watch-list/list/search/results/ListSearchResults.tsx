@@ -1,4 +1,4 @@
-import Loading from "client/common/components/loading/Loading";
+import Loading from "@components/loading/Loading";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";

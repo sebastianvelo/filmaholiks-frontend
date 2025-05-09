@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import FetcherPage from "client/common/components/fetcher/FetcherPage";
+import FetcherPage from "@components/fetcher/FetcherPage";
 import { DetailSeasonPageParams } from "client/common/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";

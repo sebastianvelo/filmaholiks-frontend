@@ -1,6 +1,6 @@
 import UserRequest from "api/request/user/UserRequest";
 import Action from "client/common/atom/action/Action";
-import Input from "client/common/components/form/input/Input";
+import Input from "@components/form/input/Input";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import useFirebaseUser from "@hooks/useFirebaseUser";
 import Section from "client/views/components/section/Section";

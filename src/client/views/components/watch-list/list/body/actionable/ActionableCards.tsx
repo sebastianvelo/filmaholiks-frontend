@@ -1,4 +1,4 @@
-import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { FunctionComponent } from "react";
 import ActionableCard from "../../actionable-item/ActionableCard";
 

@@ -1,5 +1,5 @@
 import Action from "client/common/atom/action/Action";
-import { IconTrash, IconAdd } from "client/common/components/svg/Svg";
+import { IconTrash, IconAdd } from "@components/svg/Svg";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 

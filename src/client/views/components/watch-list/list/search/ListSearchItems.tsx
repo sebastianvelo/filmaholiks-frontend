@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import Input from "client/common/components/form/input/Input";
+import Input from "@components/form/input/Input";
 import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
 import { FunctionComponent, useState } from "react";

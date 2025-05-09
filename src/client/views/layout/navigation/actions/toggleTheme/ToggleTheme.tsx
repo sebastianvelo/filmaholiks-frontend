@@ -1,5 +1,5 @@
 import Action from "client/common/atom/action/Action";
-import { IconMoon, IconSun } from "client/common/components/svg/Svg";
+import { IconMoon, IconSun } from "@components/svg/Svg";
 import useToggleDark from "@hooks/useToggleDark";
 
 const ToggleTheme: React.FC = () => {

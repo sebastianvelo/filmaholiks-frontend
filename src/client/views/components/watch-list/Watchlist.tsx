@@ -1,4 +1,4 @@
-import Carousel from "client/common/components/carousel/Carousel";
+import Carousel from "@components/carousel/Carousel";
 import useList from "@hooks/useList";
 import { FunctionComponent } from "react";
 import MediaType from "shared/types/MediaType";

@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import Loading from "client/common/components/loading/Loading";
+import Loading from "@components/loading/Loading";
 import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
 import { FunctionComponent } from "react";

@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import { CardHorizontalProps } from "client/common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { ListProps } from "client/views/components/watch-list/list/List";
 import MediaType from "shared/types/MediaType";
 import useWatchlist, { UseWatchlist } from "./useWatchlist";

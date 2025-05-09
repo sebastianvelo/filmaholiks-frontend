@@ -10,7 +10,10 @@
       ],
       "@tailwind-helper/*": [
         "client/common/tailwind/*"
-      ]
+      ],
+      "@components/*": [
+        "client/common/components/*"
+      ],
     }
   }
 }
