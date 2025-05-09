@@ -7,9 +7,12 @@ export interface ChartHeaderCellProps {
 
 const ChartHeaderCell: FunctionComponent<ChartHeaderCellProps> = (props: ChartHeaderCellProps) => {
     const className = Tailwind.builder()
-        .add("p-2 w-16")
-        .add("bg-secondary-50 dark:bg-secondary-900")
-        .add("text-secondary-900 dark:text-primary-500")
+        .add(`bg-gradient-to-br`)
+        .add(`from-tertiary-100 to-tertiary-300 text-tertiary-700`)
+        .add(`dark:from-tertiary-800 dark:to-tertiary-900 dark:text-tertiary-100`)
+        .add("p-3 w-16")
+        .add("box-border transition-all duration-300")
+        .add("flex items-center justify-center")
         .add("font-bold border border-black flex-shrink-0")
         .build();
 

@@ -10,6 +10,7 @@ export interface ChartBodyProps extends ChartBodyModel { }
 
 const ChartBody: FunctionComponent<ChartBodyProps> = (props: ChartBodyProps) => {
     const [opened, setOpen] = useState<boolean[][]>(initialValues(props));
+    
     const toggle = (columnIdx: number, cellIdx: number) => {
         const value = opened[columnIdx][cellIdx];
         const temp = initialValues(props);

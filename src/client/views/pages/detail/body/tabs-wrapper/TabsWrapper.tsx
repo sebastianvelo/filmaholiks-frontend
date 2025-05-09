@@ -2,19 +2,21 @@ import Tabs from "client/common/components/tabs/Tabs";
 import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
+export type TabType = {
+    label: string;
+    content: React.ReactNode | React.ReactNode[];
+}
+
 interface TabsWrapperProps {
-    tabs: {
-        label: string;
-        content: React.ReactNode | React.ReactNode[];
-    }[];
+    tabs: TabType[];
 }
 
 const TabsWrapper: FunctionComponent<TabsWrapperProps> = (props: TabsWrapperProps) => {
     const tabsClassName = Tailwind.builder()
-        .add("px-2 md:text-2xl")
+        .add("px-2 md:text-2xl rounded-tl-md rounded-tr-md")
         .add("dark:border-primary-500 border-secondary-500")
-        .add("bg-secondary-200 dark:bg-black")
-        .add("bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-70")
+        .add("bg-secondary-100/50 dark:bg-primary-900/30")
+        .add("bg-clip-padding backdrop-blur-md")
         .build();
 
     return (

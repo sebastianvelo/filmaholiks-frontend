@@ -14,7 +14,7 @@ const App: FunctionComponent = () => {
   const blueprint = useAppBlueprint();
   
   return (
-    <div className={`font-sans max-w-screen overflow-x-hidden bg-gradient-to-b from-slate-100 via-white to-slate-100 dark:from-slate-900 dark:via-black dark:to-slate-900`}>
+    <div className={`font-sans max-w-screen overflow-x-hidden bg-gradient-to-b from-secondary-100 via-white to-slate-100 dark:from-primary-950 dark:via-black dark:to-slate-950`}>
       <Navigation {...blueprint.navigation} />
       <Main {...blueprint.main} />
       <Footer {...blueprint.footer} />

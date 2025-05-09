@@ -1,14 +1,12 @@
 import Button from "client/common/atom/action/button/Button";
-import { FunctionComponent, useState } from "react";
 import Tailwind from "client/common/tailwind/Tailwind";
+import { TabType } from "client/views/pages/detail/body/tabs-wrapper/TabsWrapper";
+import { FunctionComponent, useState } from "react";
 import TabContent from "./tab-content/TabContent";
 import Tab from "./tab/Tab";
 
 export interface TabsProps {
-    tabs: {
-        label: string;
-        content: React.ReactNode | React.ReactNode[];
-    }[];
+    tabs: TabType[];
     className?: string;
     tabsClassName?: string;
 }
