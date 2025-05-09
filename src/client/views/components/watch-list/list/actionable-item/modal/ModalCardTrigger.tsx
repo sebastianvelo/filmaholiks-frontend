@@ -1,5 +1,5 @@
 import Action from "client/common/atom/action/Action";
-import { ExpandSvg } from "client/common/components/svg/Svg";
+import { IconExpand } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
@@ -12,7 +12,7 @@ const ModalCardTrigger: FunctionComponent<ModalCardTriggerProps> = (props: Modal
     if (props.listIdx === undefined) return <></>;
     return (
         <Action className="flex justify-center items-center cursor-context-menu h-full" onClick={props.toggle} color={ComponentHovereableColor.WARNING}>
-            <ExpandSvg />
+            <IconExpand />
         </Action>
     );
 }

@@ -1,5 +1,5 @@
 import Action from "client/common/atom/action/Action";
-import { TrashSvg, AddSvg } from "client/common/components/svg/Svg";
+import { IconTrash, IconAdd } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
@@ -14,7 +14,7 @@ const ActionCard: FunctionComponent<ActionItemProps> = (props: ActionItemProps) 
     
     return (
         <Action onClick={action} color={color} className="flex items-center justify-center h-full" >
-            {props.delete ? <TrashSvg /> : <AddSvg />}
+            {props.delete ? <IconTrash /> : <IconAdd />}
         </Action>
     );
 }

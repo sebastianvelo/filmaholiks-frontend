@@ -2,7 +2,7 @@ import Tailwind from "client/common/tailwind/Tailwind";
 import $ from "jquery";
 import { FunctionComponent } from "react";
 import Action from "../../atom/action/Action";
-import { ArrowLeftSvg, ArrowRightSvg } from "../svg/Svg";
+import { IconChevronLeft, IconChevronRight } from "../svg/Svg";
 
 const slide = (id: string, right: boolean) => {
     const carousel = $(`#${id}`);
@@ -32,7 +32,7 @@ const CarouselControl: FunctionComponent<CarouselControlProps> = (props: Carouse
     if (!props.show) return <></>;
     return (
         <Action onClick={() => slide(props.id, props.right)} className={className}>
-            {props.right ? <ArrowRightSvg /> : <ArrowLeftSvg />}
+            {props.right ? <IconChevronRight /> : <IconChevronLeft />}
         </Action>
     );
 }

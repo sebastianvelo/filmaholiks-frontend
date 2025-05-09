@@ -1,5 +1,5 @@
 import Action from "client/common/atom/action/Action";
-import { DragSvg } from "client/common/components/svg/Svg";
+import { IconDrag } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
@@ -18,7 +18,7 @@ const DragList: FunctionComponent<DragListProps> = (props: DragListProps) => {
     return (
         <div draggable="true" onDragStart={onDragStart}>
             <Action className="h-full hidden sm:flex justify-center items-center cursor-move" color={ComponentHovereableColor.SECONDARY} >
-                <DragSvg />
+                <IconDrag />
             </Action>
         </div>
     );

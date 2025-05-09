@@ -1,13 +1,13 @@
-import { Github, Linkedin, Mail } from "client/common/components/svg/Svg";
+import { IconGitHub, IconLinkedIn, IconMail } from "client/common/components/svg/Svg";
 
 const SocialIcon = (icon: string) => {
     switch (icon) {
         case "linkedin":
-            return <Linkedin />;
+            return <IconLinkedIn />;
         case "github":
-            return <Github />;
+            return <IconGitHub />;
         case "mail":
-            return <Mail />;
+            return <IconMail />;
         default:
             return null;
     }

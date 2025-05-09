@@ -1,5 +1,5 @@
 import Action from "client/common/atom/action/Action";
-import { DotsHorizontal } from "client/common/components/svg/Svg";
+import { IconDotsX } from "client/common/components/svg/Svg";
 import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
@@ -13,7 +13,7 @@ const MenuCardTrigger: FunctionComponent<MenuCardTriggerProps> = (props: MenuCar
         color={ComponentHovereableColor.NORMAL}
         onClick={props.toggle}
     >
-        <DotsHorizontal />
+        <IconDotsX />
     </Action>
 )
 

@@ -1,4 +1,4 @@
-import { HamburgerSvg } from "client/common/components/svg/Svg";
+import { IconHamburger } from "client/common/components/svg/Svg";
 import { FunctionComponent } from "react";
 
 export interface ActionsTogglerProps {
@@ -7,7 +7,7 @@ export interface ActionsTogglerProps {
 
 const ActionsToggler: FunctionComponent<ActionsTogglerProps> = (props: ActionsTogglerProps) => (
     <div className={`block xl:hidden p-4 text-secondary-500 dark:text-primary-500`} onClick={props.toggleLinks}>
-        <HamburgerSvg />
+        <IconHamburger />
     </div>
 );
 
