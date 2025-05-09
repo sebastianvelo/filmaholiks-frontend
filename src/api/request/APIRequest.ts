@@ -1,5 +1,5 @@
 import Request from "../common/Request";
-import config from "../../config/backend.config";
+import config from "config/backend/backend.config";
 
 abstract class APIRequest extends Request {
   protected baseUrl: string = config.baseUrl;
