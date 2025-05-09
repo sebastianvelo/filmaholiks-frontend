@@ -1,6 +1,6 @@
 import Theme from "@tailwind-helper/constants/Theme";
 import { useLayoutEffect, useRef, useState } from "react";
-import LocalStorageKey from "../common/constants/LocalStorageKey";
+import LocalStorageKey from "../types/constants/LocalStorageKey";
 
 const getThemeFromLocalStorage = () => localStorage.getItem(LocalStorageKey.THEME);
 

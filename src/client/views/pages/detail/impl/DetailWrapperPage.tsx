@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import FetcherPage from "@components/fetcher/FetcherPage";
-import { IdParams } from "client/common/params/Params";
+import { IdParams } from "client/types/params/Params";
 import SessionUserHelper from "client/helper/SessionUserHelper";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";

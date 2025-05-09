@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import FetcherPage from "@components/fetcher/FetcherPage";
-import { DetailEpisodePageParams } from "client/common/params/Params";
+import { DetailEpisodePageParams } from "client/types/params/Params";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import DetailPage, { DetailPageProps } from "../DetailPage";
