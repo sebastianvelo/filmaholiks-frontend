@@ -10,12 +10,31 @@ export interface MenuProps {
 }
 
 const NavigationMenu: React.FC<MenuProps> = (props: MenuProps) => true ? (
-    <Dropdown trigger={<Image className={`h-8 w-8 rounded-full shadow-lg ring ring-secondary dark:ring-primary ring-offset-1 ring-offset-dark mx-2`} {...props.toggler} />}>
-        <div className={`flex flex-col absolute space-y-2 z-40 right-0 top-12 w-52 py-2 bg-white bg-opacity-50 dark:bg-black backdrop-filter backdrop-blur-md dark:bg-opacity-50 rounded-md px-2`}>
+    <Dropdown trigger={
+        <Image
+            className={`h-10 w-10 rounded-full shadow-lg ring-2 ring-secondary-500 dark:ring-primary-400 
+            ring-offset-2 ring-offset-white dark:ring-offset-black mx-2 
+            transition-all duration-300 hover:scale-105 cursor-pointer`}
+        {...props.toggler}
+        />
+    }>
+        <div className={`flex flex-col absolute space-y-1 z-40 right-0 top-14 w-56 py-3 
+            bg-white/80 dark:bg-black/80 backdrop-filter backdrop-blur-xl 
+            rounded-lg shadow-xl border border-gray-100 dark:border-gray-800
+            transform transition-all duration-300`}>
             {props.options.map((link, index) => (
-                <Action key={index} {...link}>{link.label}</Action>
+                <Action
+                    key={index}
+                    {...link}
+                    revert
+                    className="mx-2 px-3 py-2 rounded-md text-sm font-medium transition-colors dark:text-white bg-secondary-300 hover:bg-secondary-400 dark:bg-primary-700 dark:hover:bg-primary-900"
+                >
+                    {link.label}
+                </Action>
             ))}
-            <LogoutButton />
+            <div className="border-t border-gray-200 dark:border-gray-700 my-1 pt-1">
+                <LogoutButton />
+            </div>
         </div>
     </Dropdown>
 ) : <></>;

@@ -12,8 +12,8 @@ interface TabsWrapperProps {
 const TabsWrapper: FunctionComponent<TabsWrapperProps> = (props: TabsWrapperProps) => {
     const tabsClassName = Tailwind.builder()
         .add("px-2 md:text-2xl")
-        .add("dark:border-primary border-secondary")
-        .add("bg-secondary-light dark:bg-black")
+        .add("dark:border-primary-500 border-secondary-500")
+        .add("bg-secondary-200 dark:bg-black")
         .add("bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-70")
         .build();
 

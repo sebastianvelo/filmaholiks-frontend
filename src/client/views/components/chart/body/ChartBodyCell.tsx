@@ -4,11 +4,11 @@ import { ChartBodyCellModel } from "shared/model/components/ChartModel";
 import { FunctionComponent } from "react";
 
 const topC = (props: ChartBodyCellProps) => Tailwind.builder()
-    .addIf(`from-gray-700 to-gray-800 text-gray-200`, props.rating >= 1 && props.rating < 1.5)
-    .addIf(`from-gray-600 to-gray-700 text-gray-200`, props.rating >= 1.5 && props.rating < 2)
-    .addIf(`from-red-900 to-red-800 text-gray-200`, props.rating >= 2 && props.rating < 2.5)
-    .addIf(`from-red-800 to-red-700 text-gray-200`, props.rating >= 2.5 && props.rating < 3)
-    .addIf(`from-red-700 to-red-600 text-gray-200`, props.rating >= 3 && props.rating < 3.5)
+    .addIf(`from-tertiary-700 to-tertiary-800 text-tertiary-200`, props.rating >= 1 && props.rating < 1.5)
+    .addIf(`from-tertiary-600 to-tertiary-700 text-tertiary-200`, props.rating >= 1.5 && props.rating < 2)
+    .addIf(`from-red-900 to-red-800 text-tertiary-200`, props.rating >= 2 && props.rating < 2.5)
+    .addIf(`from-red-800 to-red-700 text-tertiary-200`, props.rating >= 2.5 && props.rating < 3)
+    .addIf(`from-red-700 to-red-600 text-tertiary-200`, props.rating >= 3 && props.rating < 3.5)
     .addIf(`from-red-600 to-red-500 text-dark`, props.rating >= 3.5 && props.rating < 4)
     .build();
 
@@ -39,12 +39,12 @@ const getClassName = (props: ChartBodyCellProps) => Tailwind.builder()
     .add(topB(props))
     .add(topA(props))
     .add(topS(props))
-    .addIf(`dark:bg-black dark:text-gray-200 bg-white text-black`, props.rating === -1)
-    .addIf("border-primary", props.isOpened)
+    .addIf(`dark:bg-black dark:text-tertiary-200 bg-white text-black`, props.rating === -1)
+    .addIf("border-primary-500", props.isOpened)
     .addIf("border-dark", !props.isOpened)
     .add(`bg-gradient-to-b`)
     .add("p-2 w-full border group relative")
-    .add("hover:border-primary box-border transition-all duration-300 cursor-pointer")
+    .add("hover:border-primary-500 box-border transition-all duration-300 cursor-pointer")
     .build();
 
 const getEpisodeNameClassName = (props: ChartBodyCellProps) => Tailwind.builder()
@@ -59,8 +59,8 @@ const getEpisodeNameClassName = (props: ChartBodyCellProps) => Tailwind.builder(
     .add("flex-col justify-between")
     .add("duration-500 transition-all")
     .add("absolute z-20")
-    .add("bg-gradient-to-tr from-primary to-white text-secondary-dark")
-    .add("dark:from-secondary-dark dark:to-black dark:text-primary")
+    .add("bg-gradient-to-tr from-primary-500 to-white text-secondary-900")
+    .add("dark:from-secondary-900 dark:to-black dark:text-primary-500")
     .add("font-bold rounded-lg w-64")
     .build();
 

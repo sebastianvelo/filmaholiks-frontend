@@ -15,40 +15,35 @@ export interface NavigationActionsProps {
 const NavigationActions: FunctionComponent<NavigationActionsProps> = (props: NavigationActionsProps) => {
   const className = Tailwind.builder()
     .add('flex h-full w-full transition-all duration-400 z-40 w-full')
-    .add('sm:flex-row sm:z-auto sm:opacity-100')
+    .add('xl:flex-row xl:z-auto xl:opacity-100')
     .addIf('opacity-100', props.isOpen)
     .addIf('opacity-0', !props.isOpen)
     .build();
 
   const wrapperClassName = Tailwind.builder()
-    .add("bg-white bg-clip-padding backdrop-filter backdrop-blur-xl sm:backdrop-blur-none bg-opacity-70")
-    .add("dark:bg-black dark:bg-opacity-90 sm:dark:bg-transparent")
-    .add("flex-col absolute h-screen space-y-4 w-full top-18 left-0")
-    .add("sm:top-0 sm:flex sm:space-y-0 sm:h-full sm:flex-row sm:relative sm:px-0 sm:justify-between sm:items-center sm:bg-transparent")
+    .add("bg-white/90 bg-clip-padding backdrop-filter backdrop-blur-2xl xl:backdrop-blur-none")
+    .add("dark:bg-black/90 xl:dark:bg-transparent")
+    .add("flex-col absolute h-screen space-y-4 w-2/3 md:w-1/2 xl:w-full top-18 left-0")
+    .add("xl:top-0 xl:flex xl:space-y-0 xl:h-full xl:flex-row xl:relative xl:px-0 xl:justify-between xl:items-center xl:bg-transparent")
     .addIf("flex", props.isOpen)
     .addIf("hidden", !props.isOpen)
     .build();
 
   const actionClassName = Tailwind.builder()
-    .add("px-4 py-2 text-2xl")
-    .add("text-secondary-dark hover:text-secondary")
-    .add("dark:text-primary dark:hover:text-primary-dark")
+    .add("px-4 py-2 text-xl")
+    .add("text-secondary-700 hover:text-secondary-500")
+    .add("dark:text-primary-300 dark:hover:text-primary-500")
     .build();
-    
+
   return (
     <div className={className}>
       <div className={wrapperClassName}>
-        <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-4">
+        <div className="px-4 xl:pr-2 xl:pl-0 flex flex-col xl:flex-row">
           {props.actions?.map((action: ActionProps) => (
-            <Action
-              className={actionClassName}
-              key={action.label}
-              onClick={props.toggleLinks}
-              {...action}
-            />
+            <Action key={action.label} {...action} className={actionClassName} />
           ))}
         </div>
-        <div className="flex items-center sm:space-x-2">
+        <div className="absolute bottom-16 left-4 items-center flex xl:relative xl:bottom-0 xl:left-0">
           <ToggleTheme />
           {props.menu && <NavigationMenu {...props.menu} />}
         </div>

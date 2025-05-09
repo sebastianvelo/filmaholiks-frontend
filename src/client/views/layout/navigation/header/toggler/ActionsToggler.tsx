@@ -6,7 +6,7 @@ export interface ActionsTogglerProps {
 }
 
 const ActionsToggler: FunctionComponent<ActionsTogglerProps> = (props: ActionsTogglerProps) => (
-    <div className={`block sm:hidden p-4 text-secondary dark:text-primary`} onClick={props.toggleLinks}>
+    <div className={`block xl:hidden p-4 text-secondary-500 dark:text-primary-500`} onClick={props.toggleLinks}>
         <HamburgerSvg />
     </div>
 );

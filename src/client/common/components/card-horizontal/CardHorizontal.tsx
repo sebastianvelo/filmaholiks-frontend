@@ -7,7 +7,7 @@ import CardHorizontalModel from "shared/model/components/CardHorizontalModel";
 export interface CardHorizontalProps extends CardHorizontalModel { }
 
 const pillColor = {
-    Comedy: "bg-primary text-black",
+    Comedy: "bg-primary-500 text-black",
     Animation: "bg-orange-700 text-white",
     Drama: "bg-blue-600 text-white",
     Mystery: "bg-blue-400 text-black",

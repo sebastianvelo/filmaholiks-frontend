@@ -29,7 +29,7 @@ const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatc
         <div className="relative">
             <Action label="+ Add" className={actionClassName} revert color={ComponentHovereableColor.SUCCESS} onClick={toggle} />
             <div className={modalClassName} onClick={toggle} >
-                <article className="bg-primary-lighter dark:bg-black p-4 space-y-8 overflow-y-auto bg-opacity-60">
+                <article className="bg-primary-50 dark:bg-black p-4 space-y-8 overflow-y-auto bg-opacity-60">
                     <div className="flex flex-col space-y-4">
                         {props.lists.map((list, idx) => (
                             <Action key={list.title} onClick={() => props.save(idx)} className={actionClassName} label={list.title} />

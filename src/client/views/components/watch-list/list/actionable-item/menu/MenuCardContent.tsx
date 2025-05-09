@@ -12,7 +12,7 @@ export interface MenuCardContentProps {
 const MenuCardContent: FunctionComponent<MenuCardContentProps> = (props: MenuCardContentProps) => {
     const menuContentClassName = Tailwind.builder()
         .addIf("hidden", !props.opened)
-        .addIf("flex justify-between bg-secondary absolute bottom-0 right-12 z-40 rounded-sm h-10", props.opened)
+        .addIf("flex justify-between bg-secondary-500 absolute bottom-0 right-12 z-40 rounded-sm h-10", props.opened)
         .build();
 
     return (

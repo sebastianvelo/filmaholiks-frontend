@@ -22,7 +22,7 @@ const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: Lis
         .add("z-40 overflow-y-scroll h-2/3 top-0 absolute")
         .add("space-y-4")
         .add("text-center lg:text-left")
-        .add("bg-primary-lighter dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 dark:bg-opacity-30")
+        .add("bg-primary-50 dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 dark:bg-opacity-30")
         .build();
 
     return (

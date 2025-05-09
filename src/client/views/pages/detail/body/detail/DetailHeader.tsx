@@ -13,7 +13,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
     const [trailerPlaying, setTrailerPlaying] = useState(false);
     const className = Tailwind.builder()
         .add("flex flex-col lg:flex-row w-full mt-4")
-        .add("2xl:border-t-4 2xl:border-b-2 dark:border-primary border-secondary")
+        .add("2xl:border-t-4 2xl:border-b-2 dark:border-primary-500 border-secondary-500")
         .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 dark:bg-opacity-50")
         .build();
 
@@ -25,7 +25,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
                 <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
                     <div className="relative w-full max-w-4xl">
                         <button
-                            className="absolute -top-12 right-0 text-white hover:text-gray-300"
+                            className="absolute -top-12 right-0 text-white hover:text-tertiary-300"
                             onClick={() => setTrailerPlaying(false)}
                         >
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
