@@ -1,5 +1,5 @@
-import Action from "client/common/atom/action/Action";
-import Image from "client/common/atom/image/Image";
+import Action from "@atom/action/Action";
+import Image from "@atom/image/Image";
 import Pill from "@components/pill/Pill";
 import { FunctionComponent } from "react";
 import CardHorizontalModel from "shared/model/components/CardHorizontalModel";

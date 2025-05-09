@@ -1,4 +1,4 @@
-import Headline from "client/common/atom/headline/Headline";
+import Headline from "@atom/headline/Headline";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 

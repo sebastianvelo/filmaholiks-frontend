@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "client/common/atom/image/Image";
+import Image, { ImageProps } from "@atom/image/Image";
 import { FunctionComponent } from "react";
 
 export interface DetailPostersProps {

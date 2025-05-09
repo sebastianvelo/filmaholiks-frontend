@@ -1,4 +1,4 @@
-import Action from "client/common/atom/action/Action";
+import Action from "@atom/action/Action";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 

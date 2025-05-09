@@ -1,4 +1,4 @@
-import Action from "client/common/atom/action/Action";
+import Action from "@atom/action/Action";
 import { IconDrag } from "@components/svg/Svg";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import WatchlistHelper from "client/helper/WatchlistHelper";

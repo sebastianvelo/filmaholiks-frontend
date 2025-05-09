@@ -1,4 +1,4 @@
-import Action from "client/common/atom/action/Action";
+import Action from "@atom/action/Action";
 import { IconMoon, IconSun } from "@components/svg/Svg";
 import useToggleDark from "@hooks/useToggleDark";
 

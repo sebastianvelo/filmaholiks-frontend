@@ -1,7 +1,7 @@
-import Action from "client/common/atom/action/Action";
-import ActionProps from "client/common/atom/action/ActionProps";
+import Action from "@atom/action/Action";
+import ActionProps from "@atom/action/ActionProps";
 import Dropdown from "@components/dropdown/Dropdown";
-import Image, { ImageProps } from "client/common/atom/image/Image";
+import Image, { ImageProps } from "@atom/image/Image";
 import LogoutButton from "client/views/pages/auth/logout/LogoutButton";
 
 export interface MenuProps {

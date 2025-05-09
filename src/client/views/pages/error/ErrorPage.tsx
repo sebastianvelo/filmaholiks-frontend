@@ -1,5 +1,5 @@
-import Action from "client/common/atom/action/Action";
-import ActionProps from "client/common/atom/action/ActionProps";
+import Action from "@atom/action/Action";
+import ActionProps from "@atom/action/ActionProps";
 import { FunctionComponent } from "react";
 
 export interface ErrorPageProps {
