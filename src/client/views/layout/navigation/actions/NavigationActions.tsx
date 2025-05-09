@@ -1,6 +1,6 @@
 import Action from "client/common/atom/action/Action";
 import ActionProps from "client/common/atom/action/ActionProps";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 import NavigationMenu, { MenuProps } from "./menu/NavigationMenu";
 import ToggleTheme from "./toggleTheme/ToggleTheme";

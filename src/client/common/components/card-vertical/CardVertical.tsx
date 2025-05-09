@@ -2,7 +2,7 @@ import Action from "client/common/atom/action/Action";
 import Headline from "client/common/atom/headline/Headline";
 import Image from "client/common/atom/image/Image";
 import Text from "client/common/atom/text/Text";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import CardVerticalModel from "shared/model/components/CardVerticalModel";
 import { FunctionComponent } from "react";
 

@@ -1,4 +1,4 @@
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent, useState } from "react";
 import { DetailActionsProps } from "./actions/DetailActions";
 import DetailContent, { DetailContentProps } from "./content/DetailContent";

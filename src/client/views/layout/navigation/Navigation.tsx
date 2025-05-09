@@ -1,4 +1,4 @@
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent, useState } from "react";
 import NavigationActions, { NavigationActionsProps } from "./actions/NavigationActions";
 import NavigationHeader, { NavigationHeaderProps } from "./header/NavigationHeader";

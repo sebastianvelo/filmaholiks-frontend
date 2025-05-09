@@ -1,5 +1,5 @@
 import { Search } from "client/common/components/svg/Svg";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import PageRoute from "shared/routes/PageRoute";

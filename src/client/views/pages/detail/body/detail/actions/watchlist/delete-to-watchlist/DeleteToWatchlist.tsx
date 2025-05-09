@@ -1,6 +1,6 @@
 import Action from "client/common/atom/action/Action";
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import Tailwind from "client/common/tailwind/Tailwind";
+import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 import { ListProps } from "../../../../../../../components/watch-list/list/List";
 

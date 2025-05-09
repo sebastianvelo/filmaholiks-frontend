@@ -1,6 +1,6 @@
 import Action from "client/common/atom/action/Action";
 import { IconDrag } from "client/common/components/svg/Svg";
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
+import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../../../common/components/card-horizontal/CardHorizontal";

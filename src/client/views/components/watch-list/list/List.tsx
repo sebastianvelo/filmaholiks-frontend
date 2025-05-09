@@ -1,4 +1,4 @@
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { UseList } from "@hooks/useList";
 import { FunctionComponent } from "react";

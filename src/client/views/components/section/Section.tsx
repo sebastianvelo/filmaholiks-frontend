@@ -1,5 +1,5 @@
 import Headline from "client/common/atom/headline/Headline";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 
 interface SectionProps {

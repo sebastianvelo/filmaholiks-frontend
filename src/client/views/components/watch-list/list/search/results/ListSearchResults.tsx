@@ -1,5 +1,5 @@
 import Loading from "client/common/components/loading/Loading";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 import ActionableCard, { ActionableCardProps } from "../../actionable-item/ActionableCard";

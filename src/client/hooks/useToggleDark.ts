@@ -1,4 +1,4 @@
-import Theme from "client/common/tailwind/constants/Theme";
+import Theme from "@tailwind-helper/constants/Theme";
 import { useLayoutEffect, useRef, useState } from "react";
 import LocalStorageKey from "../common/constants/LocalStorageKey";
 

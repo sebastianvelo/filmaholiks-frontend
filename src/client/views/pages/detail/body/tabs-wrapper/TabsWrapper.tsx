@@ -1,5 +1,5 @@
 import Tabs from "client/common/components/tabs/Tabs";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 
 export type TabType = {

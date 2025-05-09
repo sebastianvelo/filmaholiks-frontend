@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import Loading from "client/common/components/loading/Loading";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
 import { FunctionComponent } from "react";
 import { Redirect } from "react-router";

@@ -3,7 +3,7 @@ import Carousel from "client/common/components/carousel/Carousel";
 import { CardsSectionModel } from "shared/model/components/section/Section";
 import { FunctionComponent } from "react";
 import Section from "../../Section";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 
 export interface CardsSectionProps extends CardsSectionModel { }
 

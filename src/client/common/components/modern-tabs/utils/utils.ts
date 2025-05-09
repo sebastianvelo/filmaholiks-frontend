@@ -1,4 +1,4 @@
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 
 export type SlideDirection = "left" | "right" | "top" | "bottom" | "none";
 

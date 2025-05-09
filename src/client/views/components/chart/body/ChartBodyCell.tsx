@@ -1,5 +1,5 @@
 import Image from "client/common/atom/image/Image";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { ChartBodyCellModel } from "shared/model/components/ChartModel";
 import { FunctionComponent } from "react";
 

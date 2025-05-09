@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 
 export interface TabContentProps {
     children: React.ReactNode;

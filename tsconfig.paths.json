@@ -7,6 +7,9 @@
       ],
       "@hooks/*": [
         "client/hooks/*"
+      ],
+      "@tailwind-helper/*": [
+        "client/common/tailwind/*"
       ]
     }
   }

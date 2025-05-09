@@ -1,7 +1,7 @@
 import Action from "client/common/atom/action/Action";
 import Image from "client/common/atom/image/Image";
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
-import Tailwind from "client/common/tailwind/Tailwind";
+import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 

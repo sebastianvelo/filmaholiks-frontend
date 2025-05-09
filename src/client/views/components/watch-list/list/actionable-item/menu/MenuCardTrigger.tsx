@@ -1,6 +1,6 @@
 import Action from "client/common/atom/action/Action";
 import { IconDotsX } from "client/common/components/svg/Svg";
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
+import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
 interface MenuCardTriggerProps {

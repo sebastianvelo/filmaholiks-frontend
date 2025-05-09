@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import ComponentColor from "client/common/tailwind/constants/ComponentColor";
-import Tailwind from "client/common/tailwind/Tailwind";
+import ComponentColor from "@tailwind-helper/constants/ComponentColor";
+import Tailwind from "@tailwind-helper/Tailwind";
 
 export interface PillProps {
     label?: string;

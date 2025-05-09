@@ -1,4 +1,4 @@
-import ComponentHovereableColor from "client/common/tailwind/constants/ComponentHovereableColor";
+import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import ActionModel from "shared/model/atom/ActionModel";
 import { MouseEventHandler } from "react";
 

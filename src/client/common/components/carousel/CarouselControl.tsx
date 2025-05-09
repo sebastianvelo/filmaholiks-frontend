@@ -1,4 +1,4 @@
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import $ from "jquery";
 import { FunctionComponent } from "react";
 import Action from "../../atom/action/Action";

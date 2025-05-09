@@ -1,5 +1,5 @@
 import Button from "client/common/atom/action/button/Button";
-import Tailwind from "client/common/tailwind/Tailwind";
+import Tailwind from "@tailwind-helper/Tailwind";
 import { TabType } from "client/views/pages/detail/body/tabs-wrapper/TabsWrapper";
 import { FunctionComponent, useState } from "react";
 import TabContent from "./tab-content/TabContent";
