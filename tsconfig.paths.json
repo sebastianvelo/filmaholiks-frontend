@@ -9,7 +9,7 @@
         "client/hooks/*"
       ],
       "@tailwind-helper/*": [
-        "client/common/tailwind/*"
+        "client/helper/tailwind/*"
       ],
       "@components/*": [
         "client/common/components/*"
