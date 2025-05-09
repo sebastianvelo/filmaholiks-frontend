@@ -1,25 +1,26 @@
 import { FunctionComponent } from "react";
+import DetailActions, { DetailActionsProps } from "../actions/DetailActions";
 import DetailContentDescription, { DetailContentDescriptionProps } from "./description/DetailContentDescription";
-import DetailContentHeader, { DetailContentHeaderProps } from "./header/DetailContentHeader";
+import DetailContentHeader from "./header/DetailContentHeader";
 import DetailContentInfo, { DetailContentInfoProps } from "./info/DetailContentInfo";
-import DetailContentVideo, { DetailContentVideoProps } from "./video/DetailContentVideo";
+import DetailContentPoster, { DetailContentPosterProps } from "./poster/DetailContentPoster";
 
-export interface DetailContentProps {
-    header?: DetailContentHeaderProps;
+export interface DetailContentProps extends DetailContentPosterProps {
     description?: DetailContentDescriptionProps;
-    video?: DetailContentVideoProps;
     info?: DetailContentInfoProps;
+    actions?: DetailActionsProps;
 }
 
 const DetailContent: FunctionComponent<DetailContentProps> = (props: DetailContentProps) => (
-    <div className={`flex flex-col justify-between md:p-4 h-full`}>
-        <div>
-            {props.header && <DetailContentHeader {...props.header} />}
-            {props.description && <DetailContentDescription {...props.description} />}
-        </div>
-        <div className={`grid lg:grid-cols-3 w-full`}>
-            {props.video && <DetailContentVideo {...props.video} />}
-            {props.info && <DetailContentInfo {...props.info} theresVideo={!!props.video} />}
+    <div className="relative z-10 container mx-auto px-4 pt-16 pb-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+            <DetailContentPoster {...props} />
+            <div className="flex-1 backdrop-blur-md bg-black/30 rounded-2xl p-6 border border-white/10 shadow-xl">
+                {props.header && (<DetailContentHeader {...props.header} mediaType={props.actions?.watchlistButton?.mediaType} />)}
+                {props.description && (<DetailContentDescription {...props.description} />)}
+                <DetailActions {...props.actions} />
+                {props.info && props.info.data && props.info.data.length > 0 && <DetailContentInfo {...props.info} />}
+            </div>
         </div>
     </div>
 );

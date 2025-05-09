@@ -9,7 +9,7 @@ export interface DetailPageBodyProps extends DetailSectionsProps, DetailChartPro
 }
 
 const DetailPageBody: FunctionComponent<DetailPageBodyProps> = (props: DetailPageBodyProps) => (
-    <section className="h-full w-full justify-center 2xl:px-32">
+    <section className="h-full w-full justify-center">
         <DetailHeader {...props.detail} />
         <DetailSections {...props} />
         <DetailChart {...props} />

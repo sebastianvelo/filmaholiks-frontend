@@ -13,7 +13,7 @@ const Main: FunctionComponent<MainProps> = (props: MainProps) => {
     useScrollTop();
 
     return (
-        <main className={`text-white min-h-screen py-20`}>
+        <main className={`text-white min-h-screen py-16`}>
             <Switch>
                 {props.pages.map((page: Page<any>, i: number) => (
                     <Route key={i} exact path={page.route}>

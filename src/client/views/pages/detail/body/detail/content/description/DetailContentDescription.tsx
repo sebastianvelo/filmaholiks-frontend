@@ -1,6 +1,3 @@
-import Container from "client/common/components/container/Container";
-import Headline from "client/common/atom/headline/Headline";
-import Text from "client/common/atom/text/Text";
 import { FunctionComponent } from "react";
 
 export interface DetailContentDescriptionProps {
@@ -9,10 +6,12 @@ export interface DetailContentDescriptionProps {
 }
 
 const DetailContentDescription: FunctionComponent<DetailContentDescriptionProps> = (props: DetailContentDescriptionProps) => (
-    <Container>
-        <Headline>{props?.title}</Headline>
-        <Text>{props?.description}</Text>
-    </Container>
-)
+    <div className="mb-8">
+        <h2 className="text-xl font-semibold text-white/90 mb-2">{props.title}</h2>
+        <p className="text-white/80 text-lg leading-relaxed">
+            {props.description}
+        </p>
+    </div>
+);
 
 export default DetailContentDescription;

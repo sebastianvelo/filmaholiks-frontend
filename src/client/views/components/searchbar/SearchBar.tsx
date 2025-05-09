@@ -26,9 +26,9 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({ placeholder, path, hide 
     };
 
     const className = Tailwind.builder()
-        .add("flex items-center justify-center w-full")
-        .add("fixed bottom-0 z-40")
-        .add("bg-white/50 dark:bg-black/50 backdrop-blur-md")
+        //.add("flex items-center justify-center w-full")
+        //.add("fixed bottom-0 md:relative z-40")
+        //.add("bg-white/50 dark:bg-black/50 backdrop-blur-md")
         .build();
 
     return (

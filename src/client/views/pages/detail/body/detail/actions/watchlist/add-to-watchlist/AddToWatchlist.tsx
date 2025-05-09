@@ -19,18 +19,20 @@ const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatc
         .addIf("hidden", !opened)
         .build();
 
+    const actionClassName = Tailwind.builder()
+        .add("px-6 py-3")
+        .add("bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg backdrop-blur-md")
+        .add("flex items-center gap-2 transition-all")
+        .build();
+
     return (
         <div className="relative">
-            <Action label="+ Add" className="w-screen md:w-64" color={ComponentHovereableColor.SUCCESS} onClick={toggle} />
+            <Action label="+ Add" className={actionClassName} revert color={ComponentHovereableColor.SUCCESS} onClick={toggle} />
             <div className={modalClassName} onClick={toggle} >
                 <article className="bg-primary-lighter dark:bg-black p-4 space-y-8 overflow-y-auto bg-opacity-60">
                     <div className="flex flex-col space-y-4">
                         {props.lists.map((list, idx) => (
-                            <Action
-                                onClick={() => props.save(idx)}
-                                className="rounded-xl dark:bg-secondary dark:hover:bg-secondary-dark dark:text-light bg-primary-dark hover:bg-primary text-dark"
-                                label={list.title}
-                            />
+                            <Action key={list.title} onClick={() => props.save(idx)} className={actionClassName} label={list.title} />
                         ))}
                     </div>
                 </article>

@@ -1,7 +1,3 @@
-import Container from "client/common/components/container/Container";
-import Headline from "client/common/atom/headline/Headline";
-import Text from "client/common/atom/text/Text";
-import Tailwind from "client/common/tailwind/Tailwind";
 import { FunctionComponent } from "react";
 
 export interface DetailContentInfoProps {
@@ -13,20 +9,16 @@ export interface DetailContentInfoProps {
 }
 
 const DetailContentInfo: FunctionComponent<DetailContentInfoProps> = (props: DetailContentInfoProps) => {
-    const className = Tailwind.builder()
-        .add("grid grid-cols-2 sm:grid-cols-4")
-        .add("w-full gap-y-4 place-content-between px-2")
-        .addIf("md:col-span-2", props.theresVideo)
-        .addIf("md:col-span-3", !props.theresVideo)
-        .build();
-    
     return (
-        <div className={className}>
-            {props.data?.filter(info => info?.title).map((info) => (
-                <Container className="border-l-4 border-secondary dark:border-primary flex flex-col justify-between" key={info?.title}>
-                    <Headline>{info?.title}</Headline>
-                    <Text className={`text-start`}>{info?.description}</Text>
-                </Container>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {props.data?.map((item, index) => item && (
+                <div
+                    key={index}
+                    className="backdrop-blur-lg bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors border-l-2 border-blue-500"
+                >
+                    <h3 className="text-white/60 text-sm font-medium mb-1">{item.title}</h3>
+                    <p className="text-white font-medium">{item.description}</p>
+                </div>
             ))}
         </div>
     );

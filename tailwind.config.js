@@ -28,7 +28,13 @@ const darkBlue = {
   darker: "#072f3b"
 };
 
-const primary = green;
+const indigo = {
+  light: colors.indigo[100],
+  DEFAULT: colors.indigo[500],
+  dark: colors.indigo[900]
+};
+
+const primary = indigo;
 const secondary = darkBlue;
 
 module.exports = {
