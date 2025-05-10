@@ -9,7 +9,7 @@ export interface DetailContentHeaderProps {
 
 const DetailContentHeader: FunctionComponent<DetailContentHeaderProps> = (props: DetailContentHeaderProps) => (
     <div className="mb-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 flex items-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-2 flex items-center">
             {props.title}
             <span className="ml-4 text-sm font-normal px-2 py-1 bg-yellow-500 rounded-md text-black">
                 {props.mediaType}

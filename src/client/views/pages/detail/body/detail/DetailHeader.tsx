@@ -1,4 +1,3 @@
-import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent, useState } from "react";
 import { DetailActionsProps } from "./actions/DetailActions";
 import DetailContent, { DetailContentProps } from "./content/DetailContent";
@@ -9,16 +8,10 @@ export interface DetailHeaderProps extends DetailPostersProps, DetailContentProp
 }
 
 const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => {
-
     const [trailerPlaying, setTrailerPlaying] = useState(false);
-    const className = Tailwind.builder()
-        .add("flex flex-col lg:flex-row w-full mt-4")
-        .add("2xl:border-t-4 2xl:border-b-2 dark:border-primary-500 border-secondary-500")
-        .add("bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 dark:bg-opacity-50")
-        .build();
 
     return (
-        <div className="relative w-full 2xl:mb-16">
+        <div className="relative w-full">
             <DetailPosters {...props} />
             <DetailContent {...props} />
             {trailerPlaying && props.video && (

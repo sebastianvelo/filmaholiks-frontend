@@ -2,12 +2,12 @@ import { FunctionComponent } from "react";
 import DragList from "./drag/DragList";
 import ListTitle, { ListTitleProps } from "./title/ListTitle";
 
-export interface ListHeaderProps extends ListTitleProps {
+export interface ColumnHeaderProps extends ListTitleProps {
     listIdx: number;
     size?: number;
 }
 
-const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) => (
+const ColumnHeader: FunctionComponent<ColumnHeaderProps> = (props: ColumnHeaderProps) => (
     <div className="flex bg-tertiary-50 text-dark dark:bg-tertiary-950 dark:text-white justify-between">
         <div className="flex items-center">
             <ListTitle  {...props} />
@@ -17,4 +17,4 @@ const ListHeader: FunctionComponent<ListHeaderProps> = (props: ListHeaderProps) 
     </div>
 );
 
-export default ListHeader;
+export default ColumnHeader;

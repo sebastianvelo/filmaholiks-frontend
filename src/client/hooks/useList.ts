@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
-import { ListProps } from "client/views/components/watch-list/list/List";
+import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
 import MediaType from "shared/types/MediaType";
 import useWatchlist, { UseWatchlist } from "./useWatchlist";
 
@@ -16,7 +16,7 @@ export interface UseList {
     searchItems: (query: string) => AxiosRequestConfig<any>;
 }
 
-const useList = (mediaType: MediaType, apiLists?: ListProps[]): [UseWatchlist, (idx: number) => UseList] => {
+const useList = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): [UseWatchlist, (idx: number) => UseList] => {
     const service = useWatchlist(mediaType, apiLists);
     
     const listService = (idx: number): UseList => ({

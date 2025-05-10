@@ -12,7 +12,7 @@ const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionP
     if (props.cards && !props.cards.length) return <></>;
 
     const cards = (props.cards ?? skeletonCards).map((card, i) => <CardVertical {...card} key={`card${i}${card.title}`} />);
-    const carouselWrapperClassName = Tailwind.builder().addIf("block xl:hidden", props.isGrid).build();
+    const carouselWrapperClassName = Tailwind.builder().add("py-6 px-4").addIf("block xl:hidden", props.isGrid).build();
     const gridClassName = "hidden xl:grid grid-cols-5 2xl:grid-cols-7 gap-y-8 overflow-y-auto shadow-xl";
 
     return (

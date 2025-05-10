@@ -1,6 +1,6 @@
 import Collection from "api/common/Collection";
 import axios from "axios";
-import { ListProps } from "client/views/components/watch-list/list/List";
+import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
 import MediaType from "shared/types/MediaType";
 import BackendRequest from "../BackendRequest";
 
@@ -9,7 +9,7 @@ class WatchlistRequest extends BackendRequest {
 
     public presenter = (mediaType: MediaType) => ({
         search: (userName: string, query: string) => this.get(`/user/${userName}/${mediaType}/search/${query}`),
-        saveAll: (userName: string, lists: ListProps[]) => {
+        saveAll: (userName: string, lists: WatchlistColumnProps[]) => {
             const config = this.put(`/user/${userName}/${mediaType}`, lists);
             axios.request(config);
         },

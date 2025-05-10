@@ -7,13 +7,13 @@ import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal"
 import { ActionableCardProps } from "../actionable-item/ActionableCard";
 import ListSearchResults from "./results/ListSearchResults";
 
-export interface ListSearchItemsProps {
+export interface ColumnSearchbarProps {
     addItem: (item: CardHorizontalProps) => void
     deleteItemOfOtherList: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
     searchItems: (query: string) => AxiosRequestConfig<any>;
 }
 
-const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSearchItemsProps) => {
+const ColumnSearchbar: FunctionComponent<ColumnSearchbarProps> = (props: ColumnSearchbarProps) => {
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(props.searchItems(query));
     const response = useFetch<ActionableCardProps[]>(url, true);
@@ -53,4 +53,4 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
     );
 }
 
-export default ListSearchItems;
+export default ColumnSearchbar;

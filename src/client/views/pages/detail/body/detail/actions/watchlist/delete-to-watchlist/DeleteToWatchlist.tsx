@@ -2,7 +2,7 @@ import Action from "@atom/action/Action";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
-import { ListProps } from "../../../../../../../components/watch-list/list/List";
+import { WatchlistColumnProps } from "../../../../../../../components/watch-list/list/WatchlistColumn";
 
 const actionClassName = Tailwind.builder()
     .add("px-6 py-3")
@@ -11,7 +11,7 @@ const actionClassName = Tailwind.builder()
     .build();
 
 export interface DeleteToWatchlistProps {
-    list: ListProps;
+    list: WatchlistColumnProps;
     delete: () => void;
 }
 

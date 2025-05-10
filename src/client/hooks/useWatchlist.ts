@@ -3,7 +3,7 @@ import { AxiosRequestConfig } from "axios";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import SessionUserHelper from "client/helper/SessionUserHelper";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { ListProps } from "client/views/components/watch-list/list/List";
+import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
 import { useState } from "react";
 import MediaType from "shared/types/MediaType";
 import Swal, { SweetAlertResult } from 'sweetalert2';
@@ -19,13 +19,13 @@ const requireConfirmation = (config: { title: string, cback: (result: SweetAlert
 
 export interface UseWatchlist {
     list: {
-        value: ListProps[];
+        value: WatchlistColumnProps[];
         changeTitle: (listIdx: number, title: string) => void;
         swap: (idxA: number, idxB: number) => void;
         add: () => void;
         delete: (listIdx: number) => void;
-        find: (query: string) => ListProps | undefined;
-        retrieveAll: ListProps[];
+        find: (query: string) => WatchlistColumnProps | undefined;
+        retrieveAll: WatchlistColumnProps[];
     };
     item: {
         delete: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
@@ -38,11 +38,11 @@ export interface UseWatchlist {
     }
 }
 
-const useWatchlist = (mediaType: MediaType, apiLists?: ListProps[]): UseWatchlist => {
-    const [lists, setLists] = useState<ListProps[]>(apiLists ?? []);
+const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): UseWatchlist => {
+    const [lists, setLists] = useState<WatchlistColumnProps[]>(apiLists ?? []);
     const userName = SessionUserHelper.getUser()?.userName ?? "";
 
-    const updateLists = (newLists: ListProps[]) => {
+    const updateLists = (newLists: WatchlistColumnProps[]) => {
         setLists([...newLists]);
     };
 

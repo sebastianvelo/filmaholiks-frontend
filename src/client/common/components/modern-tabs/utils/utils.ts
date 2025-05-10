@@ -21,7 +21,7 @@ export const getButtonClassName = (active: boolean, inline: boolean) => {
     return Tailwind.builder()
         .add("rounded-tr-md rounded-tl-md group z-20 w-full px-3 py-2 transition-all text-sm md:text-base lg:text-lg whitespace-nowrap border-b-4")
         .addIf("bg-secondary-200 dark:bg-primary-900/50 font-bold text-secondary-900 dark:text-primary-300 border-secondary-900 dark:border-primary-300", active)
-        .addIf("bg-secondary-100/80 dark:bg-primary-900/20 text-secondary-900 dark:text-primary-300 border-transparent hover:text-secondary-800 dark:hover:text-primary-200 hover:border-secondary-800 dark:hover:border-primary-200", !active)
+        .addIf("bg-tertiary-200/80 dark:bg-tertiary-900/80 text-secondary-950 dark:text-primary-100 border-transparent hover:text-secondary-800 dark:hover:text-primary-200 hover:border-secondary-800 dark:hover:border-primary-200", !active)
         .addIf("flex flex-row items-center justify-center gap-2", inline)
         .addIf("flex flex-col items-center justify-between", !inline)
         .build();

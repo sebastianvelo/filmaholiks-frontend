@@ -4,7 +4,7 @@ import ActionableCards from "./actionable/ActionableCards";
 import EmptyCards from "./empty/EmptyCards";
 import ReadOnlyCards from "./read-only/ReadOnlyCards";
 
-export interface ListBodyProps {
+export interface ColumnBodyProps {
     items: CardHorizontalProps[];
     listIdx: number;
     deleteItem: (itemId: string | number, requiresConfirmation?: boolean) => void;
@@ -12,11 +12,11 @@ export interface ListBodyProps {
     dynamic?: boolean;
 }
 
-const ListBody: FunctionComponent<ListBodyProps> = (props: ListBodyProps) => (
+const ColumnBody: FunctionComponent<ColumnBodyProps> = (props: ColumnBodyProps) => (
     <div className="space-y-2 overflow-y-auto h-full text-dark px-2">
         {props.dynamic ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
         {!props.items.length && <EmptyCards />}
     </div>
 );
 
-export default ListBody;
+export default ColumnBody;

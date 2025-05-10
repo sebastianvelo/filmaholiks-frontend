@@ -1,5 +1,5 @@
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
-import { ListProps } from "client/views/components/watch-list/list/List";
+import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
 
 class WatchlistHelper {
 
@@ -12,7 +12,7 @@ class WatchlistHelper {
     public static LIST_IDX_KEY = "list_idx";
 
     public static item = {
-        retrieveIdx: (query: string, lists: ListProps[]): { itemId: string | number, itemIdx: number, listIdx: number } | undefined => {
+        retrieveIdx: (query: string, lists: WatchlistColumnProps[]): { itemId: string | number, itemIdx: number, listIdx: number } | undefined => {
             const listIdx = lists.findIndex(list => list.items.some(item => item.title === query));
             if (listIdx === -1) return undefined;
             const itemIdx = lists[listIdx].items.findIndex(item => item.title === query);
@@ -25,10 +25,10 @@ class WatchlistHelper {
     };
 
     public static list = {
-        dummy: (lists: ListProps[]) => ({
+        dummy: (lists: WatchlistColumnProps[]) => ({
             title: `List ${lists.length + 1}`,
             items: []
-        }) as unknown as ListProps,
+        }) as unknown as WatchlistColumnProps,
     }
 
     public static fromEvent = {

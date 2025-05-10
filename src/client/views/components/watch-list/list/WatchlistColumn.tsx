@@ -1,14 +1,14 @@
+import { UseList } from "@hooks/useList";
+import CardHorizontalModel from "@model/components/CardHorizontalModel";
 import Tailwind from "@tailwind-helper/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { UseList } from "@hooks/useList";
 import { FunctionComponent } from "react";
-import CardHorizontalModel from "@model/components/CardHorizontalModel";
-import ListBody from "./body/ListBody";
-import ListFooter from "./footer/ListFooter";
-import ListHeader from "./header/ListHeader";
-import ListSearchItems from "./search/ListSearchItems";
+import ColumnBody from "./body/ColumnBody";
+import ColumnFooter from "./footer/ColumnFooter";
+import ColumnHeader from "./header/ColumnHeader";
+import ColumnSearchbar from "./search/ColumnSearchbar";
 
-export interface ListProps {
+export interface WatchlistColumnProps {
     title?: string;
     dynamic?: boolean;
     items: CardHorizontalModel[];
@@ -17,7 +17,7 @@ export interface ListProps {
     service: UseList;
 }
 
-const List: FunctionComponent<ListProps> = (props: ListProps) => {
+const WatchlistColumn: FunctionComponent<WatchlistColumnProps> = (props: WatchlistColumnProps) => {
     const onDragOver: React.DragEventHandler<HTMLElement> = (event) => {
         event.preventDefault();
     };
@@ -37,12 +37,12 @@ const List: FunctionComponent<ListProps> = (props: ListProps) => {
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            <ListHeader {...props.service} {...props} size={props.items.length} />
-            {props.dynamic && <ListSearchItems {...props.service} />}
-            <ListBody {...props.service} {...props} />
-            {props.dynamic && <ListFooter {...props.service} />}
+            <ColumnHeader {...props.service} {...props} size={props.items.length} />
+            {props.dynamic && <ColumnSearchbar {...props.service} />}
+            <ColumnBody {...props.service} {...props} />
+            {props.dynamic && <ColumnFooter {...props.service} />}
         </section >
     );
 }
 
-export default List;
+export default WatchlistColumn;

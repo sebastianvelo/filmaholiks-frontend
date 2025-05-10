@@ -3,11 +3,11 @@ import { IconTrash } from "@components/svg/Svg";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import { FunctionComponent } from "react";
 
-export interface ListFooterProps {
+export interface ColumnFooterProps {
     deleteList: () => void;
 }
 
-const ListFooter: FunctionComponent<ListFooterProps> = (props: ListFooterProps) => (
+const ColumnFooter: FunctionComponent<ColumnFooterProps> = (props: ColumnFooterProps) => (
     <>
         <Action className="h-12 w-full flex justify-center items-center" onClick={props.deleteList} color={ComponentHovereableColor.DANGER} revert>
             <IconTrash />
@@ -15,4 +15,4 @@ const ListFooter: FunctionComponent<ListFooterProps> = (props: ListFooterProps) 
     </>
 )
 
-export default ListFooter;
+export default ColumnFooter;

@@ -1,5 +1,5 @@
 import useWatchlist from "@hooks/useWatchlist";
-import { ListProps } from "client/views/components/watch-list/list/List";
+import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
 import MediaType from "shared/types/MediaType";
 import { FunctionComponent, useState } from "react";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
@@ -8,8 +8,8 @@ import DeleteToWatchlist from "./delete-to-watchlist/DeleteToWatchlist";
 
 export interface WatchlistButtonProps extends CardHorizontalProps {
     mediaType: MediaType;
-    list?: ListProps;
-    lists: ListProps[];
+    list?: WatchlistColumnProps;
+    lists: WatchlistColumnProps[];
 }
 
 const WatchlistButton: FunctionComponent<WatchlistButtonProps> = (props: WatchlistButtonProps) => {
@@ -27,7 +27,7 @@ const WatchlistButton: FunctionComponent<WatchlistButtonProps> = (props: Watchli
     }
 
     return (
-        <div>
+        <div className="absolute right-2 top-2">
             {!list && <AddToWatchlist lists={props.lists ?? []} save={saveItem} />}
             {list && <DeleteToWatchlist list={list} delete={deleteItem} />}
         </div>

@@ -1,23 +1,24 @@
 import Carousel from "@components/carousel/Carousel";
-import useList from "@hooks/useList";
+import { UseList } from "@hooks/useList";
+import { UseWatchlist } from "client/hooks/useWatchlist";
 import { FunctionComponent } from "react";
 import MediaType from "shared/types/MediaType";
-import AddListButton from "./add-list-button/AddListButton";
-import List, { ListProps } from "./list/List";
+import WatchlistColumn, { WatchlistColumnProps } from "./list/WatchlistColumn";
 
 export interface WatchlistProps {
     mediaType: MediaType;
-    lists: ListProps[];
+    lists: WatchlistColumnProps[];
     dynamic?: boolean;
+    service: UseWatchlist;
+    listService: (idx: number) => UseList;
 }
 
 const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">Empty!</p>
 
-const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => {
-    const [service, listService] = useList(props.mediaType, props.lists);
+const Watchlist: FunctionComponent<WatchlistProps> = ({ service, listService, dynamic }) => {
 
-    const lists = service.list.value?.map((list, idx: number) => (
-        <List {...list} key={`list${idx}`} listIdx={idx} service={listService(idx)} dynamic={props.dynamic} />
+    const columns = service.list.value?.map((list, idx: number) => (
+        <WatchlistColumn {...list} key={`column${idx}`} listIdx={idx} service={listService(idx)} dynamic={dynamic} />
     ));
 
     return (
@@ -25,12 +26,11 @@ const Watchlist: FunctionComponent<WatchlistProps> = (props: WatchlistProps) => 
             <div className="hidden md:block space-y-4">
                 {service.list.value?.length === 0 && <WatchListEmpty />}
                 <Carousel id="watchlist">
-                    {lists}
+                    {columns}
                 </Carousel>
-                {props.dynamic && <AddListButton addList={service.list.add} />}
             </div>
             <div className="md:hidden space-y-4">
-                {lists}
+                {columns}
             </div>
         </>
     );
