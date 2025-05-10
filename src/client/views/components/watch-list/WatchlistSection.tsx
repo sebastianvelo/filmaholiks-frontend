@@ -4,7 +4,7 @@ import EditModeButton from "client/views/components/watch-list/buttons/EditModeB
 import Watchlist from "client/views/components/watch-list/Watchlist";
 import { WatchlistTabProps } from "client/views/pages/detail/body/impl/DetailWatchlist";
 import { useState } from "react";
-import Section from "../../Section";
+import Section from "../section/Section";
 
 const WatchlistSection: React.FC<WatchlistTabProps> = (props: WatchlistTabProps) => {
     const [service, listService] = useList(props.mediaType, props.lists);

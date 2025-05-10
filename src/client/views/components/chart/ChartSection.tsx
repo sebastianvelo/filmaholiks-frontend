@@ -1,7 +1,7 @@
 import Chart from "client/views/components/chart/Chart";
 import { ChartSectionModel } from "@model/components/section/Section";
 import { FunctionComponent } from "react";
-import Section from "../../Section";
+import Section from "../section/Section";
 
 export interface ChartSectionProps extends ChartSectionModel { }
 

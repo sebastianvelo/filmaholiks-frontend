@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import Loading from "@components/loading/Loading";
 import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
-import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
+import SearchBar, { SearchBarProps } from "client/views/components/common/searchbar/SearchBar";
 import { FunctionComponent } from "react";
 import ExplorePageBody, { ExplorePageBodyProps } from "./body/ExplorePageBody";
 

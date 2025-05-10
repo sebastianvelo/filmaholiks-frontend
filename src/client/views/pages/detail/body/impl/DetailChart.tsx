@@ -1,6 +1,6 @@
 import Headline from "client/common/atom/headline/Headline";
 import { LineDivider } from "client/common/components/svg/Svg";
-import ChartSection, { ChartSectionProps } from "client/views/components/section/impl/chart/ChartSection";
+import ChartSection, { ChartSectionProps } from "client/views/components/chart/ChartSection";
 import { FunctionComponent } from "react";
 
 export interface DetailChartProps {

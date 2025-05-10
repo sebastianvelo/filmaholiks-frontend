@@ -2,7 +2,7 @@ import CardVertical from "@components/card-vertical/CardVertical";
 import Carousel from "@components/carousel/Carousel";
 import { CardsSectionModel } from "@model/components/section/Section";
 import { FunctionComponent } from "react";
-import Section from "../../Section";
+import Section from "../../section/Section";
 import Tailwind from "@tailwind-helper/Tailwind";
 
 export interface CardsSectionProps extends CardsSectionModel { }

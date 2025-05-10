@@ -1,5 +1,5 @@
 import { LineDivider } from "@components/svg/Svg";
-import CardsSection, { CardsSectionProps } from "client/views/components/section/impl/cards/CardsSection";
+import CardsSection, { CardsSectionProps } from "client/views/components/common/cards/CardsSection";
 import { FunctionComponent } from "react";
 
 export interface ExplorePageBodyProps {

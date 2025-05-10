@@ -1,6 +1,6 @@
 import TabsContainer from "@components/modern-tabs/TabsContainer";
 import { LineDivider } from "client/common/components/svg/Svg";
-import CardsSection, { CardsSectionProps } from "client/views/components/section/impl/cards/CardsSection";
+import CardsSection, { CardsSectionProps } from "client/views/components/common/cards/CardsSection";
 import { FunctionComponent } from "react";
 
 export interface DetailSectionsProps {

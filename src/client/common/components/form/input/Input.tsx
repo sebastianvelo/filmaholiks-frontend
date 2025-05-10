@@ -8,6 +8,7 @@ interface InputProps {
     onChange?: (e: any) => void;
     revert?: boolean;
     type?: string;
+    disabled?: boolean;
 }
 
 const Input: FunctionComponent<InputProps> = (props: InputProps) => {
@@ -30,11 +31,12 @@ const Input: FunctionComponent<InputProps> = (props: InputProps) => {
                 placeholder={props.placeholder}
                 onChange={props.onChange}
                 className={className}
+                disabled={props.disabled}
                 spellCheck="false"
             />
         );
     return (
-        <input type={props.type ?? "text"} placeholder={props.placeholder} onChange={props.onChange} className={className} spellCheck="false" />
+        <input disabled={props.disabled} type={props.type ?? "text"} placeholder={props.placeholder} onChange={props.onChange} className={className} spellCheck="false" />
     );
 }
 

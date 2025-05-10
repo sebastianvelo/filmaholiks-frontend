@@ -1,5 +1,5 @@
 import { LineDivider } from "client/common/components/svg/Svg";
-import WatchlistSection from "client/views/components/section/impl/watch-list/WatchlistSection";
+import WatchlistSection from "client/views/components/watch-list/WatchlistSection";
 import { WatchlistProps } from "client/views/components/watch-list/Watchlist";
 import { FunctionComponent } from "react";
 

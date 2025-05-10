@@ -1,4 +1,4 @@
-import SearchBar, { SearchBarProps } from "client/views/components/searchbar/SearchBar";
+import SearchBar, { SearchBarProps } from "client/views/components/common/searchbar/SearchBar";
 import { FunctionComponent } from "react";
 import DetailPageBody, { DetailPageBodyProps } from "./body/DetailPageBody";
 
