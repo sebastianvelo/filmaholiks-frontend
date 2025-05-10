@@ -13,7 +13,7 @@ export interface ModalCardContentProps {
 
 const ModalCardContent: FunctionComponent<ModalCardContentProps> = (props: ModalCardContentProps) => {
     const modalClassName = Tailwind.builder()
-        .add("rounded-xl absolute place-items-center w-screen h-96 top-12 left-0 z-50 bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
+        .add("rounded-xl absolute place-items-center w-screen h-96 top-0 left-0 z-50 bg-white dark:bg-black bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 dark:bg-opacity-60")
         .addIf("grid", props.opened)
         .addIf("hidden bg-opacity-0", !props.opened)
         .build();
@@ -34,7 +34,7 @@ const ModalCardContent: FunctionComponent<ModalCardContentProps> = (props: Modal
                     className="p-2 w-12 h-8 flex items-center justify-center font-black"
                     onClick={props.toggle}
                     color={ComponentHovereableColor.DANGER} revert />
-                <div className="flex justify-between items-start w-full text-light">
+                <div className="flex justify-between items-start w-full text-light z-100">
                     <div className="space-y-2 w-full">
                         <div className="flex justify-between w-full">
                             <Action
@@ -45,7 +45,6 @@ const ModalCardContent: FunctionComponent<ModalCardContentProps> = (props: Modal
                             />
                         </div>
                         <p className="text-xl">{props.item.subtitle}</p>
-                        <p>//aca se va a poder editar cuantas temporadas/caps viste</p>
                     </div>
                 </div>
             </article>

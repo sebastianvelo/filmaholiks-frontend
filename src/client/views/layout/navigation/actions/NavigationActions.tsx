@@ -43,9 +43,9 @@ const NavigationActions: FunctionComponent<NavigationActionsProps> = (props: Nav
             <Action key={action.label} {...action} className={actionClassName} />
           ))}
         </div>
-        <div className="absolute bottom-16 left-4 items-center flex xl:relative xl:bottom-0 xl:left-0">
-          <ToggleTheme />
+        <div className="absolute bottom-16 left-4 items-center flex xl:relative xl:bottom-0 xl:-left-4 space-x-2">
           {props.menu && <NavigationMenu {...props.menu} />}
+          <ToggleTheme />
         </div>
       </div>
     </div>

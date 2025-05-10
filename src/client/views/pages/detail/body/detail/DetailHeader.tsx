@@ -18,7 +18,7 @@ const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderP
         .build();
 
     return (
-        <div className="relative w-full">
+        <div className="relative w-full 2xl:mb-16">
             <DetailPosters {...props} />
             <DetailContent {...props} />
             {trailerPlaying && props.video && (

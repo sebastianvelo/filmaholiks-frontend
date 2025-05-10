@@ -1,3 +1,4 @@
+import TabsContainer from "client/common/components/modern-tabs/TabsContainer";
 import Section from "client/views/components/section/Section";
 import Watchlist, { WatchlistProps } from "client/views/components/watch-list/Watchlist";
 import { FunctionComponent } from "react";
@@ -15,8 +16,9 @@ const DetailWatchlist: FunctionComponent<DetailWatchlistProps> = (props: DetailW
     props.watchlists ?
         (
             <>
-                <TabsWrapper
+                <TabsContainer
                     tabs={props.watchlists.map((tab) => ({
+                        id: `wl-${tab.title}`,
                         label: tab.title,
                         content: (
                             <Section>

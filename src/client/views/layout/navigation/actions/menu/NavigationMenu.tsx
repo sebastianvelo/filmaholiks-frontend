@@ -12,14 +12,14 @@ export interface MenuProps {
 const NavigationMenu: React.FC<MenuProps> = (props: MenuProps) => true ? (
     <Dropdown trigger={
         <Image
-            className={`h-10 w-10 rounded-full shadow-lg ring-2 ring-secondary-500 dark:ring-primary-400 
+            className={`h-8 w-8 rounded-full shadow-lg ring-2 ring-secondary-500 dark:ring-primary-400 
             ring-offset-2 ring-offset-white dark:ring-offset-black mx-2 
             transition-all duration-300 hover:scale-105 cursor-pointer`}
         {...props.toggler}
         />
     }>
-        <div className={`flex flex-col absolute space-y-1 z-40 right-0 top-14 w-56 py-3 
-            bg-white/80 dark:bg-black/80 backdrop-filter backdrop-blur-xl 
+        <div className={`flex flex-col absolute space-y-1 z-40 right-16 top-8 w-56 py-3 
+            bg-white/90 dark:bg-black/90 backdrop-filter backdrop-blur-xl 
             rounded-lg shadow-xl border border-gray-100 dark:border-gray-800
             transform transition-all duration-300`}>
             {props.options.map((link, index) => (

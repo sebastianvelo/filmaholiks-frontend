@@ -1,6 +1,6 @@
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
-import ActionCard from "./content/action/ActionCard";
+import ActionCardButton from "./content/action/ActionCardButton";
 
 export interface MenuCardContentProps {
     opened: boolean;
@@ -17,8 +17,7 @@ const MenuCardContent: FunctionComponent<MenuCardContentProps> = (props: MenuCar
 
     return (
         <div className={menuContentClassName} onMouseLeave={() => props.setOpen(false)}>
-            <ActionCard {...props} />
-            <props.ModalTrigger />
+            <ActionCardButton {...props} />
         </div>
     );
 }

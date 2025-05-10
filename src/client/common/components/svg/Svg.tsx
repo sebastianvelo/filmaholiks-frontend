@@ -1,3 +1,5 @@
+import React from "react";
+
 export const IconLocation: React.FC = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -54,7 +56,7 @@ export const IconDrag: React.FC = () => (
 );
 
 export const IconAdd: React.FC = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
     </svg>
 );
@@ -118,3 +120,55 @@ export const IconLogout: React.FC = () => (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
     </svg>
 );
+
+export const LineDivider: React.FC = () => (
+    <div className={`w-full flex items-center justify-center py-4`}>
+        <svg
+            className="w-full h-6"
+            viewBox="0 0 400 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            {/* Línea central */}
+            <line
+                x1="0" y1="12"
+                x2="400" y2="12"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="text-secondary-500 dark:text-primary-500"
+            />
+
+            {/* Elemento decorativo izquierdo */}
+            <circle
+                cx="40"
+                cy="12"
+                r="4"
+                fill="currentColor"
+                className="text-secondary-600 dark:text-primary-400"
+            />
+
+            {/* Elemento decorativo central */}
+            <circle
+                cx="40"
+                cy="12"
+                r="4"
+                fill="currentColor"
+                className="text-secondary-600 dark:text-primary-400"
+            />
+
+            {/* Elemento decorativo derecho */}
+            <circle
+                cx="360"
+                cy="12"
+                r="4"
+                fill="currentColor"
+                className="text-secondary-600 dark:text-primary-400"
+            />
+
+            {/* Pequeños puntos decorativos */}
+            <circle cx="100" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
+            <circle cx="160" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
+            <circle cx="240" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
+            <circle cx="300" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
+        </svg>
+    </div>
+)

@@ -1,5 +1,6 @@
 import Headline from "@atom/headline/Headline";
 import Tailwind from "@tailwind-helper/Tailwind";
+import { LineDivider } from "client/common/components/svg/Svg";
 import { FunctionComponent } from "react";
 
 interface SectionProps {
@@ -9,10 +10,10 @@ interface SectionProps {
 
 const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
     const className = Tailwind.builder()
-        .add("px-4 space-y-8 w-full")
+        .add("space-y-8 w-full")
         .add("text-center lg:text-left")
         //.add("border-secondary-500 dark:border-primary-500 border-t-8 border-b-2")
-        .add("bg-black/20 dark:bg-white/10 backdrop-blur-xl rounded-md")
+        .add("bg-tertiary-900/10 dark:bg-tertiary-100/10 backdrop-blur-xl rounded-md")
         .build();
 
     return (
@@ -21,6 +22,7 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
             <section className={className}>
                 {props.children}
             </section>
+            <LineDivider />
         </div>
     );
 }

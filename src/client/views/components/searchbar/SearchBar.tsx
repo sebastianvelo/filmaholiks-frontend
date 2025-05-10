@@ -47,6 +47,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({ placeholder, path, hide 
         //.add("flex items-center justify-center w-full")
         .add("fixed bottom-0 w-full h-max xl:top-16 z-40")
         .add("bg-white/50 dark:bg-black/50")
+        .add("xl:mb-12")
         .build();
 
     return (

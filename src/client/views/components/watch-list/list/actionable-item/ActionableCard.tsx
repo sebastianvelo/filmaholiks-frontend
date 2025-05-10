@@ -1,12 +1,12 @@
+import CardHorizontal, { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import CardHorizontal, { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
-import ActionCard, { ActionItemProps } from "./menu/content/action/ActionCard";
-import DragCardButton from "./menu/content/drag/DragCard";
+import ActionCardButton, { ActionCardButtonProps } from "./menu/content/action/ActionCardButton";
+import DragCardButton from "./menu/content/drag/DragCardButton";
 import useMenuCard from "./menu/useMenuCard";
 import useModalCard from "./modal/useModalCard";
 
-export interface ActionableCardProps extends ActionItemProps {
+export interface ActionableCardProps extends ActionCardButtonProps {
     item: CardHorizontalProps;
     idx: number;
     listIdx?: number;
@@ -36,14 +36,14 @@ const ActionableCard: FunctionComponent<ActionableCardProps> = (props: Actionabl
                         <div className="relative">
                             <div className="flex flex-col justify-between h-full">
                                 <DragCardButton {...props} />
-                                <MenuTrigger />
+                                <ActionCardButton {...props} />
                             </div>
                             <MenuContent />
                         </div>
                     )}
                     {props.listIdx === undefined && (
                         <div className="flex flex-col h-full">
-                            <ActionCard {...props} />
+                            <ActionCardButton {...props} />
                         </div>
                     )}
                 </div>
