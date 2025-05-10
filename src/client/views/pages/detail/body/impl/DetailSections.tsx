@@ -12,7 +12,7 @@ const DetailSections: FunctionComponent<DetailSectionsProps> = (props: DetailSec
         (
             <>
                 <TabsContainer
-                    tabs={props.sections.map(section => ({
+                    tabs={props.sections.filter(section => (section.cards?.length ?? 0) > 0).map(section => ({
                         id: `sect-${section.title}`,
                         content: <CardsSection cards={section.cards} key={section.title} id={section.title?.split(" ")[0]} />,
                         label: section.title ?? "error"

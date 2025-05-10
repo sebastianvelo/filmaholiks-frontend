@@ -7,7 +7,6 @@ interface ActionableCardsProps {
     listIdx: number;
     deleteItem: (itemId: string | number, requiresConfirmation?: boolean) => void;
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
-    dynamic?: boolean;
 }
 
 const ActionableCards: FunctionComponent<ActionableCardsProps> = (props: ActionableCardsProps) =>

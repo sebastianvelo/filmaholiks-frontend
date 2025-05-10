@@ -21,7 +21,7 @@ const ActionCardButton: FunctionComponent<ActionCardButtonProps> = (props: Actio
         .add("border border-gray-200 dark:border-gray-700")
         .add("text-gray-600 dark:text-gray-300")
         .addIf("hover:bg-red-600 dark:hover:bg-red-600 hover:text-gray-200 h-12", props.delete)
-        .addIf("hover:bg-green-500 dark:hover:bg-green-500 hover:text-gray-200 h-full", !props.delete)
+        .addIf("hover:bg-green-500 dark:hover:bg-green-600 hover:text-gray-200 h-full", !props.delete)
         .build();
 
     return (

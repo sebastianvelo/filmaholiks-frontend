@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-
   .brand {
-    /* font-family: 'Rubik Dirt', cursive;*/
-    /* font-family: 'Rubik Burned', cursive;*/
-    font-family: "Secular One", sans-serif;
+     font-family: 'Bebas Neue', sans-serif; /*esta es medio netflix*/
+    /*font-family: "Oswald", sans-serif;*/
+    /*font-family: 'Rubik Burned', cursive;*/
+    /*font-family: "Secular One", sans-serif;*/
   }
   .swal2-confirm.swal2-styled {
     background-color: #205675 !important;
   }
 }
-

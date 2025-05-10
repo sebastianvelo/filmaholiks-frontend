@@ -48,7 +48,7 @@ const ColumnSearchbar: FunctionComponent<ColumnSearchbarProps> = (props: ColumnS
 
     return (
         <form className="group relative w-full">
-            <Input revert className={inputClassName} placeholder={`Add show to ${props.title}`} onChange={(e) => handleSearch(e.target.value)} />
+            <Input revert className={inputClassName} placeholder={`Search...`} onChange={(e) => handleSearch(e.target.value)} />
             <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </form>
     );

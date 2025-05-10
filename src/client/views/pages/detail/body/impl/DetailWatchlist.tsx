@@ -16,7 +16,7 @@ const DetailWatchlist: FunctionComponent<DetailWatchlistProps> = (props: DetailW
     return (
         props.watchlists ?
             (
-                <div className="mt-36 space-y-4">
+                <div className="mt-6 space-y-4">
                     {props.watchlists.map((tab, idx) => (
                         <>
                             <WatchlistSection key={tab.title} {...tab} />

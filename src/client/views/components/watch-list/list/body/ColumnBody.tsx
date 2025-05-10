@@ -9,12 +9,12 @@ export interface ColumnBodyProps {
     listIdx: number;
     deleteItem: (itemId: string | number, requiresConfirmation?: boolean) => void;
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
-    dynamic?: boolean;
+    isEditing?: boolean;
 }
 
 const ColumnBody: FunctionComponent<ColumnBodyProps> = (props: ColumnBodyProps) => (
-    <div className="space-y-2 overflow-y-auto h-full text-dark p-2 scrollbar">
-        {props.dynamic ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
+    <div className="space-y-2 overflow-y-auto  xl:w-96 h-full text-dark p-2 scrollbar">
+        {props.isEditing ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
         {!props.items.length && <EmptyCards />}
     </div>
 );

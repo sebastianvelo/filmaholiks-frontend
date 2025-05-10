@@ -16,9 +16,9 @@ const DetailContent: FunctionComponent<DetailContentProps> = (props: DetailConte
         <div className="flex flex-col lg:flex-row gap-8">
             <DetailContentPoster {...props} />
             <div className="flex-1 backdrop-blur-md bg-white/70 dark:bg-black/30 rounded-2xl p-6 border border-white/10 shadow-xl">
+                <DetailActions {...props.actions} />
                 {props.header && (<DetailContentHeader {...props.header} mediaType={props.actions?.watchlistButton?.mediaType} />)}
                 {props.description && (<DetailContentDescription {...props.description} />)}
-                <DetailActions {...props.actions} />
                 {props.info && props.info.data && props.info.data.length > 0 && <DetailContentInfo {...props.info} />}
             </div>
         </div>

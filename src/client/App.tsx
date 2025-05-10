@@ -14,7 +14,7 @@ const App: FunctionComponent = () => {
   const blueprint = useAppBlueprint();
 
   return (
-    <div className={`scrollbar font-sans max-w-screen overflow-x-hidden bg-gradient-to-b from-slate-100 via-white to-slate-100 dark:from-slate-950 dark:via-black dark:to-slate-950`}>
+    <div className={`scrollbar font-sans max-w-screen overflow-x-hidden bg-gradient-to-b from-slate-200 via-white to-slate-200 dark:from-black dark:via-slate-950 dark:to-black`}>
       <Navigation {...blueprint.navigation} />
       <Main {...blueprint.main} />
       <Footer {...blueprint.footer} />

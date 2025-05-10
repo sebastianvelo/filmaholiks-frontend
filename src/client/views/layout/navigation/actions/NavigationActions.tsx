@@ -30,7 +30,7 @@ const NavigationActions: FunctionComponent<NavigationActionsProps> = (props: Nav
     .build();
 
   const actionClassName = Tailwind.builder()
-    .add("px-4 py-2 text-xl")
+    .add("px-4 py-2 text-xl font-bold")
     .add("text-secondary-700 hover:text-secondary-500")
     .add("dark:text-primary-300 dark:hover:text-primary-500")
     .build();

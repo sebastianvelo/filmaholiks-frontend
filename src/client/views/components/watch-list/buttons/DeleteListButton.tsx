@@ -5,7 +5,7 @@ import { FunctionComponent } from "react";
 
 const buttonClasses = Tailwind.builder()
     .add("hidden md:flex justify-center items-center cursor-pointer")
-    .add("w-full rounded-br-lg")
+    .add("w-full rounded-br-md")
     .add("bg-gray-100 dark:bg-gray-800")
     .add("hover:bg-gray-200 dark:hover:bg-gray-700")
     .add("transition-all duration-200")

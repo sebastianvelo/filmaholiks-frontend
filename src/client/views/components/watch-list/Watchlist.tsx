@@ -12,18 +12,28 @@ export interface WatchlistProps {
     dynamic?: boolean;
     service: UseWatchlist;
     listService: (idx: number) => UseList;
+    isEditing: boolean;
 }
 
 const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">Empty!</p>
 
-const Watchlist: FunctionComponent<WatchlistProps> = ({ service, listService, dynamic }) => {
+const Watchlist: FunctionComponent<WatchlistProps> = ({ service, listService, dynamic, isEditing }) => {
+    const watchlistColumnProps = (list: WatchlistColumnProps, idx: number) => ({
+        ...list,
+        key: `column${idx}`,
+        listIdx: idx,
+        service: listService(idx),
+        dynamic,
+        isEditing
+    })
+
     return (
         <>
             <div className="hidden xl:block space-y-4">
                 {service.list.value?.length === 0 && <WatchListEmpty />}
                 <Carousel id="watchlist">
-                    {service.list.value?.map((list, idx: number) => (
-                        <WatchlistColumn {...list} key={`column${idx}`} listIdx={idx} service={listService(idx)} dynamic={dynamic} />
+                    {service.list.value?.map((list: WatchlistColumnProps, idx: number) => (
+                        <WatchlistColumn {...watchlistColumnProps(list, idx)} />
                     ))}
                 </Carousel>
             </div>
@@ -32,7 +42,7 @@ const Watchlist: FunctionComponent<WatchlistProps> = ({ service, listService, dy
                     service.list.value?.map((list, idx: number) => ({
                         id: `column-${list.title}`,
                         label: list.title,
-                        content: <WatchlistColumn {...list} key={`column${idx}`} listIdx={idx} service={listService(idx)} dynamic={dynamic} />
+                        content: <WatchlistColumn {...watchlistColumnProps(list, idx)} />
                     }))
                 } />
             </div>

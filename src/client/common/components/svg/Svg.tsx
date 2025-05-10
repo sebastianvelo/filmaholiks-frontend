@@ -106,7 +106,7 @@ export const IconMail: React.FC = () => (
 
 export const Search: React.FC = () => (
     <svg
-        className="w-5 h-5 text-tertiary-400 dark:text-tertiary-500 group-focus-within:text-blue-400 dark:group-focus-within:text-purple-400 transition-colors duration-300"
+        className="w-5 h-5 text-tertiary-400 dark:text-tertiary-500 group-focus-within:text-blue-400 dark:group-focus-within:text-primary-400 transition-colors duration-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -122,53 +122,15 @@ export const IconLogout: React.FC = () => (
 );
 
 export const LineDivider: React.FC = () => (
-    <div className={`w-full flex items-center justify-center py-4`}>
-        <svg
-            className="w-full h-6"
-            viewBox="0 0 400 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            {/* Línea central */}
-            <line
-                x1="0" y1="12"
-                x2="400" y2="12"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="text-secondary-500 dark:text-primary-500"
-            />
-
-            {/* Elemento decorativo izquierdo */}
-            <circle
-                cx="40"
-                cy="12"
-                r="4"
-                fill="currentColor"
-                className="text-secondary-600 dark:text-primary-400"
-            />
-
-            {/* Elemento decorativo central */}
-            <circle
-                cx="40"
-                cy="12"
-                r="4"
-                fill="currentColor"
-                className="text-secondary-600 dark:text-primary-400"
-            />
-
-            {/* Elemento decorativo derecho */}
-            <circle
-                cx="360"
-                cy="12"
-                r="4"
-                fill="currentColor"
-                className="text-secondary-600 dark:text-primary-400"
-            />
-
-            {/* Pequeños puntos decorativos */}
-            <circle cx="100" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
-            <circle cx="160" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
-            <circle cx="240" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
-            <circle cx="300" cy="12" r="2" fill="currentColor" className="text-secondary-500 dark:text-primary-500" />
-        </svg>
+    <div className="flex items-center w-full py-2 my-4">
+        <div className="flex-grow border-t border-tertiary-400/50 dark:border-tertiary-700/50"></div>
+        <div className="flex-shrink-0 mx-4 w-4 h-4 bg-secondary-800/80 dark:dark:bg-primary-500/80 rounded-full"></div>
+        <div className="flex-grow border-t border-tertiary-400/50 dark:border-tertiary-700/50"></div>
     </div>
-)
+);
+
+export const IconDraw: React.FC = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z" />
+    </svg>
+);

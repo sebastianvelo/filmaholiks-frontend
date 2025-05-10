@@ -10,6 +10,7 @@ import ColumnSearchbar from "./search/ColumnSearchbar";
 export interface WatchlistColumnProps {
     title?: string;
     dynamic?: boolean;
+    isEditing?: boolean;
     items: CardHorizontalModel[];
     listIdx: number;
     order: number;
@@ -30,7 +31,7 @@ const WatchlistColumn: FunctionComponent<WatchlistColumnProps> = (props: Watchli
     const className = Tailwind.builder()
         .add("flex flex-col justify-start")
         .add("rounded-sm")
-        .add("max-h-screen xl:h-screen w-full xl:w-96")
+        .add("max-h-screen xl:h-screen w-full")
         .add("bg-tertiary-50/70 dark:bg-black/80 backdrop-blur-md")
         .build();
 
