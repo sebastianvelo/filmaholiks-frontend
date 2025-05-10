@@ -1,5 +1,5 @@
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { useState } from "react";
-import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
 import MenuCardContent from "./MenuCardContent";
 import MenuCardTrigger from "./MenuCardTrigger";
 

@@ -1,8 +1,8 @@
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import CardHorizontal, { CardHorizontalProps } from "../../../../../common/components/card-horizontal/CardHorizontal";
+import CardHorizontal, { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import ActionCard, { ActionItemProps } from "./menu/content/action/ActionCard";
-import DragCard from "./menu/content/drag/DragCard";
+import DragCardButton from "./menu/content/drag/DragCard";
 import useMenuCard from "./menu/useMenuCard";
 import useModalCard from "./modal/useModalCard";
 
@@ -35,7 +35,7 @@ const ActionableCard: FunctionComponent<ActionableCardProps> = (props: Actionabl
                     {props.listIdx !== undefined && (
                         <div className="relative">
                             <div className="flex flex-col justify-between h-full">
-                                <DragCard {...props} />
+                                <DragCardButton {...props} />
                                 <MenuTrigger />
                             </div>
                             <MenuContent />

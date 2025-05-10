@@ -3,7 +3,7 @@ import Image from "@atom/image/Image";
 import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
-import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 
 export interface ModalCardContentProps {
     opened: boolean;

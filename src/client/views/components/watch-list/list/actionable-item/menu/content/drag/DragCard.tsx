@@ -1,18 +1,17 @@
 import Action from "@atom/action/Action";
 import { IconDrag } from "@components/svg/Svg";
-import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
-import { CardHorizontalProps } from "../../../../../../../../common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 
-export interface DragCardProps {
+export interface DragCardButtonProps {
     item: CardHorizontalProps;
     delete?: boolean;
     listIdx?: number;
     idx: number;
 }
 
-const DragCard: FunctionComponent<DragCardProps> = (props: DragCardProps) => {
+const DragCardButton: FunctionComponent<DragCardButtonProps> = (props: DragCardButtonProps) => {
     if (props.listIdx === undefined) return <></>;
 
     const getImage = () => {
@@ -29,12 +28,14 @@ const DragCard: FunctionComponent<DragCardProps> = (props: DragCardProps) => {
     };
 
     return (
-        <Action className="hidden md:flex justify-center items-center cursor-move h-10" color={ComponentHovereableColor.NORMAL} >
-            <div draggable={true} onDragStart={onDragStart}>
-                <IconDrag />
+        <Action className="hidden md:flex justify-center items-center cursor-move h-12 w-12 rounded-tr-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700">
+            <div draggable={true} onDragStart={onDragStart} className="flex items-center justify-center w-full h-full">
+                <div className="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">
+                    <IconDrag />
+                </div>
             </div>
         </Action>
     );
 }
 
-export default DragCard;
+export default DragCardButton;

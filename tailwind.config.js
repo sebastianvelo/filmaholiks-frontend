@@ -14,8 +14,6 @@ module.exports = {
         'opacity': 'opacity'
       },
       colors: {
-        teal: colors.teal,
-        orange: colors.orange,
         primary: colors.indigo,
         secondary: colors.blue,
         tertiary: colors.slate,
@@ -40,8 +38,8 @@ module.exports = {
           dark: colors.gray[300],
         },
         dark: {
-          DEFAULT: colors.blueGray[900],
-          light: colors.blueGray[800],
+          DEFAULT: colors.slate[900],
+          light: colors.slate[800],
         },
       },
       cursor: {

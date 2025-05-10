@@ -60,7 +60,7 @@ const TabsContainer: React.FC<TabsContainerProps> = ({
 
     const displayIndex = transitioning ? previousIndexRef.current : currentIndex;
     const activeTab = tabs[displayIndex];
-    let activeContent = activeTab.content;
+    let activeContent = activeTab?.content;
 
     const animationClasses = getAnimationClasses(slideDirection, transitioning);
     const contentClasses = `transition-all duration-${animationDuration} ${animationClasses} ${contentClassName}`;

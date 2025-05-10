@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import ModalCardContent from "./ModalCardContent";
 import ModalCardTrigger from "./ModalCardTrigger";
 

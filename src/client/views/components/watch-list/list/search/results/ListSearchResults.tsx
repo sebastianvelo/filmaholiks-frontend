@@ -1,7 +1,7 @@
 import Loading from "@components/loading/Loading";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { FunctionComponent } from "react";
-import { CardHorizontalProps } from "../../../../../../common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import ActionableCard, { ActionableCardProps } from "../../actionable-item/ActionableCard";
 
 interface ListSearchResultsProps {

@@ -3,7 +3,7 @@ import Input from "@components/form/input/Input";
 import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
 import { FunctionComponent, useState } from "react";
-import { CardHorizontalProps } from "../../../../../common/components/card-horizontal/CardHorizontal";
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { ActionableCardProps } from "../actionable-item/ActionableCard";
 import ListSearchResults from "./results/ListSearchResults";
 
@@ -39,14 +39,14 @@ const ListSearchItems: FunctionComponent<ListSearchItemsProps> = (props: ListSea
 
     const inputClassName = Tailwind.builder()
         .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
-        .add('dark:bg-secondary-900 bg-secondary-200 dark:placeholder-opacity-50 placeholder-secondary-900 dark:placeholder-primary-100')
+        .add('dark:bg-tertiary-900 bg-tertiary-200 dark:placeholder-opacity-50 placeholder-tertiary-900 dark:placeholder-primary-100')
         .add('focus:outline-none')
         .add("rounded-sm")
         .add('dark:text-white text-black')
         .build();
 
     return (
-        <form className="group relative w-full p-2">
+        <form className="group relative w-full pb-2">
             <Input revert className={inputClassName} placeholder={"Add show"} onChange={(e) => handleSearch(e.target.value)} />
             <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </form>
