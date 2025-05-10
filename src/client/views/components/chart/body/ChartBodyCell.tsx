@@ -50,7 +50,7 @@ const getClassName = (props: ChartBodyCellProps) => Tailwind.builder()
     .add(`bg-gradient-to-br`)
     .add("p-3 w-full group relative")
     .add("hover:border-primary-500 hover:shadow-lg hover:shadow-primary-500/20 hover:z-10")
-    .add("border box-border transition-all duration-300 cursor-pointer rounded-md")
+    .add("border box-border transition-all duration-300 cursor-pointer")
     .add("flex items-center justify-center")
     .build();
 

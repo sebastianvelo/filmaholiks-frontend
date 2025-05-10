@@ -12,7 +12,7 @@ const CardVertical: FunctionComponent<CardVerticalProps> = ({ image, path, title
     const className = Tailwind.builder()
         .add("flex flex-col justify-between space-y-3")
         .add("w-40 sm:w-48 lg:w-52 p-4")
-        .add("bg-white/50 dark:bg-black/50 backdrop-blur-md")
+        .add("bg-white/80 dark:bg-black/80 backdrop-blur-md")
         .add("border border-secondary-500/30 dark:border-white/10")
         .add("rounded-lg")
         .add("shadow-lg shadow-black/20 dark:shadow-sm dark:shadow-white/10 hover:shadow-xl")
@@ -32,10 +32,10 @@ const CardVertical: FunctionComponent<CardVerticalProps> = ({ image, path, title
                 </Action>
             )}
             <div className="text-center">
-                <Headline className="truncate text-lg font-semibold group-hover:text-secondary-900 dark:group-hover:text-primary-100">
+                <Headline className="truncate text-sm md:text-lg font-semibold group-hover:text-secondary-900 dark:group-hover:text-primary-100">
                     <Action path={path} label={title} revert />
                 </Headline>
-                <Text className="mt-1 text-sm text-tertiary-700 dark:text-tertiary-300">
+                <Text className="mt-1 text-xs md:text-sm text-tertiary-700 dark:text-tertiary-300">
                     {subtitle}
                 </Text>
             </div>
