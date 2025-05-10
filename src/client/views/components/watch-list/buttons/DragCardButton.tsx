@@ -30,7 +30,7 @@ const DragCardButton: FunctionComponent<DragCardButtonProps> = (props: DragCardB
     return (
         <Action className="hidden md:flex justify-center items-center cursor-move h-8 w-full rounded-tr-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700">
             <div draggable={true} onDragStart={onDragStart} className="flex items-center justify-center w-full h-full">
-                <div className="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">
+                <div className="text-gray-600 dark:text-gray-100 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">
                     <IconDrag />
                 </div>
             </div>

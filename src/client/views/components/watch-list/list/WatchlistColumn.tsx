@@ -4,7 +4,6 @@ import Tailwind from "@tailwind-helper/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { FunctionComponent } from "react";
 import ColumnBody from "./body/ColumnBody";
-import ColumnFooter from "./footer/ColumnFooter";
 import ColumnHeader from "./header/ColumnHeader";
 import ColumnSearchbar from "./search/ColumnSearchbar";
 
@@ -31,16 +30,15 @@ const WatchlistColumn: FunctionComponent<WatchlistColumnProps> = (props: Watchli
     const className = Tailwind.builder()
         .add("flex flex-col justify-start")
         .add("rounded-sm")
-        .add("max-h-screen md:h-screen w-full md:w-96")
-        .add("bg-tertiary-50 dark:bg-tertiary-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 dark:bg-opacity-90")
+        .add("max-h-screen xl:h-screen w-full xl:w-96")
+        .add("bg-tertiary-50/70 dark:bg-black/80 backdrop-blur-md")
         .build();
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
+            {props.dynamic && <ColumnSearchbar {...props.service} title={props.title} />}
             <ColumnHeader {...props.service} {...props} size={props.items.length} />
-            {props.dynamic && <ColumnSearchbar {...props.service} />}
             <ColumnBody {...props.service} {...props} />
-            {props.dynamic && <ColumnFooter {...props.service} />}
         </section >
     );
 }

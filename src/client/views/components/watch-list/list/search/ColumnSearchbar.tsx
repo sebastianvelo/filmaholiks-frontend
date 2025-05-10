@@ -1,13 +1,14 @@
-import { AxiosRequestConfig } from "axios";
-import Input from "@components/form/input/Input";
-import Tailwind from "@tailwind-helper/Tailwind";
-import useFetch from "@hooks/useFetch";
-import { FunctionComponent, useState } from "react";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
-import { ActionableCardProps } from "../actionable-item/ActionableCard";
+import Input from "@components/form/input/Input";
+import useFetch from "@hooks/useFetch";
+import Tailwind from "@tailwind-helper/Tailwind";
+import { AxiosRequestConfig } from "axios";
+import { FunctionComponent, useState } from "react";
+import { ActionableCardProps } from "../../cards/actionable-card/ActionableCard";
 import ListSearchResults from "./results/ListSearchResults";
 
 export interface ColumnSearchbarProps {
+    title?: string;
     addItem: (item: CardHorizontalProps) => void
     deleteItemOfOtherList: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
     searchItems: (query: string) => AxiosRequestConfig<any>;
@@ -46,8 +47,8 @@ const ColumnSearchbar: FunctionComponent<ColumnSearchbarProps> = (props: ColumnS
         .build();
 
     return (
-        <form className="group relative w-full pb-2">
-            <Input revert className={inputClassName} placeholder={"Add show"} onChange={(e) => handleSearch(e.target.value)} />
+        <form className="group relative w-full">
+            <Input revert className={inputClassName} placeholder={`Add show to ${props.title}`} onChange={(e) => handleSearch(e.target.value)} />
             <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
         </form>
     );

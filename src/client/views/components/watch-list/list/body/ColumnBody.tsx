@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
-import ActionableCards from "./actionable/ActionableCards";
-import EmptyCards from "./empty/EmptyCards";
-import ReadOnlyCards from "./read-only/ReadOnlyCards";
+import ActionableCards from "../../cards/actionable-card/ActionableCards";
+import EmptyCards from "../../cards/empty/EmptyCards";
+import ReadOnlyCards from "../../cards/read-only/ReadOnlyCards";
 
 export interface ColumnBodyProps {
     items: CardHorizontalProps[];
@@ -13,7 +13,7 @@ export interface ColumnBodyProps {
 }
 
 const ColumnBody: FunctionComponent<ColumnBodyProps> = (props: ColumnBodyProps) => (
-    <div className="space-y-2 overflow-y-auto h-full text-dark px-2">
+    <div className="space-y-2 overflow-y-auto h-full text-dark p-2 scrollbar">
         {props.dynamic ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
         {!props.items.length && <EmptyCards />}
     </div>

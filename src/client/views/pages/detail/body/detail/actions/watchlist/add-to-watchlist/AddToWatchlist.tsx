@@ -34,7 +34,7 @@ const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatc
         <div className="relative">
             <Action label="+ Add" className={triggerClassName} revert onClick={toggle} />
             <div className={modalClassName} onClick={toggle}>
-                <article className="bg-primary-50 dark:bg-black py-2 px-2 rounded-md space-y-8 overflow-y-auto bg-opacity-60">
+                <article className="bg-primary-50/60 dark:bg-black/60 py-2 px-2 rounded-md space-y-8 overflow-y-auto scrollbar">
                     <div className="flex flex-col space-y-2">
                         {props.lists.map((list, idx) => (
                             <Action key={list.title} onClick={() => props.save(idx)} className={`${actionClassName} text-sm`} label={list.title} />

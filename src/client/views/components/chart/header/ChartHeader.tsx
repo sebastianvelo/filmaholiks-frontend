@@ -8,7 +8,7 @@ export interface ChartHeaderProps {
 const ChartHeader: FunctionComponent<ChartHeaderProps> = (props: ChartHeaderProps) => (
     <div className="flex">
         <ChartHeaderCell value={`E`} />
-        {props.header?.map(value => <ChartHeaderCell value={value} />)}
+        {props.header?.map(value => <ChartHeaderCell key={`chart-header-${value}`} value={value} />)}
     </div>
 );
 

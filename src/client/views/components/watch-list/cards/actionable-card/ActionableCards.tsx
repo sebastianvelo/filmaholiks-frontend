@@ -1,6 +1,6 @@
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import { FunctionComponent } from "react";
-import ActionableCard from "../../actionable-item/ActionableCard";
+import ActionableCard from "./ActionableCard";
 
 interface ActionableCardsProps {
     items: CardHorizontalProps[];

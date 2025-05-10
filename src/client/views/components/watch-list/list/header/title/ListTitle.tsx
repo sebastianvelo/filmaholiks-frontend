@@ -10,7 +10,7 @@ const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
     props.dynamic ?
         (
             <input
-                className="bg-transparent text-lg font-black focus:outline-none cursor-text w-full p-4"
+                className="bg-transparent text-lg focus:outline-none cursor-text w-full p-4"
                 spellCheck="false"
                 type="text"
                 name={props.title}
@@ -19,7 +19,7 @@ const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
             />
         ) :
         (
-            <p className="bg-transparent text-lg font-black focus:outline-none cursor-text w-64 truncate p-4">
+            <p className="bg-transparent text-lg focus:outline-none cursor-text w-64 truncate p-4">
                 {props.title}
             </p>
         )

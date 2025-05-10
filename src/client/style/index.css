@@ -1,31 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
-  .list-none {
-    list-style-type: none;
-  }
-  .list-none::-webkit-details-marker {
-    display: none;
-  }
-  /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #205675 #072d45;
-  }
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
-  *::-webkit-scrollbar-track {
-    background: #072d45;
-  }
-  *::-webkit-scrollbar-thumb {
-    background-color: #205675;
-    border-radius: 1px;
-    border: 0px solid #ffffff;
-  }
+
   .brand {
     /* font-family: 'Rubik Dirt', cursive;*/
     /* font-family: 'Rubik Burned', cursive;*/
@@ -35,5 +13,4 @@
     background-color: #205675 !important;
   }
 }
-/*# sourceMappingURL=index.css.map */
 

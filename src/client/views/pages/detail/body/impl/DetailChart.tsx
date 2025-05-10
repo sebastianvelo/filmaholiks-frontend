@@ -9,7 +9,7 @@ export interface DetailChartProps {
 const DetailChart: FunctionComponent<DetailChartProps> = (props: DetailChartProps) => (
     props.charts ?
         (
-            <div className="overflow-y-auto">
+            <div className="overflow-y-auto scrollbar">
                 <TabsContainer
                     tabs={props.charts?.map(chart => ({
                         id: `tab-${chart.title}`,

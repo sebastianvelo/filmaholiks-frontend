@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
@@ -59,5 +60,30 @@ module.exports = {
       opacity: ['group-hover']
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities, theme }) {
+        addUtilities({
+            '.scrollbar': {
+                '&::-webkit-scrollbar': {
+                    width: theme('spacing.1'),
+                    height: theme('spacing.1'),
+                },
+                '&::-webkit-scrollbar-track': {
+                    borderRadius: theme('borderRadius.full'),
+                    backgroundColor: theme('colors.secondary.100'),
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    borderRadius: theme('borderRadius.full'),
+                    backgroundColor: theme('colors.secondary.300'),
+                },
+            },
+            '.dark .scrollbar::-webkit-scrollbar-track': {
+                backgroundColor: theme('colors.primary.950'),
+            },
+            '.dark .scrollbar::-webkit-scrollbar-thumb': {
+                backgroundColor: theme('colors.primary.900'),
+            },
+        }, ['responsive']);
+    }),
+],
 };

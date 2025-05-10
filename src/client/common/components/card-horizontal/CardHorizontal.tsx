@@ -21,7 +21,7 @@ const CardHorizontal: FunctionComponent<CardHorizontalProps> = (props: CardHoriz
         </Action>
         <div className="space-y-2 flex flex-col justify-between py-3 pr-3 w-72 overflow-hidden">
             <Action
-                className="font-bold truncate text-left hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200"
+                className="font-bold truncate text-left hover:text-secondary-500 dark:hover:text-primary-400 transition-colors duration-200"
                 path={props.path}
                 label={props.title}
                 revert
