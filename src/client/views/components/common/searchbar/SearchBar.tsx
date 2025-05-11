@@ -66,7 +66,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({ placeholder, path, hide 
                         value={query}
                         placeholder={placeholder || "Buscar..."}
                         onChange={handleSearch}
-                        className={`w-full py-3 px-3 bg-transparent text-white dark:text-tertiary-100 placeholder-tertiary-500 dark:placeholder-tertiary-500 focus:outline-none text-base md:text-lg`}
+                        className={`w-full py-3 px-3 bg-transparent text-tertiary-900 dark:text-tertiary-100 placeholder-tertiary-500 dark:placeholder-tertiary-500 focus:outline-none text-base md:text-lg`}
                         spellCheck="false"
                         autoComplete="off"
                     />

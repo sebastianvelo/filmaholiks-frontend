@@ -1,32 +1,24 @@
 import { LineDivider } from "client/common/components/svg/Svg";
-import WatchlistSection from "client/views/components/watch-list/WatchlistSection";
-import { WatchlistProps } from "client/views/components/watch-list/Watchlist";
+import WatchlistSection, { WatchlistSectionProps } from "client/views/components/watch-list/WatchlistSection";
 import { FunctionComponent } from "react";
 
-export interface WatchlistTabProps extends WatchlistProps {
-    title: string;
-}
-
 export interface DetailWatchlistProps {
-    watchlists?: WatchlistTabProps[];
+    watchlists?: WatchlistSectionProps[];
 }
 
-const DetailWatchlist: FunctionComponent<DetailWatchlistProps> = (props: DetailWatchlistProps) => {
-
-    return (
-        props.watchlists ?
-            (
-                <div className="mt-6 space-y-4">
-                    {props.watchlists.map((tab, idx) => (
-                        <>
-                            <WatchlistSection key={tab.title} {...tab} />
-                            <LineDivider />
-                        </>
-                    ))}
-                </div>
-            ) :
-            <></>
-    )
-}
+const DetailWatchlist: FunctionComponent<DetailWatchlistProps> = (props: DetailWatchlistProps) => (
+    props.watchlists ?
+        (
+            <div className="mt-6 space-y-4">
+                {props.watchlists.map((tab, idx) => (
+                    <>
+                        <WatchlistSection key={tab.title} {...tab} />
+                        <LineDivider />
+                    </>
+                ))}
+            </div>
+        ) :
+        <></>
+);
 
 export default DetailWatchlist;
