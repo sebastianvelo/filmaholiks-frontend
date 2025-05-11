@@ -1,12 +1,11 @@
 import Action from "@atom/action/Action";
 import ActionProps from "@atom/action/ActionProps";
 import Tailwind from "@tailwind-helper/Tailwind";
-import NavigationMenu, { MenuProps } from "./menu/NavigationMenu";
+import LoggedUserMenu, { MenuProps } from "./menu/LoggedUserMenu";
 import ToggleTheme from "./toggleTheme/ToggleTheme";
 
 export interface NavigationActionsProps {
   actions?: ActionProps[];
-  toggleLinks?: () => void;
   isOpen?: boolean;
   menu?: MenuProps;
 }
@@ -43,7 +42,7 @@ const NavigationActions: React.FC<NavigationActionsProps> = (props: NavigationAc
           ))}
         </div>
         <div className="absolute bottom-20 left-4 items-center flex xl:relative xl:bottom-0 xl:-left-4 space-x-2">
-          {props.menu && <NavigationMenu {...props.menu} />}
+          {props.menu && <LoggedUserMenu {...props.menu} />}
           <ToggleTheme />
         </div>
       </div>

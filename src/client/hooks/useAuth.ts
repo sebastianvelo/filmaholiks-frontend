@@ -1,9 +1,10 @@
 import UserRequest from "api/request/user/UserRequest";
 import useFirebaseUser from "@hooks/useFirebaseUser";
 import { useState } from "react";
+import UserEntity from "@entity/user/UserEntity";
 
 interface UseAuthReturn {
-    user: any; // Tipo del usuario de Firebase
+    user: UserEntity | null;
     isLoading: boolean;
     email: string;
     password: string;

@@ -9,7 +9,7 @@ export interface MenuProps {
     options: ActionProps[];
 }
 
-const NavigationMenu: React.FC<MenuProps> = (props: MenuProps) => true ? (
+const LoggedUserMenu: React.FC<MenuProps> = (props: MenuProps) => (
     <Dropdown trigger={
         <Image
             className={`h-8 w-8 rounded-full shadow-lg ring-2 ring-secondary-500 dark:ring-primary-400 
@@ -37,6 +37,6 @@ const NavigationMenu: React.FC<MenuProps> = (props: MenuProps) => true ? (
             </div>
         </div>
     </Dropdown>
-) : <></>;
+);
 
-export default NavigationMenu;
+export default LoggedUserMenu;
