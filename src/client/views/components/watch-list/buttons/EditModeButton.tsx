@@ -1,6 +1,6 @@
 import Action from "@atom/action/Action";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { IconDraw } from "client/common/components/svg/Svg";
+import { IconDone, IconDraw } from "client/common/components/svg/Svg";
 import { FunctionComponent } from "react";
 
 const actionClasses = Tailwind.builder()
@@ -23,7 +23,7 @@ export interface EditModeButtonProps {
 const EditModeButton: FunctionComponent<EditModeButtonProps> = ({ isEditing, toggleEditing }) => {
     return (
         <Action onClick={toggleEditing} className={actionClasses} revert>
-            {!isEditing ? <IconDraw /> : "Finish"}
+            {!isEditing ? <IconDraw /> : <IconDone />}
         </Action>
     );
 }

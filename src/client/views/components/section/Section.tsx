@@ -4,6 +4,7 @@ import { FunctionComponent } from "react";
 
 interface SectionProps {
     title?: string;
+    header?: React.ReactNode;
     children: React.ReactNode | React.ReactNode[];
 }
 
@@ -17,7 +18,10 @@ const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
 
     return (
         <div className="space-y-6">
-            {props.title && <Headline className={`text-2xl md:text-4xl text-center lg:text-left`}>{props.title}</Headline>}
+            <div className="flex items-center space-x-4">
+                {props.title && <Headline className={`text-2xl md:text-4xl text-center lg:text-left`}>{props.title}</Headline>}
+                {props.header}
+            </div>
             <section className={className}>
                 {props.children}
             </section>
