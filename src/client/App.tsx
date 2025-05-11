@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import useAppBlueprint from "@hooks/useAppBlueprint";
 import Footer, { FooterProps } from "./views/layout/footer/Footer";
 import Main, { MainProps } from "./views/layout/main/Main";
@@ -10,7 +9,7 @@ export interface AppProps {
   footer: FooterProps;
 }
 
-const App: FunctionComponent = () => {
+const App: React.FC = () => {
   const blueprint = useAppBlueprint();
 
   return (

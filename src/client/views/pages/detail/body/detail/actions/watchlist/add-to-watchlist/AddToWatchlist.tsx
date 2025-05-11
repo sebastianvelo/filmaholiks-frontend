@@ -1,14 +1,14 @@
 import Action from "@atom/action/Action";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
-import { FunctionComponent, useState } from "react";
+import { useState } from "react";
 
 export interface AddToWatchlistProps {
     save: (listIdx: number) => void;
     lists: WatchlistColumnProps[];
 }
 
-const AddToWatchlist: FunctionComponent<AddToWatchlistProps> = (props: AddToWatchlistProps) => {
+const AddToWatchlist: React.FC<AddToWatchlistProps> = (props: AddToWatchlistProps) => {
     const [opened, setOpen] = useState(false);
     const toggle = () => setOpen(!opened);
 

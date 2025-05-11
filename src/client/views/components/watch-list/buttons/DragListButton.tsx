@@ -1,13 +1,12 @@
 import Action from "@atom/action/Action";
 import { IconDrag } from "@components/svg/Svg";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { FunctionComponent } from "react";
 
 interface DragListButtonProps {
     listIdx: number;
 }
 
-const DragListButton: FunctionComponent<DragListButtonProps> = (props: DragListButtonProps) => {
+const DragListButton: React.FC<DragListButtonProps> = (props: DragListButtonProps) => {
     const onDragStart: React.DragEventHandler<HTMLDivElement> = (event) => {
         WatchlistHelper.fromEvent.list.save(event, props.listIdx);
         const img = new Image();

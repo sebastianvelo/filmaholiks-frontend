@@ -1,5 +1,4 @@
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 
 interface SkeletonProps {
     className?: string;
@@ -7,7 +6,7 @@ interface SkeletonProps {
     loading?: boolean;
 }
  
-const Skeleton: FunctionComponent<SkeletonProps> = (props: SkeletonProps) => {
+const Skeleton: React.FC<SkeletonProps> = (props: SkeletonProps) => {
     const className = Tailwind.builder()
         .add('bg-primary-100 animate-pulse rounded-md')
         .add(props.className)

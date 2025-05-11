@@ -1,7 +1,6 @@
-import { AxiosRequestConfig } from "axios";
 import FetcherPage from "@components/fetcher/FetcherPage";
+import { AxiosRequestConfig } from "axios";
 import { DetailEpisodePageParams } from "client/types/params/Params";
-import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import DetailPage, { DetailPageProps } from "../DetailPage";
 
@@ -9,7 +8,7 @@ export interface DetailEpisodeWrapperPageProps {
     getPage: (id: string, season: string, episode: string) => AxiosRequestConfig<DetailPageProps>;
 }
 
-const DetailEpisodeWrapperPage: FunctionComponent<DetailEpisodeWrapperPageProps> = (props: DetailEpisodeWrapperPageProps) => {
+const DetailEpisodeWrapperPage: React.FC<DetailEpisodeWrapperPageProps> = (props: DetailEpisodeWrapperPageProps) => {
     const { id, season, episode }: DetailEpisodePageParams = useParams();
     
     return (

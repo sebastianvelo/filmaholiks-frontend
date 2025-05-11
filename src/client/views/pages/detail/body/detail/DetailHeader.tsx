@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { useState } from "react";
 import { DetailActionsProps } from "./actions/DetailActions";
 import DetailContent, { DetailContentProps } from "./content/DetailContent";
 import DetailPosters, { DetailPostersProps } from "./posters/DetailPosters";
@@ -7,7 +7,7 @@ export interface DetailHeaderProps extends DetailPostersProps, DetailContentProp
     actions?: DetailActionsProps;
 }
 
-const DetailHeader: FunctionComponent<DetailHeaderProps> = (props: DetailHeaderProps) => {
+const DetailHeader: React.FC<DetailHeaderProps> = (props: DetailHeaderProps) => {
     const [trailerPlaying, setTrailerPlaying] = useState(false);
 
     return (

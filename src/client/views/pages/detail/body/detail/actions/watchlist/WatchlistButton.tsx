@@ -1,8 +1,8 @@
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import useWatchlist from "@hooks/useWatchlist";
 import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
+import { useState } from "react";
 import MediaType from "shared/types/MediaType";
-import { FunctionComponent, useState } from "react";
-import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import AddToWatchlist from "./add-to-watchlist/AddToWatchlist";
 import DeleteToWatchlist from "./delete-to-watchlist/DeleteToWatchlist";
 
@@ -12,7 +12,7 @@ export interface WatchlistButtonProps extends CardHorizontalProps {
     lists: WatchlistColumnProps[];
 }
 
-const WatchlistButton: FunctionComponent<WatchlistButtonProps> = (props: WatchlistButtonProps) => {
+const WatchlistButton: React.FC<WatchlistButtonProps> = (props: WatchlistButtonProps) => {
     const service = useWatchlist(props.mediaType, props.lists);
     const [list, setList] = useState(props.list);
 

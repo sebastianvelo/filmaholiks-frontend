@@ -1,6 +1,5 @@
 import Tailwind from "@tailwind-helper/Tailwind";
 import $ from "jquery";
-import { FunctionComponent } from "react";
 import Action from "../../atom/action/Action";
 import { IconChevronLeft, IconChevronRight } from "../svg/Svg";
 
@@ -19,7 +18,7 @@ export interface CarouselControlProps {
     show: boolean;
 }
 
-const CarouselControl: FunctionComponent<CarouselControlProps> = (props: CarouselControlProps) => {
+const CarouselControl: React.FC<CarouselControlProps> = (props: CarouselControlProps) => {
     const className = Tailwind.builder()
         .add("z-20 absolute hidden md:block")
         .add("bg-secondary-500 hover:bg-secondary-900 text-light")

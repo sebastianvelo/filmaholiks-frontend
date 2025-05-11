@@ -2,7 +2,6 @@ import { UseList } from "@hooks/useList";
 import CardHorizontalModel from "@model/components/CardHorizontalModel";
 import Tailwind from "@tailwind-helper/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { FunctionComponent } from "react";
 import ColumnBody from "./body/ColumnBody";
 import ColumnHeader from "./header/ColumnHeader";
 import ColumnSearchbar from "./search/ColumnSearchbar";
@@ -17,7 +16,7 @@ export interface WatchlistColumnProps {
     service: UseList;
 }
 
-const WatchlistColumn: FunctionComponent<WatchlistColumnProps> = (props: WatchlistColumnProps) => {
+const WatchlistColumn: React.FC<WatchlistColumnProps> = (props: WatchlistColumnProps) => {
     const onDragOver: React.DragEventHandler<HTMLElement> = (event) => {
         event.preventDefault();
     };

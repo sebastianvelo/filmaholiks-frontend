@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import Row from "./row/Row";
 
 interface TableProps {
@@ -6,7 +5,7 @@ interface TableProps {
     rows: string[][];
 }
 
-const Table: FunctionComponent<TableProps> = (props: TableProps) => (
+const Table: React.FC<TableProps> = (props: TableProps) => (
         <table>
             <thead>
                 <tr>

@@ -1,11 +1,10 @@
-import Chart from "client/views/components/chart/Chart";
 import { ChartSectionModel } from "@model/components/section/Section";
-import { FunctionComponent } from "react";
+import Chart from "client/views/components/chart/Chart";
 import Section from "../section/Section";
 
 export interface ChartSectionProps extends ChartSectionModel { }
 
-const ChartSection: FunctionComponent<ChartSectionProps> = (props: ChartSectionProps) => (
+const ChartSection: React.FC<ChartSectionProps> = (props: ChartSectionProps) => (
     <Section title={props.title}>
         <Chart {...props.chart} />
     </Section>

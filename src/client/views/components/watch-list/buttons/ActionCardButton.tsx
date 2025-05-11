@@ -1,14 +1,13 @@
 import Action from "@atom/action/Action";
 import { IconAdd, IconTrash } from "@components/svg/Svg";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 
 export interface ActionCardButtonProps {
     action: (requiresConfirmation?: boolean) => void;
     delete?: boolean;
 }
 
-const ActionCardButton: FunctionComponent<ActionCardButtonProps> = (props: ActionCardButtonProps) => {
+const ActionCardButton: React.FC<ActionCardButtonProps> = (props: ActionCardButtonProps) => {
     const action = props.delete ? () => props.action(true) : () => props.action(false);
 
     const buttonClasses = Tailwind.builder()

@@ -1,12 +1,10 @@
-import { FunctionComponent } from "react";
-
 export interface ListTitleProps {
     title?: string;
     changeListTitle: (title: string) => void;
     dynamic?: boolean;
 }
 
-const ListTitle: FunctionComponent<ListTitleProps> = (props: ListTitleProps) =>
+const ListTitle: React.FC<ListTitleProps> = (props: ListTitleProps) =>
     props.dynamic ?
         (
             <input

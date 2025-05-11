@@ -2,7 +2,6 @@ import Carousel from "@components/carousel/Carousel";
 import { UseList } from "@hooks/useList";
 import { UseWatchlist } from "@hooks/useWatchlist";
 import TabsContainer from "client/common/components/modern-tabs/TabsContainer";
-import { FunctionComponent } from "react";
 import MediaType from "shared/types/MediaType";
 import WatchlistColumn, { WatchlistColumnProps } from "./list/WatchlistColumn";
 
@@ -17,7 +16,7 @@ export interface WatchlistProps {
 
 const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">Empty!</p>
 
-const Watchlist: FunctionComponent<WatchlistProps> = ({ service, listService, dynamic, isEditing }) => {
+const Watchlist: React.FC<WatchlistProps> = ({ service, listService, dynamic, isEditing }) => {
     const watchlistColumnProps = (list: WatchlistColumnProps, idx: number) => ({
         ...list,
         key: `column${idx}`,

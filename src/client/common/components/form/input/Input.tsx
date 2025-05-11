@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import Tailwind from "@tailwind-helper/Tailwind";
 
 interface InputProps {
@@ -11,7 +10,7 @@ interface InputProps {
     disabled?: boolean;
 }
 
-const Input: FunctionComponent<InputProps> = (props: InputProps) => {
+const Input: React.FC<InputProps> = (props: InputProps) => {
     const className = Tailwind.builder()
         .add('px-4 py-4 transition-color duration-500 cursor-pointer w-full')
         .addIf('bg-secondary-dark dark:bg-primary placeholder-opacity-50 dark:placeholder-secondary-dark placeholder-primary-light', !props.revert)

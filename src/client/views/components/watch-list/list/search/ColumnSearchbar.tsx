@@ -3,7 +3,7 @@ import Input from "@components/form/input/Input";
 import useFetch from "@hooks/useFetch";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { AxiosRequestConfig } from "axios";
-import { FunctionComponent, useState } from "react";
+import { useState } from "react";
 import { ActionableCardProps } from "../../cards/actionable-card/ActionableCard";
 import ListSearchResults from "./results/ListSearchResults";
 
@@ -14,7 +14,7 @@ export interface ColumnSearchbarProps {
     searchItems: (query: string) => AxiosRequestConfig<any>;
 }
 
-const ColumnSearchbar: FunctionComponent<ColumnSearchbarProps> = (props: ColumnSearchbarProps) => {
+const ColumnSearchbar: React.FC<ColumnSearchbarProps> = (props: ColumnSearchbarProps) => {
     const [query, setQuery] = useState('');
     const [url, setUrl] = useState(props.searchItems(query));
     const response = useFetch<ActionableCardProps[]>(url, true);

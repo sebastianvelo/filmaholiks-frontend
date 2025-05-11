@@ -1,5 +1,4 @@
 import useAuth from "@hooks/useAuth";
-import { FunctionComponent } from "react";
 import { Redirect } from "react-router";
 import { PageRouteBuilder } from "shared/routes/PageRoute";
 import LoginForm from "./form/LoginForm";
@@ -7,7 +6,7 @@ import GoogleLoginButton from "./google-login/GoogleLoginButton";
 
 export interface AuthPageProps { }
 
-const AuthPage: FunctionComponent<AuthPageProps> = () => {
+const AuthPage: React.FC<AuthPageProps> = () => {
     const {
         user,
         isLoading,

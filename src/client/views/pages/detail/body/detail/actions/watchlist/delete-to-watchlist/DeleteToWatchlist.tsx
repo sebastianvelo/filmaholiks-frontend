@@ -1,8 +1,6 @@
 import Action from "@atom/action/Action";
-import ComponentHovereableColor from "@tailwind-helper/constants/ComponentHovereableColor";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
-import { FunctionComponent } from "react";
 
 const actionClassName = Tailwind.builder()
     .add("px-6 py-2")
@@ -15,7 +13,7 @@ export interface DeleteToWatchlistProps {
     delete: () => void;
 }
 
-const DeleteToWatchlist: FunctionComponent<DeleteToWatchlistProps> = (props: DeleteToWatchlistProps) => (
+const DeleteToWatchlist: React.FC<DeleteToWatchlistProps> = (props: DeleteToWatchlistProps) => (
     <Action
         onClick={props.delete}
         label={`Delete from "${props.list.title}"`}

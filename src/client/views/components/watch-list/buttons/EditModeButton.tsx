@@ -1,7 +1,6 @@
 import Action from "@atom/action/Action";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { IconDone, IconDraw } from "client/common/components/svg/Svg";
-import { FunctionComponent } from "react";
 
 const actionClasses = Tailwind.builder()
     .add("hidden md:flex justify-center items-center")
@@ -20,7 +19,7 @@ export interface EditModeButtonProps {
     toggleEditing: () => void
 }
 
-const EditModeButton: FunctionComponent<EditModeButtonProps> = ({ isEditing, toggleEditing }) => {
+const EditModeButton: React.FC<EditModeButtonProps> = ({ isEditing, toggleEditing }) => {
     return (
         <Action onClick={toggleEditing} className={actionClasses} revert>
             {!isEditing ? <IconDraw /> : <IconDone />}

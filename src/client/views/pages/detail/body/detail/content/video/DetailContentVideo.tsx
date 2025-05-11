@@ -1,12 +1,10 @@
-import { FunctionComponent } from "react";
-
 export interface DetailContentVideoProps {
     title?: string;
     src?: string;
     className?: string;
 }
 
-const DetailContentVideo: FunctionComponent<DetailContentVideoProps> = (props: DetailContentVideoProps) => (
+const DetailContentVideo: React.FC<DetailContentVideoProps> = (props: DetailContentVideoProps) => (
     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
         <button
             //onClick={() => setTrailerPlaying(true)}

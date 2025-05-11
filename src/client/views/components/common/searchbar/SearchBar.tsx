@@ -1,6 +1,6 @@
 import { Search } from "@components/svg/Svg";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useHistory } from "react-router";
 import PageRoute from "shared/routes/PageRoute";
 
@@ -10,7 +10,7 @@ export interface SearchBarProps {
     hide?: boolean;
 }
 
-const SearchBar: FunctionComponent<SearchBarProps> = ({ placeholder, path, hide }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ placeholder, path, hide }) => {
     const [query, setQuery] = useState<string>("");
     const inputRef = useRef<HTMLInputElement>(null);
     const history = useHistory();

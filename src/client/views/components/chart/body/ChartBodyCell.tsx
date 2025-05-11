@@ -1,9 +1,7 @@
 import Image from "@atom/image/Image";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { ChartBodyCellModel } from "@model/components/ChartModel";
-import { FunctionComponent } from "react";
 
-// Gradientes para calificaciones C (Los más bajos)
 const topC = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-tertiary-700 to-tertiary-800 text-tertiary-100`, props.rating >= 1 && props.rating < 1.5)
     .addIf(`from-tertiary-600 to-tertiary-700 text-tertiary-100`, props.rating >= 1.5 && props.rating < 2)
@@ -13,7 +11,6 @@ const topC = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-red-600 to-red-500 text-white`, props.rating >= 3.5 && props.rating < 4)
     .build();
 
-// Gradientes para calificaciones B (Medianas-bajas)
 const topB = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-red-500 to-orange-600 text-white`, props.rating >= 4 && props.rating < 4.5)
     .addIf(`from-orange-600 to-orange-500 text-white`, props.rating >= 4.5 && props.rating < 5)
@@ -22,7 +19,6 @@ const topB = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-yellow-400 to-yellow-200 text-dark`, props.rating >= 6 && props.rating < 6.5)
     .build();
 
-// Gradientes para calificaciones A (Buenas)
 const topA = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-yellow-200 to-green-200 text-dark`, props.rating >= 6.5 && props.rating < 7)
     .addIf(`from-green-200 to-green-300 text-dark`, props.rating >= 7 && props.rating < 7.5)
@@ -30,7 +26,6 @@ const topA = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-green-400 to-green-500 text-dark`, props.rating >= 8 && props.rating < 8.5)
     .build();
 
-// Gradientes para calificaciones S (Excelentes)
 const topS = (props: ChartBodyCellProps) => Tailwind.builder()
     .addIf(`from-green-500 to-teal-400 text-dark`, props.rating >= 8.5 && props.rating < 9)
     .addIf(`from-teal-400 to-teal-600 text-white`, props.rating >= 9 && props.rating < 9.5)
@@ -87,7 +82,7 @@ export interface ChartBodyCellProps extends ChartBodyCellModel {
     toggle: () => void;
 }
 
-const ChartBodyCell: FunctionComponent<ChartBodyCellProps> = (props: ChartBodyCellProps) => {
+const ChartBodyCell: React.FC<ChartBodyCellProps> = (props: ChartBodyCellProps) => {
     const href = `${window.location.href}${props.href}`;
 
     return (
@@ -99,7 +94,7 @@ const ChartBodyCell: FunctionComponent<ChartBodyCellProps> = (props: ChartBodyCe
                 </div>
                 <Image className="w-full h-40 object-cover" {...props.image} />
                 <div className="p-2 text-sm font-normal dark:text-primary-300 text-secondary-700">
-                    <p>Rating: <span className="font-bold">{props.rating}</span> / 10</p>
+                    <p><span className="font-bold">{props.rating}</span> / 10</p>
                 </div>
             </a>
         </div>

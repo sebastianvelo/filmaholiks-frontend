@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import MediaType from "shared/types/MediaType";
 
 export interface DetailContentHeaderProps {
@@ -7,7 +6,7 @@ export interface DetailContentHeaderProps {
     mediaType?: MediaType;
 }
 
-const DetailContentHeader: FunctionComponent<DetailContentHeaderProps> = (props: DetailContentHeaderProps) => (
+const DetailContentHeader: React.FC<DetailContentHeaderProps> = (props: DetailContentHeaderProps) => (
     <div className="mb-6">
         <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-2 flex items-center">
             {props.title}

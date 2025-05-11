@@ -1,7 +1,6 @@
 import Action from "@atom/action/Action";
 import { IconTrash } from "@components/svg/Svg";
 import Tailwind from "client/helper/tailwind/Tailwind";
-import { FunctionComponent } from "react";
 
 const buttonClasses = Tailwind.builder()
     .add("hidden md:flex justify-center items-center cursor-pointer")
@@ -21,7 +20,7 @@ export interface DeleteListButtonProps {
     deleteList: () => void;
 }
 
-const DeleteListButton: FunctionComponent<DeleteListButtonProps> = (props: DeleteListButtonProps) => (
+const DeleteListButton: React.FC<DeleteListButtonProps> = (props: DeleteListButtonProps) => (
     <Action className={buttonClasses} onClick={props.deleteList} revert>
         <IconTrash />
     </Action>

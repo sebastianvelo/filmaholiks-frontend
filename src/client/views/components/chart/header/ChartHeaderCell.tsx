@@ -1,11 +1,10 @@
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 
 export interface ChartHeaderCellProps {
     value: string;
 }
 
-const ChartHeaderCell: FunctionComponent<ChartHeaderCellProps> = (props: ChartHeaderCellProps) => {
+const ChartHeaderCell: React.FC<ChartHeaderCellProps> = (props: ChartHeaderCellProps) => {
     const className = Tailwind.builder()
         .add(`bg-white text-tertiary-900`)
         .add(`dark:bg-black dark:text-tertiary-100`)

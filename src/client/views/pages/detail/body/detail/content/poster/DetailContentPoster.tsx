@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import { DetailPostersProps } from "../../posters/DetailPosters";
 import { DetailContentHeaderProps } from "../header/DetailContentHeader";
 import DetailContentVideo, { DetailContentVideoProps } from "../video/DetailContentVideo";
@@ -8,7 +7,7 @@ export interface DetailContentPosterProps extends DetailPostersProps {
     video?: DetailContentVideoProps;
 }
 
-const DetailContentPoster: FunctionComponent<DetailContentPosterProps> = (props: DetailContentPosterProps) => (
+const DetailContentPoster: React.FC<DetailContentPosterProps> = (props: DetailContentPosterProps) => (
     <div className="flex-shrink-0 w-64 mx-auto lg:mx-0">
         <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-blue-500 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>

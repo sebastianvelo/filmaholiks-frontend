@@ -1,7 +1,6 @@
 import Action from "@atom/action/Action";
 import { IconDrag } from "@components/svg/Svg";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 
 export interface DragCardButtonProps {
@@ -11,7 +10,7 @@ export interface DragCardButtonProps {
     idx: number;
 }
 
-const DragCardButton: FunctionComponent<DragCardButtonProps> = (props: DragCardButtonProps) => {
+const DragCardButton: React.FC<DragCardButtonProps> = (props: DragCardButtonProps) => {
     if (props.listIdx === undefined) return <></>;
 
     const getImage = () => {

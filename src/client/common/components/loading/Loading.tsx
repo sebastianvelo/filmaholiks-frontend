@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import Spinner from "./spinner/Spinner";
 
 interface LoadingProps {
@@ -6,7 +5,7 @@ interface LoadingProps {
     children: React.ReactNode | React.ReactNode[];
 }
 
-const Loading: FunctionComponent<LoadingProps> = (props: LoadingProps) => (
+const Loading: React.FC<LoadingProps> = (props: LoadingProps) => (
     <>
         {props.loading ? <Spinner /> : props.children}
     </>

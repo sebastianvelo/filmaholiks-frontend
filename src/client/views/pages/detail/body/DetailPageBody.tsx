@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import DetailHeader, { DetailHeaderProps } from "./detail/DetailHeader";
 import DetailChart, { DetailChartProps } from "./impl/DetailChart";
 import DetailSections, { DetailSectionsProps } from "./impl/DetailSections";
@@ -8,7 +7,7 @@ export interface DetailPageBodyProps extends DetailSectionsProps, DetailChartPro
     detail?: DetailHeaderProps;
 }
 
-const DetailPageBody: FunctionComponent<DetailPageBodyProps> = (props: DetailPageBodyProps) => (
+const DetailPageBody: React.FC<DetailPageBodyProps> = (props: DetailPageBodyProps) => (
     <section className="h-full w-full justify-center">
         <DetailHeader {...props.detail} />
         <div className="md:px-16 lg:px-32">

@@ -1,12 +1,11 @@
 import { LineDivider } from "client/common/components/svg/Svg";
 import WatchlistSection, { WatchlistSectionProps } from "client/views/components/watch-list/WatchlistSection";
-import { FunctionComponent } from "react";
 
 export interface DetailWatchlistProps {
     watchlists?: WatchlistSectionProps[];
 }
 
-const DetailWatchlist: FunctionComponent<DetailWatchlistProps> = (props: DetailWatchlistProps) => (
+const DetailWatchlist: React.FC<DetailWatchlistProps> = (props: DetailWatchlistProps) => (
     props.watchlists ?
         (
             <div className="mt-6 space-y-4">

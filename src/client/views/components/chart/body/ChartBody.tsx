@@ -1,5 +1,5 @@
 import { ChartBodyModel } from "@model/components/ChartModel";
-import { FunctionComponent, useState } from "react";
+import { useState } from "react";
 import ChartHeaderCell from "../header/ChartHeaderCell";
 import ChartBodyCell from "./ChartBodyCell";
 
@@ -8,7 +8,7 @@ const initialValues = (props: ChartBodyProps): boolean[][] =>
 
 export interface ChartBodyProps extends ChartBodyModel { }
 
-const ChartBody: FunctionComponent<ChartBodyProps> = (props: ChartBodyProps) => {
+const ChartBody: React.FC<ChartBodyProps> = (props: ChartBodyProps) => {
     const [opened, setOpen] = useState<boolean[][]>(initialValues(props));
 
     const toggle = (columnIdx: number, cellIdx: number) => {

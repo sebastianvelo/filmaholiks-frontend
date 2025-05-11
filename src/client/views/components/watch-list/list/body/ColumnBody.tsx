@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import ActionableCards from "../../cards/actionable-card/ActionableCards";
 import EmptyCards from "../../cards/empty/EmptyCards";
@@ -12,7 +11,7 @@ export interface ColumnBodyProps {
     isEditing?: boolean;
 }
 
-const ColumnBody: FunctionComponent<ColumnBodyProps> = (props: ColumnBodyProps) => (
+const ColumnBody: React.FC<ColumnBodyProps> = (props: ColumnBodyProps) => (
     <div className="space-y-2 overflow-y-auto  xl:w-96 h-full text-dark p-2 scrollbar">
         {props.isEditing ? <ActionableCards {...props} /> : <ReadOnlyCards {...props} />}
         {!props.items.length && <EmptyCards />}

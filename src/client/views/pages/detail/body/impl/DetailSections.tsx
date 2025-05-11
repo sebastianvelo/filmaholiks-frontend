@@ -1,13 +1,12 @@
 import TabsContainer from "@components/modern-tabs/TabsContainer";
 import { LineDivider } from "client/common/components/svg/Svg";
 import CardsSection, { CardsSectionProps } from "client/views/components/common/cards/CardsSection";
-import { FunctionComponent } from "react";
 
 export interface DetailSectionsProps {
     sections?: CardsSectionProps[],
 }
 
-const DetailSections: FunctionComponent<DetailSectionsProps> = (props: DetailSectionsProps) => (
+const DetailSections: React.FC<DetailSectionsProps> = (props: DetailSectionsProps) => (
     props.sections ?
         (
             <>

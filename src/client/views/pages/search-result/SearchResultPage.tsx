@@ -1,8 +1,7 @@
+import useFetch from "@hooks/useFetch";
 import { AxiosRequestConfig } from "axios";
 import { QueryParams } from "client/types/params/Params";
-import useFetch from "@hooks/useFetch";
 import SearchBar, { SearchBarProps } from "client/views/components/common/searchbar/SearchBar";
-import { FunctionComponent } from "react";
 import { useParams } from "react-router";
 import SearchResultPageBody, { SearchResultPageBodyProps } from "./body/SearchResultPageBody";
 
@@ -16,7 +15,7 @@ export interface SearchResultPageProps {
     body: SearchResultPageBodyProps;
 }
 
-const SearchResultPage: FunctionComponent<SearchResultPageBlueprintProps> = (props: SearchResultPageBlueprintProps) => {
+const SearchResultPage: React.FC<SearchResultPageBlueprintProps> = (props: SearchResultPageBlueprintProps) => {
     const { query }: QueryParams = useParams();
     const page = useFetch<SearchResultPageProps>(props.getPage(query));
     

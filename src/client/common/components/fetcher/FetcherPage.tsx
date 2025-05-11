@@ -1,17 +1,16 @@
-import { AxiosRequestConfig } from "axios";
 import Loading from "@components/loading/Loading";
-import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
-import { FunctionComponent } from "react";
+import Tailwind from "@tailwind-helper/Tailwind";
+import { AxiosRequestConfig } from "axios";
 import { Redirect } from "react-router";
 import PageRoute from "shared/routes/PageRoute";
 
 export interface FetcherPageProps {
     getPage: AxiosRequestConfig;
-    Component: FunctionComponent<any>;
+    Component: React.FC<any>;
 }
 
-const FetcherPage: FunctionComponent<FetcherPageProps> = (props: FetcherPageProps) => {
+const FetcherPage: React.FC<FetcherPageProps> = (props: FetcherPageProps) => {
     const page = useFetch(props.getPage);
     const className = Tailwind.builder()
         .addIf(`h-screen flex justify-center items-center`, page?.loading)

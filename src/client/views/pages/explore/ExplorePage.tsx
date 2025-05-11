@@ -3,7 +3,6 @@ import Loading from "@components/loading/Loading";
 import Tailwind from "@tailwind-helper/Tailwind";
 import useFetch from "@hooks/useFetch";
 import SearchBar, { SearchBarProps } from "client/views/components/common/searchbar/SearchBar";
-import { FunctionComponent } from "react";
 import ExplorePageBody, { ExplorePageBodyProps } from "./body/ExplorePageBody";
 
 export interface ExplorePageBlueprintProps {
@@ -16,7 +15,7 @@ export interface ExplorePageProps {
     body: ExplorePageBodyProps;
 }
 
-const ExplorePage: FunctionComponent<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
+const ExplorePage: React.FC<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
     const page = useFetch<ExplorePageProps>(props.getPage());
 
     document.title = page?.data?.title ?? "Loading...";

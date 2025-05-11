@@ -1,7 +1,6 @@
 import Action from "@atom/action/Action";
 import Image from "@atom/image/Image";
 import Pill from "@components/pill/Pill";
-import { FunctionComponent } from "react";
 import CardHorizontalModel from "@model/components/CardHorizontalModel";
 
 export interface CardHorizontalProps extends CardHorizontalModel { }
@@ -14,7 +13,7 @@ const pillColor = {
     Crime: "bg-red-600 text-white font-medium"
 };
 
-const CardHorizontal: FunctionComponent<CardHorizontalProps> = (props: CardHorizontalProps) => (
+const CardHorizontal: React.FC<CardHorizontalProps> = (props: CardHorizontalProps) => (
     <article className="bg-gradient-to-r dark:from-gray-900 dark:to-gray-800 dark:text-white from-white to-gray-100 text-gray-800 flex space-x-3 shadow-xl hover:shadow-2xl transition-all duration-300 w-full h-full rounded-tl-lg rounded-bl-lg overflow-hidden border border-gray-200 dark:border-gray-700">
         <Action path={props.path} revert>
             {props.image && <Image className="h-full w-20 object-cover cursor-pointer" {...props.image} />}

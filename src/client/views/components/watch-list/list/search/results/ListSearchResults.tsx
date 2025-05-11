@@ -1,6 +1,5 @@
 import Loading from "@components/loading/Loading";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import ActionableCard, { ActionableCardProps } from "../../../cards/actionable-card/ActionableCard";
 
@@ -11,7 +10,7 @@ interface ListSearchResultsProps {
     deleteItem: (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => void;
 }
 
-const ListSearchResults: FunctionComponent<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
+const ListSearchResults: React.FC<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
 
     const loadingClassName = Tailwind.builder()
         .addIf("bg-white dark:bg-black", props.loading)

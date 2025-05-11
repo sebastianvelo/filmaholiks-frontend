@@ -1,10 +1,8 @@
-import { FunctionComponent } from "react";
-
 export interface HomePageProps {
 
 }
 
-const HomePage: FunctionComponent<HomePageProps> = () => (
+const HomePage: React.FC<HomePageProps> = () => (
     <div>
     </div>
 )

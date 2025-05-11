@@ -1,13 +1,12 @@
 import Action from "@atom/action/Action";
 import { IconLogout } from "@components/svg/Svg";
 import useFirebaseUser from "@hooks/useFirebaseUser";
-import { FunctionComponent } from "react";
 
 interface LogoutButtonProps {
 
 }
 
-const LogoutButton: FunctionComponent<LogoutButtonProps> = () => {
+const LogoutButton: React.FC<LogoutButtonProps> = () => {
     const user = useFirebaseUser();
 
     return user && user.data ? (

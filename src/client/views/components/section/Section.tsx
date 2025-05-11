@@ -1,6 +1,5 @@
 import Headline from "@atom/headline/Headline";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 
 interface SectionProps {
     title?: string;
@@ -8,7 +7,7 @@ interface SectionProps {
     children: React.ReactNode | React.ReactNode[];
 }
 
-const Section: FunctionComponent<SectionProps> = (props: SectionProps) => {
+const Section: React.FC<SectionProps> = (props: SectionProps) => {
     const className = Tailwind.builder()
         .add("space-y-8 w-full")
         .add("text-center lg:text-left")

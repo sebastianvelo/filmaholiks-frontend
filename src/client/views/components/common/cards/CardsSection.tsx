@@ -1,13 +1,12 @@
 import CardVertical from "@components/card-vertical/CardVertical";
 import Carousel from "@components/carousel/Carousel";
 import { CardsSectionModel } from "@model/components/section/Section";
-import { FunctionComponent } from "react";
-import Section from "../../section/Section";
 import Tailwind from "@tailwind-helper/Tailwind";
+import Section from "../../section/Section";
 
 export interface CardsSectionProps extends CardsSectionModel { }
 
-const CardsSection: FunctionComponent<CardsSectionProps> = (props: CardsSectionProps) => {
+const CardsSection: React.FC<CardsSectionProps> = (props: CardsSectionProps) => {
     const skeletonCards = Array(10).fill({ loading: true });
     if (props.cards && !props.cards.length) return <></>;
 

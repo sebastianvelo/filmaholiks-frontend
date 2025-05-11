@@ -1,7 +1,6 @@
 import Action from "@atom/action/Action";
 import ActionProps from "@atom/action/ActionProps";
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 import NavigationMenu, { MenuProps } from "./menu/NavigationMenu";
 import ToggleTheme from "./toggleTheme/ToggleTheme";
 
@@ -12,7 +11,7 @@ export interface NavigationActionsProps {
   menu?: MenuProps;
 }
 
-const NavigationActions: FunctionComponent<NavigationActionsProps> = (props: NavigationActionsProps) => {
+const NavigationActions: React.FC<NavigationActionsProps> = (props: NavigationActionsProps) => {
   const className = Tailwind.builder()
     .add('flex h-full w-full transition-all duration-400 z-40 w-full')
     .add('xl:flex-row xl:z-auto xl:opacity-100')

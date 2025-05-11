@@ -1,12 +1,11 @@
 import Image, { ImageProps } from "@atom/image/Image";
-import { FunctionComponent } from "react";
 
 export interface DetailPostersProps {
     poster?: ImageProps;
     backdrop?: ImageProps;
 }
 
-const DetailPosters: FunctionComponent<DetailPostersProps> = (props: DetailPostersProps) => (
+const DetailPosters: React.FC<DetailPostersProps> = (props: DetailPostersProps) => (
     <>
         <div className="absolute inset-0 w-full h-full">
             <div className="w-full h-96 md:h-screen md:max-h-[50vh] overflow-hidden relative">

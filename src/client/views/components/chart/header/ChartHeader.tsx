@@ -1,11 +1,10 @@
-import { FunctionComponent } from "react";
 import ChartHeaderCell from "./ChartHeaderCell";
 
 export interface ChartHeaderProps {
     header?: string[];
 }
 
-const ChartHeader: FunctionComponent<ChartHeaderProps> = (props: ChartHeaderProps) => (
+const ChartHeader: React.FC<ChartHeaderProps> = (props: ChartHeaderProps) => (
     <div className="flex">
         <ChartHeaderCell value={`E`} />
         {props.header?.map(value => <ChartHeaderCell key={`chart-header-${value}`} value={value} />)}

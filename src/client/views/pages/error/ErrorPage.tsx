@@ -1,6 +1,5 @@
 import Action from "@atom/action/Action";
 import ActionProps from "@atom/action/ActionProps";
-import { FunctionComponent } from "react";
 
 export interface ErrorPageProps {
     code: number;
@@ -8,7 +7,7 @@ export interface ErrorPageProps {
     actions?: ActionProps[];
 }
 
-const ErrorPage: FunctionComponent<ErrorPageProps> = (props: ErrorPageProps) => (
+const ErrorPage: React.FC<ErrorPageProps> = (props: ErrorPageProps) => (
         <div className={`flex justify-center items-center py-10`}>
             <div className={`bg-dark w-full md:w-1/2 p-3 rounded-md shadow-md space-y-4`}>
                 <h1 className={`text-red-600 text-4xl text-center`}>{props.code}</h1>

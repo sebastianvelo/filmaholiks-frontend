@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import ComponentColor from "@tailwind-helper/constants/ComponentColor";
 import Tailwind from "@tailwind-helper/Tailwind";
 
@@ -8,7 +7,7 @@ export interface PillProps {
     color?: ComponentColor;
 }
 
-const Pill: FunctionComponent<PillProps> = (props: PillProps) => {
+const Pill: React.FC<PillProps> = (props: PillProps) => {
     const className = Tailwind.builder()
         .add('py-1 px-2 shadow-md rounded-sm font-semibold mr-2 w-max')
         .add(props.color)

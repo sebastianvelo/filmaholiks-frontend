@@ -1,11 +1,10 @@
 import ChartModel from "@model/components/ChartModel";
-import { FunctionComponent } from "react";
 import ChartBody from "./body/ChartBody";
 import ChartHeader from "./header/ChartHeader";
 
 export interface ChartProps extends ChartModel { }
 
-const Chart: FunctionComponent<ChartProps> = (props: ChartProps) => (
+const Chart: React.FC<ChartProps> = (props: ChartProps) => (
   <div className={`max-h-screen text-center overflow-x-auto resize-y rounded-md scrollbar`}>
     <ChartHeader {...props} />
     <ChartBody {...props.body} />

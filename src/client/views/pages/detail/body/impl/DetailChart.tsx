@@ -1,13 +1,12 @@
 import Headline from "client/common/atom/headline/Headline";
 import { LineDivider } from "client/common/components/svg/Svg";
 import ChartSection, { ChartSectionProps } from "client/views/components/chart/ChartSection";
-import { FunctionComponent } from "react";
 
 export interface DetailChartProps {
     charts?: ChartSectionProps[];
 }
 
-const DetailChart: FunctionComponent<DetailChartProps> = (props: DetailChartProps) => (
+const DetailChart: React.FC<DetailChartProps> = (props: DetailChartProps) => (
     props.charts ?
         (
             <div className="overflow-y-auto scrollbar">

@@ -1,6 +1,5 @@
 import Page from "blueprint/types/Page";
 import useScrollTop from "@hooks/useScrollTop";
-import { FunctionComponent } from "react";
 import { Route, Switch } from "react-router-dom";
 
 const getJSX = (Component: React.FC<any>, props: any) => <Component {...props} />;
@@ -9,7 +8,7 @@ export interface MainProps {
     pages: Page<any>[];
 }
 
-const Main: FunctionComponent<MainProps> = (props: MainProps) => {
+const Main: React.FC<MainProps> = (props: MainProps) => {
     useScrollTop();
 
     return (

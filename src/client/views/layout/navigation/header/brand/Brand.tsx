@@ -1,11 +1,10 @@
 import Tailwind from "@tailwind-helper/Tailwind";
-import { FunctionComponent } from "react";
 
 export interface BrandProps {
     header?: string;
 }
 
-const Brand: FunctionComponent<BrandProps> = (props: BrandProps) => {
+const Brand: React.FC<BrandProps> = (props: BrandProps) => {
     const className = Tailwind.builder()
         .add("brand")
         .add('text-3xl md:text-4xl px-4 py-2 rounded-lg')

@@ -1,5 +1,3 @@
-import { FunctionComponent } from "react";
-
 export interface DetailContentInfoProps {
     data: {
         title: string;
@@ -8,7 +6,7 @@ export interface DetailContentInfoProps {
     theresVideo?: boolean;
 }
 
-const DetailContentInfo: FunctionComponent<DetailContentInfoProps> = (props: DetailContentInfoProps) => {
+const DetailContentInfo: React.FC<DetailContentInfoProps> = (props: DetailContentInfoProps) => {
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {props.data?.map((item, index) => item && (

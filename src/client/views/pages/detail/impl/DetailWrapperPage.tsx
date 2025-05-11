@@ -1,8 +1,7 @@
-import { AxiosRequestConfig } from "axios";
 import FetcherPage from "@components/fetcher/FetcherPage";
-import { IdParams } from "client/types/params/Params";
+import { AxiosRequestConfig } from "axios";
 import SessionUserHelper from "client/helper/SessionUserHelper";
-import { FunctionComponent } from "react";
+import { IdParams } from "client/types/params/Params";
 import { useParams } from "react-router";
 import DetailPage, { DetailPageProps } from "../DetailPage";
 
@@ -10,7 +9,7 @@ export interface DetailWrapperPageProps {
     getPage: (id: string, userLoggedIn?: string | null) => AxiosRequestConfig<DetailPageProps>;
 }
 
-const DetailWrapperPage: FunctionComponent<DetailWrapperPageProps> = (props: DetailWrapperPageProps) => {
+const DetailWrapperPage: React.FC<DetailWrapperPageProps> = (props: DetailWrapperPageProps) => {
     const { id }: IdParams = useParams();
     const user = SessionUserHelper.getUser();
 

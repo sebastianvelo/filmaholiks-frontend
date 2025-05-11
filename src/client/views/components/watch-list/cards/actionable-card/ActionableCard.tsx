@@ -1,6 +1,5 @@
 import CardHorizontal, { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import WatchlistHelper from "client/helper/WatchlistHelper";
-import { FunctionComponent } from "react";
 import ActionCardButton, { ActionCardButtonProps } from "../../buttons/ActionCardButton";
 import DragCardButton from "../../buttons/DragCardButton";
 
@@ -11,7 +10,7 @@ export interface ActionableCardProps extends ActionCardButtonProps {
     swapItems?: (idxB: number) => void;
 }
 
-const ActionableCard: FunctionComponent<ActionableCardProps> = (props: ActionableCardProps) => {
+const ActionableCard: React.FC<ActionableCardProps> = (props: ActionableCardProps) => {
     const onDrop = (event: any) => {
         event.preventDefault();
         if (props.swapItems) {

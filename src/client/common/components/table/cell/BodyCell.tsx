@@ -1,10 +1,8 @@
-import { FunctionComponent } from "react";
-
 interface BodyCellProps {
     text: string;
 }
  
-const BodyCell: FunctionComponent<BodyCellProps> = (props: BodyCellProps) => ( 
+const BodyCell: React.FC<BodyCellProps> = (props: BodyCellProps) => ( 
         <td>
             {props.text}
         </td>

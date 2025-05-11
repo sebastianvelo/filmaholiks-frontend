@@ -2,13 +2,12 @@ import Action from "@atom/action/Action";
 import Headline from "@atom/headline/Headline";
 import Image from "@atom/image/Image";
 import Text from "@atom/text/Text";
-import Tailwind from "@tailwind-helper/Tailwind";
 import CardVerticalModel from "@model/components/CardVerticalModel";
-import { FunctionComponent } from "react";
+import Tailwind from "@tailwind-helper/Tailwind";
 
 export interface CardVerticalProps extends CardVerticalModel { }
 
-const CardVertical: FunctionComponent<CardVerticalProps> = ({ image, path, title, subtitle }) => {
+const CardVertical: React.FC<CardVerticalProps> = ({ image, path, title, subtitle }) => {
     const className = Tailwind.builder()
         .add("flex flex-col justify-between space-y-3")
         .add("w-40 sm:w-48 lg:w-52 p-4")

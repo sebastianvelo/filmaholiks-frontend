@@ -1,5 +1,4 @@
 import SearchBar, { SearchBarProps } from "client/views/components/common/searchbar/SearchBar";
-import { FunctionComponent } from "react";
 import DetailPageBody, { DetailPageBodyProps } from "./body/DetailPageBody";
 
 export interface DetailPageProps {
@@ -8,7 +7,7 @@ export interface DetailPageProps {
     body: DetailPageBodyProps;
 }
 
-const DetailPage: FunctionComponent<DetailPageProps> = (props: DetailPageProps) => {
+const DetailPage: React.FC<DetailPageProps> = (props: DetailPageProps) => {
     document.title = props.title;
     
     return (

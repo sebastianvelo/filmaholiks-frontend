@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import DetailActions, { DetailActionsProps } from "../actions/DetailActions";
 import DetailContentDescription, { DetailContentDescriptionProps } from "./description/DetailContentDescription";
 import DetailContentHeader from "./header/DetailContentHeader";
@@ -11,7 +10,7 @@ export interface DetailContentProps extends DetailContentPosterProps {
     actions?: DetailActionsProps;
 }
 
-const DetailContent: FunctionComponent<DetailContentProps> = (props: DetailContentProps) => (
+const DetailContent: React.FC<DetailContentProps> = (props: DetailContentProps) => (
     <div className="relative z-10 container mx-auto px-4 pt-16 pb-8">
         <div className="flex flex-col lg:flex-row gap-8">
             <DetailContentPoster {...props} />

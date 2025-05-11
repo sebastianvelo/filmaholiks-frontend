@@ -1,5 +1,4 @@
 import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
-import { FunctionComponent } from "react";
 import ActionableCard from "./ActionableCard";
 
 interface ActionableCardsProps {
@@ -9,7 +8,7 @@ interface ActionableCardsProps {
     swapItems: (itemAIdx: number, itemBIdx: number) => void;
 }
 
-const ActionableCards: FunctionComponent<ActionableCardsProps> = (props: ActionableCardsProps) =>
+const ActionableCards: React.FC<ActionableCardsProps> = (props: ActionableCardsProps) =>
     <>
         {props.items.map((item: CardHorizontalProps, idx: number) => (
             <ActionableCard
