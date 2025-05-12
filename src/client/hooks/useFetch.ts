@@ -1,6 +1,7 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { useState, useEffect, useRef } from "react";
+import AxiosClient from "api/auth/AxiosClient";
 import Response from "api/common/Response";
+import { AxiosRequestConfig, AxiosResponse } from "axios";
+import { useEffect, useRef, useState } from "react";
 
 const useFetch = <T extends Object>(req: AxiosRequestConfig, ignoreFirst?: boolean): Response<T> | undefined => {
   const firstUpdate = useRef(true);
@@ -28,7 +29,7 @@ const useFetch = <T extends Object>(req: AxiosRequestConfig, ignoreFirst?: boole
 
     if (!req.url) return;
 
-    axios
+    AxiosClient
       .request(req)
       .then((axiosResponse: AxiosResponse<T>) => {
         setResponse({ data: axiosResponse.data, loading: false });

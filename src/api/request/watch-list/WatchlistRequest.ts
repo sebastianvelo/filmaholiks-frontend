@@ -1,5 +1,5 @@
+import AxiosClient from "api/auth/AxiosClient";
 import Collection from "api/common/Collection";
-import axios from "axios";
 import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
 import MediaType from "shared/types/MediaType";
 import BackendRequest from "../BackendRequest";
@@ -8,45 +8,45 @@ class WatchlistRequest extends BackendRequest {
     protected collection: string = Collection.WATCHLIST;
 
     public presenter = (mediaType: MediaType) => ({
-        search: (userName: string, query: string) => this.get(`/user/${userName}/${mediaType}/search/${query}`),
-        saveAll: (userName: string, lists: WatchlistColumnProps[]) => {
-            const config = this.put(`/user/${userName}/${mediaType}`, lists);
-            axios.request(config);
+        search: (uid: string, query: string) => this.get(`/user/${uid}/${mediaType}/search/${query}`),
+        saveAll: (uid: string, lists: WatchlistColumnProps[]) => {
+            const config = this.put(`/user/${uid}/${mediaType}`, lists);
+            AxiosClient.request(config);
         },
         item: {
-            save: (userName: string, listIdx: number, itemId: number | string) => {
-                const config = this.post(`/user/${userName}/${mediaType}/${listIdx}/item`, { itemId });
-                axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+            save: (uid: string, listIdx: number, itemId: number | string) => {
+                const config = this.post(`/user/${uid}/${mediaType}/${listIdx}/item`, { itemId });
+                AxiosClient.request(config).then(res => console.log(res)).catch(err => console.log(err));
             },
-            delete: (userName: string, listIdx: number, itemId: number | string) => {
-                const config = this.delete(`/user/${userName}/${mediaType}/${listIdx}/item`, { itemId });
-                axios.request(config).then(res => console.log(res)).catch(err => console.log(err));
+            delete: (uid: string, listIdx: number, itemId: number | string) => {
+                const config = this.delete(`/user/${uid}/${mediaType}/${listIdx}/item`, { itemId });
+                AxiosClient.request(config).then(res => console.log(res)).catch(err => console.log(err));
             },
-            swap: (userName: string, listIdx: number, itemIdx1: number, itemIdx2: number) => {
-                const config = this.put(`/user/${userName}/${mediaType}/swap/item`, { listIdx, itemIdx1, itemIdx2 });
-                axios.request(config);
+            swap: (uid: string, listIdx: number, itemIdx1: number, itemIdx2: number) => {
+                const config = this.put(`/user/${uid}/${mediaType}/swap/item`, { listIdx, itemIdx1, itemIdx2 });
+                AxiosClient.request(config);
             },
-            move: (userName: string, itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
-                const config = this.put(`/user/${userName}/${mediaType}/move/item`, { itemIdx, sourceListIdx, targetListIdx });
-                axios.request(config);
+            move: (uid: string, itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
+                const config = this.put(`/user/${uid}/${mediaType}/move/item`, { itemIdx, sourceListIdx, targetListIdx });
+                AxiosClient.request(config);
             },
         },
         list: {
-            add: (userName: string, title: string) => {
-                const config = this.post(`/user/${userName}/${mediaType}/list`, { title });
-                axios.request(config);
+            add: (uid: string, title: string) => {
+                const config = this.post(`/user/${uid}/${mediaType}/list`, { title });
+                AxiosClient.request(config);
             },
-            delete: (userName: string, listIdx: number) => {
-                const config = this.delete(`/user/${userName}/${mediaType}/${listIdx}/list`);
-                axios.request(config);
+            delete: (uid: string, listIdx: number) => {
+                const config = this.delete(`/user/${uid}/${mediaType}/${listIdx}/list`);
+                AxiosClient.request(config);
             },
-            swap: (userName: string, listIdx1: number, listIdx2: number) => {
-                const config = this.put(`/user/${userName}/${mediaType}/swap/list`, { listIdx1, listIdx2 });
-                axios.request(config);
+            swap: (uid: string, listIdx1: number, listIdx2: number) => {
+                const config = this.put(`/user/${uid}/${mediaType}/swap/list`, { listIdx1, listIdx2 });
+                AxiosClient.request(config);
             },
-            change: (userName: string, listIdx: number, title: string) => {
-                const config = this.put(`/user/${userName}/${mediaType}/change/list`, { listIdx, title });
-                axios.request(config);
+            change: (uid: string, listIdx: number, title: string) => {
+                const config = this.put(`/user/${uid}/${mediaType}/change/list`, { listIdx, title });
+                AxiosClient.request(config);
             },
         },
     });

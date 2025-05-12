@@ -1,3 +1,4 @@
+import LogoutButton from "../../auth/logout/LogoutButton";
 import DetailHeader, { DetailHeaderProps } from "./detail/DetailHeader";
 import DetailChart, { DetailChartProps } from "./impl/DetailChart";
 import DetailSections, { DetailSectionsProps } from "./impl/DetailSections";

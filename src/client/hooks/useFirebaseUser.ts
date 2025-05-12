@@ -1,11 +1,11 @@
-import { auth } from "config/firebase/firebaseApp";
 import SessionUserHelper from "client/helper/SessionUserHelper";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import UserEntity from "@entity/user/UserEntity";
 import useUserEntity from "./useUserEntity";
+import { auth } from 'config/firebase/firebaseApp';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 export interface UseFirebaseUser {
-    data: UserEntity | null;
+    user: UserEntity | null;
     signIn: (email: string, password: string) => Promise<any>;
     createUser: (email: string, password: string) => Promise<any>;
     signOut: () => Promise<void>;
@@ -16,22 +16,22 @@ const useFirebaseUser = (): UseFirebaseUser => {
     const userEntity = useUserEntity();
 
     const signIn = async (email: string, password: string) =>
-        auth.signInWithEmailAndPassword(email, password);
+        signInWithEmailAndPassword(auth, email, password);
 
     const signInWithGoogle = async () =>
         signInWithPopup(auth, new GoogleAuthProvider());
 
     const createUser = async (email: string, password: string) =>
-        auth.createUserWithEmailAndPassword(email, password);
+        createUserWithEmailAndPassword(auth, email, password);
 
     const signOut = async () => {
         SessionUserHelper.signOut();
         userEntity.signOut();
-        auth.signOut();
+        signOut();
     }
 
     return {
-        data: userEntity.user, signIn, createUser, signOut, signInWithGoogle
+        user: userEntity.user, signIn, createUser, signOut, signInWithGoogle
     };
 };
 

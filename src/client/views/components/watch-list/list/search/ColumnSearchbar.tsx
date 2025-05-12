@@ -16,13 +16,13 @@ export interface ColumnSearchbarProps {
 
 const ColumnSearchbar: React.FC<ColumnSearchbarProps> = (props: ColumnSearchbarProps) => {
     const [query, setQuery] = useState('');
-    const [url, setUrl] = useState(props.searchItems(query));
-    const response = useFetch<ActionableCardProps[]>(url, true);
+    const [req, setReq] = useState(props.searchItems(query));
+    const response = useFetch<ActionableCardProps[]>(req, true);
 
     const handleSearch = (value: string) => {
         setQuery(value);
         if (value.length > 3) {
-            setUrl(props.searchItems(value));
+            setReq(props.searchItems(value));
         } else {
             response!.data = null;
         }

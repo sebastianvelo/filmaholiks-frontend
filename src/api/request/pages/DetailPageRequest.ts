@@ -4,17 +4,17 @@ import BackendRequest from "../BackendRequest";
 class DetailPageRequest extends BackendRequest {
   protected collection: string = Collection.DETAIL;
 
-  public userById = (id: string, userLoggedIn?: string | null) =>
-    this.get(`/user/${id}`, { userLoggedIn });
+  public userById = (id: string) =>
+    this.get(`/user/${id}`);
 
   public personById = (id: string) =>
     this.get(`/person/${id}`);
 
-  public movieById = (id: string, userLoggedIn?: string | null) =>
-    this.get(`/movie/${id}`, { userLoggedIn });
+  public movieById = (id: string) =>
+    this.get(`/movie/${id}`);
 
-  public showById = (id: string, userLoggedIn?: string | null) =>
-    this.get(`/show/${id}`, { userLoggedIn });
+  public showById = (id: string) =>
+    this.get(`/show/${id}`);
 
   public seasonByShowIdAndNumber = (id: string, season: string) =>
     this.get(`/show/${id}/s/${season}`);

@@ -1,6 +1,6 @@
 import firebaseConfig from 'config/firebase/firebase.config';
+import { auth } from 'config/firebase/firebaseApp';
 import { FirebaseApp } from 'firebase/app';
-import { Auth, getAuth } from 'firebase/auth';
 import React, { Suspense } from 'react';
 import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
@@ -13,7 +13,6 @@ const root = ReactDOM.createRoot(rootElement);
 
 const Index = () => {
   const app: FirebaseApp = useFirebaseApp();
-  const auth: Auth = getAuth(app);
 
   return (
     <AuthProvider sdk={auth}>

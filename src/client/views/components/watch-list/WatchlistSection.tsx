@@ -1,23 +1,19 @@
-import useList from "@hooks/useList";
-import Watchlist, { WatchlistProps } from "client/views/components/watch-list/Watchlist";
-import { useState } from "react";
-import Section from "../section/Section";
-import WatchlistHeader from "./header/WatchlistHeader";
+import DynamicWatchlist, { DynamicWatchlistProps } from "client/views/components/watch-list/DynamicWatchlist";
+import { auth } from "config/firebase/firebaseApp";
+import StaticWatchlist from "./StaticWatchlist";
 
-export interface WatchlistSectionProps extends WatchlistProps {
+export interface WatchlistSectionProps extends DynamicWatchlistProps {
     title: string;
 }
 
 const WatchlistSection: React.FC<WatchlistSectionProps> = (props: WatchlistSectionProps) => {
-    const [service, listService] = useList(props.mediaType, props.lists);
-    const [isEditing, setIsEditing] = useState<boolean>(false);
-
-    const toggleEditing = () => setIsEditing(!isEditing);
+    const uid = auth.currentUser?.uid;
 
     return (
-        <Section title={props.title} header={<WatchlistHeader dynamic={props.dynamic} add={service.list.add} isEditing={isEditing} toggleEditing={toggleEditing} />}>
-            <Watchlist {...props} service={service} listService={listService} isEditing={isEditing} />
-        </Section>
+        <>
+            {!uid && <StaticWatchlist {...props} />}
+            {uid && <DynamicWatchlist {...props} />}
+        </>
     );
 };
 

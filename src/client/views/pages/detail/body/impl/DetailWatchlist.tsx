@@ -9,11 +9,11 @@ const DetailWatchlist: React.FC<DetailWatchlistProps> = (props: DetailWatchlistP
     props.watchlists ?
         (
             <div className="mt-6 space-y-4">
-                {props.watchlists.map((tab, idx) => (
-                    <>
-                        <WatchlistSection key={tab.title} {...tab} />
+                {props.watchlists.map((tab) => (
+                    <div key={`wl-${tab.title}`}>
+                        <WatchlistSection {...tab} />
                         <LineDivider />
-                    </>
+                    </div>
                 ))}
             </div>
         ) :

@@ -9,7 +9,7 @@ interface LogoutButtonProps {
 const LogoutButton: React.FC<LogoutButtonProps> = () => {
     const user = useFirebaseUser();
 
-    return user && user.data ? (
+    return user && user.user ? (
         <Action
             onClick={user.signOut}
             revert

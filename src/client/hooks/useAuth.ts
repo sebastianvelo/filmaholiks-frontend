@@ -86,7 +86,7 @@ const useAuth = (): UseAuthReturn => {
     };
 
     return {
-        user: user.data,
+        user: user.user,
         isLoading,
         email,
         password,

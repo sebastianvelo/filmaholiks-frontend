@@ -1,9 +1,10 @@
+import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import WatchlistRequest from "api/request/watch-list/WatchlistRequest";
 import { AxiosRequestConfig } from "axios";
-import { CardHorizontalProps } from "@components/card-horizontal/CardHorizontal";
 import SessionUserHelper from "client/helper/SessionUserHelper";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import { WatchlistColumnProps } from "client/views/components/watch-list/list/WatchlistColumn";
+import { auth } from "config/firebase/firebaseApp";
 import { useState } from "react";
 import MediaType from "shared/types/MediaType";
 import Swal, { SweetAlertResult } from 'sweetalert2';
@@ -40,7 +41,8 @@ export interface UseWatchlist {
 
 const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): UseWatchlist => {
     const [lists, setLists] = useState<WatchlistColumnProps[]>(apiLists ?? []);
-    const userName = SessionUserHelper.getUser()?.userName ?? "";
+    const uid = auth.currentUser!.uid;
+    const req = WatchlistRequest[mediaType];
 
     const updateLists = (newLists: WatchlistColumnProps[]) => {
         setLists([...newLists]);
@@ -51,7 +53,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
         list.title = title;
         lists[listIdx] = list;
         updateLists([...lists]);
-        WatchlistRequest[mediaType].list.change(userName, listIdx, title);
+        req.list.change(uid, listIdx, title);
     };
 
     const findList = (query: string) => {
@@ -66,12 +68,12 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
         lists[idxB] = listA;
         lists[idxA] = listB;
         updateLists([...lists]);
-        WatchlistRequest[mediaType].list.swap(userName, idxA, idxB);
+        req.list.swap(uid, idxA, idxB);
     };
 
     const addList = () => {
         updateLists([...lists, WatchlistHelper.list.dummy(lists)]);
-        WatchlistRequest[mediaType].list.add(userName, WatchlistHelper.list.dummy(lists).title as string);
+        req.list.add(uid, WatchlistHelper.list.dummy(lists).title as string);
     };
 
     const deleteList = (listIdx: number) => {
@@ -80,7 +82,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
             cback: (result) => {
                 if (!result.isConfirmed) {
                     updateLists([...lists.filter((_, idx) => idx !== listIdx)]);
-                    WatchlistRequest[mediaType].list.delete(userName, listIdx);
+                    req.list.delete(uid, listIdx);
                 }
             }
         });
@@ -89,14 +91,14 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
     const saveItem = (listIdx: number, item: CardHorizontalProps) => {
         lists[listIdx].items.push(item);
         updateLists([...lists]);
-        WatchlistRequest[mediaType].item.save(userName, listIdx, item.id ?? "");
+        req.item.save(uid, listIdx, item.id ?? "");
     };
 
     const deleteItem = (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
         if (!requiresConfirmation) {
             lists[listIdx].items = lists[listIdx].items.filter((it) => it.id !== itemId);
             updateLists([...lists]);
-            WatchlistRequest[mediaType].item.delete(userName, listIdx, itemId);
+            req.item.delete(uid, listIdx, itemId);
             return;
         }
         requireConfirmation({
@@ -105,7 +107,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
                 if (!result.isConfirmed) {
                     lists[listIdx].items = lists[listIdx].items.filter((it) => it.id !== itemId);
                     updateLists([...lists]);
-                    WatchlistRequest[mediaType].item.delete(userName, listIdx, itemId);
+                    req.item.delete(uid, listIdx, itemId);
                     Swal.fire('Deleted!', '', 'success')
                 }
             }
@@ -117,7 +119,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
         if (!item) return;
         lists[item.listIdx].items = lists[item.listIdx].items.filter((it) => it.id !== item.itemId);
         updateLists([...lists]);
-        WatchlistRequest[mediaType].item.delete(userName, item.listIdx, item.itemId);
+        req.item.delete(uid, item.listIdx, item.itemId);
     };
 
     const moveItem = (itemIdx: number, sourceListIdx: number, targetListIdx: number) => {
@@ -125,7 +127,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
         lists[targetListIdx].items.push(item);
         lists[sourceListIdx].items.splice(itemIdx, 1);
         updateLists([...lists]);
-        WatchlistRequest[mediaType].item.move(userName, itemIdx, sourceListIdx, targetListIdx);
+        req.item.move(uid, itemIdx, sourceListIdx, targetListIdx);
     };
 
     const swapItems = (listIdx: number, idxA: number, idxB: number) => {
@@ -134,7 +136,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
         lists[listIdx].items[idxB] = itemA;
         lists[listIdx].items[idxA] = itemB;
         updateLists([...lists]);
-        WatchlistRequest[mediaType].item.swap(userName, listIdx, idxA, idxB);
+        req.item.swap(uid, listIdx, idxA, idxB);
     };
 
     const findItem = (query?: string) => {
@@ -144,7 +146,7 @@ const useWatchlist = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): 
     };
 
     const searchItems = (query: string) =>
-        WatchlistRequest[mediaType].search(userName, query);
+        req.search(uid, query);
 
     return {
         list: {

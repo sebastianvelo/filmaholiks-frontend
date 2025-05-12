@@ -1,52 +1,44 @@
 import Carousel from "@components/carousel/Carousel";
-import { UseList } from "@hooks/useList";
-import { UseWatchlist } from "@hooks/useWatchlist";
 import TabsContainer from "client/common/components/modern-tabs/TabsContainer";
-import MediaType from "shared/types/MediaType";
+import Section from "../section/Section";
 import WatchlistColumn, { WatchlistColumnProps } from "./list/WatchlistColumn";
 
-export interface WatchlistProps {
-    mediaType: MediaType;
+export interface StaticWatchlistProps {
+    title: string;
     lists: WatchlistColumnProps[];
-    dynamic?: boolean;
-    service: UseWatchlist;
-    listService: (idx: number) => UseList;
-    isEditing: boolean;
 }
 
 const WatchListEmpty = () => <p className="text-xl text-center font-bold text-red-500">Empty!</p>
 
-const Watchlist: React.FC<WatchlistProps> = ({ service, listService, dynamic, isEditing }) => {
+const StaticWatchlist: React.FC<StaticWatchlistProps> = ({ title, lists }) => {
     const watchlistColumnProps = (list: WatchlistColumnProps, idx: number) => ({
         ...list,
         key: `column${idx}`,
         listIdx: idx,
-        service: listService(idx),
-        dynamic,
-        isEditing
+        dynamic: false,
     })
 
     return (
-        <>
+        <Section title={title}>
             <div className="hidden xl:block space-y-4">
-                {service.list.value?.length === 0 && <WatchListEmpty />}
+                {lists?.length === 0 && <WatchListEmpty />}
                 <Carousel id="watchlist">
-                    {service.list.value?.map((list: WatchlistColumnProps, idx: number) => (
+                    {lists?.map((list: WatchlistColumnProps, idx: number) => (
                         <WatchlistColumn {...watchlistColumnProps(list, idx)} />
                     ))}
                 </Carousel>
             </div>
             <div className="xl:hidden space-y-4">
                 <TabsContainer tabs={
-                    service.list.value?.map((list, idx: number) => ({
+                    lists?.map((list, idx: number) => ({
                         id: `column-${list.title}`,
                         label: list.title,
                         content: <WatchlistColumn {...watchlistColumnProps(list, idx)} />
                     }))
                 } />
             </div>
-        </>
+        </Section>
     );
 }
 
-export default Watchlist;
+export default StaticWatchlist;

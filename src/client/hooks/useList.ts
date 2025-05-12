@@ -18,7 +18,7 @@ export interface UseList {
 
 const useList = (mediaType: MediaType, apiLists?: WatchlistColumnProps[]): [UseWatchlist, (idx: number) => UseList] => {
     const service = useWatchlist(mediaType, apiLists);
-    
+
     const listService = (idx: number): UseList => ({
         changeListTitle: (title: string) => service.list.changeTitle(idx, title),
         swapLists: (targetListIdx: number) => service.list.swap(idx, targetListIdx),

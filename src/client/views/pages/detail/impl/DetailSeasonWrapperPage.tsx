@@ -10,6 +10,7 @@ export interface DetailSeasonWrapperPageProps {
 
 const DetailSeasonWrapperPage: React.FC<DetailSeasonWrapperPageProps> = (props: DetailSeasonWrapperPageProps) => {
     const { id, season }: DetailSeasonPageParams = useParams();
+    
     return (
         <FetcherPage getPage={props.getPage(id, season)} Component={DetailPage} />
     );
