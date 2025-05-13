@@ -10,7 +10,7 @@ export interface DetailContentPosterProps extends DetailPostersProps {
 const DetailContentPoster: React.FC<DetailContentPosterProps> = (props: DetailContentPosterProps) => (
     <div className="flex-shrink-0 w-64 mx-auto lg:mx-0">
         <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-blue-500 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary-700 to-secondary-700 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-2xl">
                 {props.poster && (
                     <img

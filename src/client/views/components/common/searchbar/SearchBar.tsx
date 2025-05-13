@@ -55,7 +55,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder, path, hide }) => {
             <div className="relative w-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-secondary-600 to-primary-600 rounded-lg blur opacity-20 group-hover:opacity-30 group-focus-within:opacity-75 transition duration-300"></div>
 
-                <div className="group relative flex items-center w-full rounded-lg backdrop-blur-lg bg-white/80 dark:bg-black/70 focus-within:bg-white/10 dark:focus-within:bg-black/30 hover:bg-white/10 dark:hover:bg-black/25 transition-all duration-300 border border-white/10 dark:border-tertiary-700/30 focus-within:border-secondary-500/50 dark:focus-within:border-primary-500/50 shadow-lg overflow-hidden">
+                <div className="group relative flex items-center w-full rounded-lg backdrop-blur-lg bg-white/90 dark:bg-black/90 focus-within:bg-white/10 dark:focus-within:bg-black/30 hover:bg-white/10 dark:hover:bg-black/25 transition-all duration-300 border-b border-white/10 dark:border-tertiary-700/30 focus-within:border-secondary-500/50 dark:focus-within:border-primary-500/50 shadow-lg overflow-hidden">
                     <div className="flex items-center justify-center h-full pl-4">
                         <Search />
                     </div>
