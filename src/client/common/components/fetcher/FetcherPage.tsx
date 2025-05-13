@@ -11,7 +11,7 @@ export interface FetcherPageProps {
 }
 
 const FetcherPage: React.FC<FetcherPageProps> = (props: FetcherPageProps) => {
-    const page = useFetch(props.getPage);
+    const [page] = useFetch(props.getPage);
     const className = Tailwind.builder()
         .addIf(`h-screen flex justify-center items-center`, page?.loading)
         .build();

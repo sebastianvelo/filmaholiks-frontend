@@ -3,7 +3,7 @@ enum Collection {
     DETAIL = "/detail",
     SEARCH = "/search",
     USER = "/user",
-    WATCHLIST =  "/watch-list"
+    WATCH_LIST =  "/watch-list"
 }
 
 export default Collection;

@@ -17,10 +17,10 @@ export interface SearchResultPageProps {
 
 const SearchResultPage: React.FC<SearchResultPageBlueprintProps> = (props: SearchResultPageBlueprintProps) => {
     const { query }: QueryParams = useParams();
-    const page = useFetch<SearchResultPageProps>(props.getPage(query));
-    
+    const [page] = useFetch<SearchResultPageProps>(props.getPage(query));
+
     document.title = page?.data?.title ?? "Loading...";
-    
+
     return (
         <>
             <SearchBar {...page?.data?.searchbar} />

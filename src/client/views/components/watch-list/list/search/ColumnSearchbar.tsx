@@ -17,7 +17,7 @@ export interface ColumnSearchbarProps {
 const ColumnSearchbar: React.FC<ColumnSearchbarProps> = (props: ColumnSearchbarProps) => {
     const [query, setQuery] = useState('');
     const [req, setReq] = useState(props.searchItems(query));
-    const response = useFetch<ActionableCardProps[]>(req, true);
+    const [response] = useFetch<ActionableCardProps[]>(req, { lazy: true });
 
     const handleSearch = (value: string) => {
         setQuery(value);

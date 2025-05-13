@@ -16,7 +16,7 @@ export interface ExplorePageProps {
 }
 
 const ExplorePage: React.FC<ExplorePageBlueprintProps> = (props: ExplorePageBlueprintProps) => {
-    const page = useFetch<ExplorePageProps>(props.getPage());
+    const [page] = useFetch<ExplorePageProps>(props.getPage());
 
     document.title = page?.data?.title ?? "Loading...";
 

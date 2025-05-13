@@ -5,10 +5,11 @@ import MediaType from "shared/types/MediaType";
 import BackendRequest from "../BackendRequest";
 
 class WatchlistRequest extends BackendRequest {
-    protected collection: string = Collection.WATCHLIST;
+    protected collection: string = Collection.WATCH_LIST;
 
-    public presenter = (mediaType: MediaType) => ({
-        search: (uid: string, query: string) => this.get(`/user/${uid}/${mediaType}/search/${query}`),
+    private presenter = (mediaType: MediaType) => ({
+        search: (uid: string, query: string) =>
+            this.get(`/user/${uid}/${mediaType}/search/${query}`),
         saveAll: (uid: string, lists: WatchlistColumnProps[]) => {
             const config = this.put(`/user/${uid}/${mediaType}`, lists);
             AxiosClient.request(config);
@@ -16,11 +17,11 @@ class WatchlistRequest extends BackendRequest {
         item: {
             save: (uid: string, listIdx: number, itemId: number | string) => {
                 const config = this.post(`/user/${uid}/${mediaType}/${listIdx}/item`, { itemId });
-                AxiosClient.request(config).then(res => console.log(res)).catch(err => console.log(err));
+                AxiosClient.request(config);
             },
             delete: (uid: string, listIdx: number, itemId: number | string) => {
                 const config = this.delete(`/user/${uid}/${mediaType}/${listIdx}/item`, { itemId });
-                AxiosClient.request(config).then(res => console.log(res)).catch(err => console.log(err));
+                AxiosClient.request(config);
             },
             swap: (uid: string, listIdx: number, itemIdx1: number, itemIdx2: number) => {
                 const config = this.put(`/user/${uid}/${mediaType}/swap/item`, { listIdx, itemIdx1, itemIdx2 });
