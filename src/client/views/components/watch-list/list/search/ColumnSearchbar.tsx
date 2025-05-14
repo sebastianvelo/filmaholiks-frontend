@@ -3,7 +3,7 @@ import Input from "@components/form/input/Input";
 import useFetch from "@hooks/useFetch";
 import Tailwind from "@tailwind-helper/Tailwind";
 import { AxiosRequestConfig } from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ActionableCardProps } from "../../cards/actionable-card/ActionableCard";
 import ListSearchResults from "./results/ListSearchResults";
 
@@ -16,25 +16,34 @@ export interface ColumnSearchbarProps {
 
 const ColumnSearchbar: React.FC<ColumnSearchbarProps> = (props: ColumnSearchbarProps) => {
     const [query, setQuery] = useState('');
-    const [req, setReq] = useState(props.searchItems(query));
-    const [response] = useFetch<ActionableCardProps[]>(req, { lazy: true });
+
+    // Crear la configuración de la petición directamente usando el query actual
+    const [response, executeFetch] = useFetch<ActionableCardProps[]>(
+        props.searchItems(query),
+        { lazy: true }
+    );
+
+    // Efecto para ejecutar la búsqueda cuando el query cambia y tiene suficiente longitud
+    useEffect(() => {
+        if (query.length > 3) {
+            executeFetch();
+        } else if (response?.data) {
+            // Limpiar los resultados si el query es muy corto
+            response.data = null;
+        }
+    }, [query, executeFetch]);
 
     const handleSearch = (value: string) => {
         setQuery(value);
-        if (value.length > 3) {
-            setReq(props.searchItems(value));
-        } else {
-            response!.data = null;
-        }
     };
 
     const addItem = (item: CardHorizontalProps) => {
-        handleSearch('');
+        setQuery(''); // Limpiar el query después de agregar un ítem
         props.addItem(item);
     };
 
     const deleteItem = (listIdx: number, itemId: string | number, requiresConfirmation?: boolean) => {
-        handleSearch('');
+        setQuery(''); // Limpiar el query después de eliminar un ítem
         props.deleteItemOfOtherList(listIdx, itemId, requiresConfirmation);
     }
 
@@ -48,8 +57,19 @@ const ColumnSearchbar: React.FC<ColumnSearchbarProps> = (props: ColumnSearchbarP
 
     return (
         <form className="group relative w-full">
-            <Input revert className={inputClassName} placeholder={`Search...`} onChange={(e) => handleSearch(e.target.value)} />
-            <ListSearchResults items={response?.data} loading={response?.loading} addItem={addItem} deleteItem={deleteItem} />
+            <Input
+                revert
+                className={inputClassName}
+                placeholder={`Search...`}
+                onChange={(e) => handleSearch(e.target.value)}
+                value={query} // Controlar el input
+            />
+            <ListSearchResults
+                items={response?.data}
+                loading={response?.loading}
+                addItem={addItem}
+                deleteItem={deleteItem}
+            />
         </form>
     );
 }

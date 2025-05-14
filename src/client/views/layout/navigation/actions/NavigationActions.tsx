@@ -1,13 +1,13 @@
 import Action from "@atom/action/Action";
 import ActionProps from "@atom/action/ActionProps";
 import Tailwind from "@tailwind-helper/Tailwind";
-import LoggedUserMenu, { MenuProps } from "./menu/LoggedUserMenu";
+import LoggedUserMenu, { LoggedUserMenuProps } from "./menu/LoggedUserMenu";
 import ToggleTheme from "./toggleTheme/ToggleTheme";
 
 export interface NavigationActionsProps {
   actions?: ActionProps[];
   isOpen?: boolean;
-  menu?: MenuProps;
+  menu?: LoggedUserMenuProps;
 }
 
 const NavigationActions: React.FC<NavigationActionsProps> = (props: NavigationActionsProps) => {

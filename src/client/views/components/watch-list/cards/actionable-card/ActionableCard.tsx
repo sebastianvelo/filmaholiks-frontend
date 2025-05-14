@@ -23,11 +23,9 @@ const ActionableCard: React.FC<ActionableCardProps> = (props: ActionableCardProp
             <div className="flex items-center justify-center h-full">
                 <CardHorizontal {...props.item} />
                 {props.listIdx !== undefined && (
-                    <div className="relative">
-                        <div className="flex flex-col justify-between h-full">
-                            <DragCardButton {...props} />
-                            <ActionCardButton {...props} />
-                        </div>
+                    <div className="flex flex-col justify-stretch h-full">
+                        <DragCardButton {...props} />
+                        <ActionCardButton {...props} />
                     </div>
                 )}
                 {props.listIdx === undefined && (

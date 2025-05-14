@@ -1,15 +1,15 @@
-import Action from "@atom/action/Action";
 import ActionProps from "@atom/action/ActionProps";
-import Dropdown from "@components/dropdown/Dropdown";
 import Image, { ImageProps } from "@atom/image/Image";
+import Dropdown from "@components/dropdown/Dropdown";
 import LogoutButton from "client/views/pages/auth/logout/LogoutButton";
+import LoggedUserMenuOption from "./LoggedUserMenuOption";
 
-export interface MenuProps {
+export interface LoggedUserMenuProps {
     toggler: ImageProps;
     options: ActionProps[];
 }
 
-const LoggedUserMenu: React.FC<MenuProps> = (props: MenuProps) => (
+const LoggedUserMenu: React.FC<LoggedUserMenuProps> = (props: LoggedUserMenuProps) => (
     <Dropdown trigger={
         <Image
             className={`h-8 w-8 rounded-full shadow-lg ring-2 ring-secondary-500 dark:ring-primary-400 
@@ -23,16 +23,9 @@ const LoggedUserMenu: React.FC<MenuProps> = (props: MenuProps) => (
             rounded-lg shadow-xl border border-gray-100 dark:border-gray-800
             transform transition-all duration-300`}>
             {props.options.map((link, index) => (
-                <Action
-                    key={index}
-                    {...link}
-                    revert
-                    className="mx-2 px-3 py-2 rounded-md text-sm font-bold transition-colors dark:text-white bg-secondary-300 hover:bg-secondary-400 dark:bg-primary-700 dark:hover:bg-primary-900"
-                >
-                    {link.label}
-                </Action>
+                <LoggedUserMenuOption key={`${link.label}-${index}`} {...link} />
             ))}
-            <div className="border-t border-gray-200 dark:border-gray-700 my-1 pt-1">
+            <div className="border-t border-gray-200 dark:border-gray-700 p-2">
                 <LogoutButton />
             </div>
         </div>
