@@ -1,5 +1,5 @@
 enum PageRoute {
-  HOME = "/home",
+  HOME = "/",
   AUTH = "/auth",
   ERROR = "/*",
   ACCOUNT = "/account",

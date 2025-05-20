@@ -10,7 +10,6 @@ const actionClasses = Tailwind.builder()
     .add("hover:bg-green-700 dark:hover:bg-green-700")
     .add("transition-all duration-200")
     .add("shadow-md hover:shadow-lg")
-    .add("border border-gray-200 dark:border-gray-700")
     .add("text-gray-200 dark:text-gray-100")
     .build();
 

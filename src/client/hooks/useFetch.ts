@@ -19,31 +19,22 @@ type FetchResponse<T extends Object> = [Response<T>, () => Promise<void>];
  */
 const useFetch = <T extends Object>(req: AxiosRequestConfig, options?: FetchOptions): FetchResponse<T> => {
   const { ignoreFirst = false, lazy = false, deps = [] } = options || {};
-
-  // Ref para rastrear el primer renderizado
   const firstRender = useRef(true);
-
-  // Ref para almacenar la configuración de la petición actualizada
   const reqRef = useRef(req);
 
-  // Actualizar la referencia cuando cambie req
   useEffect(() => {
     reqRef.current = req;
   }, [req]);
 
-  // Estado para almacenar la respuesta
   const [response, setResponse] = useState<Response<T>>({
     data: null,
     error: null,
-    loading: false  // Inicialmente no cargando si es lazy
+    loading: false
   });
 
-  // Función para ejecutar la petición - ahora usando useCallback para mantener la referencia
   const executeFetch = useCallback(async (): Promise<void> => {
-    // Usar la referencia actualizada
     const currentReq = reqRef.current;
 
-    // No hacer nada si no hay URL
     if (!currentReq.url) {
       setResponse({
         data: null,
@@ -61,21 +52,18 @@ const useFetch = <T extends Object>(req: AxiosRequestConfig, options?: FetchOpti
     } catch (error: any) {
       setResponse({ data: null, error, loading: false });
     }
-  }, []); // Sin dependencias para evitar recrear la función
+  }, []);
 
   useEffect(() => {
-    // Caso 1: Ignorar primera renderización si ignoreFirst es true
     if (ignoreFirst && firstRender.current) {
       firstRender.current = false;
       return;
     }
 
-    // Caso 2: No ejecutar automáticamente si lazy es true
     if (lazy) {
       return;
     }
 
-    // Caso 3: Ejecutar normalmente
     executeFetch();
 
   }, [executeFetch, lazy, req.url, ...deps]);

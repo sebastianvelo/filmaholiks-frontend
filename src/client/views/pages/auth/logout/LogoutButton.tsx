@@ -1,20 +1,28 @@
 import Action from "@atom/action/Action";
 import { IconLogout } from "@components/svg/Svg";
-import useFirebaseUser from "@hooks/useFirebaseUser";
+import useAuth from "@hooks/useAuth";
+import Tailwind from "@tailwind-helper/Tailwind";
 
-interface LogoutButtonProps {
-
-}
+interface LogoutButtonProps { }
 
 const LogoutButton: React.FC<LogoutButtonProps> = () => {
-    const user = useFirebaseUser();
+    const user = useAuth();
+
+    const buttonClasses = Tailwind.builder()
+        .add("w-full")
+        .add("border border-red-500")
+        .add("px-3 py-2")
+        .add("rounded-md")
+        .add("text-sm font-medium")
+        .add("flex items-center justify-between")
+        .add("transition-all duration-300")
+        .add("text-red-500 dark:text-red-500")
+        .add("hover:bg-red-500 dark:hover:bg-red-600")
+        .add("hover:text-white dark:hover:text-white")
+        .build();
 
     return user && user.user ? (
-        <Action
-            onClick={user.signOut}
-            revert
-            className="w-full border border-red-500 px-3 py-2 rounded-md text-sm font-medium flex items-center justify-between transition-all duration-300 text-red-500 dark:text-red-200 hover:bg-red-500 dark:hover:bg-red-600 hover:text-white"
-        >
+        <Action onClick={user.signOut} revert className={buttonClasses}>
             <span>Logout</span>
             <IconLogout />
         </Action>

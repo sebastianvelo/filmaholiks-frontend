@@ -6,15 +6,25 @@ export interface BrandProps {
 
 const Brand: React.FC<BrandProps> = (props: BrandProps) => {
     const className = Tailwind.builder()
-        .add("brand")
-        .add('text-3xl md:text-4xl px-4 py-2 rounded-lg')
-        .add('hover:tracking-widest transition-letter-spacing duration-200 ease-in')
-        .add(`bg-clip-text text-transparent bg-gradient-to-tl from-secondary-950 via-secondary-500 to-secondary-950 dark:from-primary-100 dark:via-primary-600 dark:to-primary-100 font-bold`)
+        .add("bg-clip-text font-bold text-transparent bg-gradient-to-bl")
+        .add("from-secondary-950 via-secondary-700 to-secondary-950")
+        .add("dark:from-primary-400 dark:via-primary-400 dark:to-primary-100");
+
+    const widest = Tailwind.builder()
+        .copy(className)
+        .add("group-hover:tracking-wide transition-letter-spacing duration-200 ease-in")
         .build();
-        
+
+    const tight = Tailwind.builder()
+        .copy(className)
+        .add("group-hover:tracking-tight transition-letter-spacing duration-200 ease-in")
+        .build();
+
     return (
-        <header className={className}>
-            {props.header}
+        <header className="group text-3xl md:text-4xl brand cursor-pointer font-brand">
+            <span className={widest}>Film</span>
+            <span className={tight}>aho</span>
+            <span className={tight}>liks</span>
         </header>
     );
 }

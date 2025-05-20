@@ -11,7 +11,6 @@ interface ListSearchResultsProps {
 }
 
 const ListSearchResults: React.FC<ListSearchResultsProps> = (props: ListSearchResultsProps) => {
-
     const loadingClassName = Tailwind.builder()
         .addIf("bg-white dark:bg-black", props.loading)
         .add("hidden group-hover:flex w-96 h-screen z-40 flex items-center justify-center absolute left-0")
@@ -24,19 +23,17 @@ const ListSearchResults: React.FC<ListSearchResultsProps> = (props: ListSearchRe
         .add("bg-primary-50 dark:bg-black backdrop-blur-md")
         .build();
 
+    const action = (card: ActionableCardProps, idx: number) =>
+        card.delete ? props.deleteItem(idx, card.item.id) : props.addItem(card.item);
+
     return (
         <div className={loadingClassName}>
             <Loading loading={props.loading}>
                 {props.items && (
                     <section className={boxClassName} >
-                        {props.items?.map((actionableItem: ActionableCardProps, idx: number) => {
-                            const action = () => actionableItem.delete ? props.deleteItem(idx, actionableItem.item.id) : props.addItem(actionableItem.item);
-                            return <ActionableCard
-                                {...actionableItem}
-                                key={actionableItem.item.title}
-                                action={action}
-                            />;
-                        })}
+                        {props.items?.map((card: ActionableCardProps, idx: number) => (
+                            <ActionableCard {...card} key={card.item.title} action={() => action(card, idx)} />))
+                        }
                     </section>
                 )}
             </Loading>

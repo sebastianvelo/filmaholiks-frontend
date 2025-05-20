@@ -14,7 +14,7 @@ const pillColor = {
 };
 
 const CardHorizontal: React.FC<CardHorizontalProps> = (props: CardHorizontalProps) => (
-    <article className="bg-gradient-to-r dark:from-gray-900 dark:to-gray-800 dark:text-white from-white to-gray-100 text-gray-800 flex space-x-3 shadow-xl hover:shadow-2xl transition-all duration-300 w-full h-full rounded-tl-lg rounded-bl-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+    <article className="bg-gradient-to-r dark:from-black dark:to-tertiary-950 dark:text-white from-white to-tertiary-200 text-tertiary-800 flex space-x-3 shadow-xl hover:shadow-2xl transition-all duration-300 w-full h-full rounded-tl-lg rounded-bl-lg overflow-hidden border border-tertiary-200 dark:border-tertiary-700">
         <Action path={props.path} revert>
             {props.image && <Image className="h-full w-20 object-cover cursor-pointer" {...props.image} />}
         </Action>
@@ -30,12 +30,12 @@ const CardHorizontal: React.FC<CardHorizontalProps> = (props: CardHorizontalProp
                     {props.tags?.map((tag, index) => (
                         <Pill
                             key={index}
-                            className={`text-xs ${pillColor[tag as keyof typeof pillColor] || "bg-gray-500 text-white"} px-2 py-1 rounded-full`}
+                            className={`text-xs ${pillColor[tag as keyof typeof pillColor] || "bg-tertiary-500 text-white"} px-2 py-1 rounded-full`}
                             label={tag}
                         />
                     ))}
                 </div>
-                {props.subtitle && <p className="text-xs text-gray-500 dark:text-gray-400 italic">{props.subtitle}</p>}
+                {props.subtitle && <p className="text-xs text-tertiary-500 dark:text-tertiary-400 italic">{props.subtitle}</p>}
             </div>
         </div>
     </article>

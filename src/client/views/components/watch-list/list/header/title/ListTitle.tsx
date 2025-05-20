@@ -8,7 +8,7 @@ const ListTitle: React.FC<ListTitleProps> = (props: ListTitleProps) =>
     props.dynamic ?
         (
             <input
-                className="bg-transparent text-lg focus:outline-none cursor-text w-full p-4"
+                className="bg-transparent hover:bg-white/50 dark:hover:bg-white/70 text-lg focus:outline-none cursor-text w-full p-2 rounded-md font-bold"
                 spellCheck="false"
                 type="text"
                 name={props.title}
@@ -17,7 +17,7 @@ const ListTitle: React.FC<ListTitleProps> = (props: ListTitleProps) =>
             />
         ) :
         (
-            <p className="bg-transparent text-lg focus:outline-none cursor-text w-64 truncate p-4">
+            <p className="bg-transparent text-lg focus:outline-none cursor-text w-64 truncate p-2">
                 {props.title}
             </p>
         )

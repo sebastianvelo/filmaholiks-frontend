@@ -1,10 +1,10 @@
 import appBlueprint from "blueprint/AppBlueprint";
 import { AppProps } from "client/App";
 import { useEffect, useState } from "react";
-import useFirebaseUser from "./useFirebaseUser";
+import useAuth from "./useAuth";
 
 const useAppBlueprint = (): AppProps => {
-    const { user } = useFirebaseUser();
+    const { user } = useAuth();
     const [blueprint, setBlueprint] = useState(appBlueprint(user))
 
     useEffect(() => {

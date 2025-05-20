@@ -15,7 +15,6 @@ const buttonClasses = Tailwind.builder()
     .add("p-2")
     .build();
 
-
 export interface DeleteListButtonProps {
     deleteList: () => void;
 }

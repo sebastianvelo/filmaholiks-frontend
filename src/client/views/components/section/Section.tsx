@@ -11,8 +11,7 @@ const Section: React.FC<SectionProps> = (props: SectionProps) => {
     const className = Tailwind.builder()
         .add("space-y-8 w-full")
         .add("text-center lg:text-left")
-        //.add("border-secondary-500 dark:border-primary-500 border-t-8 border-b-2")
-        .add("bg-tertiary-900/10 dark:bg-tertiary-100/10 backdrop-blur-xl rounded-md")
+        .add("bg-secondary-900/10 dark:bg-primary-900/20 backdrop-blur-xl rounded-md p-4")
         .build();
 
     return (

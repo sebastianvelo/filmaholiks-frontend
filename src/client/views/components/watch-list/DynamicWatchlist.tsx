@@ -25,7 +25,7 @@ const DynamicWatchlist: React.FC<DynamicWatchlistProps> = ({ mediaType, lists, t
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
     const toggleEditing = () => setIsEditing(!isEditing);
-    
+
     const watchlistColumnProps = (list: WatchlistColumnProps, idx: number) => ({
         ...list,
         key: `column${idx}`,

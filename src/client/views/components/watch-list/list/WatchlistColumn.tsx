@@ -4,7 +4,7 @@ import Tailwind from "@tailwind-helper/Tailwind";
 import WatchlistHelper from "client/helper/WatchlistHelper";
 import ColumnBody from "./body/ColumnBody";
 import ColumnHeader from "./header/ColumnHeader";
-import ColumnSearchbar from "./search/ColumnSearchbar";
+import WatchlistSearchBar from "./search/WatchlistSearchBar";
 
 export interface WatchlistColumnProps {
     title?: string;
@@ -36,8 +36,8 @@ const WatchlistColumn: React.FC<WatchlistColumnProps> = (props: WatchlistColumnP
 
     return (
         <section className={className} onDrop={onDrop} onDragOver={onDragOver}>
-            {props.dynamic && <ColumnSearchbar {...props.service} title={props.title} />}
             <ColumnHeader {...props.service} {...props} size={props.items.length} />
+            {props.dynamic && <WatchlistSearchBar {...props.service} title={props.title} />}
             <ColumnBody {...props.service} {...props} />
         </section >
     );

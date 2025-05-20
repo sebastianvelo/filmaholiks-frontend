@@ -15,8 +15,8 @@ module.exports = {
         'opacity': 'opacity'
       },
       colors: {
-        primary: colors.indigo,
-        secondary: colors.blue,
+        primary: colors.blue,
+        secondary: colors.indigo,
         tertiary: colors.slate,
         success: {
           DEFAULT: colors.green[700],
@@ -46,7 +46,10 @@ module.exports = {
       cursor: {
         grab: 'grab',
         'context-menu': 'context-menu'
-      }
+      },
+      fontFamily: {
+        brand: ['"Joti One"', 'sans-serif'],
+      },
     }
   },
   variants: {
@@ -62,28 +65,28 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ addUtilities, theme }) {
-        addUtilities({
-            '.scrollbar': {
-                '&::-webkit-scrollbar': {
-                    width: theme('spacing.1'),
-                    height: theme('spacing.1'),
-                },
-                '&::-webkit-scrollbar-track': {
-                    borderRadius: theme('borderRadius.full'),
-                    backgroundColor: theme('colors.secondary.100'),
-                },
-                '&::-webkit-scrollbar-thumb': {
-                    borderRadius: theme('borderRadius.full'),
-                    backgroundColor: theme('colors.secondary.300'),
-                },
-            },
-            '.dark .scrollbar::-webkit-scrollbar-track': {
-                backgroundColor: theme('colors.primary.950'),
-            },
-            '.dark .scrollbar::-webkit-scrollbar-thumb': {
-                backgroundColor: theme('colors.primary.900'),
-            },
-        }, ['responsive']);
+      addUtilities({
+        '.scrollbar': {
+          '&::-webkit-scrollbar': {
+            width: theme('spacing.1'),
+            height: theme('spacing.1'),
+          },
+          '&::-webkit-scrollbar-track': {
+            borderRadius: theme('borderRadius.full'),
+            backgroundColor: theme('colors.secondary.100'),
+          },
+          '&::-webkit-scrollbar-thumb': {
+            borderRadius: theme('borderRadius.full'),
+            backgroundColor: theme('colors.secondary.300'),
+          },
+        },
+        '.dark .scrollbar::-webkit-scrollbar-track': {
+          backgroundColor: theme('colors.primary.950'),
+        },
+        '.dark .scrollbar::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.primary.900'),
+        },
+      }, ['responsive']);
     }),
-],
+  ],
 };

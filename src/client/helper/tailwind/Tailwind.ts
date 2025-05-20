@@ -5,6 +5,11 @@ class Tailwind {
     return new Tailwind();
   }
 
+  copy(tw: Tailwind) {
+    this.classNames = [...tw.classNames, ...this.classNames];
+    return this;
+  }
+
   add(className?: string): Tailwind {
     this.classNames.push(className ?? ``);
     return this;
