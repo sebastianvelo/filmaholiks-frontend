@@ -1,11 +1,11 @@
-import firebaseConfig from 'config/firebase/firebase.config';
-import { auth } from 'config/firebase/firebaseApp';
-import React, { Suspense } from 'react';
+import firebaseConfig from "config/firebase/firebase.config";
+import { auth } from "config/firebase/firebaseApp";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import { AuthProvider, FirebaseAppProvider } from "reactfire";
-import App from './client/App';
-import './client/style/output.css';
+import App from "./client/App";
+import "./client/style/output.css";
 
 const rootElement = document.getElementById("app")!;
 const root = ReactDOM.createRoot(rootElement);
