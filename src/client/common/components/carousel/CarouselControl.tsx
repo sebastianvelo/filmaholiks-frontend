@@ -21,8 +21,8 @@ export interface CarouselControlProps {
 const CarouselControl: React.FC<CarouselControlProps> = (props: CarouselControlProps) => {
     const className = Tailwind.builder()
         .add("z-20 absolute hidden md:block")
-        .add("bg-secondary-500 hover:bg-secondary-900 text-light")
-        .add("dark:bg-primary-500 dark:hover:bg-primary-900 dark:text-white")
+        .add("bg-secondary-900 hover:bg-secondary-900 text-white")
+        .add("dark:bg-primary-300 dark:hover:bg-primary-900 dark:text-black")
         .add("rounded-full shadow-lg")
         .addIf("-right-8", props.right)
         .addIf("-left-8", !props.right)

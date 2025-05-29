@@ -9,9 +9,8 @@ export interface TabButtonProps {
 }
 
 const TabButton: React.FC<TabButtonProps> = ({ onClick, active, text = "", children, inline = false }) => {
-
   return (
-    <button onClick={onClick} className={`${getButtonClassName(active, inline)}`}>
+    <button onClick={onClick} className={getButtonClassName(active, inline)}>
       {children}
       <span>{text}</span>
     </button>

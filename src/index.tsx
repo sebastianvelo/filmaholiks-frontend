@@ -12,20 +12,18 @@ const root = ReactDOM.createRoot(rootElement);
 
 const Index = () => {
   return (
-    <AuthProvider sdk={auth}>
-      <Suspense fallback={"Loading..."}>
-        <App />
-      </Suspense>
-    </AuthProvider>
+    <React.StrictMode>
+      <HashRouter>
+        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+          <AuthProvider sdk={auth}>
+            <Suspense fallback={"Loading..."}>
+              <App />
+            </Suspense>
+          </AuthProvider>
+        </FirebaseAppProvider>
+      </HashRouter>
+    </React.StrictMode>
   );
 };
 
-root.render(
-  <React.StrictMode>
-    <HashRouter>
-      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-        <Index />
-      </FirebaseAppProvider>
-    </HashRouter>
-  </React.StrictMode>
-);
+root.render(<Index />);
