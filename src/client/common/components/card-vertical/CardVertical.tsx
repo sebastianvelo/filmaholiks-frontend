@@ -7,7 +7,7 @@ import Tailwind from "@tailwind-helper/Tailwind";
 
 export interface CardVerticalProps extends CardVerticalModel { }
 
-const CardVertical: React.FC<CardVerticalProps> = ({ image, path, title, subtitle }) => {
+const CardVertical: React.FC<CardVerticalProps> = ({ image, path, title, subtitle, rounded }) => {
     const className = Tailwind.builder()
         .add("flex flex-col justify-between space-y-3")
         .add("w-40 sm:w-48 lg:w-52 p-4")
@@ -18,15 +18,23 @@ const CardVertical: React.FC<CardVerticalProps> = ({ image, path, title, subtitl
         .add("transition-transform transform hover:scale-105")
         .build();
 
+    const imageClassName = Tailwind.builder()
+        .add("w-full h-full object-cover")
+        .addIf("rounded-full", rounded)
+        .build();
+
+    const imageWrapperClassName = Tailwind.builder()
+        .add("w-full aspect-square")
+        .addIf("h-32 sm:h-40 lg:h-52", !rounded)
+        .addIf("h-24 sm:h-32 lg:h-40", rounded)
+        .build();
+
     return (
         <div className={className}>
             {image && (
                 <Action path={path} className="w-full overflow-hidden rounded-xl" revert>
-                    <div className="w-full h-32 sm:h-40 lg:h-52 aspect-square">
-                        <Image
-                            className="w-full h-full object-cover"
-                            {...image}
-                        />
+                    <div className={imageWrapperClassName}>
+                        <Image className={imageClassName} {...image} />
                     </div>
                 </Action>
             )}

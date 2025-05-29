@@ -16,7 +16,7 @@ module.exports = {
       },
       colors: {
         primary: colors.blue,
-        secondary: colors.indigo,
+        secondary: colors.blue,
         tertiary: colors.slate,
         success: {
           DEFAULT: colors.green[700],
@@ -48,7 +48,7 @@ module.exports = {
         'context-menu': 'context-menu'
       },
       fontFamily: {
-        brand: ['"Joti One"', 'sans-serif'],
+        brand: ['Bebas Neue', 'sans-serif'],
       },
     }
   },

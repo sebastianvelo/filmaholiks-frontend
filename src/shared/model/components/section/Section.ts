@@ -10,6 +10,7 @@ export interface CardsSectionModel extends Section {
     id?: string;
     cards?: CardVerticalModel[];
     isGrid?: boolean;
+    horizontal?: boolean;
 }
 
 export interface ChartSectionModel extends Section {

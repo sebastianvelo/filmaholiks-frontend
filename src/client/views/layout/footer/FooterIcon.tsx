@@ -20,7 +20,7 @@ interface FooterIconProps {
 }
 
 const FooterIcon: React.FC<FooterIconProps> = ({ id, name, url }) => {
-    const className = "text-secondary-500 hover:text-primary-500 dark:text-secondary-200 dark:hover:text-primary-500-400 transition-colors";
+    const className = "text-secondary-800 hover:text-primary-500 dark:text-secondary-300 dark:hover:text-primary-500 transition-colors";
     return (
         <a key={name} href={url} target="_blank" rel="noopener noreferrer" className={className} aria-label={name}>
             {SocialIcon(id)}

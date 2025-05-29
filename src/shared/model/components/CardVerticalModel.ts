@@ -5,6 +5,7 @@ interface CardVerticalModel {
     subtitle?: string;
     image?: ImageModel;
     path?: string;
+    rounded?: boolean;
 }
 
 export default CardVerticalModel;

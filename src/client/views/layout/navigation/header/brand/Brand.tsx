@@ -1,4 +1,6 @@
 import Tailwind from "@tailwind-helper/Tailwind";
+import Action from "client/common/atom/action/Action";
+import PageRoute from "shared/routes/PageRoute";
 
 export interface BrandProps {
     header?: string;
@@ -22,9 +24,11 @@ const Brand: React.FC<BrandProps> = (props: BrandProps) => {
 
     return (
         <header className="group text-3xl md:text-4xl brand cursor-pointer font-brand">
-            <span className={widest}>Film</span>
-            <span className={tight}>aho</span>
-            <span className={tight}>liks</span>
+            <Action path={PageRoute.MOVIE_EXPLORE}>
+                <span className={tight}>Film</span>
+                <span className={widest}>aho</span>
+                <span className={widest}>liks</span>
+            </Action>
         </header>
     );
 }

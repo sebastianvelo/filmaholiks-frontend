@@ -9,8 +9,8 @@ const ExplorePageBody: React.FC<ExplorePageBodyProps> = (props: ExplorePageBodyP
     <div className="2xl:w-3/4 2xl:mx-auto space-y-8 md:py-6 xl:py-24 md:px-12">
         {props.sections?.map(section => (
             <div key={section.title}>
-                <CardsSection {...section} />
                 <LineDivider />
+                <CardsSection {...section} />
             </div>
         ))}
     </div>
