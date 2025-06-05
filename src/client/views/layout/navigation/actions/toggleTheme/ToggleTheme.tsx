@@ -6,7 +6,7 @@ const ToggleTheme: React.FC = () => {
     const [isDark, toggleTheme] = useToggleDark();
 
     return (
-        <Action onClick={toggleTheme} className="rounded-lg text-tertiary-800 dark:text-tertiary-200 bg-tertiary-900/10 dark:bg-tertiary-800 hover:bg-tertiary-300 dark:hover:bg-tertiary-700 transition-colors focus:outline-none" aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
+        <Action onClick={toggleTheme} className="bg-white hover:bg-white/50 hover:text-sky-500 text-secondary-700 focus:ring-secondary-300 dark:bg-black/80 dark:hover:bg-black/50 dark:text-secondary-300 dark:hover:text-yellow-200 rounded-full transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed" aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
             {isDark ? <IconSun /> : <IconMoon />}
         </Action>
     );

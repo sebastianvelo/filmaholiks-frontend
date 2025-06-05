@@ -1,4 +1,4 @@
-import { IconGitHub, IconLinkedIn, IconMail } from "@components/svg/Svg";
+import { IconGitHub, IconGlobe, IconLinkedIn, IconMail } from "@components/svg/Svg";
 
 const SocialIcon = (icon: string) => {
     switch (icon) {
@@ -8,6 +8,8 @@ const SocialIcon = (icon: string) => {
             return <IconGitHub />;
         case "mail":
             return <IconMail />;
+        case "portfolio":
+            return <IconGlobe />
         default:
             return null;
     }

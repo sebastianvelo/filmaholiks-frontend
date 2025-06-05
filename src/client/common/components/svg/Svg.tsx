@@ -32,13 +32,30 @@ export const IconChevronRight: React.FC = () => (
 );
 
 export const IconSun: React.FC = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="sun-svg" viewBox="0 0 16 16">
-        <path d="M8 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zM8 0a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 8 0zm0 14a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V14.5a.5.5 0 0 1 .5-.5zm8-6a.5.5 0 0 1-.5.5h-1.5a.5.5 0 0 1 0-1H15.5a.5.5 0 0 1 .5.5zm-14 0a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1 0-1H1.5a.5.5 0 0 1 .5.5zm11.364-5.364a.5.5 0 0 1 0 .707l-1.06 1.06a.5.5 0 1 1-.707-.707l1.06-1.06a.5.5 0 0 1 .707 0zm-8.485 8.485a.5.5 0 0 1 0 .707L3.22 13.222a.5.5 0 1 1-.707-.707l1.06-1.06a.5.5 0 0 1 .707 0zm8.485 1.06a.5.5 0 0 1-.707 0l-1.06-1.06a.5.5 0 1 1 .707-.707l1.06 1.06a.5.5 0 0 1 0 .707zm-8.485-8.485a.5.5 0 0 1-.707 0L2.22 3.22a.5.5 0 0 1 .707-.707l1.06 1.06a.5.5 0 0 1 0 .707z" />
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="m4.93 4.93 1.41 1.41"></path>
+        <path d="m17.66 17.66 1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="m6.34 17.66-1.41 1.41"></path>
+        <path d="m19.07 4.93-1.41 1.41"></path>
     </svg>
 );
 
 export const IconMoon: React.FC = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
     </svg>
 );
@@ -155,3 +172,9 @@ export const IconPlay: React.FC = () => (
         <path d="M4 4l12 6-12 6z" />
     </svg>
 );
+
+export const IconGlobe: React.FC = () => (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+    </svg>
+)
